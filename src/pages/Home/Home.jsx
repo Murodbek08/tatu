@@ -246,8 +246,8 @@ function Home() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="absolute -right-24 top-[20%] w-[600px] h-[600px] bg-amber-500/[0.07] rounded-full blur-3xl" />
-        <div className="absolute -left-36 bottom-0 w-[500px] h-[500px] bg-blue-600/[0.1] rounded-full blur-3xl" />
+        <div className="absolute -right-24 top-[20%] w-150 h-150 bg-amber-500/[0.07] rounded-full blur-3xl" />
+        <div className="absolute -left-36 bottom-0 w-125 h-125 bg-blue-600/10 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -305,7 +305,7 @@ function Home() {
             </div>
 
             {/* Right floating cards */}
-            <div className="relative hidden lg:block h-[480px]">
+            <div className="relative hidden lg:block h-120">
               {/* Featured program card */}
               <div className="absolute right-0 top-8 w-80 bg-white/[0.07] border border-white/12 rounded-2xl p-7 backdrop-blur-sm">
                 <div className="flex justify-between items-start mb-5">
@@ -439,7 +439,7 @@ function Home() {
                 },
               ].map((item) => (
                 <li key={item.t} className="flex gap-4 items-start">
-                  <span className="w-2 h-2 rounded-full bg-amber-500 mt-2 flex-shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0" />
                   <div>
                     <p className="font-extrabold text-slate-900 text-[15px] mb-0.5">
                       {item.t}
@@ -583,7 +583,7 @@ function Home() {
                   key={item.id}
                   className="flex gap-5 p-5 rounded-2xl border border-slate-200 cursor-pointer group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-150"
                 >
-                  <div className="w-[88px] h-20 flex-shrink-0 rounded-xl bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center text-4xl">
+                  <div className="w-22 h-20 shrink-0 rounded-xl bg-linear-to-br from-slate-100 to-blue-50 flex items-center justify-center text-4xl">
                     {item.icon}
                   </div>
                   <div className="min-w-0">
@@ -627,7 +627,7 @@ function Home() {
                   key={i}
                   className="flex gap-4 items-center p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors group"
                 >
-                  <div className="bg-[#0a1628] text-white rounded-xl px-3.5 py-2.5 text-center flex-shrink-0 min-w-[56px]">
+                  <div className="bg-[#0a1628] text-white rounded-xl px-3.5 py-2.5 text-center shrink-0 min-w-14">
                     <p className="font-black text-lg leading-none">
                       {ev.date.split(" ")[1]}
                     </p>
@@ -702,31 +702,10 @@ function Home() {
       </section>
 
       {/* ── PARTNERS ── */}
-      {/* <section className="bg-[#0a1628] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <p className="text-amber-400 text-[11px] font-black tracking-[0.15em] uppercase mb-3">
-              Sanoat Hamkorlari
-            </p>
-            <h3 className="text-white font-extrabold text-2xl">
-              Sanoat Yetakchilari Ishonchi
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {PARTNERS.map((p) => (
-              <div
-                key={p}
-                className="bg-white/[0.07] hover:bg-amber-500/20 border border-white/12 hover:border-amber-500/40 text-white/70 hover:text-amber-300 text-sm font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-150"
-              >
-                {p}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
+
       <section className="bg-[#0a1628] py-20 relative overflow-hidden">
         {/* Dekorativ elementlar qo'shish orqali chuqurlik yaratamiz */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
@@ -742,7 +721,7 @@ function Home() {
             {PARTNERS.map((p) => (
               <div
                 key={p}
-                className="group relative bg-white/[0.03] border border-white/5 p-6 rounded-2xl 
+                className="group relative bg-white/3 border border-white/5 p-6 rounded-2xl 
                      hover:bg-amber-500/5 hover:border-amber-500/30 
                      transition-all duration-300 flex items-center justify-center text-center"
               >
@@ -752,7 +731,7 @@ function Home() {
                 </span>
 
                 {/* Hover effekti uchun pastki chiziqcha */}
-                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/0 to-transparent group-hover:via-amber-500/50 transition-all" />
+                <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-amber-500/0 to-transparent group-hover:via-amber-500/50 transition-all" />
               </div>
             ))}
           </div>
@@ -760,9 +739,9 @@ function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative bg-gradient-to-br from-blue-700 to-blue-900 py-24 overflow-hidden">
-        <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/[0.03] rounded-full" />
-        <div className="absolute -left-14 -bottom-14 w-64 h-64 bg-white/[0.03] rounded-full" />
+      <section className="relative bg-linear-to-br from-blue-700 to-blue-900 py-24 overflow-hidden">
+        <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/3 rounded-full" />
+        <div className="absolute -left-14 -bottom-14 w-64 h-64 bg-white/3 rounded-full" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <h2
             className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight"

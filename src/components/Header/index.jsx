@@ -59,11 +59,8 @@ function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            to={"/"}
-            className="flex items-center gap-3 group flex-shrink-0"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center font-black text-white text-[11px] tracking-tight shadow-lg shadow-amber-500/30">
+          <Link to={"/"} className="flex items-center gap-3 group shrink-0">
+            <div className="w-10 h-10 bg-linear-to-br from-amber-400 to-amber-600 rounded-xl flex items-center justify-center font-black text-white text-[11px] tracking-tight shadow-lg shadow-amber-500/30">
               TATU
             </div>
             <div className="text-left">
@@ -85,7 +82,7 @@ function Header() {
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-lg text-[13px] font-semibold transition-all border-b-2 ${
                     isActive
-                      ? "text-amber-400 border-amber-500 bg-white/[0.06]"
+                      ? "text-amber-400 border-amber-500 bg-white/6"
                       : "text-white/75 border-transparent hover:text-white hover:bg-white/[0.07]"
                   }`
                 }
@@ -105,18 +102,18 @@ function Header() {
 
             {/* Hamburger */}
             <button
-              className="xl:hidden flex flex-col gap-[5px] p-2 group"
+              className="xl:hidden flex flex-col gap-1.25 p-2 group"
               onClick={() => setOpen((o) => !o)}
               aria-label="Menyu"
             >
               <span
-                className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "rotate-45 translate-y-[7px]" : ""}`}
+                className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "rotate-45 translate-y-1.75" : ""}`}
               />
               <span
                 className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "opacity-0" : ""}`}
               />
               <span
-                className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "-rotate-45 -translate-y-[7px]" : ""}`}
+                className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "-rotate-45 -translate-y-1.75" : ""}`}
               />
             </button>
           </div>
@@ -134,7 +131,7 @@ function Header() {
                   `block w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
                     isActive
                       ? "bg-amber-500/20 text-amber-400"
-                      : "text-white/70 hover:text-white hover:bg-white/[0.08]"
+                      : "text-white/70 hover:text-white hover:bg-white/8"
                   }`
                 }
               >

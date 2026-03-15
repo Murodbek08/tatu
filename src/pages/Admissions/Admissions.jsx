@@ -158,37 +158,6 @@ function Admissions() {
               </div>
 
               {/* Tuition */}
-              {/* <div className="bg-white rounded-2xl border border-slate-200 p-8">
-                <h3 className="text-xl font-extrabold text-slate-900 mb-6">
-                  O'quv To'lovi
-                </h3>
-                <div className="grid grid-cols-3 gap-4 mb-5">
-                  {[
-                    { lvl: "Bakalavr", fee: "$2,400", per: "/yil" },
-                    { lvl: "Magistr", fee: "$3,200", per: "/yil" },
-                    {
-                      lvl: "PhD",
-                      fee: "Moliyalashtiriladi",
-                      per: "+ stipendiya",
-                    },
-                  ].map((f) => (
-                    <div
-                      key={f.lvl}
-                      className="bg-slate-50 rounded-xl p-5 text-center"
-                    >
-                      <p className="text-slate-400 text-[12px] mb-2">{f.lvl}</p>
-                      <p className="text-slate-900 font-black text-[20px] leading-none">
-                        {f.fee}
-                      </p>
-                      <p className="text-slate-400 text-[11px] mt-1">{f.per}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 font-medium">
-                  🎓 O'quv to'lovining 50–100% ni qoplaydigan yutuqqa asoslangan
-                  stipendiyalar mavjud
-                </div>
-              </div> */}
 
               <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 lg:p-8 shadow-sm">
                 <h3 className="text-xl font-extrabold text-slate-900 mb-6">
@@ -297,7 +266,7 @@ function Admissions() {
 
                   {/* Step 1: Program */}
                   {step === 1 && (
-                    <div className="space-y-2.5 max-h-[420px] overflow-y-auto pr-1">
+                    <div className="space-y-2.5 max-h-105 overflow-y-auto pr-1">
                       <label className="block text-[13px] font-extrabold text-slate-800 mb-3">
                         Dasturni Tanlang *
                       </label>
@@ -321,7 +290,7 @@ function Admissions() {
                             </p>
                           </div>
                           {form.program === prog.title && (
-                            <span className="text-blue-600 font-black text-lg flex-shrink-0">
+                            <span className="text-blue-600 font-black text-lg shrink-0">
                               ✓
                             </span>
                           )}
@@ -354,7 +323,7 @@ function Admissions() {
                               PDF formatida, maksimal 5 MB
                             </p>
                           </div>
-                          <button className="bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-4 py-2 rounded-lg transition-colors flex-shrink-0 ml-3">
+                          <button className="bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-4 py-2 rounded-lg transition-colors shrink-0 ml-3">
                             Yuklash
                           </button>
                         </div>
@@ -382,7 +351,7 @@ function Admissions() {
                             <span className="text-slate-400 font-medium">
                               {k}
                             </span>
-                            <span className="text-slate-800 font-bold truncate max-w-[200px] text-right">
+                            <span className="text-slate-800 font-bold truncate max-w-50 text-right">
                               {v}
                             </span>
                           </div>
@@ -413,7 +382,7 @@ function Admissions() {
                             "Arizangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz. 🎉",
                           );
                       }}
-                      className="flex-[2] bg-amber-500 hover:bg-amber-600 active:scale-[0.99] text-white font-extrabold py-3.5 rounded-xl transition-all shadow-lg shadow-amber-500/25 text-sm"
+                      className="flex-2 bg-amber-500 hover:bg-amber-600 active:scale-[0.99] text-white font-extrabold py-3.5 rounded-xl transition-all shadow-lg shadow-amber-500/25 text-sm"
                     >
                       {step < STEPS.length - 1
                         ? "Davom Etish →"

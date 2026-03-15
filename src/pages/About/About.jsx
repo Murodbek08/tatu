@@ -90,7 +90,7 @@ function About() {
             ].map(([year, event], i) => (
               <div key={year} className="flex gap-6 mb-8 items-start relative">
                 <div
-                  className={`absolute -left-[22px] w-4 h-4 rounded-full border-4 border-white shadow ${
+                  className={`absolute -left-5.5 w-4 h-4 rounded-full border-4 border-white shadow ${
                     i === 7 ? "bg-amber-500" : "bg-[#0a1628]"
                   }`}
                 />
