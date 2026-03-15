@@ -139,7 +139,7 @@ function Admissions() {
                   },
                 ].map((s) => (
                   <div key={s.n} className="flex gap-5 items-start">
-                    <div className="w-12 h-12 bg-amber-500 text-white font-black text-base rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/25">
+                    <div className="w-12 h-12 bg-amber-500 text-white font-black text-base rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/25">
                       {s.n}
                     </div>
                     <div>
@@ -182,7 +182,7 @@ function Admissions() {
                       <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-2">
                         {f.lvl}
                       </p>
-                      <p className="text-slate-900 font-black text-xl sm:text-2xl leading-tight break-words">
+                      <p className="text-slate-900 font-black text-xl sm:text-2xl leading-tight wrap-break-word">
                         {f.fee}
                       </p>
                       <p className="text-slate-400 text-[11px] mt-1 font-medium">
