@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import SectionLabel from "../../components/ui/SectionLabel";
 import SectionSubtitle from "../../components/ui/SectionSubtitle";
 import SectionTitle from "../../components/ui/SectionTitle";
+import { GraduationCap } from "lucide-react";
+import { Users } from "lucide-react";
+import { Microscope } from "lucide-react";
+import { Briefcase } from "lucide-react";
 
 const PARTNERS = [
   "Uzbektelecom",
@@ -15,10 +19,10 @@ const PARTNERS = [
 ];
 
 const STATS = [
-  { value: "12,000+", label: "Talabalar", emoji: "🎓" },
-  { value: "340+", label: "O'qituvchilar", emoji: "👨‍🏫" },
-  { value: "85+", label: "Ilmiy Laboratoriya", emoji: "🔬" },
-  { value: "96%", label: "Ish bilan Ta'minlash", emoji: "💼" },
+  { value: "12,000+", label: "Talabalar", icon: GraduationCap },
+  { value: "340+", label: "O'qituvchilar", icon: Users },
+  { value: "85+", label: "Ilmiy Laboratoriya", icon: Microscope },
+  { value: "96%", label: "Ish bilan Ta'minlash", icon: Briefcase },
 ];
 
 const PROGRAMS = [
@@ -380,16 +384,28 @@ function Home() {
 
       {/* ── STATS BAND ── */}
       <section className="bg-amber-500">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
-          {STATS.map((s) => (
-            <div key={s.label} className="py-7 px-6 text-center">
-              <p className="text-2xl mb-1">{s.emoji}</p>
-              <p className="text-white font-black text-3xl leading-none">
-                {s.value}
-              </p>
-              <p className="text-white/75 text-sm mt-1">{s.label}</p>
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
+          {STATS.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.label}
+                className="py-8 px-6 flex flex-col items-center justify-center text-center"
+              >
+                {/* Ikonka uchun konteyner */}
+                <div className="bg-white/10 p-3 rounded-xl mb-3 text-white">
+                  <Icon size={28} strokeWidth={1.5} />
+                </div>
+
+                <p className="text-white font-black text-3xl md:text-4xl leading-none">
+                  {s.value}
+                </p>
+                <p className="text-white/80 text-sm md:text-base mt-2 font-medium tracking-wide">
+                  {s.label}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -686,7 +702,7 @@ function Home() {
       </section>
 
       {/* ── PARTNERS ── */}
-      <section className="bg-[#0a1628] py-16">
+      {/* <section className="bg-[#0a1628] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <p className="text-amber-400 text-[11px] font-black tracking-[0.15em] uppercase mb-3">
@@ -703,6 +719,40 @@ function Home() {
                 className="bg-white/[0.07] hover:bg-amber-500/20 border border-white/12 hover:border-amber-500/40 text-white/70 hover:text-amber-300 text-sm font-semibold px-6 py-3 rounded-xl cursor-pointer transition-all duration-150"
               >
                 {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+      <section className="bg-[#0a1628] py-20 relative overflow-hidden">
+        {/* Dekorativ elementlar qo'shish orqali chuqurlik yaratamiz */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-amber-500 uppercase bg-amber-500/10 rounded-full border border-amber-500/20">
+              Sanoat Hamkorlari
+            </span>
+            <h3 className="text-white font-extrabold text-3xl md:text-4xl">
+              Sanoat Yetakchilari Ishonchi
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {PARTNERS.map((p) => (
+              <div
+                key={p}
+                className="group relative bg-white/[0.03] border border-white/5 p-6 rounded-2xl 
+                     hover:bg-amber-500/5 hover:border-amber-500/30 
+                     transition-all duration-300 flex items-center justify-center text-center"
+              >
+                {/* Matn ko'rinishini yanada jozibali qilish */}
+                <span className="text-white/60 group-hover:text-amber-100 font-medium tracking-wide transition-colors">
+                  {p}
+                </span>
+
+                {/* Hover effekti uchun pastki chiziqcha */}
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/0 to-transparent group-hover:via-amber-500/50 transition-all" />
               </div>
             ))}
           </div>

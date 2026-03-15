@@ -94,16 +94,14 @@ function About() {
                     i === 7 ? "bg-amber-500" : "bg-[#0a1628]"
                   }`}
                 />
-                <div>
-                  <span
-                    className={`text-xs font-black tracking-widest uppercase ${i === 7 ? "text-amber-500" : "text-slate-400"}`}
-                  >
-                    {year}
-                  </span>
-                  <p className="text-[15px] text-slate-800 mt-1 leading-relaxed">
-                    {event}
-                  </p>
-                </div>
+                <span
+                  className={`text-xs font-black tracking-widest uppercase ${i === 7 ? "text-amber-500" : "text-slate-400"}`}
+                >
+                  {year}
+                </span>
+                <p className="text-[15px] text-slate-800 mt-1 leading-relaxed">
+                  {event}
+                </p>
               </div>
             ))}
           </div>

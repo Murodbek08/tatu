@@ -158,7 +158,7 @@ function Admissions() {
               </div>
 
               {/* Tuition */}
-              <div className="bg-white rounded-2xl border border-slate-200 p-8">
+              {/* <div className="bg-white rounded-2xl border border-slate-200 p-8">
                 <h3 className="text-xl font-extrabold text-slate-900 mb-6">
                   O'quv To'lovi
                 </h3>
@@ -187,6 +187,49 @@ function Admissions() {
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 font-medium">
                   🎓 O'quv to'lovining 50–100% ni qoplaydigan yutuqqa asoslangan
                   stipendiyalar mavjud
+                </div>
+              </div> */}
+
+              <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 lg:p-8 shadow-sm">
+                <h3 className="text-xl font-extrabold text-slate-900 mb-6">
+                  O'quv To'lovi
+                </h3>
+
+                {/* Grid: Mobilda 1 ta ustun, o'rta ekranda (sm) 2 ta, katta ekranda (lg) 3 ta */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                  {[
+                    { lvl: "Bakalavr", fee: "$2,400", per: "/yil" },
+                    { lvl: "Magistr", fee: "$3,200", per: "/yil" },
+                    {
+                      lvl: "PhD",
+                      fee: "Moliyalashtiriladi",
+                      per: "+ stipendiya",
+                    },
+                  ].map((f) => (
+                    <div
+                      key={f.lvl}
+                      className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex flex-col justify-center text-center transition-all hover:shadow-md hover:bg-slate-100/50"
+                    >
+                      <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-2">
+                        {f.lvl}
+                      </p>
+                      <p className="text-slate-900 font-black text-xl sm:text-2xl leading-tight break-words">
+                        {f.fee}
+                      </p>
+                      <p className="text-slate-400 text-[11px] mt-1 font-medium">
+                        {f.per}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Ogohlantirish qismi: Mobilda matn markazda, kattaroqda chapda */}
+                <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 font-medium flex items-start sm:items-center gap-3">
+                  <span className="text-lg">🎓</span>
+                  <p className="leading-relaxed">
+                    O'quv to'lovining 50–100% ni qoplaydigan yutuqqa asoslangan
+                    stipendiyalar mavjud
+                  </p>
                 </div>
               </div>
             </div>
@@ -334,7 +377,7 @@ function Admissions() {
                         ].map(([k, v]) => (
                           <div
                             key={k}
-                            className="flex justify-between py-2.5 border-b border-slate-200 last:border-0 text-sm"
+                            className="flex gap-7 justify-between py-2.5 border-b border-slate-200 last:border-0 text-sm"
                           >
                             <span className="text-slate-400 font-medium">
                               {k}

@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { Facebook } from "lucide-react";
+import { Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import { Youtube } from "lucide-react";
 
-function Footer({ setPage }) {
+function Footer() {
   const COLS = [
     {
       title: "Akademik",
@@ -31,6 +35,13 @@ function Footer({ setPage }) {
     },
   ];
 
+  const socialLinks = [
+    { icon: Facebook, label: "Facebook" },
+    { icon: Twitter, label: "Twitter" },
+    { icon: Linkedin, label: "Linkedin" },
+    { icon: Youtube, label: "Youtube" },
+  ];
+
   return (
     <footer className="bg-[#0a1628] text-white/60">
       <div className="max-w-7xl mx-auto px-6 pt-16">
@@ -54,15 +65,22 @@ function Footer({ setPage }) {
               1955 yildan beri Markaziy Osiyoda muhandislar, innovatorlar va
               texnologiya liderlarining keyingi avlodini shakllantirmoqda.
             </p>
-            <div className="flex gap-2">
-              {["📘", "🐦", "💼", "▶️"].map((icon, i) => (
-                <button
-                  key={i}
-                  className="w-9 h-9 rounded-xl bg-white/[0.07] border border-white/12 hover:bg-amber-500/30 hover:border-amber-500/50 flex items-center justify-center text-sm transition-all"
-                >
-                  {icon}
-                </button>
-              ))}
+            <div className="flex gap-3">
+              {socialLinks.map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <button
+                    key={i}
+                    aria-label={item.label}
+                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 
+                       flex items-center justify-center text-slate-300
+                       transition-all duration-300 ease-in-out
+                       hover:bg-amber-500/20 hover:border-amber-500/50 hover:text-amber-500"
+                  >
+                    <Icon size={18} strokeWidth={2} />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
