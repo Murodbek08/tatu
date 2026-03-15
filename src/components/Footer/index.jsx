@@ -12,7 +12,7 @@ function Footer() {
         ["Dasturlar", "/programs"],
         ["O'qituvchilar", "/faculty"],
         ["Tadqiqot", "/research"],
-        ["Kutubxona", "/#"],
+        ["Kutubxona", "/library"],
       ],
     },
     {
@@ -20,8 +20,8 @@ function Footer() {
       links: [
         ["Talabalar", "/students"],
         ["Qabul", "/admissions"],
-        ["Tadbirlar", "/#"],
-        ["Media", "/#"],
+        ["Tadbirlar", "/tadbirlar"],
+        ["Media", "/media"],
       ],
     },
     {
@@ -29,7 +29,7 @@ function Footer() {
       links: [
         ["Haqimizda", "/about"],
         ["Yangiliklar", "/news"],
-        ["Hamkorlar", "/#"],
+        ["Hamkorlar", "/hamkorlar"],
         ["Aloqa", "/contact"],
       ],
     },
