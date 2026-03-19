@@ -1,38 +1,14 @@
 import { Link } from "react-router-dom";
-import { Facebook } from "lucide-react";
-import { Twitter } from "lucide-react";
-import { Linkedin } from "lucide-react";
-import { Youtube } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
-  const COLS = [
-    {
-      title: "Akademik",
-      links: [
-        ["Dasturlar", "/programs"],
-        ["O'qituvchilar", "/faculty"],
-        ["Tadqiqot", "/research"],
-        ["Kutubxona", "/library"],
-      ],
-    },
-    {
-      title: "Kampus",
-      links: [
-        ["Talabalar", "/students"],
-        ["Qabul", "/admissions"],
-        ["Tadbirlar", "/tadbirlar"],
-        ["Media", "/media"],
-      ],
-    },
-    {
-      title: "Institut",
-      links: [
-        ["Haqimizda", "/about"],
-        ["Yangiliklar", "/news"],
-        ["Hamkorlar", "/hamkorlar"],
-        ["Aloqa", "/contact"],
-      ],
-    },
+  const { t } = useTranslation();
+
+  const FOOTER_PATHS = [
+    ["/programs", "/faculty", "/research", "/library"],
+    ["/students", "/admissions", "/tadbirlar", "/media"],
+    ["/about", "/news", "/hamkorlar", "/contact"],
   ];
 
   const socialLinks = [
@@ -54,16 +30,15 @@ function Footer() {
               </div>
               <div>
                 <p className="text-white font-extrabold text-sm leading-none">
-                  Engineering School
+                  {t("footer.brand.logoTitle")}
                 </p>
                 <p className="text-amber-400 text-[10px] font-medium tracking-wider mt-0.5">
-                  Tashkent University of IT
+                  {t("footer.brand.logoSubtitle")}
                 </p>
               </div>
             </div>
             <p className="text-sm leading-relaxed max-w-xs mb-6">
-              1955 yildan beri Markaziy Osiyoda muhandislar, innovatorlar va
-              texnologiya liderlarining keyingi avlodini shakllantirmoqda.
+              {t("footer.brand.desc")}
             </p>
             <div className="flex gap-3">
               {socialLinks.map((item, i) => {
@@ -85,19 +60,19 @@ function Footer() {
           </div>
 
           {/* Link cols */}
-          {COLS.map((col) => (
-            <div key={col.title}>
+          {t("footer.cols", { returnObjects: true }).map((col, colIdx) => (
+            <div key={colIdx}>
               <p className="text-white font-extrabold text-sm mb-5 tracking-wide">
                 {col.title}
               </p>
               <ul className="space-y-3">
-                {col.links.map(([label, pg]) => (
-                  <li key={label}>
+                {col.links.map((linkText, linkIdx) => (
+                  <li key={linkIdx}>
                     <Link
-                      to={pg}
+                      to={FOOTER_PATHS[colIdx][linkIdx]}
                       className="text-sm hover:text-amber-400 transition-colors"
                     >
-                      {label}
+                      {linkText}
                     </Link>
                   </li>
                 ))}
@@ -107,16 +82,9 @@ function Footer() {
         </div>
 
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <span>
-            © 2026 Toshkent Axborot Texnologiyalari Universiteti. Barcha
-            huquqlar himoyalangan.
-          </span>
+          <span>{t("footer.copy")}</span>
           <div className="flex gap-5">
-            {[
-              "Maxfiylik Siyosati",
-              "Foydalanish Shartlari",
-              "Maxsus Ehtiyojlar",
-            ].map((l) => (
+            {t("footer.legal", { returnObjects: true }).map((l) => (
               <button key={l} className="hover:text-white/60 transition-colors">
                 {l}
               </button>

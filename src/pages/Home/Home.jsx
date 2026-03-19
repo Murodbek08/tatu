@@ -6,6 +6,8 @@ import { GraduationCap } from "lucide-react";
 import { Users } from "lucide-react";
 import { Microscope } from "lucide-react";
 import { Briefcase } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Globe } from "lucide-react";
 
 const PARTNERS = [
   "Uzbektelecom",
@@ -17,223 +19,53 @@ const PARTNERS = [
   "Google Developer Groups",
   "EPAM Systems",
 ];
-
-const STATS = [
-  { value: "12,000+", label: "Talabalar", icon: GraduationCap },
-  { value: "340+", label: "O'qituvchilar", icon: Users },
-  { value: "85+", label: "Ilmiy Laboratoriya", icon: Microscope },
-  { value: "96%", label: "Ish bilan Ta'minlash", icon: Briefcase },
-];
-
-const PROGRAMS = [
-  {
-    id: 1,
-    code: "CS",
-    icon: "💻",
-    title: "Kompyuter Fanlari va Muhandisligi",
-    degree: "Bakalavr / Magistr / PhD",
-    duration: "4 yil",
-    hex: "#1d4ed8",
-    tags: ["AI", "Tizimlar", "Veb", "Xavfsizlik"],
-    desc: "Algoritmlar, sun'iy intellekt, mashinali o'rganish, taqsimlangan tizimlar va dasturiy muhandislik.",
-  },
-  {
-    id: 2,
-    code: "CE",
-    icon: "🔧",
-    title: "Kompyuter Muhandisligi",
-    degree: "Bakalavr / Magistr",
-    duration: "4 yil",
-    hex: "#0891b2",
-    tags: ["FPGA", "Embedded", "IoT", "VLSI"],
-    desc: "Apparat-dasturiy integratsiya, o'rnatilgan tizimlar, FPGA dizayni va IoT ilovalari.",
-  },
-  {
-    id: 3,
-    code: "IT",
-    icon: "🌐",
-    title: "Axborot Texnologiyalari",
-    degree: "Bakalavr / Magistr",
-    duration: "4 yil",
-    hex: "#7c3aed",
-    tags: ["Cloud", "Xavfsizlik", "ERP", "DevOps"],
-    desc: "Korporativ tizimlar, bulutli arxitektura, kiberxavfsizlik va raqamli transformatsiya.",
-  },
-  {
-    id: 4,
-    code: "DS",
-    icon: "📊",
-    title: "Ma'lumotlar Fanlari",
-    degree: "Bakalavr / Magistr",
-    duration: "4 yil",
-    hex: "#059669",
-    tags: ["BigData", "ML", "BI", "Python"],
-    desc: "Katta ma'lumotlar, statistik modellashtirish, mashinali o'rganish va biznes razvedkasi.",
-  },
-  {
-    id: 5,
-    code: "EE",
-    icon: "⚡",
-    title: "Elektr Muhandisligi",
-    degree: "Bakalavr / Magistr / PhD",
-    duration: "4 yil",
-    hex: "#d97706",
-    tags: ["Energiya", "RF", "DSP", "Smart Grid"],
-    desc: "Energiya tizimlari, signal qayta ishlash, telekommunikatsiya va aqlli tarmoq texnologiyalari.",
-  },
-  {
-    id: 6,
-    code: "AI",
-    icon: "🤖",
-    title: "Sun'iy Intellekt",
-    degree: "Magistr / PhD",
-    duration: "2 yil",
-    hex: "#e11d48",
-    tags: ["Deep Learning", "NLP", "Vision", "Robotics"],
-    desc: "Chuqur o'rganish, NLP, kompyuter ko'rishi, robotika va avtonom tizimlar tadqiqoti.",
-  },
-];
-
-const NEWS = [
-  {
-    id: 1,
-    cat: "Tadqiqot",
-    icon: "🔬",
-    date: "10 Mart, 2026",
-    title: "TATU tadqiqotchilari O'zbek tili uchun yangi AI modeli yaratdi",
-    excerpt:
-      "Sun'iy intellekt tadqiqot markazidagi jamoa O'zbek NLP testlarida 94% aniqlikka erishgan yangi transformer modelini e'lon qildi.",
-  },
-  {
-    id: 2,
-    cat: "Hamkorlik",
-    icon: "🤝",
-    date: "5 Mart, 2026",
-    title:
-      "Samsung R&D bilan o'rnatilgan tizimlar laboratoriyasi shartnomasi imzolandi",
-    excerpt:
-      "TATU Muhandislik Maktabi va Samsung Electronics 5 yillik hamkorlik shartnomasini rasmiylashtirdi.",
-  },
-  {
-    id: 3,
-    cat: "Yutuq",
-    icon: "🏆",
-    date: "28 Fevral, 2026",
-    title:
-      "Talabalar Markaziy Osiyo Robototexnika Olimpiadasida 1-o'rinni egalladilar",
-    excerpt:
-      "To'rt nafar bakalavr talabadan iborat jamoa Olmaotada bo'lib o'tgan olimpiadada 14 mamlakatdan raqobatchilarni mag'lub etdi.",
-  },
-  {
-    id: 4,
-    cat: "Tadbir",
-    icon: "📅",
-    date: "20 Fevral, 2026",
-    title: "Xalqaro Tech Summit 2026 TATU kampusida bo'lib o'tdi",
-    excerpt:
-      "2,000 dan ortiq muhandislar, tadqiqotchilar va sanoat vakillari uch kunlik anjumanga yig'ildi.",
-  },
-];
-
-const NEWS_BADGE = {
-  Tadqiqot: "bg-blue-50 text-blue-700",
-  Hamkorlik: "bg-emerald-50 text-emerald-700",
-  Yutuq: "bg-amber-50 text-amber-700",
-  Tadbir: "bg-violet-50 text-violet-700",
+const ICON_MAP = {
+  users: GraduationCap,
+  books: Users,
+  award: Microscope,
+  globe: Briefcase,
 };
-
-const EVENTS = [
-  {
-    date: "Mar 20",
-    title: "Ochiq Eshiklar Kuni — Muhandislik Kampusi",
-    type: "Qabul",
-  },
-  {
-    date: "Mar 25",
-    title: "Xакатон: Aqlli O'zbekiston 2026",
-    type: "Musobaqa",
-  },
-  {
-    date: "Apr 2",
-    title: "PhD Himoya: Ilg'or Mashinali O'rganish",
-    type: "Akademik",
-  },
-  {
-    date: "Apr 10",
-    title: "Karyera Yarmarkasi — Texnologiya & Muhandislik",
-    type: "Karyera",
-  },
-  {
-    date: "Apr 18",
-    title: "IEEE Talabalar Filiali Konferensiyasi",
-    type: "Konferensiya",
-  },
+const cardStyles = [
+  "bg-[#0a1628]",
+  "bg-blue-700",
+  "bg-amber-500",
+  "bg-emerald-600",
 ];
-
-const FACULTY = [
-  {
-    id: 1,
-    name: "Prof. Akbar Toshmatov",
-    role: "Dekan",
-    dept: "Kompyuter Fanlari",
-    initials: "AT",
-    research: "Taqsimlangan AI Tizimlari",
-    pubs: 142,
-    avatarCls: "bg-blue-600",
-  },
-  {
-    id: 2,
-    name: "Dr. Nilufar Yusupova",
-    role: "Dotsent",
-    dept: "Ma'lumotlar Fanlari",
-    initials: "NY",
-    research: "Mashinali O'rganish",
-    pubs: 89,
-    avatarCls: "bg-emerald-600",
-  },
-  {
-    id: 3,
-    name: "Prof. Sherzod Rakhimov",
-    role: "Professor",
-    dept: "Elektr Muhandisligi",
-    initials: "SR",
-    research: "Aqlli Quvvat Tarmoqlari",
-    pubs: 115,
-    avatarCls: "bg-amber-600",
-  },
-  {
-    id: 4,
-    name: "Dr. Kamola Mirzayeva",
-    role: "Katta O'qituvchi",
-    dept: "Kiberxavfsizlik",
-    initials: "KM",
-    research: "Tarmoq Xavfsizligi",
-    pubs: 67,
-    avatarCls: "bg-rose-600",
-  },
-  {
-    id: 5,
-    name: "Prof. Otabek Nazarov",
-    role: "Professor",
-    dept: "Kompyuter Muhandisligi",
-    initials: "ON",
-    research: "FPGA va Embedded Tizimlar",
-    pubs: 103,
-    avatarCls: "bg-violet-600",
-  },
-  {
-    id: 6,
-    name: "Dr. Zulfiya Ergasheva",
-    role: "Dotsent",
-    dept: "Axborot Texnologiyalari",
-    initials: "ZE",
-    research: "Bulutli Hisoblash",
-    pubs: 54,
-    avatarCls: "bg-cyan-600",
-  },
+const PROGRAMS_META = [
+  { id: 1, code: "CS", icon: "💻", hex: "#1d4ed8" },
+  { id: 2, code: "CE", icon: "🔧", hex: "#0891b2" },
+  { id: 3, code: "IT", icon: "🌐", hex: "#7c3aed" },
+  { id: 4, code: "DS", icon: "📊", hex: "#059669" },
+  { id: 5, code: "EE", icon: "⚡", hex: "#d97706" },
+  { id: 6, code: "AI", icon: "🤖", hex: "#e11d48" },
+];
+const NEWS_META = [
+  { id: 1, icon: "🔬", cat_key: "Tadqiqot" },
+  { id: 2, icon: "🤝", cat_key: "Hamkorlik" },
+  { id: 3, icon: "🏆", cat_key: "Yutuq" },
+  { id: 4, icon: "📅", cat_key: "Tadbir" },
+];
+const NEWS_BADGE = {
+  Tadqiqot: "bg-purple-100 text-purple-600",
+  Исследования: "bg-purple-100 text-purple-600",
+  Hamkorlik: "bg-blue-100 text-blue-600",
+  Сотрудничество: "bg-blue-100 text-blue-600",
+  Yutuq: "bg-emerald-100 text-emerald-600",
+  Достижение: "bg-emerald-100 text-emerald-600",
+  Tadbir: "bg-amber-100 text-amber-600",
+  Мероприятие: "bg-amber-100 text-amber-600",
+};
+const FACULTY_META = [
+  { id: 1, initials: "AT", avatarCls: "bg-blue-600" },
+  { id: 2, initials: "NY", avatarCls: "bg-emerald-600" },
+  { id: 3, initials: "SR", avatarCls: "bg-amber-600" },
+  { id: 4, initials: "KM", avatarCls: "bg-rose-600" },
+  { id: 5, initials: "ON", avatarCls: "bg-violet-600" },
+  { id: 6, initials: "ZE", avatarCls: "bg-cyan-600" },
 ];
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <div>
       {/* ── HERO ── */}
@@ -255,24 +87,22 @@ function Home() {
             <div>
               <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/25 text-amber-400 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-2 rounded-full mb-8">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                Markaziy Osiyoda №1 Muhandislik Maktabi
+                {t("home.hero.badge")}
               </div>
 
               <h1
                 className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-7"
                 style={{ fontFamily: "Georgia, serif" }}
               >
-                Texnologiya
+                {t("home.hero.title1")}
                 <br />
-                <span className="text-amber-400">Kelajagini</span>
+                <span className="text-amber-400"> {t("home.hero.title2")}</span>
                 <br />
-                Yarating
+                {t("home.hero.title3")}
               </h1>
 
               <p className="text-white/65 text-lg leading-relaxed max-w-lg mb-10">
-                TATU Muhandislik Maktabi — O'zbekistonning raqamli
-                transformatsiyasi uchun innovatorlar, tadqiqotchilar va
-                texnologiya liderlarini tayyorlaydigan yetakchi muassasasi.
+                {t("home.hero.subtitle")}
               </p>
 
               <div className="flex flex-wrap gap-4 mb-14">
@@ -280,27 +110,29 @@ function Home() {
                   to={"admissions"}
                   className="bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-bold text-base px-9 py-4 rounded-xl transition-all shadow-2xl shadow-amber-500/25"
                 >
-                  2026 uchun Ariza →
+                  {t("home.hero.applyBtn")}
                 </Link>
                 <Link
                   to={"programs"}
                   className="bg-white/10 hover:bg-white/18 border border-white/25 text-white font-semibold text-base px-9 py-4 rounded-xl transition-all"
                 >
-                  Dasturlarni Ko'rish
+                  {t("home.hero.programsBtn")}
                 </Link>
               </div>
 
               <div className="flex flex-wrap gap-10 pt-8 border-t border-white/10">
-                {STATS.slice(0, 3).map((s) => (
-                  <div key={s.label}>
-                    <p className="text-amber-400 text-3xl font-black leading-none">
-                      {s.value}
-                    </p>
-                    <p className="text-white/45 text-xs mt-1.5 tracking-wide">
-                      {s.label}
-                    </p>
-                  </div>
-                ))}
+                {t("home.stats", { returnObjects: true })
+                  .slice(0, 3)
+                  .map((s) => (
+                    <div key={s.label}>
+                      <p className="text-amber-400 text-3xl font-black leading-none">
+                        {s.value}
+                      </p>
+                      <p className="text-white/45 text-xs mt-1.5 tracking-wide">
+                        {s.label}
+                      </p>
+                    </div>
+                  ))}
               </div>
             </div>
 
@@ -311,10 +143,10 @@ function Home() {
                 <div className="flex justify-between items-start mb-5">
                   <div>
                     <p className="text-white/45 text-[10px] tracking-[0.12em] uppercase mb-1">
-                      Tavsiya Etilgan Dastur
+                      {t("home.hero.floatingCard.label")}
                     </p>
                     <h3 className="text-white font-extrabold text-lg leading-snug">
-                      MSc Sun'iy Intellekt
+                      {t("home.hero.floatingCard.title")}
                     </h3>
                   </div>
                   <span className="bg-amber-500 text-white text-[10px] font-black px-3 py-1.5 rounded-lg tracking-widest">
@@ -322,7 +154,9 @@ function Home() {
                   </span>
                 </div>
                 <div className="flex gap-2 flex-wrap mb-5">
-                  {["NLP", "Deep Learning", "Robotika"].map((t) => (
+                  {t("home.hero.floatingCard.tags", {
+                    returnObjects: true,
+                  }).map((t) => (
                     <span
                       key={t}
                       className="bg-amber-500/20 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full"
@@ -333,9 +167,18 @@ function Home() {
                 </div>
                 <div className="border-t border-white/10 pt-4 grid grid-cols-3 text-center gap-3">
                   {[
-                    ["2 yil", "Muddati"],
-                    ["30", "O'rin"],
-                    ["Avg '26", "Qabul"],
+                    [
+                      t("home.hero.floatingCard.duration"),
+                      t("home.hero.floatingCard.durationLabel"),
+                    ],
+                    [
+                      t("home.hero.floatingCard.seats"),
+                      t("home.hero.floatingCard.seatsLabel"),
+                    ],
+                    [
+                      t("home.hero.floatingCard.intake"),
+                      t("home.hero.floatingCard.intakeLabel"),
+                    ],
                   ].map(([v, l]) => (
                     <div key={l}>
                       <p className="text-white font-black text-xl leading-none">
@@ -350,26 +193,26 @@ function Home() {
               {/* Event card */}
               <div className="absolute left-0 top-44 w-56 bg-blue-700/90 border border-white/15 rounded-2xl p-5">
                 <p className="text-white/50 text-[10px] tracking-widest uppercase mb-2">
-                  Keyingi Tadbir
+                  {t("home.hero.eventCard.label")}
                 </p>
                 <h4 className="text-white font-extrabold text-sm leading-snug mb-3">
-                  Ochiq Eshiklar Kuni — Muhandislik
+                  {t("home.hero.eventCard.title")}
                 </h4>
                 <p className="text-amber-400 text-sm font-bold">
-                  20 Mart, 2026
+                  {t("home.hero.eventCard.date")}
                 </p>
               </div>
 
               {/* Ranking badge */}
               <div className="absolute right-5 bottom-16 bg-amber-500 rounded-2xl p-5 text-center shadow-2xl shadow-amber-500/40">
                 <p className="text-white font-black text-4xl leading-none">
-                  #1
+                  {t("home.hero.rankBadge.rank")}
                 </p>
                 <p className="text-white/80 text-xs font-bold mt-1">
-                  Markaziy Osiyo
+                  {t("home.hero.rankBadge.region")}
                 </p>
                 <p className="text-white/55 text-[10px] mt-0.5">
-                  Muhandislik 2025
+                  {t("home.hero.rankBadge.label")}
                 </p>
               </div>
             </div>
@@ -377,7 +220,7 @@ function Home() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 text-xs">
-          <span>Pastga o'ting</span>
+          <span>{t("home.hero.scrollDown")}</span>
           <div className="w-px h-8 bg-white/20" />
         </div>
       </section>
@@ -385,8 +228,8 @@ function Home() {
       {/* ── STATS BAND ── */}
       <section className="bg-amber-500">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
-          {STATS.map((s) => {
-            const Icon = s.icon;
+          {t("home.stats", { returnObjects: true }).map((s) => {
+            const Icon = ICON_MAP[s.icon] || Globe;
             return (
               <div
                 key={s.label}
@@ -413,39 +256,19 @@ function Home() {
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div>
-            <SectionLabel>Biz Haqimizda</SectionLabel>
-            <SectionTitle>
-              O'zbekistonning Yetakchi Muhandislik Muassasasi
-            </SectionTitle>
-            <SectionSubtitle>
-              1955 yilda Toshkent Politexnika Instituti Muhandislik Fakulteti
-              sifatida tashkil etilgan TATU Muhandislik Maktabi O'zbekistonning
-              raqamli transformatsiyasini shakllantiradigan jahon darajasidagi
-              muassasaga aylandi.
-            </SectionSubtitle>
+            <SectionLabel>{t("home.about.sectionLabel")}</SectionLabel>
+            <SectionTitle>{t("home.about.title")}</SectionTitle>
+            <SectionSubtitle>{t("home.about.subtitle")}</SectionSubtitle>
             <ul className="mt-7 space-y-5 mb-9">
-              {[
-                {
-                  t: "Ta'limda Mukammallik",
-                  d: "Global muhandislik standartlariga mos, tadqiqotga asoslangan o'quv dasturi",
-                },
-                {
-                  t: "Sanoat Integratsiyasi",
-                  d: "Amaliy bitiruvchilar tayorlaydigan yetakchi texnologiya kompaniyalari bilan kuchli hamkorlik",
-                },
-                {
-                  t: "Global Tadqiqot Tarmog'i",
-                  d: "Dunyo bo'ylab 50+ universitet va tadqiqot markazlari bilan faol hamkorlik",
-                },
-              ].map((item) => (
+              {t("home.about.points", { returnObjects: true }).map((item) => (
                 <li key={item.t} className="flex gap-4 items-start">
                   <span className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0" />
                   <div>
                     <p className="font-extrabold text-slate-900 text-[15px] mb-0.5">
-                      {item.t}
+                      {item.title}
                     </p>
                     <p className="text-slate-500 text-sm leading-relaxed">
-                      {item.d}
+                      {item.desc}
                     </p>
                   </div>
                 </li>
@@ -455,43 +278,21 @@ function Home() {
               to={"about"}
               className="bg-[#0a1628] hover:bg-[#0d1f3c] text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-colors shadow-lg"
             >
-              Tariximizni O'qing →
+              {t("home.about.readMoreBtn")}
             </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            {[
-              {
-                l: "Tashkil Topgan",
-                v: "1955",
-                s: "70 yillik an'ana",
-                cls: "bg-[#0a1628]",
-              },
-              {
-                l: "Akkreditatsiya",
-                v: "ISO",
-                s: "9001:2015 Sertifikat",
-                cls: "bg-blue-700",
-              },
-              {
-                l: "Tadqiqot Byudjeti",
-                v: "$8M",
-                s: "Yillik R&D mablag'i",
-                cls: "bg-amber-500",
-              },
-              {
-                l: "Bitiruvchilar",
-                v: "45K+",
-                s: "Global mutaxassislar",
-                cls: "bg-emerald-600",
-              },
-            ].map((c) => (
-              <div key={c.l} className={`${c.cls} text-white rounded-2xl p-7`}>
+            {t("home.about.cards", { returnObjects: true }).map((c, index) => (
+              <div
+                key={c.label}
+                className={`${cardStyles[index]} text-white rounded-2xl p-7`}
+              >
                 <p className="text-white/55 text-[10px] font-bold tracking-[0.12em] uppercase mb-2">
-                  {c.l}
+                  {c.label}
                 </p>
-                <p className="font-black text-4xl leading-none">{c.v}</p>
-                <p className="text-white/65 text-sm mt-2">{c.s}</p>
+                <p className="font-black text-4xl leading-none">{c.value}</p>
+                <p className="text-white/65 text-sm mt-2">{c.sub}</p>
               </div>
             ))}
           </div>
@@ -502,61 +303,72 @@ function Home() {
       <section className="bg-slate-50 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <SectionLabel>Akademik Dasturlar</SectionLabel>
-            <SectionTitle>Jahon Darajasidagi Muhandislik Diplomi</SectionTitle>
-            <SectionSubtitle>
-              Oltita keng muhandislik yo'nalishi — sizni dunyoning eng talabchan
-              muhandislik rollariga tayyorlash uchun yaratilgan.
-            </SectionSubtitle>
+            <SectionLabel>{t("home.programs.sectionLabel")}</SectionLabel>
+            <SectionTitle>{t("home.programs.title")}</SectionTitle>
+            <SectionSubtitle>{t("home.programs.subtitle")}</SectionSubtitle>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
-            {PROGRAMS.map((prog) => (
-              <Link
-                key={prog.id}
-                to={"programs"}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-200 hover:-translate-y-1.5 hover:shadow-2xl hover:border-transparent"
-              >
-                <div className="h-1 w-full" style={{ background: prog.hex }} />
-                <div className="p-7">
-                  <div className="flex justify-between items-start mb-5">
+            {t("home.programs.list", { returnObjects: true }).map(
+              (prog, index) => {
+                const meta = PROGRAMS_META[index];
+                return (
+                  <Link
+                    key={meta}
+                    to={"programs"}
+                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-200 hover:-translate-y-1.5 hover:shadow-2xl hover:border-transparent"
+                  >
                     <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl"
-                      style={{ background: prog.hex + "1a" }}
-                    >
-                      {prog.icon}
+                      className="h-1 w-full"
+                      style={{ background: meta.hex + "1a" }}
+                    />
+                    <div className="p-7">
+                      <div className="flex justify-between items-start mb-5">
+                        <div
+                          className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl"
+                          style={{ background: meta.hex + "1a" }}
+                        >
+                          {meta.icon}
+                        </div>
+                        <span
+                          className="text-[11px] font-black px-2.5 py-1.5 rounded-lg tracking-widest"
+                          style={{
+                            background: meta.hex + "15",
+                            color: meta.hex,
+                          }}
+                        >
+                          {meta.code}
+                        </span>
+                      </div>
+                      <h3 className="text-[16px] font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
+                        {prog.title}
+                      </h3>
+                      <p className="text-slate-500 text-[13px] leading-relaxed mb-4">
+                        {prog.desc}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-5">
+                        {prog.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[11px] font-bold px-2.5 py-1 rounded-full"
+                            style={{
+                              background: meta.hex + "12",
+                              color: meta.hex,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-[12px] text-slate-400">
+                        <span>🎓 {prog.degree}</span>
+                        <span>⏱ {prog.duration}</span>
+                      </div>
                     </div>
-                    <span
-                      className="text-[11px] font-black px-2.5 py-1.5 rounded-lg tracking-widest"
-                      style={{ background: prog.hex + "15", color: prog.hex }}
-                    >
-                      {prog.code}
-                    </span>
-                  </div>
-                  <h3 className="text-[16px] font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
-                    {prog.title}
-                  </h3>
-                  <p className="text-slate-500 text-[13px] leading-relaxed mb-4">
-                    {prog.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 mb-5">
-                    {prog.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                        style={{ background: prog.hex + "12", color: prog.hex }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-[12px] text-slate-400">
-                    <span>🎓 {prog.degree}</span>
-                    <span>⏱ {prog.duration}</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                  </Link>
+                );
+              },
+            )}
           </div>
 
           <div className="text-center">
@@ -564,7 +376,7 @@ function Home() {
               to={"programs"}
               className="border-2 border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-all duration-200"
             >
-              Barcha Dasturlarni Ko'rish →
+              {t("home.programs.viewAllBtn")}
             </Link>
           </div>
         </div>
@@ -575,54 +387,59 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-16">
           {/* News */}
           <div>
-            <SectionLabel>So'nggi Yangiliklar</SectionLabel>
-            <SectionTitle>Kampus va Undan Tashqarida</SectionTitle>
+            <SectionLabel>{t("home.news.sectionLabel")}</SectionLabel>
+            <SectionTitle>{t("home.news.title")}</SectionTitle>
             <div className="mt-8 space-y-5">
-              {NEWS.slice(0, 3).map((item) => (
-                <div
-                  key={item.id}
-                  className="flex gap-5 p-5 rounded-2xl border border-slate-200 cursor-pointer group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-150"
-                >
-                  <div className="w-22 h-20 shrink-0 rounded-xl bg-linear-to-br from-slate-100 to-blue-50 flex items-center justify-center text-4xl">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span
-                        className={`text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide ${NEWS_BADGE[item.cat] || "bg-slate-100 text-slate-600"}`}
-                      >
-                        {item.cat}
-                      </span>
-                      <span className="text-[11px] text-slate-400">
-                        {item.date}
-                      </span>
+              {t("home.news.list", { returnObjects: true })
+                .slice(0, 3)
+                .map((item, index) => {
+                  const meta = NEWS_META[index];
+                  return (
+                    <div
+                      key={meta.id}
+                      className="flex gap-5 p-5 rounded-2xl border border-slate-200 cursor-pointer group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-150"
+                    >
+                      <div className="w-22 h-20 shrink-0 rounded-xl bg-linear-to-br from-slate-100 to-blue-50 flex items-center justify-center text-4xl">
+                        {meta.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span
+                            className={`text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide ${NEWS_BADGE[item.cat] || "bg-slate-100 text-slate-600"}`}
+                          >
+                            {item.cat}
+                          </span>
+                          <span className="text-[11px] text-slate-400">
+                            {item.date}
+                          </span>
+                        </div>
+                        <h4 className="text-[15px] font-extrabold text-slate-900 mb-1.5 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">
+                          {item.title}
+                        </h4>
+                        <p className="text-[13px] text-slate-500 leading-relaxed line-clamp-2">
+                          {item.excerpt}
+                        </p>
+                      </div>
                     </div>
-                    <h4 className="text-[15px] font-extrabold text-slate-900 mb-1.5 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">
-                      {item.title}
-                    </h4>
-                    <p className="text-[13px] text-slate-500 leading-relaxed line-clamp-2">
-                      {item.excerpt}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                  );
+                })}
             </div>
             <div className="mt-6">
               <Link
                 to={"news"}
                 className="mt-10 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all duration-150"
               >
-                Barcha Yangiliklar →
+                {t("home.news.viewAllBtn")}
               </Link>
             </div>
           </div>
 
           {/* Events */}
           <div>
-            <SectionLabel>Tadbirlar</SectionLabel>
-            <SectionTitle>Nima Bo'lyapti</SectionTitle>
+            <SectionLabel>{t("home.events.sectionLabel")}</SectionLabel>
+            <SectionTitle>{t("home.events.title")}</SectionTitle>
             <div className="mt-8 space-y-3">
-              {EVENTS.map((ev, i) => (
+              {t("home.events.list", { returnObjects: true }).map((ev, i) => (
                 <div
                   key={i}
                   className="flex gap-4 items-center p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors group"
@@ -654,40 +471,43 @@ function Home() {
       <section className="bg-slate-50 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <SectionLabel>O'qituvchilar</SectionLabel>
-            <SectionTitle>Jahon Darajasidagi Olimlar</SectionTitle>
-            <SectionSubtitle>
-              O'qituvchilarimiz o'z sohalarida yetakchi — nashr etilgan,
-              mukofotlangan va talabalar muvaffaqiyatiga chin dildan
-              bag'ishlangan.
-            </SectionSubtitle>
+            <SectionLabel>{t("home.faculty.sectionLabel")}</SectionLabel>
+            <SectionTitle>{t("home.faculty.title")}</SectionTitle>
+            <SectionSubtitle>{t("home.faculty.subtitle")}</SectionSubtitle>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {FACULTY.slice(0, 3).map((m) => (
-              <Link
-                key={m.id}
-                to={"faculty"}
-                className="bg-white rounded-2xl p-8 border border-slate-200 text-center cursor-pointer group hover:-translate-y-1.5 hover:shadow-xl transition-all duration-200"
-              >
-                <div
-                  className={`w-16 h-16 ${m.avatarCls} rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-5`}
-                >
-                  {m.initials}
-                </div>
-                <h4 className="text-[16px] font-extrabold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">
-                  {m.name}
-                </h4>
-                <p className="text-blue-700 font-bold text-[13px] mb-1">
-                  {m.role}
-                </p>
-                <p className="text-slate-400 text-[12px] mb-4">{m.dept}</p>
-                <div className="bg-slate-50 rounded-xl p-3 text-[13px] text-slate-600 mb-3">
-                  {m.research}
-                </div>
-                <p className="text-slate-400 text-xs">📄 {m.pubs} ta nashr</p>
-              </Link>
-            ))}
+            {t("home.faculty.list", { returnObjects: true })
+              .slice(0, 3)
+              .map((m, index) => {
+                const meta = FACULTY_META[index];
+                return (
+                  <Link
+                    key={meta.id}
+                    to={"faculty"}
+                    className="bg-white rounded-2xl p-8 border border-slate-200 text-center cursor-pointer group hover:-translate-y-1.5 hover:shadow-xl transition-all duration-200"
+                  >
+                    <div
+                      className={`w-16 h-16 ${meta.avatarCls} rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-5`}
+                    >
+                      {meta.initials}
+                    </div>
+                    <h4 className="text-[16px] font-extrabold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">
+                      {m.name}
+                    </h4>
+                    <p className="text-blue-700 font-bold text-[13px] mb-1">
+                      {m.role}
+                    </p>
+                    <p className="text-slate-400 text-[12px] mb-4">{m.dept}</p>
+                    <div className="bg-slate-50 rounded-xl p-3 text-[13px] text-slate-600 mb-3">
+                      {m.research}
+                    </div>
+                    <p className="text-slate-400 text-xs">
+                      📄 {m.pubs} {t("home.faculty.pubsLabel")}
+                    </p>
+                  </Link>
+                );
+              })}
           </div>
 
           <div className="text-center">
@@ -695,7 +515,7 @@ function Home() {
               to={"faculty"}
               className="bg-[#0a1628] hover:bg-[#0d1f3c] text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-colors shadow-lg"
             >
-              Barcha O'qituvchilar →
+              {t("home.faculty.viewAllBtn")}
             </Link>
           </div>
         </div>
@@ -710,10 +530,10 @@ function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-amber-500 uppercase bg-amber-500/10 rounded-full border border-amber-500/20">
-              Sanoat Hamkorlari
+              {t("home.partners.sectionLabel")}
             </span>
             <h3 className="text-white font-extrabold text-3xl md:text-4xl">
-              Sanoat Yetakchilari Ishonchi
+              {t("home.partners.title")}
             </h3>
           </div>
 
@@ -747,25 +567,23 @@ function Home() {
             className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight"
             style={{ fontFamily: "Georgia, serif" }}
           >
-            Kelajakni Muhandislik Qilishga Tayyormisiz?
+            {t("home.cta.title")}
           </h2>
           <p className="text-white/70 text-lg leading-relaxed mb-10">
-            12,000+ talabaga qo'shiling va O'zbekistonning eng innovatsion
-            muhandislik hamjamiyatining bir qismiga aylaning. 2026 o'quv yili
-            uchun arizalar qabul qilinmoqda.
+            {t("home.cta.subtitle")}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               to={"admissions"}
               className="bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-black text-base px-10 py-4 rounded-xl transition-all shadow-2xl shadow-amber-500/25"
             >
-              Ariza Topshirish — Bepul
+              {t("home.cta.applyBtn")}
             </Link>
             <Link
               to={"contact"}
               className="bg-white/12 hover:bg-white/20 border border-white/30 text-white font-bold text-base px-10 py-4 rounded-xl transition-all"
             >
-              Tashrif Rejalashtirish
+              {t("home.cta.visitBtn")}
             </Link>
           </div>
         </div>

@@ -1,0 +1,912 @@
+{
+  "lang_uz": "UZ",
+  "lang_en": "EN",
+  "lang_ru": "RU",
+  "homeName": "Home",
+  "utilityBar": {
+    "ministry": "Ministry of Higher Education, Science and Innovation of the Republic of Uzbekistan"
+  },
+  "nav": {
+    "logoTitle": "Engineering School",
+    "logoSubtitle": "Tashkent University of IT",
+    "applyButton": "Apply Now",
+    "menuAriaLabel": "Menu",
+    "links": {
+      "home": "Home",
+      "about": "About Us",
+      "programs": "Programs",
+      "faculty": "Faculty",
+      "research": "Research",
+      "students": "Students",
+      "news": "News",
+      "admissions": "Admissions",
+      "contact": "Contact"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "#1 Engineering School in Central Asia",
+      "title1": "Engineer",
+      "title2": "The Future",
+      "title3": "of Technology",
+      "subtitle": "TATU Engineering School — Uzbekistan's leading institution training innovators, researchers, and technology leaders for the nation's digital transformation.",
+      "applyBtn": "Apply for 2026 →",
+      "programsBtn": "Explore Programs",
+      "floatingCard": {
+        "label": "Featured Program",
+        "title": "MSc Artificial Intelligence",
+        "tags": ["NLP", "Deep Learning", "Robotics"],
+        "duration": "2 years",
+        "durationLabel": "Duration",
+        "seats": "30",
+        "seatsLabel": "Seats",
+        "intake": "Aug '26",
+        "intakeLabel": "Intake"
+      },
+      "eventCard": {
+        "label": "Next Event",
+        "title": "Open Day — Engineering Campus",
+        "date": "March 20, 2026"
+      },
+      "rankBadge": {
+        "rank": "#1",
+        "region": "Central Asia",
+        "label": "Engineering 2025"
+      },
+      "scrollDown": "Scroll down"
+    },
+    "stats": [
+      { "value": "12,000+", "label": "Students", "icon": "graduation" },
+      { "value": "340+", "label": "Teachers", "icon": "users" },
+      { "value": "85+", "label": "Research Labs", "icon": "microscope" },
+      { "value": "96%", "label": "Employment Rate", "icon": "briefcase" }
+    ],
+    "about": {
+      "sectionLabel": "About Us",
+      "title": "Uzbekistan's Leading Engineering Institution",
+      "subtitle": "Founded in 1955 as the Engineering Faculty of Tashkent Polytechnic Institute, TATU Engineering School has grown into a world-class institution shaping Uzbekistan's digital transformation.",
+      "points": [
+        {
+          "title": "Academic Excellence",
+          "desc": "Research-driven curriculum aligned with global engineering standards"
+        },
+        {
+          "title": "Industry Integration",
+          "desc": "Strong partnerships with leading technology companies producing practice-ready graduates"
+        },
+        {
+          "title": "Global Research Network",
+          "desc": "Active collaboration with 50+ universities and research centres worldwide"
+        }
+      ],
+      "readMoreBtn": "Read Our History →",
+      "cards": [
+        {
+          "label": "Established",
+          "value": "1955",
+          "sub": "70 years of tradition"
+        },
+        {
+          "label": "Accreditation",
+          "value": "ISO",
+          "sub": "9001:2015 Certified"
+        },
+        {
+          "label": "Research Budget",
+          "value": "$8M",
+          "sub": "Annual R&D funding"
+        },
+        {
+          "label": "Alumni",
+          "value": "45K+",
+          "sub": "Global professionals"
+        }
+      ]
+    },
+    "programs": {
+      "sectionLabel": "Academic Programs",
+      "title": "A World-Class Engineering Degree",
+      "subtitle": "Six broad engineering disciplines — designed to prepare you for the most demanding engineering roles in the world.",
+      "viewAllBtn": "View All Programs →",
+      "list": [
+        {
+          "code": "CS",
+          "title": "Computer Science & Engineering",
+          "degree": "Bachelor / Master / PhD",
+          "duration": "4 years",
+          "tags": ["AI", "Systems", "Web", "Security"],
+          "desc": "Algorithms, artificial intelligence, machine learning, distributed systems and software engineering."
+        },
+        {
+          "code": "CE",
+          "title": "Computer Engineering",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["FPGA", "Embedded", "IoT", "VLSI"],
+          "desc": "Hardware-software integration, embedded systems, FPGA design and IoT applications."
+        },
+        {
+          "code": "IT",
+          "title": "Information Technology",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["Cloud", "Security", "ERP", "DevOps"],
+          "desc": "Enterprise systems, cloud architecture, cybersecurity and digital transformation."
+        },
+        {
+          "code": "DS",
+          "title": "Data Science",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["BigData", "ML", "BI", "Python"],
+          "desc": "Big data, statistical modelling, machine learning and business intelligence."
+        },
+        {
+          "code": "EE",
+          "title": "Electrical Engineering",
+          "degree": "Bachelor / Master / PhD",
+          "duration": "4 years",
+          "tags": ["Energy", "RF", "DSP", "Smart Grid"],
+          "desc": "Power systems, signal processing, telecommunications and smart grid technologies."
+        },
+        {
+          "code": "AI",
+          "title": "Artificial Intelligence",
+          "degree": "Master / PhD",
+          "duration": "2 years",
+          "tags": ["Deep Learning", "NLP", "Vision", "Robotics"],
+          "desc": "Deep learning, NLP, computer vision, robotics and autonomous systems research."
+        }
+      ]
+    },
+    "news": {
+      "sectionLabel": "Latest News",
+      "title": "On Campus & Beyond",
+      "viewAllBtn": "All News →",
+      "list": [
+        {
+          "cat": "Research",
+          "date": "March 10, 2026",
+          "title": "TATU Researchers Develop New AI Model for Uzbek Language",
+          "excerpt": "The team at the AI Research Centre announced a new transformer model achieving 94% accuracy on Uzbek NLP benchmarks."
+        },
+        {
+          "cat": "Partnership",
+          "date": "March 5, 2026",
+          "title": "Embedded Systems Lab Agreement Signed with Samsung R&D",
+          "excerpt": "TATU Engineering School and Samsung Electronics formalised a five-year collaboration agreement."
+        },
+        {
+          "cat": "Achievement",
+          "date": "February 28, 2026",
+          "title": "Students Win 1st Place at Central Asia Robotics Olympiad",
+          "excerpt": "A team of four undergraduates defeated competitors from 14 countries at the olympiad held in Almaty."
+        },
+        {
+          "cat": "Event",
+          "date": "February 20, 2026",
+          "title": "International Tech Summit 2026 Held at TATU Campus",
+          "excerpt": "More than 2,000 engineers, researchers and industry representatives gathered for the three-day conference."
+        }
+      ]
+    },
+    "events": {
+      "sectionLabel": "Events",
+      "title": "What's Happening",
+      "list": [
+        {
+          "date": "Mar 20",
+          "title": "Open Day — Engineering Campus",
+          "type": "Admissions"
+        },
+        {
+          "date": "Mar 25",
+          "title": "Hackathon: Smart Uzbekistan 2026",
+          "type": "Competition"
+        },
+        {
+          "date": "Apr 2",
+          "title": "PhD Defence: Advanced Machine Learning",
+          "type": "Academic"
+        },
+        {
+          "date": "Apr 10",
+          "title": "Career Fair — Technology & Engineering",
+          "type": "Career"
+        },
+        {
+          "date": "Apr 18",
+          "title": "IEEE Student Branch Conference",
+          "type": "Conference"
+        }
+      ]
+    },
+    "faculty": {
+      "sectionLabel": "Faculty",
+      "title": "World-Class Scholars",
+      "subtitle": "Our faculty are leaders in their fields — published, awarded and genuinely dedicated to student success.",
+      "viewAllBtn": "All Faculty →",
+      "pubsLabel": "publications",
+      "list": [
+        {
+          "name": "Prof. Akbar Toshmatov",
+          "role": "Dean",
+          "dept": "Computer Science",
+          "research": "Distributed AI Systems",
+          "pubs": 142
+        },
+        {
+          "name": "Dr. Nilufar Yusupova",
+          "role": "Associate Prof.",
+          "dept": "Data Science",
+          "research": "Machine Learning",
+          "pubs": 89
+        },
+        {
+          "name": "Prof. Sherzod Rakhimov",
+          "role": "Professor",
+          "dept": "Electrical Engineering",
+          "research": "Smart Power Grids",
+          "pubs": 115
+        },
+        {
+          "name": "Dr. Kamola Mirzayeva",
+          "role": "Senior Lecturer",
+          "dept": "Cybersecurity",
+          "research": "Network Security",
+          "pubs": 67
+        },
+        {
+          "name": "Prof. Otabek Nazarov",
+          "role": "Professor",
+          "dept": "Computer Engineering",
+          "research": "FPGA & Embedded Systems",
+          "pubs": 103
+        },
+        {
+          "name": "Dr. Zulfiya Ergasheva",
+          "role": "Associate Prof.",
+          "dept": "Information Technology",
+          "research": "Cloud Computing",
+          "pubs": 54
+        }
+      ]
+    },
+    "partners": {
+      "sectionLabel": "Industry Partners",
+      "title": "Trusted by Industry Leaders"
+    },
+    "cta": {
+      "title": "Ready to Engineer the Future?",
+      "subtitle": "Join 12,000+ students and become part of Uzbekistan's most innovative engineering community. Applications for the 2026 academic year are now open.",
+      "applyBtn": "Apply Now — Free",
+      "visitBtn": "Schedule a Visit"
+    }
+  },
+  "footer": {
+    "brand": {
+      "logoTitle": "Engineering School",
+      "logoSubtitle": "Tashkent University of IT",
+      "desc": "Shaping the next generation of engineers, innovators and technology leaders in Central Asia since 1955."
+    },
+    "cols": [
+      {
+        "title": "Academic",
+        "links": ["Programs", "Faculty", "Research", "Library"]
+      },
+      {
+        "title": "Campus",
+        "links": ["Students", "Admissions", "Events", "Media"]
+      },
+      {
+        "title": "Institute",
+        "links": ["About Us", "News", "Partners", "Contact"]
+      }
+    ],
+    "copy": "© 2026 Tashkent University of Information Technologies. All rights reserved.",
+    "legal": ["Privacy Policy", "Terms of Use", "Accessibility"]
+  },
+  "about": {
+    "hero": {
+      "crumb": "About Us",
+      "title": "About TATU Engineering School",
+      "subtitle": "Seventy years of engineering excellence, research leadership and national service — shaping the minds that drive Uzbekistan's digital future."
+    },
+    "mvv": [
+      {
+        "title": "Our Mission",
+        "text": "To provide world-class engineering education grounded in research and innovation — nurturing leaders who drive Uzbekistan's digital economy and contribute to global technological advancement."
+      },
+      {
+        "title": "Our Vision",
+        "text": "To become a globally recognised engineering institution by 2030 — producing graduates who redefine technological boundaries and solve humanity's most pressing challenges."
+      },
+      {
+        "title": "Our Values",
+        "text": "Excellence, integrity, innovation, inclusivity and service. We believe every student deserves the tools to succeed and every idea deserves to be heard."
+      }
+    ],
+    "timeline": {
+      "sectionLabel": "Our History",
+      "title": "70 Years of Engineering Excellence",
+      "events": [
+        {
+          "year": "1955",
+          "event": "Founded as the Engineering Faculty of Tashkent Polytechnic Institute"
+        },
+        {
+          "year": "1972",
+          "event": "First Computer Science department in Central Asia established"
+        },
+        {
+          "year": "1991",
+          "event": "Attained university status following Uzbekistan's independence"
+        },
+        {
+          "year": "2001",
+          "event": "Renamed Tashkent University of Information Technologies (TATU)"
+        },
+        {
+          "year": "2015",
+          "event": "AI Research Centre launched in partnership with international partners"
+        },
+        {
+          "year": "2020",
+          "event": "#1 Engineering School in Central Asia by QS Rankings"
+        },
+        {
+          "year": "2024",
+          "event": "New Engineering Innovation Hub opened — 12,000 m² state-of-the-art facility"
+        },
+        {
+          "year": "2026",
+          "event": "Uzbekistan's first Artificial Intelligence PhD programme launched"
+        }
+      ]
+    }
+  },
+  "programs": {
+    "hero": {
+      "crumb": "Programs",
+      "title": "Academic Programs",
+      "subtitle": "From Bachelor to PhD — our programs are designed to prepare you for the world's most demanding engineering roles."
+    },
+    "filters": [
+      { "key": "all", "label": "All Programs" },
+      { "key": "Bachelor", "label": "Bachelor" },
+      { "key": "Master", "label": "Master" },
+      { "key": "PhD", "label": "PhD" }
+    ],
+    "detailBtn": "Learn More",
+    "closeBtn": "Got It",
+    "emptyMsg": "No programs available in this category yet.",
+    "list": [
+      {
+        "type": "Bachelor / Master / PhD",
+        "code": "CS",
+        "title": "Computer Science & Engineering",
+        "degree": "Bachelor / Master / PhD",
+        "duration": "4 years",
+        "tags": ["AI", "Systems", "Web", "Security"],
+        "desc": "Algorithms, artificial intelligence, machine learning and software engineering.",
+        "details": "In this programme you will study modern programming languages, algorithms and the fundamentals of artificial intelligence. Led by Dean Prof. Akbar Toshmatov, over 4 years you will reinforce theoretical knowledge through real-world projects."
+      },
+      {
+        "type": "Bachelor / Master",
+        "code": "CE",
+        "title": "Computer Engineering",
+        "degree": "Bachelor / Master",
+        "duration": "4 years",
+        "tags": ["FPGA", "Embedded", "IoT", "VLSI"],
+        "desc": "Hardware-software integration, embedded systems and IoT applications.",
+        "details": "The Computer Engineering programme focuses on the interface between hardware and software. You will learn to design microcontrollers, smart home systems and robotics devices."
+      },
+      {
+        "type": "Bachelor / Master",
+        "code": "IT",
+        "title": "Information Technology",
+        "degree": "Bachelor / Master",
+        "duration": "4 years",
+        "tags": ["Cloud", "Security", "ERP", "DevOps"],
+        "desc": "Enterprise systems, cloud architecture and cybersecurity.",
+        "details": "As an IT specialist you will learn to build cloud systems for large enterprises, ensure data security and develop system administration skills."
+      },
+      {
+        "type": "Bachelor / Master",
+        "code": "DS",
+        "title": "Data Science",
+        "degree": "Bachelor / Master",
+        "duration": "4 years",
+        "tags": ["BigData", "ML", "BI", "Python"],
+        "desc": "Big data, statistical modelling and business intelligence.",
+        "details": "In this programme led by Dr. Nilufar Yusupova you will learn data analysis and how to build predictive models. This is one of the most in-demand professions in today's market."
+      },
+      {
+        "type": "Bachelor / Master",
+        "code": "EE",
+        "title": "Electrical Engineering",
+        "degree": "Bachelor / Master / PhD",
+        "duration": "4 years",
+        "tags": ["Energy", "RF", "DSP", "Smart Grid"],
+        "desc": "Power systems, signal processing and smart grids.",
+        "details": "The Electrical Engineering programme covers renewable energy sources and telecommunications equipment. Under Prof. Sherzod Rakhimov you will gain deep expertise in Smart Grid technologies."
+      },
+      {
+        "type": "Master / PhD",
+        "code": "AI",
+        "title": "Artificial Intelligence",
+        "degree": "Master / PhD",
+        "duration": "2 years",
+        "tags": ["Deep Learning", "NLP", "Vision", "Robotics"],
+        "desc": "Deep learning, NLP, computer vision and robotics research.",
+        "details": "This is an advanced research programme intended only for Master's and PhD students. You will conduct experiments in laboratories covering neural networks, speech recognition and the design of autonomous robots."
+      }
+    ]
+  },
+  "faculty": {
+    "hero": {
+      "crumb": "Faculty",
+      "title": "Our Faculty",
+      "subtitle": "340+ world-class researchers, educators and industry experts — dedicated to knowledge and your growth."
+    },
+    "searchPlaceholder": "Search by name or department...",
+    "deptLabel": "Department:",
+    "researchLabel": "Research Area",
+    "pubsLabel": "publications",
+    "profileBtn": "Profile",
+    "notFound": "Nothing found",
+    "modal": {
+      "bioLabel": "Biography",
+      "educationLabel": "Education",
+      "pubsLabel": "Publications",
+      "pubsSuffix": "papers",
+      "contactBtn": "Contact",
+      "closeBtn": "Close"
+    },
+    "list": [
+      {
+        "name": "Prof. Akbar Toshmatov",
+        "role": "Dean",
+        "dept": "Computer Science",
+        "research": "Distributed AI Systems",
+        "pubs": 142,
+        "bio": "Prof. Akbar Toshmatov is a specialist with over 20 years of experience. His research focuses on optimising AI algorithms in globally distributed systems. He is a speaker at numerous international IT conferences.",
+        "education": "PhD in Computer Science, MIT"
+      },
+      {
+        "name": "Dr. Nilufar Yusupova",
+        "role": "Associate Professor",
+        "dept": "Data Science",
+        "research": "Machine Learning",
+        "pubs": 89,
+        "bio": "Dr. Nilufar Yusupova is a leading expert in Big Data and predictive analytics. Her research is dedicated to applying AI in medicine and building early disease-detection models.",
+        "education": "PhD in Data Science, Stanford University"
+      },
+      {
+        "name": "Prof. Sherzod Rakhimov",
+        "role": "Professor",
+        "dept": "Electrical Engineering",
+        "research": "Smart Power Grids",
+        "pubs": 115,
+        "bio": "Sherzod Rakhimov holds 15 patents in renewable energy and Smart Grid technologies. He leads projects on the digitalisation of power systems.",
+        "education": "DSc in Electrical Engineering, ETH Zurich"
+      },
+      {
+        "name": "Dr. Kamola Mirzayeva",
+        "role": "Senior Lecturer",
+        "dept": "Cybersecurity",
+        "research": "Network Security",
+        "pubs": 67,
+        "bio": "Dr. Mirzayeva is an expert in cryptography and cyber-attack prevention systems. She serves as a consultant developing security protocols for the banking and finance sector.",
+        "education": "PhD in Cyber Security, Korea University"
+      },
+      {
+        "name": "Prof. Otabek Nazarov",
+        "role": "Professor",
+        "dept": "Computer Engineering",
+        "research": "FPGA & Embedded Systems",
+        "pubs": 103,
+        "bio": "Otabek Nazarov is a world-class researcher in microchip design and hardware security. Under his leadership the university's Robotics Laboratory was established.",
+        "education": "PhD in Computer Engineering, TU Delft"
+      },
+      {
+        "name": "Dr. Zulfiya Ergasheva",
+        "role": "Associate Professor",
+        "dept": "Information Technology",
+        "research": "Cloud Computing",
+        "pubs": 54,
+        "bio": "Dr. Zulfiya Ergasheva teaches corporate cloud architecture and DevOps methodology. She has contributed to projects optimising large-scale government platforms.",
+        "education": "PhD in Information Systems, National University of Singapore"
+      }
+    ]
+  },
+  "research": {
+    "hero": {
+      "crumb": "Research",
+      "title": "Research & Innovation",
+      "subtitle": "TATU Engineering School drives cutting-edge research in AI, cybersecurity, data science and smart infrastructure."
+    },
+    "areas": {
+      "sectionLabel": "Research Areas",
+      "title": "Our Innovation Fields",
+      "projectsSuffix": "Active Projects",
+      "list": [
+        {
+          "title": "Artificial Intelligence & ML",
+          "desc": "Neural architectures, Uzbek NLP, computer vision",
+          "projects": 24
+        },
+        {
+          "title": "Cybersecurity",
+          "desc": "Network defence, cryptography, zero-trust systems",
+          "projects": 18
+        },
+        {
+          "title": "Smart Infrastructure",
+          "desc": "IoT sensors, smart city, energy optimisation",
+          "projects": 15
+        },
+        {
+          "title": "Data Engineering",
+          "desc": "Distributed systems, real-time analytics, data lakes",
+          "projects": 21
+        }
+      ]
+    },
+    "stats": {
+      "title": "Research Metrics",
+      "list": [
+        { "v": "1,200+", "l": "Publications", "s": "in 2025" },
+        { "v": "78", "l": "Active Patents", "s": "registered" },
+        { "v": "15", "l": "Startups", "s": "founded" },
+        { "v": "$8M", "l": "Research Funding", "s": "annual budget" }
+      ]
+    },
+    "labs": {
+      "sectionLabel": "Laboratories",
+      "title": "State-of-the-Art Research Centres",
+      "list": [
+        {
+          "name": "AI & ML Laboratory",
+          "desc": "96 workstations, NVIDIA A100 GPU cluster, 3D printing"
+        },
+        {
+          "name": "Cybersecurity Laboratory",
+          "desc": "Dedicated network environment for ethical hacking and defence training"
+        },
+        {
+          "name": "Innovation Hub",
+          "desc": "Co-working, pitch rooms, prototyping tools, mentor network"
+        },
+        {
+          "name": "Electrical Engineering Lab",
+          "desc": "Smart grid simulator, test benches and energy meters"
+        },
+        {
+          "name": "IoT Laboratory",
+          "desc": "100+ sensor types, embedded systems, FPGA development platform"
+        },
+        {
+          "name": "Robotics Centre",
+          "desc": "Automated manipulation system, 12 industrial robot arms"
+        }
+      ]
+    }
+  },
+  "students": {
+    "hero": {
+      "crumb": "Students",
+      "title": "Student Life",
+      "subtitle": "Beyond classrooms and labs — a vibrant student community of clubs, competitions and campus experiences."
+    },
+    "clubs": {
+      "sectionLabel": "Student Organisations",
+      "title": "Get Involved",
+      "subtitle": "Join 30+ active student clubs and organisations covering engineering, technology, arts and community service.",
+      "membersSuffix": "members",
+      "list": [
+        {
+          "name": "IEEE Student Branch",
+          "members": 420,
+          "desc": "Technical seminars, competitions and global networks"
+        },
+        {
+          "name": "AI Robotics Club",
+          "members": 280,
+          "desc": "Building autonomous robots and competing in international championships"
+        },
+        {
+          "name": "Cyber Defence Team",
+          "members": 160,
+          "desc": "CTF competitions and cybersecurity practice laboratory"
+        },
+        {
+          "name": "Startup Incubator",
+          "members": 95,
+          "desc": "Turning ideas into companies with mentorship and funding"
+        }
+      ]
+    },
+    "facilities": {
+      "sectionLabel": "Campus Facilities",
+      "title": "A Modern Learning Environment",
+      "list": [
+        {
+          "title": "AI & ML Laboratory",
+          "desc": "96 workstations, NVIDIA A100 GPU cluster, 3D printing station"
+        },
+        {
+          "title": "Cybersecurity Laboratory",
+          "desc": "Dedicated network environment for ethical hacking and defence training"
+        },
+        {
+          "title": "Innovation Hub",
+          "desc": "Co-working, pitch rooms, prototyping tools, mentor network"
+        },
+        {
+          "title": "Library & Research Centre",
+          "desc": "200,000+ books, full access to IEEE Xplore, ScienceDirect and Web of Science"
+        },
+        {
+          "title": "Sports Complex",
+          "desc": "Swimming pool, gym, basketball, football and table tennis courts"
+        },
+        {
+          "title": "Student Dormitory",
+          "desc": "2,400 beds, high-speed internet, study rooms, 24/7 security service"
+        }
+      ]
+    }
+  },
+  "news": {
+    "hero": {
+      "crumb": "News",
+      "title": "News & Announcements",
+      "subtitle": "Stay informed about achievements, partnerships and campus life at TATU Engineering School."
+    },
+    "readFullBtn": "Read Full Story →",
+    "readMoreBtn": "Read More →",
+    "badges": {
+      "Tadqiqot": "Research",
+      "Hamkorlik": "Partnership",
+      "Yutuq": "Achievement",
+      "Tadbir": "Event"
+    },
+    "list": [
+      {
+        "catKey": "research",
+        "cat": "Research",
+        "date": "March 10, 2026",
+        "title": "TATU Researchers Develop New AI Model for Uzbek Language",
+        "excerpt": "The team at the AI Research Centre announced a new transformer model achieving 94% accuracy on Uzbek NLP benchmarks."
+      },
+      {
+        "catKey": "partner",
+        "cat": "Partnership",
+        "date": "March 5, 2026",
+        "title": "Embedded Systems Lab Agreement Signed with Samsung R&D",
+        "excerpt": "TATU Engineering School and Samsung Electronics formalised a five-year collaboration agreement."
+      },
+      {
+        "catKey": "achievement",
+        "cat": "Achievement",
+        "date": "February 28, 2026",
+        "title": "Students Win 1st Place at Central Asia Robotics Olympiad",
+        "excerpt": "A team of four undergraduates defeated competitors from 14 countries at the olympiad held in Almaty."
+      },
+      {
+        "catKey": "event",
+        "cat": "Event",
+        "date": "February 20, 2026",
+        "title": "International Tech Summit 2026 Held at TATU Campus",
+        "excerpt": "More than 2,000 engineers, researchers and industry representatives gathered for the three-day conference."
+      }
+    ]
+  },
+  "admissions": {
+    "hero": {
+      "crumb": "Admissions",
+      "title": "Admissions 2026",
+      "subtitle": "Begin your engineering journey. Applications for the 2026 academic year are now open."
+    },
+    "steps": {
+      "sectionLabel": "How to Apply",
+      "title": "Your Path to TATU",
+      "list": [
+        {
+          "n": "01",
+          "title": "Submit Application",
+          "date": "Mar 1 – Jun 30, 2026",
+          "desc": "Complete the online application form with all personal and academic details."
+        },
+        {
+          "n": "02",
+          "title": "Upload Documents",
+          "date": "After submitting application",
+          "desc": "Passport copy, academic transcript, language certificate (IELTS 6.0+) and motivation letter."
+        },
+        {
+          "n": "03",
+          "title": "Entrance Exam",
+          "date": "Jul 15–20, 2026",
+          "desc": "Specialised test in mathematics and your chosen field. Top applicants are admitted based on prior academic performance."
+        },
+        {
+          "n": "04",
+          "title": "Interview",
+          "date": "Aug 1–10, 2026",
+          "desc": "Shortlisted candidates attend a 30-minute online or in-person interview with the programme committee."
+        },
+        {
+          "n": "05",
+          "title": "Receive Decision",
+          "date": "Aug 15, 2026",
+          "desc": "All applicants are notified of admission decisions via email and the application portal."
+        }
+      ]
+    },
+    "tuition": {
+      "title": "Tuition Fees",
+      "list": [
+        { "lvl": "Bachelor's", "fee": "$2,400", "per": "/year" },
+        { "lvl": "Master's", "fee": "$3,200", "per": "/year" },
+        { "lvl": "PhD", "fee": "Funded", "per": "+ stipend" }
+      ],
+      "scholarship": "Merit-based scholarships covering 50–100% of tuition fees are available"
+    },
+    "form": {
+      "title": "Start Your Application",
+      "stepLabel": "Step",
+      "of": "/",
+      "steps": ["Personal Info", "Choose Program", "Documents", "Review"],
+      "fields": [
+        { "key": "name", "label": "Full Name *", "ph": "Akbar Toshmatov" },
+        { "key": "email", "label": "Email Address *", "ph": "akbar@email.com" },
+        { "key": "phone", "label": "Phone Number", "ph": "+998 90 123 45 67" }
+      ],
+      "programLabel": "Select a Program *",
+      "programs": [
+        {
+          "type": "Bachelor / Master / PhD",
+          "code": "CS",
+          "title": "Computer Science & Engineering",
+          "degree": "Bachelor / Master / PhD",
+          "duration": "4 years",
+          "tags": ["AI", "Systems", "Web", "Security"],
+          "desc": "Algorithms, artificial intelligence, machine learning and software engineering.",
+          "details": "In this programme you will study modern programming languages, algorithms and the fundamentals of artificial intelligence. Led by Dean Prof. Akbar Toshmatov, over 4 years you will reinforce theoretical knowledge through real-world projects."
+        },
+        {
+          "type": "Bachelor / Master",
+          "code": "CE",
+          "title": "Computer Engineering",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["FPGA", "Embedded", "IoT", "VLSI"],
+          "desc": "Hardware-software integration, embedded systems and IoT applications.",
+          "details": "The Computer Engineering programme focuses on the interface between hardware and software. You will learn to design microcontrollers, smart home systems and robotics devices."
+        },
+        {
+          "type": "Bachelor / Master",
+          "code": "IT",
+          "title": "Information Technology",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["Cloud", "Security", "ERP", "DevOps"],
+          "desc": "Enterprise systems, cloud architecture and cybersecurity.",
+          "details": "As an IT specialist you will learn to build cloud systems for large enterprises, ensure data security and develop system administration skills."
+        },
+        {
+          "type": "Bachelor / Master",
+          "code": "DS",
+          "title": "Data Science",
+          "degree": "Bachelor / Master",
+          "duration": "4 years",
+          "tags": ["BigData", "ML", "BI", "Python"],
+          "desc": "Big data, statistical modelling and business intelligence.",
+          "details": "In this programme led by Dr. Nilufar Yusupova you will learn data analysis and how to build predictive models. This is one of the most in-demand professions in today's market."
+        },
+        {
+          "type": "Bachelor / Master",
+          "code": "EE",
+          "title": "Electrical Engineering",
+          "degree": "Bachelor / Master / PhD",
+          "duration": "4 years",
+          "tags": ["Energy", "RF", "DSP", "Smart Grid"],
+          "desc": "Power systems, signal processing and smart grids.",
+          "details": "The Electrical Engineering programme covers renewable energy sources and telecommunications equipment. Under Prof. Sherzod Rakhimov you will gain deep expertise in Smart Grid technologies."
+        },
+        {
+          "type": "Master / PhD",
+          "code": "AI",
+          "title": "Artificial Intelligence",
+          "degree": "Master / PhD",
+          "duration": "2 years",
+          "tags": ["Deep Learning", "NLP", "Vision", "Robotics"],
+          "desc": "Deep learning, NLP, computer vision and robotics research.",
+          "details": "This is an advanced research programme intended only for Master's and PhD students. You will conduct experiments in laboratories covering neural networks, speech recognition and the design of autonomous robots."
+        }
+      ],
+      "docsTitle": "Upload the following documents:",
+      "docFormat": "PDF format, max 5 MB",
+      "uploadBtn": "Upload",
+      "docs": [
+        "Academic Transcript",
+        "Language Certificate (IELTS/TOEFL)",
+        "Motivation Letter",
+        "Passport Copy"
+      ],
+      "reviewTitle": "Application Summary",
+      "reviewFields": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "program": "Selected Program"
+      },
+      "reviewNote": "By submitting you confirm the accuracy of all provided information and agree to TATU's Admissions Terms.",
+      "backBtn": "← Back",
+      "nextBtn": "Continue →",
+      "submitBtn": "Submit Application 🚀",
+      "successMsg": "Your application was submitted successfully! We will be in touch soon. 🎉"
+    }
+  },
+  "contact": {
+    "hero": {
+      "crumb": "Contact",
+      "title": "Get in Touch",
+      "subtitle": "Have questions about programmes, admissions, research or campus life? We're here to help."
+    },
+    "infoTitle": "Contact Information",
+    "contactData": {
+      "address": {
+        "label": "ADDRESS",
+        "value": "108 Amir Temur Str., Yunusobod district, Tashkent 100200, Uzbekistan"
+      },
+      "phone": {
+        "label": "PHONE",
+        "value": "+998 71 238 64 00"
+      },
+      "email": {
+        "label": "EMAIL ADDRESS",
+        "value": "engineering@tatu.uz"
+      },
+      "workingHours": {
+        "label": "WORKING HOURS",
+        "value": "Monday – Friday: 09:00 – 17:00 (UZT)"
+      }
+    },
+    "mapPopup": "TATU Engineering School",
+    "socialLabel": "Social Media",
+    "form": {
+      "title": "Send a Message",
+      "fields": [
+        {
+          "key": "name",
+          "label": "Full Name *",
+          "placeholder": "Your name",
+          "type": "text"
+        },
+        {
+          "key": "email",
+          "label": "Email Address *",
+          "placeholder": "email@example.com",
+          "type": "email"
+        },
+        {
+          "key": "subject",
+          "label": "Subject",
+          "placeholder": "Question about admissions...",
+          "type": "text"
+        }
+      ],
+      "messageLabel": "Message *",
+      "messagePlaceholder": "How can we help you?",
+      "submitBtn": "Send Message →"
+    },
+    "success": {
+      "title": "Message Sent!",
+      "desc": "Thank you for reaching out. Our team will get back to you within 1–2 business days.",
+      "newBtn": "Send Another Message"
+    }
+  }
+}

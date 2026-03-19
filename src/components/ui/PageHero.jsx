@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 function PageHero({ crumb, title, subtitle }) {
+  const { t } = useTranslation();
   return (
     <div className="relative bg-[#0a1628] overflow-hidden">
       <div
@@ -14,7 +17,7 @@ function PageHero({ crumb, title, subtitle }) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
         {crumb && (
           <p className="text-white/40 text-sm mb-4">
-            Bosh sahifa <span className="mx-1">/</span>
+            {t("homeName")} <span className="mx-1">/</span>
             <span className="text-amber-400">{crumb}</span>
           </p>
         )}

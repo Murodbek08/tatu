@@ -1,22 +1,30 @@
+import { Check } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { Globe } from "lucide-react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 
-const NAV_LINKS = [
-  { label: "Bosh sahifa", page: "/" },
-  { label: "Haqimizda", page: "/about" },
-  { label: "Dasturlar", page: "/programs" },
-  { label: "O'qituvchilar", page: "/faculty" },
-  { label: "Tadqiqot", page: "/research" },
-  { label: "Talabalar", page: "/students" },
-  { label: "Yangiliklar", page: "/news" },
-  { label: "Qabul", page: "/admissions" },
-  { label: "Aloqa", page: "/contact" },
-];
-
 function Header() {
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const languages = ["uz", "en", "ru"];
+
+  const NAV_LINKS = [
+    { label: t("nav.links.home"), page: "/" },
+    { label: t("nav.links.about"), page: "/about" },
+    { label: t("nav.links.programs"), page: "/programs" },
+    { label: t("nav.links.faculty"), page: "/faculty" },
+    { label: t("nav.links.research"), page: "/research" },
+    { label: t("nav.links.students"), page: "/students" },
+    { label: t("nav.links.news"), page: "/news" },
+    { label: t("nav.links.admissions"), page: "/admissions" },
+    { label: t("nav.links.contact"), page: "/contact" },
+  ];
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
@@ -27,24 +35,24 @@ function Header() {
   return (
     <>
       {/* Utility bar */}
-      <div className="bg-[#0a1628] border-b border-white/10 text-white/45 text-xs h-8 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 w-full flex justify-between">
-          <span className="truncate ">
-            O'zbekiston Respublikasi Oliy Ta'lim, Fan va Innovatsiyalar
-            Vazirligi
-          </span>
-          <div className="flex items-center gap-2">
-            <button className="hover:text-amber-400 transition-colors">
-              UZ
-            </button>
-            <span className="text-amber-500">|</span>
-            <button className="hover:text-amber-400 transition-colors">
-              EN
-            </button>
-            <span className="text-amber-500">|</span>
-            <button className="hover:text-amber-400 transition-colors">
-              RU
-            </button>
+      <div className="bg-[#0a1628] border-b border-white/10 text-white/45 text-xs h-10 flex items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+          <span className="truncate">{t("utilityBar.ministry")}</span>
+          <div className="flex p-0.1 bg-gray-900/80 border border-gray-700 rounded-full w-fit backdrop-blur-sm">
+            {languages.map((lng) => (
+              <button
+                key={lng}
+                onClick={() => i18n.changeLanguage(lng)}
+                className={`px-3 py-1 text-[12px] font-bold uppercase transition-all duration-300 rounded-full
+            ${
+              i18n.language === lng
+                ? "bg-amber-500 text-black shadow-lg shadow-amber-500/20"
+                : "text-gray-400 hover:text-white"
+            }`}
+              >
+                {t(`lang_${lng}`)}
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -65,10 +73,10 @@ function Header() {
             </div>
             <div className="text-left">
               <p className="text-white font-extrabold text-sm leading-none">
-                Engineering School
+                {t("nav.logoTitle")}
               </p>
               <p className="text-amber-400 text-[10px] font-medium tracking-wider mt-0.5">
-                Tashkent University of IT
+                {t("nav.logoSubtitle")}
               </p>
             </div>
           </Link>
@@ -97,14 +105,14 @@ function Header() {
               to={"admissions"}
               className="hidden sm:block bg-amber-500 hover:bg-amber-600 active:scale-95 text-white text-[13px] font-bold px-5 py-2 rounded-lg transition-all shadow-md shadow-amber-500/30"
             >
-              Ariza Topshirish
+              {t("nav.applyButton")}
             </Link>
 
             {/* Hamburger */}
             <button
               className="xl:hidden flex flex-col gap-1.25 p-2 group"
               onClick={() => setOpen((o) => !o)}
-              aria-label="Menyu"
+              aria-label={t("nav.menuAriaLabel")}
             >
               <span
                 className={`block w-5 h-0.5 bg-white transition-all duration-200 ${open ? "rotate-45 translate-y-1.75" : ""}`}

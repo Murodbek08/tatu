@@ -17,6 +17,7 @@ import L from "leaflet";
 // Ikonka muammosini hal qilish uchun (Leaflet default ikonkasini tuzatish)
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import { useTranslation } from "react-i18next";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -50,22 +51,8 @@ const socialLinks = [
   },
 ];
 
-const contactData = [
-  {
-    icon: MapPin,
-    label: "MANZIL",
-    value:
-      "University Street 108, Yakkasaray tumani, Toshkent 100200, O'zbekiston",
-  },
-  { icon: Phone, label: "TELEFON", value: "+998 71 238 64 00" },
-  { icon: Mail, label: "ELEKTRON POCHTA", value: "engineering@tatu.uz" },
-  {
-    icon: Clock,
-    label: "ISH VAQTI",
-    value: "Dushanba – Juma: 09:00 – 17:00 (UZT)",
-  },
-];
 function Contact() {
+  const { t } = useTranslation();
   const position = [41.3111, 69.2797];
   const [form, setForm] = useState({
     name: "",
@@ -75,13 +62,34 @@ function Contact() {
   });
   const [sent, setSent] = useState(false);
   const set = (f, v) => setForm((p) => ({ ...p, [f]: v }));
-
+  const contactData = [
+    {
+      icon: MapPin,
+      label: t("contact.contactData.address.label"),
+      value: t("contact.contactData.address.value"),
+    },
+    {
+      icon: Phone,
+      label: t("contact.contactData.phone.label"),
+      value: t("contact.contactData.phone.value"),
+    },
+    {
+      icon: Mail,
+      label: t("contact.contactData.email.label"),
+      value: t("contact.contactData.email.value"),
+    },
+    {
+      icon: Clock,
+      label: t("contact.contactData.workingHours.label"),
+      value: t("contact.contactData.workingHours.value"),
+    },
+  ];
   return (
     <div>
       <PageHero
-        crumb="Aloqa"
-        title="Biz Bilan Bog'laning"
-        subtitle="Dasturlar, qabul, tadqiqot yoki kampus hayoti haqida savollaringiz bormi? Biz yordam berishga tayyormiz."
+        crumb={t("contact.hero.crumb")}
+        title={t("contact.hero.title")}
+        subtitle={t("contact.hero.subtitle")}
       />
 
       <div className="bg-slate-50 py-16">
@@ -89,7 +97,7 @@ function Contact() {
           {/* Info */}
           <div>
             <h2 className="text-2xl font-black text-slate-900 mb-8">
-              Aloqa Ma'lumotlari
+              {t("contact.infoTitle")}
             </h2>
 
             <div className="space-y-6 mb-10">
@@ -117,7 +125,7 @@ function Contact() {
             </div>
 
             {/* Map placeholder */}
-            <div className="h-56 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
+            <div className="h-56 w-full  rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8">
               <MapContainer
                 center={position}
                 zoom={15}
@@ -128,14 +136,14 @@ function Contact() {
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Marker position={position}>
-                  <Popup>TATU Muhandislik Maktabi</Popup>
+                  <Popup>{t("contact.mapPopup")}</Popup>
                 </Marker>
               </MapContainer>
             </div>
 
             <div>
               <p className="text-sm font-bold text-slate-500 mb-4">
-                Ijtimoiy Tarmoqlar
+                {t("contact.socialLabel")}
               </p>
               <div className="flex flex-wrap gap-3">
                 {socialLinks.map((item) => (
@@ -159,65 +167,47 @@ function Contact() {
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <div className="text-7xl mb-5">✅</div>
                 <h3 className="text-2xl font-black text-slate-900 mb-3">
-                  Xabar Yuborildi!
+                  {t("contact.success.title")}
                 </h3>
                 <p className="text-slate-500 leading-relaxed mb-8">
-                  Murojaat uchun rahmat. Jamoamiz 1–2 ish kuni ichida siz bilan
-                  bog'lanadi.
+                  {t("contact.success.desc")}
                 </p>
                 <button
                   onClick={() => setSent(false)}
                   className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3 rounded-xl transition-colors"
                 >
-                  Yangi Xabar Yuborish
+                  {t("contact.success.newBtn")}
                 </button>
               </div>
             ) : (
               <>
                 <h3 className="text-xl font-extrabold text-slate-900 mb-7">
-                  Xabar Yuborish
+                  {t("contact.form.title")}
                 </h3>
                 <div className="space-y-5">
-                  {[
-                    {
-                      key: "name",
-                      label: "To'liq Ism *",
-                      ph: "Ismingiz",
-                      type: "text",
-                    },
-                    {
-                      key: "email",
-                      label: "Elektron Pochta *",
-                      ph: "email@example.com",
-                      type: "email",
-                    },
-                    {
-                      key: "subject",
-                      label: "Mavzu",
-                      ph: "Qabul haqida savol...",
-                      type: "text",
-                    },
-                  ].map((f) => (
-                    <div key={f.key}>
-                      <label className="block text-[13px] font-extrabold text-slate-800 mb-1.5">
-                        {f.label}
-                      </label>
-                      <input
-                        type={f.type}
-                        placeholder={f.ph}
-                        value={form[f.key]}
-                        onChange={(e) => set(f.key, e.target.value)}
-                        className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all placeholder-slate-300 text-slate-800"
-                      />
-                    </div>
-                  ))}
+                  {t("contact.form.fields", { returnObjects: true }).map(
+                    (f) => (
+                      <div key={f.key}>
+                        <label className="block text-[13px] font-extrabold text-slate-800 mb-1.5">
+                          {f.label}
+                        </label>
+                        <input
+                          type={f.type}
+                          placeholder={f.placeholder}
+                          value={form[f.key]}
+                          onChange={(e) => set(f.key, e.target.value)}
+                          className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all placeholder-slate-300 text-slate-800"
+                        />
+                      </div>
+                    ),
+                  )}
                   <div>
                     <label className="block text-[13px] font-extrabold text-slate-800 mb-1.5">
-                      Xabar *
+                      {t("contact.form.messageLabel")}
                     </label>
                     <textarea
                       rows={5}
-                      placeholder="Sizga qanday yordam bera olamiz?"
+                      placeholder={t("contact.form.messagePlaceholder")}
                       value={form.message}
                       onChange={(e) => set("message", e.target.value)}
                       className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all resize-none placeholder-slate-300 text-slate-800"
@@ -230,7 +220,7 @@ function Contact() {
                     }}
                     className="w-full bg-amber-500 hover:bg-amber-600 active:scale-[0.99] text-white font-extrabold text-[15px] py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20"
                   >
-                    Xabar Yuborish →
+                    {t("contact.form.submitBtn")}
                   </button>
                 </div>
               </>
