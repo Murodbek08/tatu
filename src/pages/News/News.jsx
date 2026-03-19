@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import PageHero from "../../components/ui/PageHero";
+import { Link, useNavigate } from "react-router-dom";
 
 const NEWS_META = {
   research: { icon: "🔬", color: "bg-blue-100 text-blue-700" },
@@ -9,6 +10,9 @@ const NEWS_META = {
 };
 function News() {
   const { t } = useTranslation();
+
+
+  const navigate = useNavigate();
   return (
     <div>
       <PageHero
@@ -42,7 +46,10 @@ function News() {
                 {t("news.list", { returnObjects: true })[0].excerpt}
               </p>
               <div className="flex items-center justify-between">
-                <button className="bg-blue-700 hover:bg-blue-800 text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors">
+                <button
+                  onClick={() => navigate("/news/1?lang=" + t("i18nextLng"))}
+                  className="bg-blue-700 hover:bg-blue-800 text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors"
+                >
                   {t("news.readFullBtn")}
                 </button>
               </div>
@@ -74,7 +81,10 @@ function News() {
                   <p className="text-slate-500 text-[13px] leading-relaxed mb-5 line-clamp-3">
                     {item.excerpt}
                   </p>
-                  <button className="w-full border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold py-2.5 rounded-xl transition-colors">
+                  <button
+                    onClick={() => navigate(`/news/${item.id}`)}
+                    className="w-full border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold py-2.5 rounded-xl transition-colors"
+                  >
                     {t("news.readMoreBtn")}
                   </button>
                 </div>

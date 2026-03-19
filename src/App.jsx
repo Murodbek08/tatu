@@ -3,6 +3,7 @@ import { Suspense, lazy } from "react";
 import Layout from "./components/Layout/Layout";
 import Loading from "./components/Loading/Loading";
 import ScrollToTop from "./components/Scroll/ScrollToTop";
+import NewsCard from "./pages/NewsCard/NewsCard";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/About"));
@@ -29,6 +30,7 @@ function App() {
             <Route path="/research" element={<Research />} />
             <Route path="/students" element={<Students />} />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<NewsCard />} />
             <Route path="/admissions" element={<Admissions />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

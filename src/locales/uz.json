@@ -678,6 +678,7 @@
     },
     "list": [
       {
+        "id": 1,
         "catKey": "research",
         "cat": "Tadqiqot",
         "date": "10 Mart, 2026",
@@ -685,6 +686,7 @@
         "excerpt": "Sun'iy intellekt tadqiqot markazidagi jamoa O'zbek NLP testlarida 94% aniqlikka erishgan yangi transformer modelini e'lon qildi."
       },
       {
+        "id": 2,
         "catKey": "partner",
         "cat": "Hamkorlik",
         "date": "5 Mart, 2026",
@@ -692,6 +694,7 @@
         "excerpt": "TATU Muhandislik Maktabi va Samsung Electronics 5 yillik hamkorlik shartnomasini rasmiylashtirdi."
       },
       {
+        "id": 3,
         "catKey": "achievement",
         "cat": "Yutuq",
         "date": "28 Fevral, 2026",
@@ -699,6 +702,7 @@
         "excerpt": "To'rt nafar bakalavr talabadan iborat jamoa Olmaotada bo'lib o'tgan olimpiadada 14 mamlakatdan raqobatchilarni mag'lub etdi."
       },
       {
+        "id": 4,
         "catKey": "event",
         "cat": "Tadbir",
         "date": "20 Fevral, 2026",
@@ -922,5 +926,14 @@
       "desc": "Murojaat uchun rahmat. Jamoamiz 1–2 ish kuni ichida siz bilan bog'lanadi.",
       "newBtn": "Yangi Xabar Yuborish"
     }
+  },
+  "newsCard": {
+    "backBtn": "Orqaga",
+    "notFound": {
+      "title": "Ma'lumot topilmadi!",
+      "homeLink": "Bosh sahifaga qaytish"
+    },
+    "shareBtn": "Ulashish",
+    "location": "Tashkent 2026"
   }
 }

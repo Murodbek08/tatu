@@ -674,6 +674,7 @@
     },
     "list": [
       {
+        "id": 1,
         "catKey": "research",
         "cat": "Research",
         "date": "March 10, 2026",
@@ -681,6 +682,7 @@
         "excerpt": "The team at the AI Research Centre announced a new transformer model achieving 94% accuracy on Uzbek NLP benchmarks."
       },
       {
+        "id": 2,
         "catKey": "partner",
         "cat": "Partnership",
         "date": "March 5, 2026",
@@ -688,6 +690,7 @@
         "excerpt": "TATU Engineering School and Samsung Electronics formalised a five-year collaboration agreement."
       },
       {
+        "id": 3,
         "catKey": "achievement",
         "cat": "Achievement",
         "date": "February 28, 2026",
@@ -695,6 +698,7 @@
         "excerpt": "A team of four undergraduates defeated competitors from 14 countries at the olympiad held in Almaty."
       },
       {
+        "id": 4,
         "catKey": "event",
         "cat": "Event",
         "date": "February 20, 2026",
@@ -908,5 +912,14 @@
       "desc": "Thank you for reaching out. Our team will get back to you within 1–2 business days.",
       "newBtn": "Send Another Message"
     }
+  },
+  "newsCard": {
+    "backBtn": "Back",
+    "notFound": {
+      "title": "Content not found!",
+      "homeLink": "Return to homepage"
+    },
+    "shareBtn": "Share",
+    "location": "Tashkent 2026"
   }
 }

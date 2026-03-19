@@ -1,6 +1,3 @@
-import { Check } from "lucide-react";
-import { ChevronDown } from "lucide-react";
-import { Globe } from "lucide-react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
