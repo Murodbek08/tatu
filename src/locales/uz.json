@@ -934,6 +934,12 @@
       "homeLink": "Bosh sahifaga qaytish"
     },
     "shareBtn": "Ulashish",
-    "location": "Tashkent 2026"
+    "location": "Tashkent 2026",
+    "sourceLabel": "Bu haqda",
+    "sourceSuffix": "saytida e'lon qilingan"
+  },
+  "notFound": {
+    "title": "Sahifa Qurilmoqda",
+    "desc": "Bu bo'lim tez orada tayyor bo'ladi."
   }
 }

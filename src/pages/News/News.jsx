@@ -11,7 +11,6 @@ const NEWS_META = {
 function News() {
   const { t } = useTranslation();
 
-
   const navigate = useNavigate();
   return (
     <div>
@@ -47,7 +46,7 @@ function News() {
               </p>
               <div className="flex items-center justify-between">
                 <button
-                  onClick={() => navigate("/news/1?lang=" + t("i18nextLng"))}
+                  onClick={() => navigate("/news/1")}
                   className="bg-blue-700 hover:bg-blue-800 text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors"
                 >
                   {t("news.readFullBtn")}

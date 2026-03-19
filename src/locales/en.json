@@ -920,6 +920,12 @@
       "homeLink": "Return to homepage"
     },
     "shareBtn": "Share",
-    "location": "Tashkent 2026"
+    "location": "Tashkent 2026",
+    "sourceLabel": "Read more on",
+    "sourceSuffix": "website"
+  },
+  "notFound": {
+    "title": "Page Under Construction",
+    "desc": "This section will be ready soon."
   }
 }

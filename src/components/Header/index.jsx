@@ -149,7 +149,7 @@ function Header() {
               onClick={() => setOpen(false)}
               className="block w-full mt-2 text-center bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold py-3 rounded-xl transition-colors"
             >
-              Ariza Topshirish
+              {t("nav.applyButton")}
             </Link>
           </div>
         )}
