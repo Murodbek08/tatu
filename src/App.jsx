@@ -3,7 +3,6 @@ import { Suspense, lazy } from "react";
 import Layout from "./components/Layout/Layout";
 import Loading from "./components/Loading/Loading";
 import ScrollToTop from "./components/Scroll/ScrollToTop";
-import NewsCard from "./pages/NewsCard/NewsCard";
 
 const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/About"));
@@ -15,6 +14,7 @@ const News = lazy(() => import("./pages/News/News"));
 const Admissions = lazy(() => import("./pages/Admissions/Admissions"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
+const NewsCard = lazy(() => import("./pages/NewsCard/NewsCard"));
 
 function App() {
   return (

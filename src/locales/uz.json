@@ -62,44 +62,44 @@
       { "value": "96%", "label": "Ish bilan Ta'minlash", "icon": "briefcase" }
     ],
     "about": {
-      "sectionLabel": "Biz Haqimizda",
-      "title": "O'zbekistonning Yetakchi Muhandislik Muassasasi",
-      "subtitle": "1955 yilda Toshkent Politexnika Instituti Muhandislik Fakulteti sifatida tashkil etilgan TATU Muhandislik Maktabi O'zbekistonning raqamli transformatsiyasini shakllantiradigan jahon darajasidagi muassasaga aylandi.",
+      "sectionLabel": "Biz haqimizda",
+      "title": "AKT va Sun'iy Intellekt Oliy Muhandislik Maktabi",
+      "subtitle": "\"Tarmoq – Korxona – Oliygoh\" tamoyili asosida O'zbektelekom, ZTE, MobiUz va boshqa yetakchi korxonalar bilan hamkorlikda amaliy muhandislar tayyorlanadi.",
       "points": [
         {
-          "title": "Ta'limda Mukammallik",
-          "desc": "Global muhandislik standartlariga mos, tadqiqotga asoslangan o'quv dasturi"
+          "title": "14 ta zamonaviy laboratoriya",
+          "desc": "2024-2025 o'quv yilidan to'liq faoliyat yuritayotgan laboratoriyalar kompleksi soha korxonalari bilan integratsiyani ta'minlaydi."
         },
         {
-          "title": "Sanoat Integratsiyasi",
-          "desc": "Amaliy bitiruvchilar tayorlaydigan yetakchi texnologiya kompaniyalari bilan kuchli hamkorlik"
+          "title": "ASIIN xalqaro akkreditatsiyasi",
+          "desc": "Germaniyaning ASIIN agentligi tomonidan 6 ta ta'lim dasturi akkreditatsiyadan o'tdi — diplomlar butun dunyo bo'ylab tan olinadi."
         },
         {
-          "title": "Global Tadqiqot Tarmog'i",
-          "desc": "Dunyo bo'ylab 50+ universitet va tadqiqot markazlari bilan faol hamkorlik"
+          "title": "95–96% ish bilan ta'minlanish",
+          "desc": "Bitiruvchilarning mutlaq ko'pchiligi o'z mutaxassisligi bo'yicha ishga joylashadi yoki o'z tadbirkorlik faoliyatini olib boradi."
         }
       ],
-      "readMoreBtn": "Tariximizni O'qing →",
+      "readMoreBtn": "Batafsil o'qish",
       "cards": [
         {
-          "label": "Tashkil Topgan",
-          "value": "1955",
-          "sub": "70 yillik an'ana"
+          "label": "Laboratoriyalar",
+          "value": "14",
+          "sub": "Muhandislik maktabi tarkibida"
+        },
+        {
+          "label": "Ilmiy lab.",
+          "value": "32",
+          "sub": "Innovatsion laboratoriyalar"
+        },
+        {
+          "label": "Ish bilan ta'minlanish",
+          "value": "95–96%",
+          "sub": "Bitiruvchilar orasida"
         },
         {
           "label": "Akkreditatsiya",
-          "value": "ISO",
-          "sub": "9001:2015 Sertifikat"
-        },
-        {
-          "label": "Tadqiqot Byudjeti",
-          "value": "$8M",
-          "sub": "Yillik R&D mablag'i"
-        },
-        {
-          "label": "Bitiruvchilar",
-          "value": "45K+",
-          "sub": "Global mutaxassislar"
+          "value": "ASIIN",
+          "sub": "Germaniya, 6 ta dastur"
         }
       ]
     },
@@ -165,28 +165,104 @@
       "viewAllBtn": "Barcha Yangiliklar →",
       "list": [
         {
-          "cat": "Tadqiqot",
-          "date": "10 Mart, 2026",
-          "title": "TATU tadqiqotchilari O'zbek tili uchun yangi AI modeli yaratdi",
-          "excerpt": "Sun'iy intellekt tadqiqot markazidagi jamoa O'zbek NLP testlarida 94% aniqlikka erishgan yangi transformer modelini e'lon qildi."
+          "id": 1,
+          "catKey": "innovation",
+          "cat": "Innovatsiya",
+          "date": "20 Iyun, 2024",
+          "title": "TATUda “Living Lab” va “Fab Lab” innovatsion hududlari tashkil etildi",
+          "excerpt": "Prezident topshirig'i asosida universitetda tashkil etilgan ushbu hududlar talaba-yoshlar uchun amaliy loyihalarni sinovdan o'tkazish imkonini beradi.",
+          "videoUrl": "https://youtu.be/iePRLlUe-Mc?si=PLtC7YGJtx3OFC6L",
+          "embedUrl": "https://www.youtube.com/embed/iePRLlUe-Mc"
         },
         {
-          "cat": "Hamkorlik",
-          "date": "5 Mart, 2026",
-          "title": "Samsung R&D bilan o'rnatilgan tizimlar laboratoriyasi shartnomasi imzolandi",
-          "excerpt": "TATU Muhandislik Maktabi va Samsung Electronics 5 yillik hamkorlik shartnomasini rasmiylashtirdi."
+          "id": 2,
+          "catKey": "education",
+          "cat": "Ta'lim",
+          "date": "2024",
+          "title": "TATUda 15 ta laboratoriyadan iborat Oliy muhandislik maktabi tashkil etildi",
+          "excerpt": "“Tarmoq – Korxona – Oliygoh” integratsiyasi doirasida tashkil etilgan ushbu maktab AKT sohasidagi yetakchi korxonalar bilan hamkorlikda malakali kadrlar tayyorlashga xizmat qiladi.",
+          "videoUrl": "https://youtu.be/ONJKbEfTheM",
+          "embedUrl": "https://www.youtube.com/embed/ONJKbEfTheM"
         },
         {
-          "cat": "Yutuq",
-          "date": "28 Fevral, 2026",
-          "title": "Talabalar Markaziy Osiyo Robototexnika Olimpiadasida 1-o'rinni egalladilar",
-          "excerpt": "To'rt nafar bakalavr talabadan iborat jamoa Olmaotada bo'lib o'tgan olimpiadada 14 mamlakatdan raqobatchilarni mag'lub etdi."
+          "id": 3,
+          "catKey": "education",
+          "cat": "Ta'lim",
+          "date": "13 Iyul, 2024",
+          "title": "TATUda Ilg‘or muhandislik maktabining ochilish marosimi bo‘lib o‘tdi",
+          "excerpt": "14 ta laboratoriyadan iborat kompleks ochildi. Unda dual ta’limni rivojlantirish va ilmiy tadqiqotlarni amaliyotga joriy etish ko‘zda tutilgan.",
+          "videoUrl": "https://youtu.be/n6mgxV3v95c",
+          "embedUrl": "https://www.youtube.com/embed/n6mgxV3v95c"
         },
         {
+          "id": 4,
+          "catKey": "event",
           "cat": "Tadbir",
-          "date": "20 Fevral, 2026",
-          "title": "Xalqaro Tech Summit 2026 TATU kampusida bo'lib o'tdi",
-          "excerpt": "2,000 dan ortiq muhandislar, tadqiqotchilar va sanoat vakillari uch kunlik anjumanga yig'ildi."
+          "date": "2026",
+          "title": "TATUda “The First International Students Forum TUIT-2026” forumi boshlandi",
+          "excerpt": "Xalqaro talabalar forumi doirasida kampus tur, startap xakaton va madaniy tadbirlarga start berildi.",
+          "videoUrl": "https://youtu.be/10A3STbLYSY",
+          "embedUrl": "https://www.youtube.com/embed/10A3STbLYSY"
+        },
+        {
+          "id": 5,
+          "catKey": "startup",
+          "cat": "Startap",
+          "date": "Aprel, 2026",
+          "title": "TATUda Startup Club o‘z ishini boshladi",
+          "excerpt": "Dasturiy injiniring fakultetida tashkil etilgan ushbu klub talabalarga o‘z g‘oyalarini biznesga aylantirish va MVP yaratishda yordam beradi.",
+          "videoUrl": "https://youtu.be/z9zxZdZHFhw",
+          "embedUrl": "https://www.youtube.com/embed/z9zxZdZHFhw"
+        },
+        {
+          "id": 6,
+          "catKey": "award",
+          "cat": "Mukofot",
+          "date": "1 Iyul, 2026",
+          "title": "“President Tech Award” tanloviga arizalar qabul qilinmoqda",
+          "excerpt": "Umumiy sovrin jamg‘armasi 1 million dollarni tashkil etuvchi ushbu tanlov startaplarni moliyaviy qo'llab-quvvatlaydi.",
+          "videoUrl": "https://youtu.be/BIXwuLZPgAc",
+          "embedUrl": "https://www.youtube.com/embed/BIXwuLZPgAc"
+        },
+        {
+          "id": 7,
+          "catKey": "event",
+          "cat": "Tadbir",
+          "date": "Mart, 2025",
+          "title": "TATUda “Spring JOB FAIR-2025” mehnat yarmarkasi o‘tkazildi",
+          "excerpt": "50 dan ortiq kompaniyalar ishtirok etgan yarmarkada talabalar uchun bo‘sh ish o‘rinlari va stajirovka dasturlari taqdim etildi.",
+          "videoUrl": "https://youtube.com/shorts/TXUorWwt3GM",
+          "embedUrl": "https://www.youtube.com/embed/TXUorWwt3GM"
+        },
+        {
+          "id": 8,
+          "catKey": "achievement",
+          "cat": "Yutuq",
+          "date": "29 Mart, 2026",
+          "title": "Raqamli texnologiyalar bo‘yicha “Oliygoh kubogi” yakunlandi",
+          "excerpt": "TATUda o‘tkazilgan ushbu nufuzli musobaqalarda iqtidorli talabalar dasturlash va sun'iy intellekt bo‘yicha bilimlarini sinovdan o'tkazishdi.",
+          "videoUrl": "https://youtu.be/XXEfpiznJKc",
+          "embedUrl": "https://www.youtube.com/embed/XXEfpiznJKc"
+        },
+        {
+          "id": 9,
+          "catKey": "startup",
+          "cat": "Startap",
+          "date": "29 Mart, 2026",
+          "title": "Unicorn-AI STARTUP tanlovining final bosqichi bo‘lib o‘tdi",
+          "excerpt": "68 ta jamoadan saralab olingan 37 ta eng kuchli jamoa o'z innovatsion loyihalarini ekspertlar oldida himoya qildi.",
+          "videoUrl": "https://youtube.com/shorts/r81kBgkcs9U",
+          "embedUrl": "https://www.youtube.com/embed/r81kBgkcs9U"
+        },
+        {
+          "id": 10,
+          "catKey": "event",
+          "cat": "Tadbir",
+          "date": "Mart, 2025",
+          "title": "TATUda 150 million so'm jamg'armaga ega “REKTOR KUBOGI” start olmoqda",
+          "excerpt": "Raqamli texnologiyalar bo'yicha 5 ta yo'nalishda o'tkaziladigan musobaqa iqtidorli talabalarni qo'llab-quvvatlashga qaratilgan.",
+          "videoUrl": "https://youtu.be/BIXwuLZPgAc",
+          "embedUrl": "https://www.youtube.com/embed/BIXwuLZPgAc"
         }
       ]
     },
@@ -679,35 +755,103 @@
     "list": [
       {
         "id": 1,
-        "catKey": "research",
-        "cat": "Tadqiqot",
-        "date": "10 Mart, 2026",
-        "title": "TATU tadqiqotchilari O'zbek tili uchun yangi AI modeli yaratdi",
-        "excerpt": "Sun'iy intellekt tadqiqot markazidagi jamoa O'zbek NLP testlarida 94% aniqlikka erishgan yangi transformer modelini e'lon qildi."
+        "catKey": "innovation",
+        "cat": "Innovatsiya",
+        "date": "20 Iyun, 2024",
+        "title": "TATUda “Living Lab” va “Fab Lab” innovatsion hududlari tashkil etildi",
+        "excerpt": "Prezident topshirig'i asosida universitetda tashkil etilgan ushbu hududlar talaba-yoshlar uchun amaliy loyihalarni sinovdan o'tkazish imkonini beradi.",
+        "videoUrl": "https://youtu.be/iePRLlUe-Mc?si=PLtC7YGJtx3OFC6L",
+        "embedUrl": "https://www.youtube.com/embed/iePRLlUe-Mc"
       },
       {
         "id": 2,
-        "catKey": "partner",
-        "cat": "Hamkorlik",
-        "date": "5 Mart, 2026",
-        "title": "Samsung R&D bilan o'rnatilgan tizimlar laboratoriyasi shartnomasi imzolandi",
-        "excerpt": "TATU Muhandislik Maktabi va Samsung Electronics 5 yillik hamkorlik shartnomasini rasmiylashtirdi."
+        "catKey": "education",
+        "cat": "Ta'lim",
+        "date": "2024",
+        "title": "TATUda 15 ta laboratoriyadan iborat Oliy muhandislik maktabi tashkil etildi",
+        "excerpt": "“Tarmoq – Korxona – Oliygoh” integratsiyasi doirasida tashkil etilgan ushbu maktab AKT sohasidagi yetakchi korxonalar bilan hamkorlikda malakali kadrlar tayyorlashga xizmat qiladi.",
+        "videoUrl": "https://youtu.be/ONJKbEfTheM",
+        "embedUrl": "https://www.youtube.com/embed/ONJKbEfTheM"
       },
       {
         "id": 3,
-        "catKey": "achievement",
-        "cat": "Yutuq",
-        "date": "28 Fevral, 2026",
-        "title": "Talabalar Markaziy Osiyo Robototexnika Olimpiadasida 1-o'rinni egalladilar",
-        "excerpt": "To'rt nafar bakalavr talabadan iborat jamoa Olmaotada bo'lib o'tgan olimpiadada 14 mamlakatdan raqobatchilarni mag'lub etdi."
+        "catKey": "education",
+        "cat": "Ta'lim",
+        "date": "13 Iyul, 2024",
+        "title": "TATUda Ilg‘or muhandislik maktabining ochilish marosimi bo‘lib o‘tdi",
+        "excerpt": "14 ta laboratoriyadan iborat kompleks ochildi. Unda dual ta’limni rivojlantirish va ilmiy tadqiqotlarni amaliyotga joriy etish ko‘zda tutilgan.",
+        "videoUrl": "https://youtu.be/n6mgxV3v95c",
+        "embedUrl": "https://www.youtube.com/embed/n6mgxV3v95c"
       },
       {
         "id": 4,
         "catKey": "event",
         "cat": "Tadbir",
-        "date": "20 Fevral, 2026",
-        "title": "Xalqaro Tech Summit 2026 TATU kampusida bo'lib o'tdi",
-        "excerpt": "2,000 dan ortiq muhandislar, tadqiqotchilar va sanoat vakillari uch kunlik anjumanga yig'ildi."
+        "date": "2026",
+        "title": "TATUda “The First International Students Forum TUIT-2026” forumi boshlandi",
+        "excerpt": "Xalqaro talabalar forumi doirasida kampus tur, startap xakaton va madaniy tadbirlarga start berildi.",
+        "videoUrl": "https://youtu.be/10A3STbLYSY",
+        "embedUrl": "https://www.youtube.com/embed/10A3STbLYSY"
+      },
+      {
+        "id": 5,
+        "catKey": "startup",
+        "cat": "Startap",
+        "date": "Aprel, 2026",
+        "title": "TATUda Startup Club o‘z ishini boshladi",
+        "excerpt": "Dasturiy injiniring fakultetida tashkil etilgan ushbu klub talabalarga o‘z g‘oyalarini biznesga aylantirish va MVP yaratishda yordam beradi.",
+        "videoUrl": "https://youtu.be/z9zxZdZHFhw",
+        "embedUrl": "https://www.youtube.com/embed/z9zxZdZHFhw"
+      },
+      {
+        "id": 6,
+        "catKey": "award",
+        "cat": "Mukofot",
+        "date": "1 Iyul, 2026",
+        "title": "“President Tech Award” tanloviga arizalar qabul qilinmoqda",
+        "excerpt": "Umumiy sovrin jamg‘armasi 1 million dollarni tashkil etuvchi ushbu tanlov startaplarni moliyaviy qo'llab-quvvatlaydi.",
+        "videoUrl": "https://youtu.be/BIXwuLZPgAc",
+        "embedUrl": "https://www.youtube.com/embed/BIXwuLZPgAc"
+      },
+      {
+        "id": 7,
+        "catKey": "event",
+        "cat": "Tadbir",
+        "date": "Mart, 2025",
+        "title": "TATUda “Spring JOB FAIR-2025” mehnat yarmarkasi o‘tkazildi",
+        "excerpt": "50 dan ortiq kompaniyalar ishtirok etgan yarmarkada talabalar uchun bo‘sh ish o‘rinlari va stajirovka dasturlari taqdim etildi.",
+        "videoUrl": "https://youtube.com/shorts/TXUorWwt3GM",
+        "embedUrl": "https://www.youtube.com/embed/TXUorWwt3GM"
+      },
+      {
+        "id": 8,
+        "catKey": "achievement",
+        "cat": "Yutuq",
+        "date": "29 Mart, 2026",
+        "title": "Raqamli texnologiyalar bo‘yicha “Oliygoh kubogi” yakunlandi",
+        "excerpt": "TATUda o‘tkazilgan ushbu nufuzli musobaqalarda iqtidorli talabalar dasturlash va sun'iy intellekt bo‘yicha bilimlarini sinovdan o'tkazishdi.",
+        "videoUrl": "https://youtu.be/XXEfpiznJKc",
+        "embedUrl": "https://www.youtube.com/embed/XXEfpiznJKc"
+      },
+      {
+        "id": 9,
+        "catKey": "startup",
+        "cat": "Startap",
+        "date": "29 Mart, 2026",
+        "title": "Unicorn-AI STARTUP tanlovining final bosqichi bo‘lib o‘tdi",
+        "excerpt": "68 ta jamoadan saralab olingan 37 ta eng kuchli jamoa o'z innovatsion loyihalarini ekspertlar oldida himoya qildi.",
+        "videoUrl": "https://youtube.com/shorts/r81kBgkcs9U",
+        "embedUrl": "https://www.youtube.com/embed/r81kBgkcs9U"
+      },
+      {
+        "id": 10,
+        "catKey": "event",
+        "cat": "Tadbir",
+        "date": "Mart, 2025",
+        "title": "TATUda 150 million so'm jamg'armaga ega “REKTOR KUBOGI” start olmoqda",
+        "excerpt": "Raqamli texnologiyalar bo'yicha 5 ta yo'nalishda o'tkaziladigan musobaqa iqtidorli talabalarni qo'llab-quvvatlashga qaratilgan.",
+        "videoUrl": "https://youtu.be/BIXwuLZPgAc",
+        "embedUrl": "https://www.youtube.com/embed/BIXwuLZPgAc"
       }
     ]
   },
