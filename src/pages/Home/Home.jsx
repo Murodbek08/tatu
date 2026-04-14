@@ -1,7 +1,3 @@
-// pages/Home/Home.jsx
-// ✅ Framer Motion bilan to'liq animatsiyalangan versiya
-// FIX: Responsivda horizontal scroll muammosi bartaraf etildi
-
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SectionLabel from "../../components/ui/SectionLabel";
@@ -17,6 +13,9 @@ import {
   Globe,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import request from "../../api";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const PARTNERS = [
   "Uzbektelecom",
@@ -103,7 +102,65 @@ const heroCardRight = {
 };
 
 function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [latestPrograms, setLatestPrograms] = useState([]);
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 1. Bazadan oxirgi dasturlarni olish
+  useEffect(() => {
+    const getPrograms = async () => {
+      try {
+        setLoading(true);
+        // Faqat oxirgi 3 ta dasturni olish (limit=3)
+        const res = await request.get(
+          "/academic_programs?select=*&order=id.desc&limit=3",
+        );
+        setLatestPrograms(res.data);
+      } catch (err) {
+        console.error("Home Programs Error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getPrograms();
+  }, []);
+
+  // Tags uchun yordamchi funksiya
+  const getTagsArray = (tagsData) => {
+    if (!tagsData) return [];
+    if (Array.isArray(tagsData)) return tagsData;
+    return typeof tagsData === "string"
+      ? tagsData.split(",").filter(Boolean)
+      : [];
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        // 1. Yangiliklarni olish (oxirgi 3 ta)
+        const newsRes = await request.get(
+          "/news?select=*&order=created_at.desc&limit=3",
+        );
+        setNews(newsRes.data || []);
+      } catch (error) {
+        console.error("Data fetching error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const extractVideoId = (url) => {
+    if (!url) return null;
+    const match = url.match(/embed\/([^?&]+)/) || url.match(/v=([^?&]+)/);
+    return match ? match[1] : null;
+  };
+
+  if (loading) return <div className="py-20 text-center">Yuklanmoqda...</div>;
 
   return (
     // ⬇️ overflow-x-hidden — butun sahifada gorizontal scroll yo'q
@@ -456,85 +513,102 @@ function Home() {
             </div>
           </AnimatedSection>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12"
-          >
-            {t("home.programs.list", { returnObjects: true }).map(
-              (prog, index) => {
-                const meta = PROGRAMS_META[index];
+          {loading ? (
+            <div className="flex justify-center py-10">
+              <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+          ) : (
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12"
+            >
+              {latestPrograms.map((prog) => {
+                // Har bir karta uchun asosiy rang
+                const accentColor = prog.bg_color || "#3b82f6";
+
                 return (
-                  <motion.div key={meta.id} variants={fadeUpItem}>
+                  <motion.div key={prog.id} variants={fadeUpItem}>
                     <Link
-                      to={"programs"}
+                      to={"/programs"}
                       className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-transparent block"
-                      style={{ "--accent": meta.hex }}
                     >
+                      {/* Tepasidagi rangli chiziq */}
                       <div
                         className="h-1 w-full"
-                        style={{ background: meta.hex + "40" }}
+                        style={{ background: accentColor + "40" }}
                       />
                       <div
                         className="h-1 w-full -mt-1 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
-                        style={{ background: meta.hex }}
+                        style={{ background: accentColor }}
                       />
+
                       <div className="p-7">
                         <div className="flex justify-between items-start mb-5">
                           <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300"
-                            style={{ background: meta.hex + "1a" }}
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300 shadow-inner border border-slate-50"
+                            style={{ background: accentColor + "1a" }}
                           >
-                            {meta.icon}
+                            {prog.icon_url || "🎓"}
                           </div>
                           <span
-                            className="text-[11px] font-black px-2.5 py-1.5 rounded-lg tracking-widest"
+                            className="text-[11px] font-black px-2.5 py-1.5 rounded-lg tracking-widest uppercase"
                             style={{
-                              background: meta.hex + "15",
-                              color: meta.hex,
+                              background: accentColor + "15",
+                              color: accentColor,
                             }}
                           >
-                            {meta.code}
+                            {prog.category_short || "NEW"}
                           </span>
                         </div>
-                        <h3 className="text-[16px] font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
-                          {prog.title}
+
+                        <h3 className="text-[17px] font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
+                          {prog[`name_${i18n.language}`] || prog.name_uz}
                         </h3>
-                        <p className="text-slate-500 text-[13px] leading-relaxed mb-4">
-                          {prog.desc}
+
+                        <p className="text-slate-500 text-[13px] leading-relaxed mb-4 line-clamp-2">
+                          {prog[`desc_${i18n.language}`] || prog.desc_uz}
                         </p>
-                        <div className="flex flex-wrap gap-1.5 mb-5">
-                          {prog.tags.map((tag) => (
+
+                        {/* Teglar */}
+                        <div className="flex flex-wrap gap-1.5 mb-5 min-h-[28px]">
+                          {getTagsArray(prog.tags).map((tag, idx) => (
                             <span
-                              key={tag}
+                              key={idx}
                               className="text-[11px] font-bold px-2.5 py-1 rounded-full"
                               style={{
-                                background: meta.hex + "12",
-                                color: meta.hex,
+                                background: accentColor + "12",
+                                color: accentColor,
                               }}
                             >
                               {tag}
                             </span>
                           ))}
                         </div>
-                        <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-[12px] text-slate-400">
-                          <span>🎓 {prog.degree}</span>
-                          <span>⏱ {prog.duration}</span>
+
+                        {/* Pastki qism */}
+                        <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-[12px] text-slate-400 font-bold">
+                          <span className="flex items-center gap-1.5">
+                            🎓 {prog.level}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            ⏱ {prog.duration}
+                          </span>
                         </div>
                       </div>
                     </Link>
                   </motion.div>
                 );
-              },
-            )}
-          </motion.div>
+              })}
+            </motion.div>
+          )}
 
           <AnimatedSection delay={0.2}>
             <div className="text-center">
               <Link
-                to={"programs"}
+                to={"/programs"}
                 className="border-2 border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-all duration-200"
               >
                 {t("home.programs.viewAllBtn")}
@@ -549,63 +623,71 @@ function Home() {
       ══════════════════════════════════════════ */}
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-16">
-          {/* News */}
+          {/* ————— YANGILIKLAR (DINAMIK, LOADINGSIZ) ————— */}
           <div className="overflow-hidden">
             <AnimatedSection direction="left">
               <div>
                 <SectionLabel>{t("home.news.sectionLabel")}</SectionLabel>
                 <SectionTitle>{t("home.news.title")}</SectionTitle>
+
                 <div className="mt-8 space-y-5">
-                  {t("news.list", { returnObjects: true })
-                    .slice(0, 3)
-                    .map((item) => {
-                      const meta = NEWS_META[item.catKey] || {
-                        icon: "📰",
-                        color: "bg-slate-100 text-slate-600",
-                      };
-                      return (
-                        <Link
-                          to={`/news/${item.id}`}
-                          key={item.id}
-                          className="flex gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl border border-slate-200 cursor-pointer group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
-                        >
-                          <div className="w-20 sm:w-24 shrink-0 rounded-xl overflow-hidden bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center text-3xl sm:text-4xl aspect-video sm:aspect-auto sm:h-20">
-                            {item.embedUrl ? (
-                              <img
-                                src={`https://img.youtube.com/vi/${item.embedUrl.split("/embed/")[1]}/mqdefault.jpg`}
-                                alt={item.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            ) : (
-                              meta.icon
-                            )}
+                  {news.map((item) => {
+                    const meta = NEWS_META[item.cat_key] || {
+                      icon: "📰",
+                      color: "bg-slate-100 text-slate-600",
+                    };
+                    const title =
+                      item[`title_${i18n.language}`] || item.title_uz;
+                    const excerpt =
+                      item[`excerpt_${i18n.language}`] || item.excerpt_uz;
+                    const category =
+                      item[`cat_${i18n.language}`] || item.cat_uz;
+
+                    return (
+                      <Link
+                        to={`/news/${item.id}`}
+                        key={item.id}
+                        className="flex gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl border border-slate-200 group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                      >
+                        <div className="w-20 sm:w-24 shrink-0 rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center text-3xl aspect-video sm:h-20">
+                          {item.embed_url ? (
+                            <img
+                              src={`https://img.youtube.com/vi/${extractVideoId(item.embed_url)}/mqdefault.jpg`}
+                              alt=""
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            />
+                          ) : (
+                            <span className="opacity-30">{meta.icon}</span>
+                          )}
+                        </div>
+
+                        <div className="min-w-0 flex flex-col justify-center">
+                          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                            <span
+                              className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide ${meta.color}`}
+                            >
+                              {category}
+                            </span>
+                            <span className="text-[10px] text-slate-400">
+                              {item.date_label}
+                            </span>
                           </div>
-                          <div className="min-w-0 flex flex-col justify-center">
-                            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                              <span
-                                className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wide ${meta.color}`}
-                              >
-                                {item.cat}
-                              </span>
-                              <span className="text-[10px] sm:text-[11px] text-slate-400">
-                                {item.date}
-                              </span>
-                            </div>
-                            <h4 className="text-[14px] sm:text-[15px] font-extrabold text-slate-900 mb-1 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">
-                              {item.title}
-                            </h4>
-                            <p className="text-[12px] sm:text-[13px] text-slate-500 leading-relaxed line-clamp-2 hidden sm:block">
-                              {item.excerpt}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
+                          <h4 className="text-[14px] sm:text-[15px] font-extrabold text-slate-900 mb-1 leading-snug group-hover:text-blue-700 line-clamp-2">
+                            {title}
+                          </h4>
+                          <p className="text-[12px] text-slate-500 leading-relaxed line-clamp-2 hidden sm:block">
+                            {excerpt}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
+
                 <div className="mt-6">
                   <Link
                     to="/news"
-                    className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all duration-150"
+                    className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all"
                   >
                     {t("home.news.viewAllBtn")}
                   </Link>
@@ -614,38 +696,34 @@ function Home() {
             </AnimatedSection>
           </div>
 
-          {/* Events */}
+          {/* ————— TADBIRLAR (STATIK) ————— */}
           <div className="overflow-hidden">
             <AnimatedSection direction="right" delay={0.15}>
               <div>
                 <SectionLabel>{t("home.events.sectionLabel")}</SectionLabel>
                 <SectionTitle>{t("home.events.title")}</SectionTitle>
+
                 <div className="mt-8 space-y-3">
                   {t("home.events.list", { returnObjects: true }).map(
                     (ev, i) => (
                       <motion.div
                         key={i}
                         whileHover={{ x: 4 }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 25,
-                        }}
-                        className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer transition-colors group"
+                        className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer group"
                       >
-                        <div className="bg-[#0a1628] text-white rounded-xl px-3 sm:px-3.5 py-2 sm:py-2.5 text-center shrink-0 min-w-12 sm:min-w-14">
-                          <p className="font-black text-base sm:text-lg leading-none">
+                        <div className="bg-[#0a1628] text-white rounded-xl px-3 py-2 text-center shrink-0 min-w-14">
+                          <p className="font-black text-lg leading-none">
                             {ev.date.split(" ")[1]}
                           </p>
-                          <p className="text-white/50 text-[9px] sm:text-[10px] uppercase mt-0.5">
+                          <p className="text-white/50 text-[10px] uppercase mt-0.5">
                             {ev.date.split(" ")[0]}
                           </p>
                         </div>
                         <div className="min-w-0">
-                          <p className="text-[13px] sm:text-[14px] font-extrabold text-slate-900 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">
+                          <p className="text-[13px] sm:text-[14px] font-extrabold text-slate-900 leading-snug group-hover:text-blue-700 line-clamp-2">
                             {ev.title}
                           </p>
-                          <p className="text-amber-600 text-[11px] sm:text-[12px] font-bold mt-1">
+                          <p className="text-amber-600 text-[11px] font-bold mt-1">
                             {ev.type}
                           </p>
                         </div>

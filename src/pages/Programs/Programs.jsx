@@ -5,7 +5,7 @@ import request from "../../api";
 import PageHero from "../../components/ui/PageHero";
 import { Clock, GraduationCap } from "lucide-react";
 
-// 1. Sinonimlar lug'ati: Filtr kalitini backenddagi turli xil yozilishlar bilan bog'laymiz
+// Sinonimlar lug'ati (Filtr uchun)
 const LEVEL_MAP = {
   Bachelor: ["bachelor", "bakalavr", "бакалавр"],
   Master: ["master", "magistr", "магистр"],
@@ -15,46 +15,83 @@ const LEVEL_MAP = {
 const ProgramCard = ({ prog, lang }) => {
   const cardColor = prog.bg_color || "#4f46e5";
 
+  const getTagsArray = (tagsData) => {
+    if (!tagsData) return [];
+    if (Array.isArray(tagsData)) return tagsData;
+    if (typeof tagsData === "string")
+      return tagsData
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean);
+    if (typeof tagsData === "object") return Object.values(tagsData);
+    return [];
+  };
+
+  const hex2rgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  };
+
   return (
     <motion.div
       layout
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
-      whileHover={{ y: -8 }}
-      className="bg-white rounded-[32px] border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+      whileHover={{ y: -6 }}
+      className="bg-white rounded-[20px] border border-slate-100 overflow-hidden shadow-sm hover:shadow-2xl hover:border-transparent transition-all duration-300 cursor-pointer group"
     >
+      {/* Top bar */}
       <div
-        className="p-8 text-white relative"
+        className="h-[3px] w-full"
+        style={{ background: hex2rgba(cardColor, 0.22) }}
+      />
+      <div
+        className="h-[3px] w-full -mt-[3px] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
         style={{ background: cardColor }}
-      >
-        <div className="flex justify-between items-start mb-8">
-          <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-[20px] flex items-center justify-center text-3xl shadow-lg">
-            {prog.icon || "🎓"}
+      />
+
+      <div className="p-[22px]">
+        {/* Icon + Badge */}
+        <div className="flex justify-between items-start mb-[18px]">
+          <div
+            className="w-[52px] h-[52px] rounded-[14px] flex items-center justify-center text-[26px] border border-slate-100 group-hover:scale-110 transition-transform duration-300"
+            style={{ background: hex2rgba(cardColor, 0.1) }}
+          >
+            {prog.icon_url || "🎓"}
           </div>
-          <div className="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-xl text-[10px] font-black tracking-widest uppercase border border-white/10">
-            {prog.category_code}
-          </div>
+          <span
+            className="text-[10px] font-medium px-[10px] py-1 rounded-lg tracking-widest uppercase"
+            style={{
+              background: hex2rgba(cardColor, 0.12),
+              color: cardColor,
+            }}
+          >
+            {prog.category_short || "NEW"}
+          </span>
         </div>
-        <h3 className="text-[21px] font-bold leading-tight mb-2">
+
+        {/* Title */}
+        <h3 className="text-[16px] font-medium text-slate-900 mb-1.5 leading-snug group-hover:opacity-80 transition-opacity">
           {prog[`name_${lang}`] || prog.name_uz}
         </h3>
-      </div>
 
-      <div className="p-8">
-        <p className="text-slate-500 text-[15px] leading-relaxed mb-6 line-clamp-2">
+        {/* Description */}
+        <p className="text-slate-500 text-[13px] leading-relaxed mb-[14px] line-clamp-2">
           {prog[`desc_${lang}`] || prog.desc_uz}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-8">
-          {prog.tags?.map((tag) => (
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-4 min-h-[24px]">
+          {getTagsArray(prog.tags).map((tag, idx) => (
             <span
-              key={tag}
-              className="px-3 py-1 text-[11px] font-bold rounded-full border uppercase"
+              key={idx}
+              className="text-[11px] font-medium px-2.5 py-1 rounded-full"
               style={{
-                backgroundColor: `${cardColor}10`,
+                background: hex2rgba(cardColor, 0.1),
                 color: cardColor,
-                borderColor: `${cardColor}20`,
               }}
             >
               {tag}
@@ -62,13 +99,14 @@ const ProgramCard = ({ prog, lang }) => {
           ))}
         </div>
 
-        <div className="flex justify-between items-center pt-5 border-t border-slate-100 text-[13px] text-slate-400 font-bold">
-          <div className="flex items-center gap-2">
-            <GraduationCap size={18} />
+        {/* Meta */}
+        <div className="flex justify-between items-center pt-[14px] border-t border-slate-100 text-[12px] text-slate-400 font-medium">
+          <div className="flex items-center gap-1.5">
+            <GraduationCap size={15} className="text-slate-300" />
             <span>{prog.level}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Clock size={18} />
+          <div className="flex items-center gap-1.5">
+            <Clock size={15} className="text-slate-300" />
             <span>{prog.duration}</span>
           </div>
         </div>
@@ -100,16 +138,11 @@ export default function Programs() {
     fetchData();
   }, []);
 
-  // 2. Kuchaytirilgan filtr logikasi
+  // Filtr logikasi
   const filteredPrograms = programs.filter((p) => {
     if (filter === "all") return true;
-
     const backendLevel = String(p.level || "").toLowerCase();
-
-    // Lug'atdan mos sinonimlarni olamiz, agar lug'atda bo'lmasa filtrning o'zini ishlatamiz
     const synonyms = LEVEL_MAP[filter] || [filter.toLowerCase()];
-
-    // Backend matni (masalan: "Bakalavr / Magistr") ichida sinonimlardan birontasi bormi?
     return synonyms.some((syn) => backendLevel.includes(syn));
   });
 
@@ -121,9 +154,10 @@ export default function Programs() {
         subtitle={t("programs.hero.subtitle")}
       />
 
+      {/* Filtrlar paneli */}
       <div className="bg-[#0d1f3c] sticky top-0 z-30 shadow-xl overflow-x-auto no-scrollbar">
         <div className="max-w-7xl mx-auto px-6 py-4 flex gap-3">
-          {t("programs.filters", { returnObjects: true }).map((f) => (
+          {(t("programs.filters", { returnObjects: true }) || []).map((f) => (
             <button
               key={f.key}
               onClick={() => setFilter(f.key)}
@@ -133,9 +167,7 @@ export default function Programs() {
                   : "text-white/40 hover:text-white bg-white/5"
               }`}
             >
-              <span className="relative z-10 tracking-widest">
-                {f.label}
-              </span>
+              <span className="relative z-10 tracking-widest">{f.label}</span>
               {filter === f.key && (
                 <motion.div
                   layoutId="activeFilter"
@@ -148,6 +180,7 @@ export default function Programs() {
         </div>
       </div>
 
+      {/* Kartalar gridi */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         {loading ? (
           <div className="flex justify-center py-20">
