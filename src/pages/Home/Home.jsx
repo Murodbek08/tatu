@@ -105,28 +105,22 @@ function Home() {
   const { t, i18n } = useTranslation();
   const [latestPrograms, setLatestPrograms] = useState([]);
   const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  // 1. Bazadan oxirgi dasturlarni olish
   useEffect(() => {
     const getPrograms = async () => {
       try {
-        setLoading(true);
-        // Faqat oxirgi 3 ta dasturni olish (limit=3)
+        // setLoading(true); // Olib tashlandi
         const res = await request.get(
           "/academic_programs?select=*&order=id.desc&limit=3",
         );
         setLatestPrograms(res.data);
       } catch (err) {
         console.error("Home Programs Error:", err);
-      } finally {
-        setLoading(false);
       }
     };
     getPrograms();
   }, []);
 
-  // Tags uchun yordamchi funksiya
   const getTagsArray = (tagsData) => {
     if (!tagsData) return [];
     if (Array.isArray(tagsData)) return tagsData;
@@ -138,16 +132,13 @@ function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-        // 1. Yangiliklarni olish (oxirgi 3 ta)
+        // setLoading(true); // Olib tashlandi
         const newsRes = await request.get(
           "/news?select=*&order=created_at.desc&limit=3",
         );
         setNews(newsRes.data || []);
       } catch (error) {
         console.error("Data fetching error:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -159,8 +150,6 @@ function Home() {
     const match = url.match(/embed\/([^?&]+)/) || url.match(/v=([^?&]+)/);
     return match ? match[1] : null;
   };
-
-  if (loading) return <div className="py-20 text-center">Yuklanmoqda...</div>;
 
   return (
     // ⬇️ overflow-x-hidden — butun sahifada gorizontal scroll yo'q
@@ -501,8 +490,8 @@ function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PROGRAMS
-      ══════════════════════════════════════════ */}
+    PROGRAMS SECTION
+══════════════════════════════════════════ */}
       <section className="bg-slate-50 py-24">
         <div className="max-w-7xl mx-auto px-6">
           <AnimatedSection>
@@ -513,105 +502,124 @@ function Home() {
             </div>
           </AnimatedSection>
 
-          {loading ? (
-            <div className="flex justify-center py-10">
-              <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
-            </div>
-          ) : (
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12"
-            >
-              {latestPrograms.map((prog) => {
-                // Har bir karta uchun asosiy rang
-                const accentColor = prog.bg_color || "#3b82f6";
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12"
+          >
+            {latestPrograms.map((prog) => {
+              // Har bir dastur uchun bazadan rang kelmasa, standart ko'k rang ishlatiladi
+              const accentColor = prog.bg_color || "#3b82f6";
 
-                return (
-                  <motion.div key={prog.id} variants={fadeUpItem}>
-                    <Link
-                      to={"/programs"}
-                      className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-transparent block"
-                    >
-                      {/* Tepasidagi rangli chiziq */}
-                      <div
-                        className="h-1 w-full"
-                        style={{ background: accentColor + "40" }}
-                      />
-                      <div
-                        className="h-1 w-full -mt-1 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
-                        style={{ background: accentColor }}
-                      />
+              // Tilga mos nom va tavsifni tanlash
+              const currentName = prog[`name_${i18n.language}`] || prog.name_uz;
+              const currentDesc = prog[`desc_${i18n.language}`] || prog.desc_uz;
 
-                      <div className="p-7">
-                        <div className="flex justify-between items-start mb-5">
-                          <div
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300 shadow-inner border border-slate-50"
-                            style={{ background: accentColor + "1a" }}
-                          >
-                            {prog.icon_url || "🎓"}
-                          </div>
+              return (
+                <motion.div key={prog.id} variants={fadeUpItem}>
+                  <Link
+                    to={`/programs/${prog.id}`}
+                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-transparent block"
+                  >
+                    {/* Dekorativ chiziqlar */}
+                    <div
+                      className="h-1.5 w-full"
+                      style={{ background: `${accentColor}20` }} // 20% shaffoflik
+                    />
+                    <div
+                      className="h-1.5 w-full -mt-1.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"
+                      style={{ background: accentColor }}
+                    />
+
+                    <div className="p-8">
+                      <div className="flex justify-between items-start mb-6">
+                        {/* Icon qismi */}
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl group-hover:rotate-6 transition-transform duration-300 shadow-sm border border-slate-50"
+                          style={{
+                            background: `${accentColor}10`,
+                            color: accentColor,
+                          }}
+                        >
+                          {prog.icon_url || "🎓"}
+                        </div>
+
+                        {/* Kategoriya bage-i */}
+                        <span
+                          className="text-[10px] font-black px-3 py-1.5 rounded-lg tracking-widest uppercase"
+                          style={{
+                            background: `${accentColor}15`,
+                            color: accentColor,
+                          }}
+                        >
+                          {prog.category_short || "DEGREE"}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-extrabold text-slate-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors">
+                        {currentName}
+                      </h3>
+
+                      <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                        {currentDesc}
+                      </p>
+
+                      {/* Teglar (Tags) */}
+                      <div className="flex flex-wrap gap-2 mb-8 min-h-[32px]">
+                        {getTagsArray(prog.tags).map((tag, idx) => (
                           <span
-                            className="text-[11px] font-black px-2.5 py-1.5 rounded-lg tracking-widest uppercase"
+                            key={idx}
+                            className="text-[11px] font-bold px-3 py-1 rounded-full border"
                             style={{
-                              background: accentColor + "15",
+                              borderColor: `${accentColor}30`,
+                              background: `${accentColor}05`,
                               color: accentColor,
                             }}
                           >
-                            {prog.category_short || "NEW"}
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Pastki ma'lumotlar paneli */}
+                      <div className="flex justify-between items-center pt-5 border-t border-slate-100">
+                        <div className="flex flex-col">
+                          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+                            Daraja
+                          </span>
+                          <span className="text-sm font-bold text-slate-700">
+                            {prog.level || "Bakalavr"}
                           </span>
                         </div>
-
-                        <h3 className="text-[17px] font-extrabold text-slate-900 mb-2 leading-snug group-hover:text-blue-700 transition-colors">
-                          {prog[`name_${i18n.language}`] || prog.name_uz}
-                        </h3>
-
-                        <p className="text-slate-500 text-[13px] leading-relaxed mb-4 line-clamp-2">
-                          {prog[`desc_${i18n.language}`] || prog.desc_uz}
-                        </p>
-
-                        {/* Teglar */}
-                        <div className="flex flex-wrap gap-1.5 mb-5 min-h-[28px]">
-                          {getTagsArray(prog.tags).map((tag, idx) => (
-                            <span
-                              key={idx}
-                              className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                              style={{
-                                background: accentColor + "12",
-                                color: accentColor,
-                              }}
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Pastki qism */}
-                        <div className="flex justify-between items-center pt-4 border-t border-slate-100 text-[12px] text-slate-400 font-bold">
-                          <span className="flex items-center gap-1.5">
-                            🎓 {prog.level}
+                        <div className="flex flex-col text-right">
+                          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+                            Davomiyligi
                           </span>
-                          <span className="flex items-center gap-1.5">
-                            ⏱ {prog.duration}
+                          <span className="text-sm font-bold text-slate-700">
+                            {prog.duration || "4 yil"}
                           </span>
                         </div>
                       </div>
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          )}
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
 
+          {/* Barcha dasturlarni ko'rish tugmasi */}
           <AnimatedSection delay={0.2}>
             <div className="text-center">
               <Link
-                to={"/programs"}
-                className="border-2 border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-all duration-200"
+                to="/programs"
+                className="inline-flex items-center gap-2 border-2 border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white font-bold text-base px-12 py-4 rounded-xl transition-all duration-300 group"
               >
                 {t("home.programs.viewAllBtn")}
+                <span className="group-hover:translate-x-1 transition-transform">
+                  →
+                </span>
               </Link>
             </div>
           </AnimatedSection>
