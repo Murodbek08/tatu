@@ -81,6 +81,7 @@ function Home() {
   const [latestPrograms, setLatestPrograms] = useState([]);
   const [facultyPreview, setFacultyPreview] = useState([]);
   const [news, setNews] = useState([]);
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const getPrograms = async () => {
@@ -152,6 +153,7 @@ function Home() {
       ══════════════════════════════════════════ */}
       <section className="relative min-h-screen bg-[#0a1628] flex items-center overflow-hidden">
         {/* Background grid */}
+
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
