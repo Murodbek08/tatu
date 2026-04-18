@@ -220,12 +220,17 @@ function Faculty() {
                     {getField(m, "research")}
                   </p>
                 </div>
-
                 <div className="flex justify-between items-center">
                   <span className="flex items-center gap-1.5 text-xs text-slate-400">
                     <FileText size={13} /> {m.pubs} {t("faculty.pubsLabel")}
                   </span>
                   <button
+                    // Tugmaga mantiq qo'shildi:
+                    onClick={(e) => {
+                      e.stopPropagation(); // Card'ning onClick hodisasi bilan to'qnashmasligi uchun
+                      setSelectedStaff(m);
+                      setShowContact(false);
+                    }}
                     className={`${m.avatar_cls} text-white text-[12px] font-bold px-4 py-1.5 rounded-lg hover:opacity-90 transition-opacity`}
                   >
                     {t("faculty.profileBtn")}
