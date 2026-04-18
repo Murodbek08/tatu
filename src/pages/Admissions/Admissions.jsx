@@ -1,59 +1,96 @@
-// pages/Admissions/Admissions.jsx — animatsiyalangan versiya
-// Steps: ketma-ket chiqadi | Form: slide transition step o'tishda | Cards: hover
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { supabase } from "../../supabaseClient";
+import request from "../../api";
+
 import PageHero from "../../components/ui/PageHero";
 import SectionLabel from "../../components/ui/SectionLabel";
 import SectionTitle from "../../components/ui/SectionTitle";
 import AnimatedSection from "../../components/ui/AnimatedSection";
-import { useTranslation } from "react-i18next";
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
-function Admissions() {
+export default function Admissions() {
   const { t } = useTranslation();
   const [step, setStep] = useState(0);
-  const [direction, setDirection] = useState(1); // 1: forward, -1: back
+  const [direction, setDirection] = useState(1);
+  const [loading, setLoading] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     program: "",
   });
-  const set = (f, v) => setForm((p) => ({ ...p, [f]: v }));
+  const [files, setFiles] = useState({ passport: null, diploma: null });
 
   const steps = t("admissions.form.steps", { returnObjects: true });
 
   const goTo = (next) => {
+    // Har bir stepdan o'tishda tekshirish (Validatsiya)
+    if (next > step) {
+      if (step === 0 && (!form.name || !form.email || !form.phone)) {
+        return alert("Iltimos, barcha maydonlarni to'ldiring!");
+      }
+      if (step === 1 && !form.program) {
+        return alert("Iltimos, ta'lim yo'nalishini tanlang!");
+      }
+      if (step === 2 && (!files.passport || !files.diploma)) {
+        return alert("Iltimos, barcha hujjatlarni yuklang!");
+      }
+    }
     setDirection(next > step ? 1 : -1);
     setStep(next);
   };
 
-  // Slide variants for form steps
-  const slideVariants = {
-    enter: (d) => ({ opacity: 0, x: d > 0 ? 40 : -40 }),
-    center: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
-    },
-    exit: (d) => ({
-      opacity: 0,
-      x: d > 0 ? -40 : 40,
-      transition: { duration: 0.25 },
-    }),
+  const handleFileChange = (e, type) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024)
+        return alert("Fayl hajmi 5MB dan oshmasligi kerak");
+      setFiles((prev) => ({ ...prev, [type]: file }));
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      setLoading(true);
+      const urls = { passport_url: null, diploma_url: null };
+
+      // 1. Fayllarni yuklash (Majburiy)
+      for (const key of ["passport", "diploma"]) {
+        const file = files[key];
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Date.now()}_${key}.${fileExt}`;
+
+        const { error: uploadError } = await supabase.storage
+          .from("admissions")
+          .upload(fileName, file);
+
+        if (uploadError) throw uploadError;
+
+        const { data } = supabase.storage
+          .from("admissions")
+          .getPublicUrl(fileName);
+        urls[`${key}_url`] = data.publicUrl;
+      }
+
+      // 2. Bazaga yozish
+      await request.post("/admissions", {
+        full_name: form.name,
+        email: form.email,
+        phone: form.phone,
+        program: form.program,
+        ...urls,
+      });
+
+      alert("Arizangiz muvaffaqiyatli yuborildi!");
+      window.location.reload(); // Sahifani yangilash
+    } catch (err) {
+      console.error(err);
+      alert("Xatolik yuz berdi. Iltimos qaytadan urinib ko'ring.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -67,7 +104,7 @@ function Admissions() {
       <div className="bg-slate-50 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 xl:grid-cols-[1fr_460px] gap-16">
-            {/* ── Left: Steps ── */}
+            {/* Chap tomon: Ma'lumotlar (UI saqlab qolindi) */}
             <div>
               <AnimatedSection direction="left">
                 <SectionLabel>
@@ -78,317 +115,253 @@ function Admissions() {
                 </div>
               </AnimatedSection>
 
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                className="space-y-7 mb-14"
-              >
+              <div className="space-y-7 mb-14">
                 {t("admissions.steps.list", { returnObjects: true }).map(
                   (s) => (
-                    <motion.div
-                      key={s.n}
-                      variants={fadeUp}
-                      className="flex gap-5 items-start"
-                    >
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: -4 }}
-                        transition={{ type: "spring", stiffness: 350 }}
-                        className="w-12 h-12 bg-amber-500 text-white font-black text-base rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/25"
-                      >
+                    <div key={s.n} className="flex gap-5 items-start">
+                      <div className="w-12 h-12 bg-amber-500 text-white font-black rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/25">
                         {s.n}
-                      </motion.div>
+                      </div>
                       <div>
                         <h4 className="text-[16px] font-extrabold text-slate-900 mb-0.5">
                           {s.title}
                         </h4>
-                        <p className="text-amber-600 font-bold text-xs mb-1.5 tracking-wide">
+                        <p className="text-amber-600 font-bold text-xs mb-1.5">
                           {s.date}
                         </p>
                         <p className="text-slate-500 text-sm leading-relaxed">
                           {s.desc}
                         </p>
                       </div>
-                    </motion.div>
+                    </div>
                   ),
                 )}
-              </motion.div>
+              </div>
 
-              {/* Tuition */}
-              <AnimatedSection direction="up" delay={0.1}>
-                <div className="bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 lg:p-8 shadow-sm">
-                  <h3 className="text-xl font-extrabold text-slate-900 mb-6">
-                    {t("admissions.tuition.title")}
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
-                    {t("admissions.tuition.list", { returnObjects: true }).map(
-                      (f) => (
-                        <motion.div
-                          key={f.lvl}
-                          whileHover={{
-                            y: -4,
-                            boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
-                          }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 300,
-                            damping: 20,
-                          }}
-                          className="bg-slate-50 border border-slate-100 rounded-xl p-5 flex flex-col justify-center text-center cursor-default"
-                        >
-                          <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-2">
-                            {f.lvl}
-                          </p>
-                          <p className="text-slate-900 font-black text-xl sm:text-2xl leading-tight">
-                            {f.fee}
-                          </p>
-                          <p className="text-slate-400 text-[11px] mt-1 font-medium">
-                            {f.per}
-                          </p>
-                        </motion.div>
-                      ),
-                    )}
-                  </div>
-                  <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 font-medium flex items-start sm:items-center gap-3">
-                    <span className="text-lg">🎓</span>
-                    <p className="leading-relaxed">
-                      {t("admissions.tuition.scholarship")}
-                    </p>
-                  </div>
+              {/* Tuition section */}
+              <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+                <h3 className="text-xl font-extrabold mb-6">
+                  {t("admissions.tuition.title")}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {t("admissions.tuition.list", { returnObjects: true }).map(
+                    (f) => (
+                      <div
+                        key={f.lvl}
+                        className="bg-slate-50 p-5 rounded-xl text-center border border-slate-100"
+                      >
+                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">
+                          {f.lvl}
+                        </p>
+                        <p className="text-lg font-black text-slate-900">
+                          {f.fee}
+                        </p>
+                        <p className="text-[10px] text-slate-400">{f.per}</p>
+                      </div>
+                    ),
+                  )}
                 </div>
-              </AnimatedSection>
+              </div>
             </div>
 
-            {/* ── Right: Sticky multi-step form ── */}
-            <AnimatedSection direction="right">
-              <div className="xl:sticky xl:top-24 self-start">
-                <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-2xl">
-                  {/* Progress header */}
-                  <div className="bg-[#0a1628] px-8 py-7">
-                    <p className="text-white font-extrabold text-xl mb-5">
-                      {t("admissions.form.title")}
-                    </p>
-                    <div className="flex gap-1.5 mb-3">
-                      {steps.map((_, i) => (
-                        <motion.div
-                          key={i}
-                          animate={{
-                            backgroundColor:
-                              i <= step ? "#fbbf24" : "rgba(255,255,255,0.2)",
-                          }}
-                          transition={{ duration: 0.4 }}
-                          className="flex-1 h-1 rounded-full"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-white/50 text-xs">
-                      {t("admissions.form.stepLabel")} {step + 1} /{" "}
-                      {steps.length}:{" "}
-                      <span className="text-white/80 font-semibold">
-                        {steps[step]}
-                      </span>
-                    </p>
+            {/* O'ng tomon: Multi-step Form (UI saqlab qolindi) */}
+            <div className="xl:sticky xl:top-24 self-start">
+              <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-2xl">
+                {/* Progress Header */}
+                <div className="bg-[#0a1628] px-8 py-7">
+                  <p className="text-white font-extrabold text-xl mb-5">
+                    {t("admissions.form.title")}
+                  </p>
+                  <div className="flex gap-1.5 mb-3">
+                    {[0, 1, 2, 3].map((i) => (
+                      <div
+                        key={i}
+                        className={`flex-1 h-1 rounded-full transition-all duration-500 ${i <= step ? "bg-amber-500" : "bg-white/20"}`}
+                      />
+                    ))}
                   </div>
+                  <p className="text-white/50 text-[11px] uppercase tracking-wider font-bold">
+                    {t("admissions.form.stepLabel")} {step + 1} / 4:{" "}
+                    <span className="text-white">{steps[step]}</span>
+                  </p>
+                </div>
 
-                  {/* Step content — slide transition */}
-                  <div className="p-8 overflow-hidden">
-                    <AnimatePresence custom={direction} mode="wait">
-                      <motion.div
-                        key={step}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                      >
-                        {/* Step 0 */}
-                        {step === 0 && (
-                          <div className="space-y-5">
-                            {t("admissions.form.fields", {
-                              returnObjects: true,
-                            }).map((f) => (
-                              <div key={f.label}>
-                                <label className="block text-[13px] font-extrabold text-slate-800 mb-1.5">
-                                  {f.label}
-                                </label>
-                                <input
-                                  type="text"
-                                  placeholder={f.ph}
-                                  value={form[f.key]}
-                                  onChange={(e) => set(f.key, e.target.value)}
-                                  className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all placeholder-slate-300 text-slate-800"
-                                />
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Step 1 */}
-                        {step === 1 && (
-                          <div className="space-y-2.5 max-h-105 overflow-y-auto pr-1">
-                            <label className="block text-[13px] font-extrabold text-slate-800 mb-3">
-                              {t("admissions.form.programLabel")}
-                            </label>
-                            {t("admissions.form.programs", {
-                              returnObjects: true,
-                            }).map((prog) => (
-                              <motion.div
-                                key={prog.id}
-                                whileTap={{ scale: 0.98 }}
-                                onClick={() => set("program", prog.title)}
-                                className={`flex items-center gap-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${
-                                  form.program === prog.title
-                                    ? "border-blue-500 bg-blue-50"
-                                    : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                                }`}
-                              >
-                                <span className="text-xl">{prog.icon}</span>
-                                <div className="flex-1 min-w-0">
-                                  <p className="text-[13px] font-extrabold text-slate-900 truncate">
-                                    {prog.title}
-                                  </p>
-                                  <p className="text-[11px] text-slate-400">
-                                    {prog.degree}
-                                  </p>
-                                </div>
-                                <AnimatePresence>
-                                  {form.program === prog.title && (
-                                    <motion.span
-                                      initial={{ scale: 0 }}
-                                      animate={{ scale: 1 }}
-                                      exit={{ scale: 0 }}
-                                      className="text-blue-600 font-black text-lg shrink-0"
-                                    >
-                                      ✓
-                                    </motion.span>
-                                  )}
-                                </AnimatePresence>
-                              </motion.div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Step 2 */}
-                        {step === 2 && (
-                          <div className="space-y-3">
-                            <p className="text-sm font-bold text-slate-600 mb-4">
-                              {t("admissions.form.docsTitle")}
-                            </p>
-                            {t("admissions.form.docs", {
-                              returnObjects: true,
-                            }).map((doc) => (
-                              <div
-                                key={doc}
-                                className="flex items-center justify-between p-4 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
-                              >
-                                <div>
-                                  <p className="text-sm font-extrabold text-slate-800">
-                                    {doc}
-                                  </p>
-                                  <p className="text-[11px] text-slate-400 mt-0.5">
-                                    {t("admissions.form.docFormat")}
-                                  </p>
-                                </div>
-                                <motion.button
-                                  whileTap={{ scale: 0.95 }}
-                                  className="bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold px-4 py-2 rounded-lg transition-colors shrink-0 ml-3"
-                                >
-                                  {t("admissions.form.uploadBtn")}
-                                </motion.button>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        {/* Step 3 */}
-                        {step === 3 && (
-                          <div>
-                            <div className="bg-slate-50 rounded-2xl p-5 mb-5">
-                              <p className="font-extrabold text-slate-900 text-[15px] mb-4">
-                                {t("admissions.form.reviewTitle")}
-                              </p>
-                              {[
-                                {
-                                  label: t("admissions.form.reviewFields.name"),
-                                  value: form.name,
-                                },
-                                {
-                                  label: t(
-                                    "admissions.form.reviewFields.email",
-                                  ),
-                                  value: form.email,
-                                },
-                                {
-                                  label: t(
-                                    "admissions.form.reviewFields.phone",
-                                  ),
-                                  value: form.phone,
-                                },
-                                {
-                                  label: t(
-                                    "admissions.form.reviewFields.program",
-                                  ),
-                                  value: form.program,
-                                },
-                              ].map((item, index) => (
-                                <div
-                                  key={index}
-                                  className="flex gap-7 justify-between py-2.5 border-b border-slate-200 last:border-0 text-sm"
-                                >
-                                  <span className="text-slate-400 font-medium">
-                                    {item.label}
-                                  </span>
-                                  <span className="text-slate-800 font-bold truncate max-w-50 text-right">
-                                    {item.value}
-                                  </span>
-                                </div>
-                              ))}
+                <div className="p-8">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={step}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      className="min-h-[280px]"
+                    >
+                      {/* STEP 0: INFO */}
+                      {step === 0 && (
+                        <div className="space-y-4">
+                          {t("admissions.form.fields", {
+                            returnObjects: true,
+                          }).map((f) => (
+                            <div key={f.key}>
+                              <label className="block text-[11px] font-black text-slate-400 uppercase mb-1.5">
+                                {f.label}
+                              </label>
+                              <input
+                                className="w-full border border-slate-200 p-3.5 rounded-xl text-sm focus:border-blue-500 outline-none transition-all"
+                                placeholder={f.ph}
+                                value={form[f.key]}
+                                onChange={(e) =>
+                                  setForm({ ...form, [f.key]: e.target.value })
+                                }
+                              />
                             </div>
-                            <p className="text-xs text-slate-400 leading-relaxed">
-                              {t("admissions.form.reviewNote")}
-                            </p>
-                          </div>
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Nav buttons */}
-                    <div className="flex gap-3 mt-7">
-                      {step > 0 && (
-                        <motion.button
-                          whileTap={{ scale: 0.97 }}
-                          onClick={() => goTo(step - 1)}
-                          className="flex-1 border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold py-3 rounded-xl transition-all text-sm"
-                        >
-                          {t("admissions.form.backBtn")}
-                        </motion.button>
+                          ))}
+                        </div>
                       )}
-                      <motion.button
-                        whileTap={{ scale: 0.97 }}
-                        onClick={() => {
-                          if (step < steps.length - 1) goTo(step + 1);
-                          else alert(t("admissions.form.successMsg"));
-                        }}
-                        className="flex-2 bg-amber-500 hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl transition-all shadow-lg shadow-amber-500/25 text-sm relative overflow-hidden group"
+
+                      {/* STEP 1: PROGRAM */}
+                      {step === 1 && (
+                        <div className="space-y-2.5 max-h-[350px] overflow-y-auto pr-2 custom-scroll">
+                          {t("admissions.form.programs", {
+                            returnObjects: true,
+                          }).map((prog) => (
+                            <div
+                              key={prog.id}
+                              onClick={() =>
+                                setForm({ ...form, program: prog.title })
+                              }
+                              className={`p-4 border-2 rounded-2xl cursor-pointer transition-all flex items-center gap-4 ${form.program === prog.title ? "border-amber-500 bg-amber-50/50" : "border-slate-100 hover:border-slate-200"}`}
+                            >
+                              <span className="text-2xl">{prog.icon}</span>
+                              <div>
+                                <p className="font-bold text-slate-900 text-sm">
+                                  {prog.title}
+                                </p>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase">
+                                  {prog.degree}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* STEP 2: DOCUMENTS (Majburiy yuklash) */}
+                      {step === 2 && (
+                        <div className="space-y-4">
+                          <p className="text-xs font-bold text-slate-500 mb-4">
+                            {t("admissions.form.docsTitle")}
+                          </p>
+                          {["passport", "diploma"].map((type) => (
+                            <div
+                              key={type}
+                              className={`p-4 border-2 border-dashed rounded-2xl transition-all ${files[type] ? "border-green-500 bg-green-50" : "border-slate-200"}`}
+                            >
+                              <div className="flex justify-between items-center">
+                                <div>
+                                  <p className="text-sm font-bold text-slate-900 capitalize">
+                                    {type === "passport"
+                                      ? "Passport nusxasi"
+                                      : "Diplom yoki Shahodatnoma"}
+                                  </p>
+                                  <p className="text-[10px] text-slate-400">
+                                    PDF, JPG (Max 5MB)
+                                  </p>
+                                </div>
+                                <label className="cursor-pointer bg-slate-900 text-white px-4 py-2 rounded-lg text-[10px] font-bold">
+                                  {files[type] ? "ALMASHTIRISH" : "YUKLASH"}
+                                  <input
+                                    type="file"
+                                    hidden
+                                    onChange={(e) => handleFileChange(e, type)}
+                                    accept=".pdf,.jpg,.jpeg,.png"
+                                  />
+                                </label>
+                              </div>
+                              {files[type] && (
+                                <p className="mt-2 text-[10px] font-bold text-green-600 truncate">
+                                  ✓ {files[type].name}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* STEP 3: REVIEW */}
+                      {step === 3 && (
+                        <div className="space-y-4">
+                          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-3">
+                            <div className="flex justify-between border-b pb-2">
+                              <span className="text-xs text-slate-400">
+                                Ism:
+                              </span>{" "}
+                              <span className="text-xs font-bold">
+                                {form.name}
+                              </span>
+                            </div>
+                            <div className="flex justify-between border-b pb-2">
+                              <span className="text-xs text-slate-400">
+                                Email:
+                              </span>{" "}
+                              <span className="text-xs font-bold">
+                                {form.email}
+                              </span>
+                            </div>
+                            <div className="flex justify-between border-b pb-2">
+                              <span className="text-xs text-slate-400">
+                                Yo'nalish:
+                              </span>{" "}
+                              <span className="text-xs font-bold text-right ml-4">
+                                {form.program}
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-xs text-slate-400">
+                                Hujjatlar:
+                              </span>{" "}
+                              <span className="text-xs font-bold text-green-600">
+                                YUKLANDI ✅
+                              </span>
+                            </div>
+                          </div>
+                          <p className="text-[11px] text-slate-400 leading-relaxed">
+                            {t("admissions.form.reviewNote")}
+                          </p>
+                        </div>
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3 mt-8">
+                    {step > 0 && (
+                      <button
+                        onClick={() => goTo(step - 1)}
+                        className="flex-1 border-2 border-slate-100 py-3.5 rounded-2xl font-bold text-slate-600 text-sm hover:bg-slate-50 transition-all"
                       >
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-                        <span className="relative">
-                          {step < steps.length - 1
-                            ? t("admissions.form.nextBtn")
-                            : t("admissions.form.submitBtn")}
-                        </span>
-                      </motion.button>
-                    </div>
+                        {t("admissions.form.backBtn")}
+                      </button>
+                    )}
+                    <button
+                      onClick={() =>
+                        step === 3 ? handleSubmit() : goTo(step + 1)
+                      }
+                      disabled={loading}
+                      className="flex-[2] bg-amber-500 text-white py-3.5 rounded-2xl font-black text-sm shadow-xl shadow-amber-500/20 hover:bg-amber-600 transition-all disabled:opacity-50"
+                    >
+                      {loading
+                        ? "YUBORILMOQDA..."
+                        : step === 3
+                          ? t("admissions.form.submitBtn")
+                          : t("admissions.form.nextBtn")}
+                    </button>
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default Admissions;

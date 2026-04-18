@@ -39,37 +39,12 @@ const cardStyles = [
   "bg-amber-500",
   "bg-emerald-600",
 ];
-const PROGRAMS_META = [
-  { id: 1, code: "CS", icon: "💻", hex: "#1d4ed8" },
-  { id: 2, code: "CE", icon: "🔧", hex: "#0891b2" },
-  { id: 3, code: "IT", icon: "🌐", hex: "#7c3aed" },
-  { id: 4, code: "DS", icon: "📊", hex: "#059669" },
-  { id: 5, code: "EE", icon: "⚡", hex: "#d97706" },
-  { id: 6, code: "AI", icon: "🤖", hex: "#e11d48" },
-];
+
 const NEWS_META = [
   { id: 1, icon: "🔬", cat_key: "Tadqiqot" },
   { id: 2, icon: "🤝", cat_key: "Hamkorlik" },
   { id: 3, icon: "🏆", cat_key: "Yutuq" },
   { id: 4, icon: "📅", cat_key: "Tadbir" },
-];
-const NEWS_BADGE = {
-  Tadqiqot: "bg-purple-100 text-purple-600",
-  Исследования: "bg-purple-100 text-purple-600",
-  Hamkorlik: "bg-blue-100 text-blue-600",
-  Сотрудничество: "bg-blue-100 text-blue-600",
-  Yutuq: "bg-emerald-100 text-emerald-600",
-  Достижение: "bg-emerald-100 text-emerald-600",
-  Tadbir: "bg-amber-100 text-amber-600",
-  Мероприятие: "bg-amber-100 text-amber-600",
-};
-const FACULTY_META = [
-  { id: 1, initials: "AT", avatarCls: "bg-blue-600" },
-  { id: 2, initials: "NY", avatarCls: "bg-emerald-600" },
-  { id: 3, initials: "SR", avatarCls: "bg-amber-600" },
-  { id: 4, initials: "KM", avatarCls: "bg-rose-600" },
-  { id: 5, initials: "ON", avatarCls: "bg-violet-600" },
-  { id: 6, initials: "ZE", avatarCls: "bg-cyan-600" },
 ];
 
 // ── Stagger container
@@ -104,6 +79,7 @@ const heroCardRight = {
 function Home() {
   const { t, i18n } = useTranslation();
   const [latestPrograms, setLatestPrograms] = useState([]);
+  const [facultyPreview, setFacultyPreview] = useState([]);
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -150,6 +126,23 @@ function Home() {
     const match = url.match(/embed\/([^?&]+)/) || url.match(/v=([^?&]+)/);
     return match ? match[1] : null;
   };
+
+  const getField = (obj, fieldName) => {
+    const currentLang = i18n.language;
+    return obj[`${fieldName}_${currentLang}`] || obj[`${fieldName}_uz`] || "";
+  };
+
+  useEffect(() => {
+    const fetchPreview = async () => {
+      try {
+        const { data } = await request.get("/faculty?select=*&limit=3");
+        setFacultyPreview(data);
+      } catch (err) {
+        console.error("Home faculty fetch error:", err);
+      }
+    };
+    fetchPreview();
+  }, []);
 
   return (
     // ⬇️ overflow-x-hidden — butun sahifada gorizontal scroll yo'q
@@ -759,55 +752,65 @@ function Home() {
           </AnimatedSection>
 
           <motion.div
-            variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
           >
-            {t("home.faculty.list", { returnObjects: true })
-              .slice(0, 3)
-              .map((m, index) => {
-                const meta = FACULTY_META[index];
-                return (
-                  <motion.div key={meta.id} variants={fadeUpItem}>
-                    <Link
-                      to={"faculty"}
-                      className="bg-white rounded-2xl p-8 border border-slate-200 text-center cursor-pointer group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 block relative overflow-hidden"
-                    >
-                      <div
-                        className={`absolute top-0 left-0 right-0 h-0.5 ${meta.avatarCls} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+            {facultyPreview.map((m) => (
+              <motion.div key={m.id} variants={fadeUpItem}>
+                <Link
+                  to={"/faculty"}
+                  className="bg-white rounded-2xl p-8 border border-slate-200 text-center cursor-pointer group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 block relative overflow-hidden"
+                >
+                  {/* Accent top line */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-0.5 ${m.avatar_cls} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                  />
+
+                  {/* Avatar / Initials */}
+                  <div
+                    className={`w-16 h-16 ${m.avatar_cls} rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg overflow-hidden`}
+                  >
+                    {m.image ? (
+                      <img
+                        src={m.image}
+                        alt=""
+                        className="w-full h-full object-cover"
                       />
-                      <div
-                        className={`w-16 h-16 ${meta.avatarCls} rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                      >
-                        {meta.initials}
-                      </div>
-                      <h4 className="text-[16px] font-extrabold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">
-                        {m.name}
-                      </h4>
-                      <p className="text-blue-700 font-bold text-[13px] mb-1">
-                        {m.role}
-                      </p>
-                      <p className="text-slate-400 text-[12px] mb-4">
-                        {m.dept}
-                      </p>
-                      <div className="bg-slate-50 rounded-xl p-3 text-[13px] text-slate-600 mb-3">
-                        {m.research}
-                      </div>
-                      <p className="text-slate-400 text-xs">
-                        📄 {m.pubs} {t("home.faculty.pubsLabel")}
-                      </p>
-                    </Link>
-                  </motion.div>
-                );
-              })}
+                    ) : (
+                      m.initials
+                    )}
+                  </div>
+
+                  <h4 className="text-[16px] font-extrabold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">
+                    {getField(m, "name")}
+                  </h4>
+
+                  <p className="text-blue-700 font-bold text-[13px] mb-1">
+                    {getField(m, "role")}
+                  </p>
+
+                  <p className="text-slate-400 text-[12px] mb-4">
+                    {getField(m, "dept")}
+                  </p>
+
+                  <div className="bg-slate-50 rounded-xl p-3 text-[13px] text-slate-600 mb-3 line-clamp-2 min-h-[50px]">
+                    {getField(m, "research")}
+                  </div>
+
+                  <p className="text-slate-400 text-xs">
+                    📄 {m.pubs} {t("home.faculty.pubsLabel")}
+                  </p>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
 
           <AnimatedSection delay={0.2}>
             <div className="text-center">
               <Link
-                to={"faculty"}
+                to={"/faculty"}
                 className="bg-[#0a1628] hover:bg-[#0d1f3c] text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-colors shadow-lg"
               >
                 {t("home.faculty.viewAllBtn")}

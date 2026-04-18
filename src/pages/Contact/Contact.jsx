@@ -1,6 +1,3 @@
-// pages/Contact/Contact.jsx — animatsiyalangan versiya
-// Contact info: stagger fade-in | Form: success animatsiya | Social: hover bounce
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "../../components/ui/PageHero";
@@ -14,6 +11,7 @@ import {
   Phone,
   Mail,
   Clock,
+  Loader2, // Yuklanish uchun icon
 } from "lucide-react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -21,7 +19,9 @@ import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { useTranslation } from "react-i18next";
+import request from "../../api"; // SIZNING AXIOS INSTANCE
 
+// Leaflet icon sozlamasi
 let DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
@@ -72,7 +72,7 @@ const fadeUp = {
 
 function Contact() {
   const { t } = useTranslation();
-  const position = [41.3111, 69.2797];
+  const position = [41.3409, 69.2867]; // TUIT koordinatasi (to'g'rilandi)
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -80,6 +80,8 @@ function Contact() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const set = (f, v) => setForm((p) => ({ ...p, [f]: v }));
 
   const contactData = [
@@ -105,6 +107,36 @@ function Contact() {
     },
   ];
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      alert("Iltimos, barcha maydonlarni to'ldiring");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await request.post("/contact_messages", {
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      });
+
+      if (res.status === 201 || res.status === 200) {
+        setSent(true);
+        setForm({ name: "", email: "", subject: "", message: "" }); // Formani tozalash
+      }
+    } catch (error) {
+      console.error("Xatolik:", error);
+      alert(
+        "Xabar yuborishda xatolik yuz berdi. Iltimos qaytadan urunib ko'ring.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <PageHero
@@ -115,7 +147,7 @@ function Contact() {
 
       <div className="bg-slate-50 py-16">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* ── Info ── */}
+          {/* ── Ma'lumotlar va Xarita ── */}
           <AnimatedSection direction="left">
             <div>
               <h2 className="text-2xl font-black text-slate-900 mb-8">
@@ -129,58 +161,47 @@ function Contact() {
                 viewport={{ once: true, amount: 0.2 }}
                 className="space-y-6 mb-10"
               >
-                {contactData.map((item, index) => {
-                  const Icon = item.icon;
-                  return (
+                {contactData.map((item, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    className="flex items-start gap-4"
+                  >
                     <motion.div
-                      key={index}
-                      variants={fadeUp}
-                      className="flex items-start gap-4"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      className="bg-slate-800 p-3 rounded-xl text-amber-500 shrink-0"
                     >
-                      <motion.div
-                        whileHover={{ scale: 1.1, rotate: -5 }}
-                        transition={{ type: "spring", stiffness: 350 }}
-                        className="bg-slate-800 p-3 rounded-xl text-amber-500 shrink-0"
-                      >
-                        <Icon size={24} />
-                      </motion.div>
-                      <div>
-                        <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-1">
-                          {item.label}
-                        </p>
-                        <p className="text-[15px] text-slate-800 leading-relaxed">
-                          {item.value}
-                        </p>
-                      </div>
+                      <item.icon size={24} />
                     </motion.div>
-                  );
-                })}
+                    <div>
+                      <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-1">
+                        {item.label}
+                      </p>
+                      <p className="text-[15px] text-slate-800 leading-relaxed">
+                        {item.value}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
               </motion.div>
 
-              {/* Map */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true }}
-                className="h-56 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8"
+                className="h-56 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm mb-8 z-0"
               >
                 <MapContainer
                   center={position}
                   zoom={15}
                   className="h-full w-full"
                 >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
+                  <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                   <Marker position={position}>
                     <Popup>{t("contact.mapPopup")}</Popup>
                   </Marker>
                 </MapContainer>
               </motion.div>
 
-              {/* Social */}
               <div>
                 <p className="text-sm font-bold text-slate-500 mb-4">
                   {t("contact.socialLabel")}
@@ -192,16 +213,9 @@ function Contact() {
                       href={item.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.07, duration: 0.4 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -3, scale: 1.04 }}
-                      whileTap={{ scale: 0.96 }}
                       className={`flex items-center gap-2 text-xs font-semibold text-slate-600 bg-white border border-slate-200 px-4 py-2.5 rounded-xl transition-colors ${item.color}`}
                     >
-                      <item.icon size={16} />
-                      {item.name}
+                      <item.icon size={16} /> {item.name}
                     </motion.a>
                   ))}
                 </div>
@@ -209,64 +223,36 @@ function Contact() {
             </div>
           </AnimatedSection>
 
-          {/* ── Form ── */}
+          {/* ── Aloqa Formasi ── */}
           <AnimatedSection direction="right" delay={0.1}>
             <div className="bg-white rounded-3xl border border-slate-200 p-10 shadow-xl">
               <AnimatePresence mode="wait">
                 {sent ? (
-                  /* Success state */
                   <motion.div
                     key="success"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="flex flex-col items-center justify-center py-12 text-center"
                   >
-                    <motion.div
-                      initial={{ scale: 0, rotate: -20 }}
-                      animate={{ scale: 1, rotate: 0 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 15,
-                        delay: 0.1,
-                      }}
-                      className="text-7xl mb-5"
-                    >
-                      ✅
-                    </motion.div>
-                    <motion.h3
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.25 }}
-                      className="text-2xl font-black text-slate-900 mb-3"
-                    >
+                    <div className="text-7xl mb-5 text-emerald-500">✅</div>
+                    <h3 className="text-2xl font-black text-slate-900 mb-3">
                       {t("contact.success.title")}
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.35 }}
-                      className="text-slate-500 leading-relaxed mb-8"
-                    >
+                    </h3>
+                    <p className="text-slate-500 leading-relaxed mb-8">
                       {t("contact.success.desc")}
-                    </motion.p>
-                    <motion.button
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.45 }}
-                      whileTap={{ scale: 0.97 }}
+                    </p>
+                    <button
                       onClick={() => setSent(false)}
                       className="bg-amber-500 hover:bg-amber-600 text-white font-bold px-8 py-3 rounded-xl transition-colors"
                     >
                       {t("contact.success.newBtn")}
-                    </motion.button>
+                    </button>
                   </motion.div>
                 ) : (
-                  /* Form */
-                  <motion.div
+                  <motion.form
                     key="form"
+                    onSubmit={handleSubmit}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -282,11 +268,12 @@ function Contact() {
                               {f.label}
                             </label>
                             <input
+                              required
                               type={f.type}
                               placeholder={f.placeholder}
                               value={form[f.key]}
                               onChange={(e) => set(f.key, e.target.value)}
-                              className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all placeholder-slate-300 text-slate-800"
+                              className="w-full border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 rounded-xl px-4 py-3 text-sm outline-none transition-all text-slate-800"
                             />
                           </div>
                         ),
@@ -296,28 +283,28 @@ function Contact() {
                           {t("contact.form.messageLabel")}
                         </label>
                         <textarea
+                          required
                           rows={5}
                           placeholder={t("contact.form.messagePlaceholder")}
                           value={form.message}
                           onChange={(e) => set("message", e.target.value)}
-                          className="w-full border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 rounded-xl px-4 py-3 text-sm outline-none transition-all resize-none placeholder-slate-300 text-slate-800"
+                          className="w-full border border-slate-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-100 rounded-xl px-4 py-3 text-sm outline-none transition-all resize-none text-slate-800"
                         />
                       </div>
                       <motion.button
+                        disabled={loading}
                         whileTap={{ scale: 0.98 }}
-                        onClick={() => {
-                          if (form.name && form.email && form.message)
-                            setSent(true);
-                        }}
-                        className="w-full bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-[15px] py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 relative overflow-hidden group"
+                        type="submit"
+                        className="w-full bg-amber-500 hover:bg-amber-600 disabled:bg-slate-300 text-white font-extrabold text-[15px] py-4 rounded-xl transition-all shadow-lg shadow-amber-500/20 relative overflow-hidden group flex justify-center items-center"
                       >
-                        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-                        <span className="relative">
-                          {t("contact.form.submitBtn")}
-                        </span>
+                        {loading ? (
+                          <Loader2 className="animate-spin" />
+                        ) : (
+                          t("contact.form.submitBtn")
+                        )}
                       </motion.button>
                     </div>
-                  </motion.div>
+                  </motion.form>
                 )}
               </AnimatePresence>
             </div>

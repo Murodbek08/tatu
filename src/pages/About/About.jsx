@@ -1,7 +1,3 @@
-// pages/About/About.jsx — animatsiyalangan versiya
-// Timeline: har bir element ketma-ket chiqadi (stagger)
-// MVV cards: hover-lift + scroll reveal
-
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import PageHero from "../../components/ui/PageHero";

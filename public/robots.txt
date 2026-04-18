@@ -1,0 +1,8 @@
+# Barcha qidiruv botlari uchun ruxsatlar
+User-agent: *
+Allow: /
+
+
+
+# Saytingizning xaritasi (Sitemap) manzili
+Sitemap: http://tatuengineering.uz/sitemap.xml

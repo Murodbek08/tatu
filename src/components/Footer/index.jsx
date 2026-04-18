@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Send, // Telegram uchun Send ishlatiladi
+  Globe, // Web sayt uchun
+  Youtube,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 function Footer() {
@@ -11,11 +17,33 @@ function Footer() {
     ["/about", "/news", "/hamkorlar", "/contact"],
   ];
 
+  // Siz bergan yangi linklar va ranglar
   const socialLinks = [
-    { icon: Facebook, label: "Facebook" },
-    { icon: Twitter, label: "Twitter" },
-    { icon: Linkedin, label: "Linkedin" },
-    { icon: Youtube, label: "Youtube" },
+    {
+      name: "Web sayt",
+      icon: Globe,
+      href: "https://tuit.uz/",
+      color:
+        "hover:bg-emerald-500/20 hover:border-emerald-500 hover:text-emerald-500",
+    },
+    {
+      name: "Telegram",
+      icon: Send,
+      href: "https://t.me/tuituz_official",
+      color: "hover:bg-sky-500/20 hover:border-sky-500 hover:text-sky-500",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      href: "https://www.instagram.com/tuit.official",
+      color: "hover:bg-pink-600/20 hover:border-pink-600 hover:text-pink-600",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      href: "https://www.facebook.com/TUITuzb",
+      color: "hover:bg-blue-600/20 hover:border-blue-600 hover:text-blue-600",
+    },
   ];
 
   return (
@@ -40,20 +68,25 @@ function Footer() {
             <p className="text-sm leading-relaxed max-w-xs mb-6">
               {t("footer.brand.desc")}
             </p>
+
+            {/* Ijtimoiy tarmoqlar qismi */}
             <div className="flex gap-3">
               {socialLinks.map((item, i) => {
                 const Icon = item.icon;
                 return (
-                  <button
+                  <a
                     key={i}
-                    aria-label={item.label}
-                    className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 
-                       flex items-center justify-center text-slate-300
-                       transition-all duration-300 ease-in-out
-                       hover:bg-amber-500/20 hover:border-amber-500/50 hover:text-amber-500"
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.name}
+                    className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 
+                               flex items-center justify-center text-slate-300
+                               transition-all duration-300 ease-in-out
+                               ${item.color}`} // Har bir tarmoq uchun o'ziga xos rang
                   >
                     <Icon size={18} strokeWidth={2} />
-                  </button>
+                  </a>
                 );
               })}
             </div>
@@ -81,6 +114,7 @@ function Footer() {
           ))}
         </div>
 
+        {/* Bottom bar */}
         <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
           <span>{t("footer.copy")}</span>
           <div className="flex gap-5">

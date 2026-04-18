@@ -63,7 +63,7 @@
     ],
     "about": {
       "sectionLabel": "Biz haqimizda",
-      "title": "AKT va Sun'iy Intellekt Oliy Muhandislik Maktabi",
+      "title": "TATU Muhandislik Maktabi",
       "subtitle": "\"Tarmoq – Korxona – Oliygoh\" tamoyili asosida O'zbektelekom, ZTE, MobiUz va boshqa yetakchi korxonalar bilan hamkorlikda amaliy muhandislar tayyorlanadi.",
       "points": [
         {
@@ -150,51 +150,7 @@
       "title": "Jahon Darajasidagi Olimlar",
       "subtitle": "O'qituvchilarimiz o'z sohalarida yetakchi — nashr etilgan, mukofotlangan va talabalar muvaffaqiyatiga chin dildan bag'ishlangan.",
       "viewAllBtn": "Barcha O'qituvchilar →",
-      "pubsLabel": "ta nashr",
-      "list": [
-        {
-          "name": "Prof. Akbar Toshmatov",
-          "role": "Dekan",
-          "dept": "Kompyuter Fanlari",
-          "research": "Taqsimlangan AI Tizimlari",
-          "pubs": 142
-        },
-        {
-          "name": "Dr. Nilufar Yusupova",
-          "role": "Dotsent",
-          "dept": "Ma'lumotlar Fanlari",
-          "research": "Mashinali O'rganish",
-          "pubs": 89
-        },
-        {
-          "name": "Prof. Sherzod Rakhimov",
-          "role": "Professor",
-          "dept": "Elektr Muhandisligi",
-          "research": "Aqlli Quvvat Tarmoqlari",
-          "pubs": 115
-        },
-        {
-          "name": "Dr. Kamola Mirzayeva",
-          "role": "Katta O'qituvchi",
-          "dept": "Kiberxavfsizlik",
-          "research": "Tarmoq Xavfsizligi",
-          "pubs": 67
-        },
-        {
-          "name": "Prof. Otabek Nazarov",
-          "role": "Professor",
-          "dept": "Kompyuter Muhandisligi",
-          "research": "FPGA va Embedded Tizimlar",
-          "pubs": 103
-        },
-        {
-          "name": "Dr. Zulfiya Ergasheva",
-          "role": "Dotsent",
-          "dept": "Axborot Texnologiyalari",
-          "research": "Bulutli Hisoblash",
-          "pubs": 54
-        }
-      ]
+      "pubsLabel": "ta nashr"
     },
     "partners": {
       "sectionLabel": "Sanoat Hamkorlari",
@@ -211,7 +167,7 @@
     "brand": {
       "logoTitle": "Engineering School",
       "logoSubtitle": "Tashkent University of IT",
-      "desc": "1955 yildan beri Markaziy Osiyoda muhandislar, innovatorlar va texnologiya liderlarining keyingi avlodini shakllantirmoqda."
+      "desc": "2024-yildan buyon 'Tarmoq–korxona–oliygoh' integratsiyasi asosida Markaziy Osiyoda muhandislar, innovatorlar va texnologiya liderlarining yangi avlodini shakllantirmoqda. 14 ta zamonaviy laboratoriya va dual ta’lim tizimi orqali nazariy bilimlarni bevosita ishlab chiqarish bilan birlashtiramiz."
     },
     "cols": [
       {
@@ -238,7 +194,7 @@
     "hero": {
       "crumb": "Haqimizda",
       "title": "TATU Muhandislik Maktabi Haqida",
-      "subtitle": "Muhandislik mukammalligi, tadqiqot yetakchiligi va milliy xizmatning etmish yili — O'zbekistonning raqamli kelajagini harakatga keltiradigan aqllarni shakllantirish."
+      "subtitle": "Muhandislik mukammalligi, innovatsion ishlab chiqarish va sanoat integratsiyasi maskani - O'zbekistonning raqamli kelajagini shakllantiradigan yangi avlod muhandislarini tayyorlaymiz."
     },
     "mvv": [
       {
@@ -328,63 +284,7 @@
       "pubsSuffix": "ta maqola",
       "contactBtn": "Bog'lanish",
       "closeBtn": "Yopish"
-    },
-    "list": [
-      {
-        "name": "Prof. Akbar Toshmatov",
-        "role": "Dekan",
-        "dept": "Kompyuter Fanlari",
-        "research": "Taqsimlangan AI Tizimlari",
-        "pubs": 142,
-        "bio": "Prof. Akbar Toshmatov 20 yildan ortiq tajribaga ega mutaxassis. Uning tadqiqotlari asosan global taqsimlangan tizimlarda sun'iy intellekt algoritmlarini optimallashtirishga qaratilgan. U ko'plab xalqaro IT konferensiyalar spikeri hisoblanadi.",
-        "education": "PhD in Computer Science, MIT"
-      },
-      {
-        "name": "Dr. Nilufar Yusupova",
-        "role": "Dotsent",
-        "dept": "Ma'lumotlar Fanlari",
-        "research": "Mashinali O'rganish",
-        "pubs": 89,
-        "bio": "Dr. Nilufar Yusupova Big Data va bashoratli tahlil bo'yicha yetakchi mutaxassis. Uning ilmiy ishlari tibbiyotda sun'iy intellektni qo'llash va kasalliklarni erta aniqlash modellariga bag'ishlangan.",
-        "education": "PhD in Data Science, Stanford University"
-      },
-      {
-        "name": "Prof. Sherzod Rakhimov",
-        "role": "Professor",
-        "dept": "Elektr Muhandisligi",
-        "research": "Aqlli Quvvat Tarmoqlari",
-        "pubs": 115,
-        "bio": "Sherzod Rakhimov qayta tiklanuvchi energiya manbalari va 'Smart Grid' texnologiyalari bo'yicha 15 ta patent muallifi. U energetika tizimlarini raqamlashtirish loyihalariga rahbarlik qiladi.",
-        "education": "DSc in Electrical Engineering, ETH Zurich"
-      },
-      {
-        "name": "Dr. Kamola Mirzayeva",
-        "role": "Katta O'qituvchi",
-        "dept": "Kiberxavfsizlik",
-        "research": "Tarmoq Xavfsizligi",
-        "pubs": 67,
-        "bio": "Dr. Mirzayeva kriptografiya va kiber-hujumlarning oldini olish tizimlari bo'yicha mutaxassis. U bank-moliya sektori uchun xavfsizlik protokollarini ishlab chiqishda konsultant sifatida ishtirok etadi.",
-        "education": "PhD in Cyber Security, Korea University"
-      },
-      {
-        "name": "Prof. Otabek Nazarov",
-        "role": "Professor",
-        "dept": "Kompyuter Muhandisligi",
-        "research": "FPGA va Embedded Tizimlar",
-        "pubs": 103,
-        "bio": "Otabek Nazarov mikrosxemalar dizayni va apparat ta'minoti xavfsizligi bo'yicha dunyo miqyosidagi tadqiqotchi. Uning rahbarligida universitetda Robototexnika laboratoriyasi tashkil etilgan.",
-        "education": "PhD in Computer Engineering, TU Delft"
-      },
-      {
-        "name": "Dr. Zulfiya Ergasheva",
-        "role": "Dotsent",
-        "dept": "Axborot Texnologiyalari",
-        "research": "Bulutli Hisoblash",
-        "pubs": 54,
-        "bio": "Dr. Zulfiya Ergasheva korporativ bulutli arxitektura va DevOps metodologiyasi bo'yicha dars beradi. U yirik davlat platformalarini optimallashtirish loyihalarida ishtirok etgan.",
-        "education": "PhD in Information Systems, National University of Singapore"
-      }
-    ]
+    }
   },
   "research": {
     "hero": {

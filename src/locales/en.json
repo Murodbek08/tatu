@@ -63,7 +63,7 @@
     ],
     "about": {
       "sectionLabel": "About Us",
-      "title": "Higher School of Engineering in ICT and AI",
+      "title": "TATU Engineering School",
       "subtitle": "Based on the \"Network – Enterprise – University\" principle, practical engineers are trained in cooperation with Uzbektelecom, ZTE, MobiUz, and other leading enterprises.",
       "points": [
         {
@@ -150,51 +150,7 @@
       "title": "World-Class Scholars",
       "subtitle": "Our faculty are leaders in their fields — published, awarded and genuinely dedicated to student success.",
       "viewAllBtn": "All Faculty →",
-      "pubsLabel": "publications",
-      "list": [
-        {
-          "name": "Prof. Akbar Toshmatov",
-          "role": "Dean",
-          "dept": "Computer Science",
-          "research": "Distributed AI Systems",
-          "pubs": 142
-        },
-        {
-          "name": "Dr. Nilufar Yusupova",
-          "role": "Associate Prof.",
-          "dept": "Data Science",
-          "research": "Machine Learning",
-          "pubs": 89
-        },
-        {
-          "name": "Prof. Sherzod Rakhimov",
-          "role": "Professor",
-          "dept": "Electrical Engineering",
-          "research": "Smart Power Grids",
-          "pubs": 115
-        },
-        {
-          "name": "Dr. Kamola Mirzayeva",
-          "role": "Senior Lecturer",
-          "dept": "Cybersecurity",
-          "research": "Network Security",
-          "pubs": 67
-        },
-        {
-          "name": "Prof. Otabek Nazarov",
-          "role": "Professor",
-          "dept": "Computer Engineering",
-          "research": "FPGA & Embedded Systems",
-          "pubs": 103
-        },
-        {
-          "name": "Dr. Zulfiya Ergasheva",
-          "role": "Associate Prof.",
-          "dept": "Information Technology",
-          "research": "Cloud Computing",
-          "pubs": 54
-        }
-      ]
+      "pubsLabel": "publications"
     },
     "partners": {
       "sectionLabel": "Industry Partners",
@@ -211,7 +167,7 @@
     "brand": {
       "logoTitle": "Engineering School",
       "logoSubtitle": "Tashkent University of IT",
-      "desc": "Shaping the next generation of engineers, innovators and technology leaders in Central Asia since 1955."
+      "desc": "Since 2024, shaping the next generation of engineers, innovators, and technology leaders in Central Asia through the 'Industry–Enterprise–University' integration. With 14 state-of-the-art laboratories and a dual education system, we bridge the gap between theoretical knowledge and real-world production."
     },
     "cols": [
       {
@@ -234,7 +190,7 @@
     "hero": {
       "crumb": "About Us",
       "title": "About TATU Engineering School",
-      "subtitle": "Seventy years of engineering excellence, research leadership and national service — shaping the minds that drive Uzbekistan's digital future."
+      "subtitle": "A hub of engineering excellence, innovative research, and industrial integration — we empower the next generation of engineers to shape the digital future of Uzbekistan."
     },
     "mvv": [
       {
@@ -324,63 +280,7 @@
       "pubsSuffix": "papers",
       "contactBtn": "Contact",
       "closeBtn": "Close"
-    },
-    "list": [
-      {
-        "name": "Prof. Akbar Toshmatov",
-        "role": "Dean",
-        "dept": "Computer Science",
-        "research": "Distributed AI Systems",
-        "pubs": 142,
-        "bio": "Prof. Akbar Toshmatov is a specialist with over 20 years of experience. His research focuses on optimising AI algorithms in globally distributed systems. He is a speaker at numerous international IT conferences.",
-        "education": "PhD in Computer Science, MIT"
-      },
-      {
-        "name": "Dr. Nilufar Yusupova",
-        "role": "Associate Professor",
-        "dept": "Data Science",
-        "research": "Machine Learning",
-        "pubs": 89,
-        "bio": "Dr. Nilufar Yusupova is a leading expert in Big Data and predictive analytics. Her research is dedicated to applying AI in medicine and building early disease-detection models.",
-        "education": "PhD in Data Science, Stanford University"
-      },
-      {
-        "name": "Prof. Sherzod Rakhimov",
-        "role": "Professor",
-        "dept": "Electrical Engineering",
-        "research": "Smart Power Grids",
-        "pubs": 115,
-        "bio": "Sherzod Rakhimov holds 15 patents in renewable energy and Smart Grid technologies. He leads projects on the digitalisation of power systems.",
-        "education": "DSc in Electrical Engineering, ETH Zurich"
-      },
-      {
-        "name": "Dr. Kamola Mirzayeva",
-        "role": "Senior Lecturer",
-        "dept": "Cybersecurity",
-        "research": "Network Security",
-        "pubs": 67,
-        "bio": "Dr. Mirzayeva is an expert in cryptography and cyber-attack prevention systems. She serves as a consultant developing security protocols for the banking and finance sector.",
-        "education": "PhD in Cyber Security, Korea University"
-      },
-      {
-        "name": "Prof. Otabek Nazarov",
-        "role": "Professor",
-        "dept": "Computer Engineering",
-        "research": "FPGA & Embedded Systems",
-        "pubs": 103,
-        "bio": "Otabek Nazarov is a world-class researcher in microchip design and hardware security. Under his leadership the university's Robotics Laboratory was established.",
-        "education": "PhD in Computer Engineering, TU Delft"
-      },
-      {
-        "name": "Dr. Zulfiya Ergasheva",
-        "role": "Associate Professor",
-        "dept": "Information Technology",
-        "research": "Cloud Computing",
-        "pubs": 54,
-        "bio": "Dr. Zulfiya Ergasheva teaches corporate cloud architecture and DevOps methodology. She has contributed to projects optimising large-scale government platforms.",
-        "education": "PhD in Information Systems, National University of Singapore"
-      }
-    ]
+    }
   },
   "research": {
     "hero": {
