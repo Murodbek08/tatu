@@ -16,6 +16,7 @@ import { useTranslation } from "react-i18next";
 import request from "../../api";
 import { useEffect } from "react";
 import { useState } from "react";
+import { heroImage } from "../../assets";
 
 const PARTNERS = [
   "Uzbektelecom",
@@ -149,11 +150,10 @@ function Home() {
     // ⬇️ overflow-x-hidden — butun sahifada gorizontal scroll yo'q
     <div className="overflow-x-hidden">
       {/* ══════════════════════════════════════════
-          HERO
-      ══════════════════════════════════════════ */}
+        HERO
+══════════════════════════════════════════ */}
       <section className="relative min-h-screen bg-[#0a1628] flex items-center overflow-hidden">
         {/* Background grid */}
-
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -162,7 +162,7 @@ function Home() {
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Animated gradient blobs — position:absolute, overflow:hidden section ichida */}
+        {/* Animated gradient blobs */}
         <motion.div
           className="absolute -right-24 top-[20%] w-[600px] h-[600px] bg-amber-500/[0.07] rounded-full blur-3xl pointer-events-none"
           animate={{ scale: [1, 1.08, 1], opacity: [0.07, 0.1, 0.07] }}
@@ -181,20 +181,12 @@ function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* ── Left ── */}
+            {/* ── Left: Matnlar va Tugmalar ── */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="visible"
             >
-              {/* Badge */}
-              <motion.div variants={fadeUpItem}>
-                <div className="inline-flex items-center gap-2 bg-amber-500/15 border border-amber-500/25 text-amber-400 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-2 rounded-full mb-8">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                  {t("home.hero.badge")}
-                </div>
-              </motion.div>
-
               {/* H1 */}
               <motion.h1
                 variants={fadeUpItem}
@@ -256,114 +248,20 @@ function Home() {
               </motion.div>
             </motion.div>
 
-            {/* ── Right: Float-in cards — faqat lg+ da ko'rinadi ── */}
-            <div className="relative hidden lg:block h-[480px]">
-              {/* Featured program card — x o'rniga y animatsiya */}
-              <motion.div
-                {...heroCardRight}
-                animate={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: -20 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.5,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute right-0 top-8 w-80 bg-white/[0.07] border border-white/12 rounded-2xl p-7 backdrop-blur-sm"
-              >
-                <div className="flex justify-between items-start mb-5">
-                  <div>
-                    <p className="text-white/45 text-[10px] tracking-[0.12em] uppercase mb-1">
-                      {t("home.hero.floatingCard.label")}
-                    </p>
-                    <h3 className="text-white font-extrabold text-lg leading-snug">
-                      {t("home.hero.floatingCard.title")}
-                    </h3>
-                  </div>
-                  <span className="bg-amber-500 text-white text-[10px] font-black px-3 py-1.5 rounded-lg tracking-widest">
-                    HOT
-                  </span>
-                </div>
-                <div className="flex gap-2 flex-wrap mb-5">
-                  {t("home.hero.floatingCard.tags", {
-                    returnObjects: true,
-                  }).map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-amber-500/20 text-amber-300 text-[11px] font-bold px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="border-t border-white/10 pt-4 grid grid-cols-3 text-center gap-3">
-                  {[
-                    [
-                      t("home.hero.floatingCard.duration"),
-                      t("home.hero.floatingCard.durationLabel"),
-                    ],
-                    [
-                      t("home.hero.floatingCard.seats"),
-                      t("home.hero.floatingCard.seatsLabel"),
-                    ],
-                    [
-                      t("home.hero.floatingCard.intake"),
-                      t("home.hero.floatingCard.intakeLabel"),
-                    ],
-                  ].map(([v, l]) => (
-                    <div key={l}>
-                      <p className="text-white font-black text-xl leading-none">
-                        {v}
-                      </p>
-                      <p className="text-white/40 text-[10px] mt-1">{l}</p>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Event card — x o'rniga y animatsiya */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.65,
-                  delay: 0.7,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute left-0 top-44 w-56 bg-blue-700/90 border border-white/15 rounded-2xl p-5"
-              >
-                <p className="text-white/50 text-[10px] tracking-widest uppercase mb-2">
-                  {t("home.hero.eventCard.label")}
-                </p>
-                <h4 className="text-white font-extrabold text-sm leading-snug mb-3">
-                  {t("home.hero.eventCard.title")}
-                </h4>
-                <p className="text-amber-400 text-sm font-bold">
-                  {t("home.hero.eventCard.date")}
-                </p>
-              </motion.div>
-
-              {/* Ranking badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.9,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="absolute right-5 bottom-16 bg-amber-500 rounded-2xl p-5 text-center shadow-2xl shadow-amber-500/40"
-              >
-                <p className="text-white font-black text-4xl leading-none">
-                  {t("home.hero.rankBadge.rank")}
-                </p>
-                <p className="text-white/80 text-xs font-bold mt-1">
-                  {t("home.hero.rankBadge.region")}
-                </p>
-                <p className="text-white/55 text-[10px] mt-0.5">
-                  {t("home.hero.rankBadge.label")}
-                </p>
-              </motion.div>
-            </div>
+            {/* ── Right: Rasm uchun joy ── */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              className="relative hidden lg:block h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10"
+            >
+              {/* Rasm URL manzilini shu yerdagi 'src' ga qo'yasiz */}
+              <img
+                src={heroImage}
+                alt="Hero background"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+            </motion.div>
           </div>
         </div>
 

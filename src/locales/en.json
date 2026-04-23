@@ -25,11 +25,10 @@
   },
   "home": {
     "hero": {
-      "badge": "#1 Engineering School in Central Asia",
-      "title1": "Engineer",
-      "title2": "The Future",
-      "title3": "of Technology",
-      "subtitle": "TATU Engineering School — Uzbekistan's leading institution training innovators, researchers, and technology leaders for the nation's digital transformation.",
+      "title1": "TUIT",
+      "title2": "school of",
+      "title3": "engineering",
+      "subtitle": "A leading institution preparing innovators, researchers, and technology leaders for the digital transformation of Uzbekistan.",
       "applyBtn": "Apply for 2026 →",
       "programsBtn": "Explore Programs",
       "floatingCard": {
@@ -188,8 +187,8 @@
   },
   "about": {
     "hero": {
-      "crumb": "About Us",
-      "title": "About TATU Engineering School",
+      "crumb": "About us",
+      "title": "About TUIT school of engineering",
       "subtitle": "A hub of engineering excellence, innovative research, and industrial integration — we empower the next generation of engineers to shape the digital future of Uzbekistan."
     },
     "mvv": [
@@ -212,35 +211,35 @@
       "events": [
         {
           "year": "1955",
-          "event": "Founded as the Engineering Faculty of Tashkent Polytechnic Institute"
+          "event": "Established as the Engineering Faculty of the Tashkent Polytechnic Institute."
         },
         {
           "year": "1972",
-          "event": "First Computer Science department in Central Asia established"
+          "event": "The first Computer Science department in Central Asia was opened."
         },
         {
           "year": "1991",
-          "event": "Attained university status following Uzbekistan's independence"
+          "event": "Achieved university status following the independence of Uzbekistan."
         },
         {
           "year": "2001",
-          "event": "Renamed Tashkent University of Information Technologies (TATU)"
+          "event": "Renamed as the Tashkent University of Information Technologies (TUIT)."
         },
         {
           "year": "2015",
-          "event": "AI Research Centre launched in partnership with international partners"
+          "event": "AI Research Center launched in collaboration with international partners."
         },
         {
           "year": "2020",
-          "event": "#1 Engineering School in Central Asia by QS Rankings"
+          "event": "Ranked as the #1 Engineering School in Central Asia by QS Rankings."
         },
         {
           "year": "2024",
-          "event": "New Engineering Innovation Hub opened — 12,000 m² state-of-the-art facility"
+          "event": "Opening of the new Engineering Innovation Hub — a 12,000 m² state-of-the-art facility."
         },
         {
           "year": "2026",
-          "event": "Uzbekistan's first Artificial Intelligence PhD programme launched"
+          "event": "Launched the first PhD program in Artificial Intelligence in Uzbekistan."
         }
       ]
     }
@@ -248,8 +247,7 @@
   "programs": {
     "hero": {
       "crumb": "Programs",
-      "title": "Academic Programs",
-      "subtitle": "From Bachelor to PhD — our programs are designed to prepare you for the world's most demanding engineering roles."
+      "title": "Academic programs"
     },
     "filters": [
       { "key": "all", "label": "All Programs" },

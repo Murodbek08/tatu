@@ -25,11 +25,10 @@
   },
   "home": {
     "hero": {
-      "badge": "Markaziy Osiyoda №1 Muhandislik Maktabi",
-      "title1": "Texnologiya",
-      "title2": "Kelajagini",
-      "title3": "Yarating",
-      "subtitle": "TATU Muhandislik Maktabi — O'zbekistonning raqamli transformatsiyasi uchun innovatorlar, tadqiqotchilar va texnologiya liderlarini tayyorlaydigan yetakchi muassasasi.",
+      "title1": "TATU",
+      "title2": "muhandislik",
+      "title3": "maktabi",
+      "subtitle": "O'zbekistonning raqamli transformatsiyasi uchun innovatorlar, tadqiqotchilar va texnologiya liderlarini tayyorlaydigan yetakchi muassasasi.",
       "applyBtn": "2026 uchun Ariza →",
       "programsBtn": "Dasturlarni Ko'rish",
       "floatingCard": {
@@ -193,7 +192,7 @@
   "about": {
     "hero": {
       "crumb": "Haqimizda",
-      "title": "TATU Muhandislik Maktabi Haqida",
+      "title": "TATU muhandislik maktabi haqida",
       "subtitle": "Muhandislik mukammalligi, innovatsion ishlab chiqarish va sanoat integratsiyasi maskani - O'zbekistonning raqamli kelajagini shakllantiradigan yangi avlod muhandislarini tayyorlaymiz."
     },
     "mvv": [
@@ -211,40 +210,40 @@
       }
     ],
     "timeline": {
-      "sectionLabel": "Tarixamiz",
-      "title": "70 Yillik Muhandislik Mukammalligi",
+      "sectionLabel": "Tariximiz",
+      "title": "70 yillik muhandislik mukammalligi",
       "events": [
         {
           "year": "1955",
-          "event": "Toshkent Politexnika Instituti Muhandislik Fakulteti sifatida tashkil etildi"
+          "event": "Toshkent politexnika instituti muhandislik fakulteti sifatida tashkil etildi."
         },
         {
           "year": "1972",
-          "event": "Markaziy Osiyoda birinchi Kompyuter Fanlari kafedrasi ochildi"
+          "event": "Markaziy Osiyoda birinchi kompyuter fanlari kafedrasi ochildi."
         },
         {
           "year": "1991",
-          "event": "O'zbekiston mustaqilligidan keyin universitet maqomiga erishdi"
+          "event": "O‘zbekiston mustaqillikka erishgach, universitet maqomi berildi."
         },
         {
           "year": "2001",
-          "event": "Toshkent Axborot Texnologiyalari Universiteti (TATU) nomi berildi"
+          "event": "Muassasaga Toshkent axborot texnologiyalari universiteti (TATU) nomi berildi."
         },
         {
           "year": "2015",
-          "event": "Xalqaro hamkorlar bilan AI Tadqiqot Markazi ishga tushirildi"
+          "event": "Xalqaro hamkorlar bilan birgalikda SI (AI) tadqiqot markazi ishga tushirildi."
         },
         {
           "year": "2020",
-          "event": "QS Reytingi bo'yicha Markaziy Osiyoda №1 Muhandislik Maktabi"
+          "event": "QS reytingi bo‘yicha Markaziy Osiyodagi birinchi raqamli muhandislik maktabi deb topildi."
         },
         {
           "year": "2024",
-          "event": "Yangi Muhandislik Innovatsiya Habı ochildi — 12,000 m² zamonaviy bino"
+          "event": "Yangi muhandislik innovatsiya xabi ochildi — 12 000 m² maydonga ega zamonaviy bino."
         },
         {
           "year": "2026",
-          "event": "O'zbekistondagi birinchi Sun'iy Intellekt PhD dasturi ishga tushirildi"
+          "event": "O‘zbekistonda birinchi marta sun’iy intellekt yo‘nalishi bo‘yicha PhD dasturi ishga tushirildi."
         }
       ]
     }
@@ -252,8 +251,8 @@
   "programs": {
     "hero": {
       "crumb": "Dasturlar",
-      "title": "Akademik Dasturlar",
-      "subtitle": "Bakalavr'dan PhD'gacha — dasturlarimiz dunyoning eng talabchan muhandislik rollariga sizni tayyorlash uchun yaratilgan."
+      "title": "Akademik dasturlar",
+      "subtitle": "Bakalavriat ➔ Magistratura ➔ PhD. Dasturlarimiz sizni dunyoning eng talabchan muhandislik rollariga tayyorlaydi."
     },
     "filters": [
       { "key": "all", "label": "Barcha Dasturlar" },

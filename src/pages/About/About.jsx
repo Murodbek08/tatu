@@ -28,7 +28,7 @@ const timelineItem = {
 };
 
 function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div>
@@ -38,69 +38,76 @@ function About() {
         subtitle={t("about.hero.subtitle")}
       />
 
-      <div className="bg-white py-20">
+      <div className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-6">
-          {/* MVV Cards — stagger */}
+          {/* 1. MVV Cards — Missiya, Vizyon va Qadriyatlar */}
           <motion.div
+            key={i18n.language}
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-28"
           >
             {t("about.mvv", { returnObjects: true }).map((c) => (
               <motion.div
                 key={c.title}
                 variants={fadeUp}
                 whileHover={{
-                  y: -6,
-                  boxShadow: "0 16px 32px rgba(0,0,0,0.09)",
+                  y: -10,
+                  boxShadow: "0 25px 50px -12px rgba(0,0,0,0.12)",
                 }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                className="bg-slate-50 rounded-2xl p-8 border border-slate-200 cursor-default"
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="bg-slate-50 rounded-[2rem] p-10 border border-slate-200 cursor-default"
               >
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
+                  whileInView={{ scale: 1.1, opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-4xl mb-5"
+                  className="text-5xl mb-7 inline-block"
                 >
                   {c.icon}
                 </motion.div>
-                <h3 className="text-xl font-extrabold text-slate-900 mb-3">
+
+                {/* Sarlavha: Yanada qalin va yirikroq */}
+                <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">
                   {c.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed">
+
+                {/* Matn: O'qishga juda qulay o'lchamda */}
+                <p className="text-slate-600 text-lg leading-relaxed font-medium">
                   {c.text}
                 </p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Timeline */}
-          <AnimatedSection direction="up">
-            <SectionLabel>{t("about.timeline.sectionLabel")}</SectionLabel>
-            <div className="mt-1 mb-3">
-              <SectionTitle>{t("about.timeline.title")}</SectionTitle>
+          {/* 2. Timeline — Xronologiya qismi */}
+          <div className="space-y-4 mb-12">
+            <div className="uppercase tracking-[0.25em] text-sm font-bold text-blue-600 opacity-80">
+              {t("about.timeline.sectionLabel")}
             </div>
-          </AnimatedSection>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
+              {t("about.timeline.title")}
+            </h2>
+          </div>
 
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="relative pl-10 mt-8"
+            className="relative pl-12 mt-16"
           >
-            {/* Vertical line — grows down */}
+            {/* Vertical line */}
             <motion.div
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "circOut" }}
               viewport={{ once: true }}
               style={{ originY: 0 }}
-              className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200"
+              className="absolute left-4 top-0 bottom-0 w-[3px] bg-gradient-to-b from-slate-200 via-slate-200 to-transparent"
             />
 
             {t("about.timeline.events", { returnObjects: true }).map(
@@ -108,28 +115,37 @@ function About() {
                 <motion.div
                   key={year}
                   variants={timelineItem}
-                  className="flex gap-6 mb-8 items-start relative"
+                  className="flex flex-col md:flex-row gap-2 md:gap-10 mb-12 items-start relative"
                 >
+                  {/* Timeline Dot */}
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{
-                      duration: 0.3,
-                      delay: i * 0.06,
+                      duration: 0.4,
+                      delay: i * 0.08,
                       type: "spring",
-                      stiffness: 350,
+                      stiffness: 400,
                     }}
                     viewport={{ once: true }}
-                    className={`absolute -left-5.5 w-4 h-4 rounded-full border-4 border-white shadow ${
-                      i === 7 ? "bg-amber-500" : "bg-[#0a1628]"
+                    className={`absolute -left-[41px] w-6 h-6 rounded-full border-[5px] border-white shadow-md z-10 ${
+                      i === 7
+                        ? "bg-amber-500 scale-125 shadow-amber-200"
+                        : "bg-slate-900"
                     }`}
                   />
+
+                  {/* Yil: Katta va ko'zga tashlanadigan */}
                   <span
-                    className={`text-xs font-black tracking-widest uppercase ${i === 7 ? "text-amber-500" : "text-slate-400"}`}
+                    className={`text-2xl font-black tracking-tighter min-w-[100px] ${
+                      i === 7 ? "text-amber-500" : "text-slate-400"
+                    }`}
                   >
                     {year}
                   </span>
-                  <p className="text-[15px] text-slate-800 mt-1 leading-relaxed">
+
+                  {/* Voqea matni: Qalinroq va yirikroq shrift */}
+                  <p className="text-xl font-bold text-slate-800 mt-1 leading-snug max-w-3xl">
                     {event}
                   </p>
                 </motion.div>
