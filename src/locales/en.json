@@ -55,14 +55,14 @@
       "scrollDown": "Scroll down"
     },
     "stats": [
-      { "value": "12,000+", "label": "Students", "icon": "graduation" },
-      { "value": "340+", "label": "Teachers", "icon": "users" },
-      { "value": "85+", "label": "Research Labs", "icon": "microscope" },
-      { "value": "96%", "label": "Employment Rate", "icon": "briefcase" }
+      { "value": "340+", "label": "Students", "icon": "graduation" },
+      { "value": "25+", "label": "Teachers", "icon": "users" },
+      { "value": "15+", "label": "Research Labs", "icon": "microscope" },
+      { "value": "80%", "label": "Employment Rate", "icon": "briefcase" }
     ],
     "about": {
       "sectionLabel": "About Us",
-      "title": "TATU Engineering School",
+      "title": "TATU engineering school",
       "subtitle": "Based on the \"Network – Enterprise – University\" principle, practical engineers are trained in cooperation with Uzbektelecom, ZTE, MobiUz, and other leading enterprises.",
       "points": [
         {
@@ -78,29 +78,7 @@
           "desc": "The absolute majority of graduates find employment in their field or start their own entrepreneurial activities."
         }
       ],
-      "readMoreBtn": "Read More",
-      "cards": [
-        {
-          "label": "Laboratories",
-          "value": "14",
-          "sub": "Within the engineering school"
-        },
-        {
-          "label": "Scientific Labs",
-          "value": "32",
-          "sub": "Innovative laboratories"
-        },
-        {
-          "label": "Employment",
-          "value": "95–96%",
-          "sub": "Among graduates"
-        },
-        {
-          "label": "Accreditation",
-          "value": "ASIIN",
-          "sub": "Germany, 6 programs"
-        }
-      ]
+      "readMoreBtn": "Read More"
     },
     "programs": {
       "sectionLabel": "Academic Programs",
@@ -110,54 +88,23 @@
     },
     "news": {
       "sectionLabel": "Latest News",
-      "title": "On Campus & Beyond",
+      "title": "On and off campus",
       "viewAllBtn": "All News →"
     },
-    "events": {
-      "sectionLabel": "Events",
-      "title": "What's Happening",
-      "list": [
-        {
-          "date": "Mar 20",
-          "title": "Open Day — Engineering Campus",
-          "type": "Admissions"
-        },
-        {
-          "date": "Mar 25",
-          "title": "Hackathon: Smart Uzbekistan 2026",
-          "type": "Competition"
-        },
-        {
-          "date": "Apr 2",
-          "title": "PhD Defence: Advanced Machine Learning",
-          "type": "Academic"
-        },
-        {
-          "date": "Apr 10",
-          "title": "Career Fair — Technology & Engineering",
-          "type": "Career"
-        },
-        {
-          "date": "Apr 18",
-          "title": "IEEE Student Branch Conference",
-          "type": "Conference"
-        }
-      ]
-    },
+
     "faculty": {
       "sectionLabel": "Faculty",
-      "title": "World-Class Scholars",
-      "subtitle": "Our faculty are leaders in their fields — published, awarded and genuinely dedicated to student success.",
+      "title": "World-class scientists",
       "viewAllBtn": "All Faculty →",
       "pubsLabel": "publications"
     },
     "partners": {
       "sectionLabel": "Industry Partners",
-      "title": "Trusted by Industry Leaders"
+      "title": "Our Partners"
     },
     "cta": {
-      "title": "Ready to Engineer the Future?",
-      "subtitle": "Join 12,000+ students and become part of Uzbekistan's most innovative engineering community. Applications for the 2026 academic year are now open.",
+      "title": "Ready to master engineering programs?",
+      "subtitle": "Join 340+ students and become part of Uzbekistan's most innovative engineering community. Applications for the 2026 academic year are now open.",
       "applyBtn": "Apply Now — Free",
       "visitBtn": "Schedule a Visit"
     }

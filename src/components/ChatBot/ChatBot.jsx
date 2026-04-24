@@ -65,18 +65,18 @@ const ChatBot = () => {
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[99999]">
       {/* CHAT OYNASI */}
       {isOpen && (
-        <div className="fixed inset-0 sm:absolute sm:inset-auto sm:bottom-20 sm:right-0 w-full h-full sm:w-[380px] sm:h-[600px] bg-[#0a1120] sm:rounded-2xl shadow-2xl border-none sm:border sm:border-white/10 flex flex-col overflow-hidden transition-all duration-300">
+        <div className="fixed inset-0 sm:absolute sm:inset-auto sm:bottom-20 sm:right-0 w-full h-full sm:w-[380px] sm:h-[600px] bg-[var(--bg-dark-section)] sm:rounded-2xl shadow-2xl border-none sm:border sm:border-white/10 flex flex-col overflow-hidden transition-all duration-300">
           {/* TOP HEADER - MOBILDA HAM KO'RINADI */}
-          <div className="bg-[#0f172a] p-4 border-b border-white/10 flex justify-between items-center shrink-0">
+          <div className="bg-black/20 p-4 border-b border-white/10 flex justify-between items-center shrink-0">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#f6921e] flex items-center justify-center text-white font-bold shadow-lg shadow-orange-500/20">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] flex items-center justify-center text-[var(--bg-dark-section)] font-bold shadow-lg shadow-[var(--color-primary)]/20">
                 AI
               </div>
               <div>
                 <h4 className="text-white font-bold text-sm leading-tight">
                   Engineering Bot
                 </h4>
-                <p className="text-[10px] text-green-400 font-medium uppercase tracking-wider">
+                <p className="text-[10px] text-[var(--color-primary)] font-medium uppercase tracking-wider">
                   Online
                 </p>
               </div>
@@ -106,7 +106,7 @@ const ChatBot = () => {
           {/* CHAT MAYDONI */}
           <div
             ref={scrollRef}
-            className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0a1120]"
+            className="flex-1 overflow-y-auto p-4 space-y-4 bg-[var(--bg-dark-section)]"
           >
             {messages.map((msg, index) => (
               <div
@@ -116,7 +116,7 @@ const ChatBot = () => {
                 <div
                   className={`max-w-[80%] px-4 py-3 rounded-2xl text-[14px] leading-relaxed ${
                     msg.role === "user"
-                      ? "bg-[#f6921e] text-white rounded-tr-none"
+                      ? "bg-[var(--color-primary)] text-[var(--bg-dark-section)] font-medium rounded-tr-none"
                       : "bg-white/5 text-gray-200 border border-white/10 rounded-tl-none"
                   }`}
                 >
@@ -126,15 +126,15 @@ const ChatBot = () => {
             ))}
             {loading && (
               <div className="flex gap-1.5 p-2 items-center">
-                <span className="w-1.5 h-1.5 bg-[#f6921e] rounded-full animate-bounce"></span>
-                <span className="w-1.5 h-1.5 bg-[#f6921e] rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                <span className="w-1.5 h-1.5 bg-[#f6921e] rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full animate-bounce"></span>
+                <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span className="w-1.5 h-1.5 bg-[var(--color-primary)] rounded-full animate-bounce [animation-delay:0.4s]"></span>
               </div>
             )}
           </div>
 
           {/* INPUT QISMI - DOIMO PASTDA QOTIB TURADI */}
-          <div className="p-4 bg-[#0f172a] border-t border-white/10 shrink-0">
+          <div className="p-4 bg-black/20 border-t border-white/10 shrink-0">
             <div className="relative">
               <input
                 type="text"
@@ -142,11 +142,11 @@ const ChatBot = () => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                 placeholder="Savol yozing..."
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-5 pr-12 text-sm text-white focus:outline-none focus:border-[#f6921e] transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-4 pl-5 pr-12 text-sm text-white focus:outline-none focus:border-[var(--color-primary)] transition-all"
               />
               <button
                 onClick={sendMessage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#f6921e] hover:scale-110 transition-transform"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[var(--color-primary)] hover:scale-110 transition-transform"
               >
                 <svg
                   className="w-6 h-6 rotate-90"
@@ -164,7 +164,7 @@ const ChatBot = () => {
       {/* ASOSIY DUMALOQ TUGMA */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 sm:w-16 sm:h-16 bg-[#f6921e] rounded-full shadow-[0_10px_40px_rgba(246,146,30,0.4)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300"
+        className="w-14 h-14 sm:w-16 sm:h-16 bg-[var(--color-primary)] rounded-full shadow-[0_10px_40px_rgba(61,224,130,0.4)] flex items-center justify-center text-[var(--bg-dark-section)] hover:scale-110 active:scale-95 transition-all duration-300"
       >
         {isOpen ? (
           <svg

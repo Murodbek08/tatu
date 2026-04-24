@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  Facebook,
-  Instagram,
-  Send, // Telegram uchun Send ishlatiladi
-  Globe, // Web sayt uchun
-  Youtube,
-} from "lucide-react";
+import { Facebook, Instagram, Send, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 function Footer() {
@@ -17,14 +11,13 @@ function Footer() {
     ["/about", "/news", "/hamkorlar", "/contact"],
   ];
 
-  // Siz bergan yangi linklar va ranglar
   const socialLinks = [
     {
       name: "Web sayt",
       icon: Globe,
       href: "https://tuit.uz/",
       color:
-        "hover:bg-emerald-500/20 hover:border-emerald-500 hover:text-emerald-500",
+        "hover:bg-[var(--color-primary)]/20 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]",
     },
     {
       name: "Telegram",
@@ -47,30 +40,38 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0a1628] text-white/60">
-      <div className="max-w-7xl mx-auto px-6 pt-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-white/10">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center font-black text-white text-[11px] tracking-tight">
-                TATU
+    <footer className="bg-[var(--bg-dark-section)] text-white/60">
+      <div className="max-w-7xl mx-auto px-6 pt-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr] gap-16 pb-16 border-b border-white/10">
+          {/* Brand Section */}
+          <div className="space-y-8">
+            <div className="flex items-center gap-4">
+              <div className="w-20 h-14flex items-center justify-center p-2 ">
+                <img
+                  src="logo.png"
+                  alt="TATU Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div>
-                <p className="text-white font-extrabold text-sm leading-none">
+                {/* Logo Title text-xl ga oshirildi */}
+                <p className="text-white font-black text-xl leading-tight">
                   {t("footer.brand.logoTitle")}
                 </p>
-                <p className="text-amber-400 text-[10px] font-medium tracking-wider mt-0.5">
+                {/* Logo Subtitle text-sm ga oshirildi */}
+                <p className="text-[var(--color-primary)] text-sm font-bold tracking-widest mt-1 uppercase">
                   {t("footer.brand.logoSubtitle")}
                 </p>
               </div>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs mb-6">
+
+            {/* Ta'rif text-base ga oshirildi */}
+            <p className="text-base leading-relaxed max-w-sm">
               {t("footer.brand.desc")}
             </p>
 
-            {/* Ijtimoiy tarmoqlar qismi */}
-            <div className="flex gap-3">
+            {/* Social Icons */}
+            <div className="flex gap-4">
               {socialLinks.map((item, i) => {
                 const Icon = item.icon;
                 return (
@@ -80,30 +81,31 @@ function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={item.name}
-                    className={`w-10 h-10 rounded-xl bg-white/5 border border-white/10 
+                    className={`w-12 h-12 rounded-xl bg-white/5 border border-white/10 
                                flex items-center justify-center text-slate-300
                                transition-all duration-300 ease-in-out
-                               ${item.color}`} // Har bir tarmoq uchun o'ziga xos rang
+                               ${item.color}`}
                   >
-                    <Icon size={18} strokeWidth={2} />
+                    <Icon size={22} strokeWidth={2.5} />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Link cols */}
+          {/* Link Columns */}
           {t("footer.cols", { returnObjects: true }).map((col, colIdx) => (
             <div key={colIdx}>
-              <p className="text-white font-extrabold text-sm mb-5 tracking-wide">
+              {/* Ustun sarlavhasi text-lg ga oshirildi */}
+              <p className="text-white font-black text-lg mb-8 tracking-wide">
                 {col.title}
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {col.links.map((linkText, linkIdx) => (
                   <li key={linkIdx}>
                     <Link
                       to={FOOTER_PATHS[colIdx][linkIdx]}
-                      className="text-sm hover:text-amber-400 transition-colors"
+                      className="text-base hover:text-[var(--color-primary)] transition-colors font-medium"
                     >
                       {linkText}
                     </Link>
@@ -114,12 +116,15 @@ function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <span>{t("footer.copy")}</span>
-          <div className="flex gap-5">
+        {/* Bottom Bar */}
+        <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-white/40 border-t border-white/5 mt-8">
+          <span className="font-medium">{t("footer.copy")}</span>
+          <div className="flex gap-8">
             {t("footer.legal", { returnObjects: true }).map((l) => (
-              <button key={l} className="hover:text-white/60 transition-colors">
+              <button
+                key={l}
+                className="hover:text-[var(--color-primary)] transition-colors font-bold"
+              >
                 {l}
               </button>
             ))}

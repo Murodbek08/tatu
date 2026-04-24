@@ -55,14 +55,14 @@
       "scrollDown": "Pastga o'ting"
     },
     "stats": [
-      { "value": "12,000+", "label": "Talabalar", "icon": "graduation" },
-      { "value": "340+", "label": "O'qituvchilar", "icon": "users" },
-      { "value": "85+", "label": "Ilmiy Laboratoriya", "icon": "microscope" },
-      { "value": "96%", "label": "Ish bilan Ta'minlash", "icon": "briefcase" }
+      { "value": "340+", "label": "Talabalar", "icon": "graduation" },
+      { "value": "25+", "label": "O'qituvchilar", "icon": "users" },
+      { "value": "15+", "label": "Ilmiy Laboratoriya", "icon": "microscope" },
+      { "value": "80%", "label": "Ish bilan Ta'minlash", "icon": "briefcase" }
     ],
     "about": {
       "sectionLabel": "Biz haqimizda",
-      "title": "TATU Muhandislik Maktabi",
+      "title": "TATU muhandislik maktabi",
       "subtitle": "\"Tarmoq – Korxona – Oliygoh\" tamoyili asosida O'zbektelekom, ZTE, MobiUz va boshqa yetakchi korxonalar bilan hamkorlikda amaliy muhandislar tayyorlanadi.",
       "points": [
         {
@@ -74,33 +74,11 @@
           "desc": "Germaniyaning ASIIN agentligi tomonidan 6 ta ta'lim dasturi akkreditatsiyadan o'tdi — diplomlar butun dunyo bo'ylab tan olinadi."
         },
         {
-          "title": "95–96% ish bilan ta'minlanish",
+          "title": "80% ish bilan ta'minlanish",
           "desc": "Bitiruvchilarning mutlaq ko'pchiligi o'z mutaxassisligi bo'yicha ishga joylashadi yoki o'z tadbirkorlik faoliyatini olib boradi."
         }
       ],
-      "readMoreBtn": "Batafsil o'qish",
-      "cards": [
-        {
-          "label": "Laboratoriyalar",
-          "value": "14",
-          "sub": "Muhandislik maktabi tarkibida"
-        },
-        {
-          "label": "Ilmiy lab.",
-          "value": "32",
-          "sub": "Innovatsion laboratoriyalar"
-        },
-        {
-          "label": "Ish bilan ta'minlanish",
-          "value": "95–96%",
-          "sub": "Bitiruvchilar orasida"
-        },
-        {
-          "label": "Akkreditatsiya",
-          "value": "ASIIN",
-          "sub": "Germaniya, 6 ta dastur"
-        }
-      ]
+      "readMoreBtn": "Batafsil o'qish"
     },
     "programs": {
       "sectionLabel": "Akademik Dasturlar",
@@ -110,54 +88,22 @@
     },
     "news": {
       "sectionLabel": "So'nggi Yangiliklar",
-      "title": "Kampus va Undan Tashqarida",
+      "title": "Kampus va undan tashqarida",
       "viewAllBtn": "Barcha Yangiliklar →"
-    },
-    "events": {
-      "sectionLabel": "Tadbirlar",
-      "title": "Nima Bo'lyapti",
-      "list": [
-        {
-          "date": "Mar 20",
-          "title": "Ochiq Eshiklar Kuni — Muhandislik Kampusi",
-          "type": "Qabul"
-        },
-        {
-          "date": "Mar 25",
-          "title": "Xakaton: Aqlli O'zbekiston 2026",
-          "type": "Musobaqa"
-        },
-        {
-          "date": "Apr 2",
-          "title": "PhD Himoya: Ilg'or Mashinali O'rganish",
-          "type": "Akademik"
-        },
-        {
-          "date": "Apr 10",
-          "title": "Karyera Yarmarkasi — Texnologiya & Muhandislik",
-          "type": "Karyera"
-        },
-        {
-          "date": "Apr 18",
-          "title": "IEEE Talabalar Filiali Konferensiyasi",
-          "type": "Konferensiya"
-        }
-      ]
     },
     "faculty": {
       "sectionLabel": "O'qituvchilar",
-      "title": "Jahon Darajasidagi Olimlar",
-      "subtitle": "O'qituvchilarimiz o'z sohalarida yetakchi — nashr etilgan, mukofotlangan va talabalar muvaffaqiyatiga chin dildan bag'ishlangan.",
+      "title": "Jahon darajasidagi olimlar",
       "viewAllBtn": "Barcha O'qituvchilar →",
       "pubsLabel": "ta nashr"
     },
     "partners": {
       "sectionLabel": "Sanoat Hamkorlari",
-      "title": "Sanoat Yetakchilari Ishonchi"
+      "title": "Hamkorlarimiz"
     },
     "cta": {
-      "title": "Kelajakni Muhandislik Qilishga Tayyormisiz?",
-      "subtitle": "12,000+ talabaga qo'shiling va O'zbekistonning eng innovatsion muhandislik hamjamiyatining bir qismiga aylaning. 2026 o'quv yili uchun arizalar qabul qilinmoqda.",
+      "title": "Muhandislik dasturlarini o'rganishga tayyormisiz?",
+      "subtitle": "340+ talabaga qo'shiling va O'zbekistonning eng innovatsion muhandislik hamjamiyatining bir qismiga aylaning. 2026 o'quv yili uchun arizalar qabul qilinmoqda.",
       "applyBtn": "Ariza Topshirish — Bepul",
       "visitBtn": "Tashrif Rejalashtirish"
     }

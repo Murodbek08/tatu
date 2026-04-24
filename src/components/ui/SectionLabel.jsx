@@ -1,7 +1,7 @@
 function SectionLabel({ children }) {
   return (
-    <span className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-600 text-[11px] font-black tracking-[0.12em] uppercase px-4 py-1.5 rounded-full mb-4">
-      <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+    <span className="inline-flex items-center gap-2 bg-[var(--color-secondary)]/10 border border-[var(--color-secondary)]/20 text-[var(--color-secondary)] text-xs font-black tracking-[0.12em] uppercase px-4 py-2 rounded-full mb-5">
+      <span className="w-2 h-2 rounded-full bg-[var(--color-secondary)]" />
       {children}
     </span>
   );

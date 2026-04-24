@@ -1,8 +1,8 @@
 function SectionTitle({ children, light = false }) {
   return (
     <h2
-      className={`text-3xl md:text-[2.5rem] font-black leading-[1.15] mb-3 ${light ? "text-white" : "text-slate-900"}`}
-      style={{ fontFamily: "Georgia, serif" }}
+      className={`text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] mb-5 tracking-tight ${light ? "text-[var(--text-light)]" : "text-[var(--text-dark)]"}`}
+      style={{ fontFamily: "sans-serif" }}
     >
       {children}
     </h2>

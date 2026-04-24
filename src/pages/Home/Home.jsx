@@ -16,30 +16,14 @@ import { useTranslation } from "react-i18next";
 import request from "../../api";
 import { useEffect } from "react";
 import { useState } from "react";
-import { heroImage } from "../../assets";
+import { aboutImage, heroImage } from "../../assets";
 
-const PARTNERS = [
-  "Uzbektelecom",
-  "IT Park Uzbekistan",
-  "Samsung R&D",
-  "Huawei Central Asia",
-  "Cisco Academy",
-  "Microsoft Imagine",
-  "Google Developer Groups",
-  "EPAM Systems",
-];
 const ICON_MAP = {
   users: GraduationCap,
   books: Users,
   award: Microscope,
   globe: Briefcase,
 };
-const cardStyles = [
-  "bg-[#0a1628]",
-  "bg-blue-700",
-  "bg-amber-500",
-  "bg-emerald-600",
-];
 
 const NEWS_META = [
   { id: 1, icon: "🔬", cat_key: "Tadqiqot" },
@@ -66,23 +50,11 @@ const fadeUpItem = {
   },
 };
 
-// ── Hero right cards uchun — x animatsiyasi faqat lg+ da ishlaydi,
-//    lekin overflow-hidden bilan o'ralgan bo'lgani uchun scroll chiqmaydi
-const heroCardLeft = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-};
-const heroCardRight = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-};
-
 function Home() {
   const { t, i18n } = useTranslation();
   const [latestPrograms, setLatestPrograms] = useState([]);
   const [facultyPreview, setFacultyPreview] = useState([]);
   const [news, setNews] = useState([]);
-  const [text, setText] = useState("");
 
   useEffect(() => {
     const getPrograms = async () => {
@@ -146,31 +118,43 @@ function Home() {
     fetchPreview();
   }, []);
 
+  const social_image = [
+    "https://static.tuit.uz/uploads/1/ya02NIlKA49EdnSw4huY3Wz0jPl4eaNq.png",
+    "https://static.tuit.uz/uploads/1/s0_W7X8zIoomi4jEDKnKXgzYbhoD_STK.png",
+    "https://static.tuit.uz/uploads/1/mMhqxaKipg1IICdGsT_qL-2TQxvfWISR.png",
+    "https://static.tuit.uz/uploads/1/lE8f-O4ORLRlsk4MHs169AudPgUfCCYN.png",
+    "https://static.tuit.uz/uploads/1/kPI89m2E075vJjw2s602EcmQ8vX3fRu6.png",
+    "https://static.tuit.uz/uploads/1/YLwEFVIbrC-jYdNHACMHb58fzSdrzSMP.png",
+    "https://static.tuit.uz/uploads/1/OISj7D-2dek65inIiuNgmII5bYfZUMbV.jpg",
+    "https://static.tuit.uz/uploads/1/uU_hlO5eknGUh3Qntb0lDQXe2OZFVlEQ.png",
+  ];
+
   return (
     // ⬇️ overflow-x-hidden — butun sahifada gorizontal scroll yo'q
     <div className="overflow-x-hidden">
       {/* ══════════════════════════════════════════
         HERO
 ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen bg-[#0a1628] flex items-center overflow-hidden">
-        {/* Background grid */}
+      <section className="relative min-h-screen bg-[var(--bg-light-section)] flex items-center overflow-hidden">
+        {/* Background grid - Och fondagi och binafsha katakchalar */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-40"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px)",
+              "linear-gradient(rgba(137, 43, 226, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(137, 43, 226, 0.08) 1px, transparent 1px)",
             backgroundSize: "60px 60px",
           }}
         />
-        {/* Animated gradient blobs */}
+
+        {/* Animated gradient blobs - Binafsha va Yalpiz ranglarda */}
         <motion.div
-          className="absolute -right-24 top-[20%] w-[600px] h-[600px] bg-amber-500/[0.07] rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.08, 1], opacity: [0.07, 0.1, 0.07] }}
+          className="absolute -right-24 top-[20%] w-[600px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-3xl pointer-events-none"
+          animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -left-36 bottom-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"
-          animate={{ scale: [1, 1.06, 1], opacity: [0.1, 0.14, 0.1] }}
+          className="absolute -left-36 bottom-0 w-[500px] h-[500px] bg-[var(--color-primary)]/15 rounded-full blur-3xl pointer-events-none"
+          animate={{ scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
           transition={{
             duration: 10,
             repeat: Infinity,
@@ -190,12 +174,16 @@ function Home() {
               {/* H1 */}
               <motion.h1
                 variants={fadeUpItem}
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-7"
-                style={{ fontFamily: "Georgia, serif" }}
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--text-dark)] leading-[1.05] mb-7"
+                style={{ fontFamily: "sans-serif" }} // School 21 odatda sans-serif ishlatadi, xohlasangiz Georgia'ni qoldirishingiz mumkin
               >
                 {t("home.hero.title1")}
                 <br />
-                <span className="text-amber-400"> {t("home.hero.title2")}</span>
+                {/* Urg'u berilgan so'z binafsha rangda */}
+                <span className="text-[var(--color-secondary)]">
+                  {" "}
+                  {t("home.hero.title2")}
+                </span>
                 <br />
                 {t("home.hero.title3")}
               </motion.h1>
@@ -203,7 +191,7 @@ function Home() {
               {/* Subtitle */}
               <motion.p
                 variants={fadeUpItem}
-                className="text-white/65 text-lg leading-relaxed max-w-lg mb-10"
+                className="text-[var(--text-gray)] text-2xl font-medium leading-relaxed max-w-lg mb-10"
               >
                 {t("home.hero.subtitle")}
               </motion.p>
@@ -213,16 +201,19 @@ function Home() {
                 variants={fadeUpItem}
                 className="flex flex-wrap gap-4 mb-14"
               >
+                {/* Asosiy yalpiz rangli tugma */}
                 <Link
                   to={"admissions"}
-                  className="bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-bold text-base px-9 py-4 rounded-xl transition-all shadow-2xl shadow-amber-500/25 relative overflow-hidden group"
+                  className="bg-[var(--color-primary)] hover:brightness-95 active:scale-95 text-[var(--bg-dark-section)] font-bold text-base px-9 py-4 rounded-xl transition-all shadow-xl shadow-[var(--color-primary)]/20 relative overflow-hidden group"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
                   <span className="relative">{t("home.hero.applyBtn")}</span>
                 </Link>
+
+                {/* Ikkinchi darajali tugma */}
                 <Link
                   to={"programs"}
-                  className="bg-white/10 hover:bg-white/18 border border-white/25 text-white font-semibold text-base px-9 py-4 rounded-xl transition-all"
+                  className="bg-transparent hover:bg-[var(--color-secondary)]/5 border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] font-bold text-base px-9 py-4 rounded-xl transition-all"
                 >
                   {t("home.hero.programsBtn")}
                 </Link>
@@ -231,16 +222,17 @@ function Home() {
               {/* Stats mini */}
               <motion.div
                 variants={fadeUpItem}
-                className="flex flex-wrap gap-10 pt-8 border-t border-white/10"
+                className="flex flex-wrap gap-10 pt-8 border-t border-black/10"
               >
                 {t("home.stats", { returnObjects: true })
                   .slice(0, 3)
                   .map((s) => (
                     <div key={s.label}>
-                      <p className="text-amber-400 text-3xl font-black leading-none">
+                      {/* Raqamlar yalpiz yoki binafsha rangda */}
+                      <p className="text-[var(--color-secondary)] text-4xl font-black leading-none">
                         <CountUp value={s.value} duration={2200} />
                       </p>
-                      <p className="text-white/45 text-xs mt-1.5 tracking-wide">
+                      <p className="text-[var(--text-gray)] font-medium text-xs mt-2 tracking-wide uppercase">
                         {s.label}
                       </p>
                     </div>
@@ -253,13 +245,13 @@ function Home() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="relative hidden lg:block h-[480px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/40 border border-white/10"
+              className="relative hidden lg:block h-[500px] w-full rounded-[32px] overflow-hidden shadow-2xl shadow-black/5"
             >
               {/* Rasm URL manzilini shu yerdagi 'src' ga qo'yasiz */}
               <img
                 src={heroImage}
                 alt="Hero background"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full rounded-[32px] h-full object-cover hover:scale-105  transition-transform duration-700 border-6 border-[var(--color-secondary)]"
               />
             </motion.div>
           </div>
@@ -270,11 +262,11 @@ function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 text-xs"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--text-gray)] text-xs font-bold uppercase tracking-widest"
         >
           <span>{t("home.hero.scrollDown")}</span>
           <motion.div
-            className="w-px h-8 bg-white/20"
+            className="w-px h-8 bg-[var(--text-gray)]/40"
             animate={{ scaleY: [1, 0.3, 1], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -284,9 +276,10 @@ function Home() {
       {/* ══════════════════════════════════════════
           STATS BAND
       ══════════════════════════════════════════ */}
+
       <AnimatedSection direction="up">
-        <section className="bg-amber-500">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/20">
+        <section className="bg-[var(--color-primary)]">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[var(--bg-dark-section)]/10">
             {t("home.stats", { returnObjects: true }).map((s) => {
               const Icon = ICON_MAP[s.icon] || Globe;
               return (
@@ -294,13 +287,18 @@ function Home() {
                   key={s.label}
                   className="py-8 px-6 flex flex-col items-center justify-center text-center"
                 >
-                  <div className="bg-white/10 p-3 rounded-xl mb-3 text-white">
+                  {/* Ikonka orqa foni va rangi to'q qorong'i rangga moslashtirildi */}
+                  <div className="bg-[var(--bg-dark-section)]/10 p-3 rounded-xl mb-3 text-[var(--bg-dark-section)]">
                     <Icon size={28} strokeWidth={1.5} />
                   </div>
-                  <p className="text-white font-black text-3xl md:text-4xl leading-none">
+
+                  {/* Raqamlar rangi */}
+                  <p className="text-[var(--bg-dark-section)] font-black text-3xl md:text-4xl leading-none">
                     <CountUp value={s.value} duration={2000} />
                   </p>
-                  <p className="text-white/80 text-sm md:text-base mt-2 font-medium tracking-wide">
+
+                  {/* Ostki matn (label) rangi */}
+                  <p className="text-[var(--bg-dark-section)]/80 text-sm md:text-base mt-2 font-medium tracking-wide">
                     {s.label}
                   </p>
                 </div>
@@ -313,7 +311,7 @@ function Home() {
       {/* ══════════════════════════════════════════
           ABOUT PREVIEW
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-24">
+      <section className="bg-[var(--bg-light-section)] py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* direction="left" → translateX ishlatadi, shuning uchun
               AnimatedSection ichida overflow:hidden bo'lishi kerak —
@@ -324,16 +322,20 @@ function Home() {
                 <SectionLabel>{t("home.about.sectionLabel")}</SectionLabel>
                 <SectionTitle>{t("home.about.title")}</SectionTitle>
                 <SectionSubtitle>{t("home.about.subtitle")}</SectionSubtitle>
-                <ul className="mt-7 space-y-5 mb-9">
+
+                <ul className="mt-8 space-y-6 mb-10">
                   {t("home.about.points", { returnObjects: true }).map(
                     (item) => (
-                      <li key={item.t} className="flex gap-4 items-start">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0" />
+                      <li key={item.title} className="flex gap-5 items-start">
+                        {/* Amber nuqta yalpiz rangga almashtirildi va biroz kattalashtirildi */}
+                        <span className="w-3 h-3 rounded-full bg-[var(--color-primary)] mt-2 shrink-0" />
                         <div>
-                          <p className="font-extrabold text-slate-900 text-[15px] mb-0.5">
+                          {/* Matnlar text-lg (18px) ga oshirildi */}
+                          <p className="font-extrabold text-[var(--text-dark)] text-lg mb-1">
                             {item.title}
                           </p>
-                          <p className="text-slate-500 text-sm leading-relaxed">
+                          {/* Izoh matni text-base (16px) ga oshirildi */}
+                          <p className="text-[var(--text-gray)] text-base leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -341,9 +343,11 @@ function Home() {
                     ),
                   )}
                 </ul>
+
+                {/* Tugma Yalpiz rangiga o'tkazildi va matni kattalashtirildi */}
                 <Link
                   to={"about"}
-                  className="bg-[#0a1628] hover:bg-[#0d1f3c] text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-colors shadow-lg"
+                  className="bg-[var(--color-primary)] hover:brightness-95 active:scale-95 text-[var(--bg-dark-section)] font-bold text-base px-10 py-4 rounded-xl transition-all shadow-lg inline-block"
                 >
                   {t("home.about.readMoreBtn")}
                 </Link>
@@ -353,44 +357,35 @@ function Home() {
 
           <div className="overflow-hidden">
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="grid grid-cols-2 gap-4">
-                {t("home.about.cards", { returnObjects: true }).map(
-                  (c, index) => (
-                    <motion.div
-                      key={c.label}
-                      whileHover={{ scale: 1.03, y: -4 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      }}
-                      className={`${cardStyles[index]} text-white rounded-2xl p-7 cursor-default`}
-                    >
-                      <p className="text-white/55 text-[10px] font-bold tracking-[0.12em] uppercase mb-2">
-                        {c.label}
-                      </p>
-                      <p className="font-black text-4xl leading-none">
-                        {c.value}
-                      </p>
-                      <p className="text-white/65 text-sm mt-2">{c.sub}</p>
-                    </motion.div>
-                  ),
-                )}
-              </div>
+              {/* Rasm qolipi: to'liq to'rtburchak va buzilmasligi uchun */}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                }}
+                className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden border-6 border-[var(--color-secondary)]"
+              >
+                <img
+                  src={aboutImage}
+                  alt="Tatu Engineering School Kampus"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </motion.div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-    PROGRAMS SECTION
-══════════════════════════════════════════ */}
-      <section className="bg-slate-50 py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      PROGRAMS SECTION
+       ══════════════════════════════════════════ */}
+      <section className="bg-[var(--bg-light-section)] py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-3xl mx-auto mb-16">
               <SectionLabel>{t("home.programs.sectionLabel")}</SectionLabel>
-              <SectionTitle>{t("home.programs.title")}</SectionTitle>
               <SectionSubtitle>{t("home.programs.subtitle")}</SectionSubtitle>
             </div>
           </AnimatedSection>
@@ -400,11 +395,12 @@ function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12"
+            // Kartochkalar orasidagi masofa gap-8 ga oshirildi
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16"
           >
             {latestPrograms.map((prog) => {
-              // Har bir dastur uchun bazadan rang kelmasa, standart ko'k rang ishlatiladi
-              const accentColor = prog.bg_color || "#3b82f6";
+              // Standart rang School 21 binafsharangiga o'zgartirildi
+              const accentColor = prog.bg_color || "var(--color-secondary)";
 
               // Tilga mos nom va tavsifni tanlash
               const currentName = prog[`name_${i18n.language}`] || prog.name_uz;
@@ -414,36 +410,45 @@ function Home() {
                 <motion.div key={prog.id} variants={fadeUpItem}>
                   <Link
                     to={`/programs/${prog.id}`}
-                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-transparent block"
+                    className="bg-white rounded-[32px] overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl block border-[6px] border-solid"
+                    style={{
+                      // Bu yerda borderColor aniq ishlaydi
+                      borderColor: accentColor
+                        ? `color-mix(in srgb, ${accentColor} 20%, transparent)`
+                        : "#e2e8f0",
+                    }}
                   >
                     {/* Dekorativ chiziqlar */}
                     <div
-                      className="h-1.5 w-full"
-                      style={{ background: `${accentColor}20` }} // 20% shaffoflik
+                      className="h-2 w-full"
+                      style={{
+                        background: `color-mix(in srgb, ${accentColor} 20%, transparent)`,
+                      }} // CSS o'zgaruvchilar bilan ishlash uchun
                     />
                     <div
-                      className="h-1.5 w-full -mt-1.5 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"
+                      className="h-2 w-full -mt-2 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"
                       style={{ background: accentColor }}
                     />
 
-                    <div className="p-8">
-                      <div className="flex justify-between items-start mb-6">
-                        {/* Icon qismi */}
+                    {/* Ichki bo'shliqlar p-10 ga oshirildi */}
+                    <div className="p-10">
+                      <div className="flex justify-between items-start mb-8">
+                        {/* Icon qismi kattalashtirildi (w-20 h-20, text-5xl) */}
                         <div
-                          className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl group-hover:rotate-6 transition-transform duration-300 shadow-sm border border-slate-50"
+                          className="w-20 h-20 rounded-2xl flex items-center justify-center text-5xl group-hover:rotate-6 transition-transform duration-300 shadow-sm border border-slate-50"
                           style={{
-                            background: `${accentColor}10`,
+                            background: `color-mix(in srgb, ${accentColor} 10%, transparent)`,
                             color: accentColor,
                           }}
                         >
                           {prog.icon_url || "🎓"}
                         </div>
 
-                        {/* Kategoriya bage-i */}
+                        {/* Kategoriya badge-i kattalashtirildi (text-xs) */}
                         <span
-                          className="text-[10px] font-black px-3 py-1.5 rounded-lg tracking-widest uppercase"
+                          className="text-xs font-black px-4 py-2 rounded-xl tracking-widest uppercase"
                           style={{
-                            background: `${accentColor}15`,
+                            background: `color-mix(in srgb, ${accentColor} 15%, transparent)`,
                             color: accentColor,
                           }}
                         >
@@ -451,23 +456,25 @@ function Home() {
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-extrabold text-slate-900 mb-3 leading-tight group-hover:text-blue-700 transition-colors">
+                      {/* Sarlavha text-3xl ga kattalashtirildi */}
+                      <h3 className="text-3xl font-black text-[var(--text-dark)] mb-4 leading-tight group-hover:text-[var(--color-secondary)] transition-colors">
                         {currentName}
                       </h3>
 
-                      <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {/* Matn text-lg ga kattalashtirildi */}
+                      <p className="text-[var(--text-gray)] text-lg leading-relaxed mb-8 line-clamp-3">
                         {currentDesc}
                       </p>
 
-                      {/* Teglar (Tags) */}
-                      <div className="flex flex-wrap gap-2 mb-8 min-h-[32px]">
+                      {/* Teglar (Tags) text-sm ga kattalashtirildi */}
+                      <div className="flex flex-wrap gap-3 mb-10 min-h-[40px]">
                         {getTagsArray(prog.tags).map((tag, idx) => (
                           <span
                             key={idx}
-                            className="text-[11px] font-bold px-3 py-1 rounded-full border"
+                            className="text-sm font-bold px-4 py-1.5 rounded-full border"
                             style={{
-                              borderColor: `${accentColor}30`,
-                              background: `${accentColor}05`,
+                              borderColor: `color-mix(in srgb, ${accentColor} 30%, transparent)`,
+                              background: `color-mix(in srgb, ${accentColor} 5%, transparent)`,
                               color: accentColor,
                             }}
                           >
@@ -476,21 +483,21 @@ function Home() {
                         ))}
                       </div>
 
-                      {/* Pastki ma'lumotlar paneli */}
-                      <div className="flex justify-between items-center pt-5 border-t border-slate-100">
-                        <div className="flex flex-col">
-                          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+                      {/* Pastki ma'lumotlar paneli yiriklashtirildi */}
+                      <div className="flex justify-between items-center pt-6 border-t border-slate-100">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-xs text-[var(--text-gray)] uppercase font-bold tracking-wider">
                             Daraja
                           </span>
-                          <span className="text-sm font-bold text-slate-700">
+                          <span className="text-xl font-black text-[var(--text-dark)]">
                             {prog.level || "Bakalavr"}
                           </span>
                         </div>
-                        <div className="flex flex-col text-right">
-                          <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">
+                        <div className="flex flex-col text-right gap-1">
+                          <span className="text-xs text-[var(--text-gray)] uppercase font-bold tracking-wider">
                             Davomiyligi
                           </span>
-                          <span className="text-sm font-bold text-slate-700">
+                          <span className="text-xl font-black text-[var(--text-dark)]">
                             {prog.duration || "4 yil"}
                           </span>
                         </div>
@@ -502,15 +509,15 @@ function Home() {
             })}
           </motion.div>
 
-          {/* Barcha dasturlarni ko'rish tugmasi */}
+          {/* Barcha dasturlarni ko'rish tugmasi - School 21 uslubiga o'tkazildi va yiriklashdi */}
           <AnimatedSection delay={0.2}>
             <div className="text-center">
               <Link
                 to="/programs"
-                className="inline-flex items-center gap-2 border-2 border-[#0a1628] text-[#0a1628] hover:bg-[#0a1628] hover:text-white font-bold text-base px-12 py-4 rounded-xl transition-all duration-300 group"
+                className="inline-flex items-center gap-3 border-2 border-[var(--bg-dark-section)] text-[var(--bg-dark-section)] hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] font-black text-lg px-14 py-5 rounded-xl transition-all duration-300 group shadow-lg hover:shadow-[var(--color-primary)]/30"
               >
                 {t("home.programs.viewAllBtn")}
-                <span className="group-hover:translate-x-1 transition-transform">
+                <span className="text-2xl leading-none group-hover:translate-x-2 transition-transform">
                   →
                 </span>
               </Link>
@@ -520,22 +527,27 @@ function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          NEWS + EVENTS
+          NEWS 
       ══════════════════════════════════════════ */}
-      <section className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 xl:grid-cols-[1fr_380px] gap-16">
-          {/* ————— YANGILIKLAR (DINAMIK, LOADINGSIZ) ————— */}
+      <section className="bg-[var(--bg-light-section)] py-28">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+          {/* ————— YANGILIKLAR (TO'LIQ KENGILK VA YIRIKLASHGAN) ————— */}
           <div className="overflow-hidden">
-            <AnimatedSection direction="left">
+            <AnimatedSection direction="up">
               <div>
-                <SectionLabel>{t("home.news.sectionLabel")}</SectionLabel>
-                <SectionTitle>{t("home.news.title")}</SectionTitle>
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                  <SectionLabel>{t("home.news.sectionLabel")}</SectionLabel>
+                  <SectionTitle>{t("home.news.title")}</SectionTitle>
+                </div>
 
-                <div className="mt-8 space-y-5">
+                {/* Yangiliklarni to'liq ekranda 3 ta ustunga bo'lib ko'rsatish */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                   {news.map((item) => {
+                    // Original ranglarni dizayn tizimiga moslash
                     const meta = NEWS_META[item.cat_key] || {
                       icon: "📰",
-                      color: "bg-slate-100 text-slate-600",
+                      color:
+                        "bg-[var(--bg-dark-section)]/5 text-[var(--bg-dark-section)]/70 border border-[var(--bg-dark-section)]/10",
                     };
                     const title =
                       item[`title_${i18n.language}`] || item.title_uz;
@@ -548,89 +560,91 @@ function Home() {
                       <Link
                         to={`/news/${item.id}`}
                         key={item.id}
-                        className="flex gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl border border-slate-200 group hover:border-blue-400 hover:bg-blue-50/40 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                        className="flex flex-col p-8 rounded-[40px] bg-white group transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] block border-[6px] border-solid"
+                        style={{
+                          borderColor: `var(--color-primary)`,
+                        }}
                       >
-                        <div className="w-20 sm:w-24 shrink-0 rounded-xl overflow-hidden bg-slate-100 flex items-center justify-center text-3xl aspect-video sm:h-20">
+                        {/* Rasm qismi (Balandligi oshirildi: h-72) */}
+                        <div className="w-full h-72 shrink-0 rounded-[24px] overflow-hidden bg-[var(--bg-light-section)] flex items-center justify-center mb-8 relative border border-slate-100">
                           {item.embed_url ? (
                             <img
-                              src={`https://img.youtube.com/vi/${extractVideoId(item.embed_url)}/mqdefault.jpg`}
+                              src={`https://img.youtube.com/vi/${extractVideoId(item.embed_url)}/hqdefault.jpg`}
                               alt=""
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                              onError={(e) => {
+                                e.target.src = `https://img.youtube.com/vi/${extractVideoId(item.embed_url)}/0.jpg`;
+                              }}
                             />
                           ) : (
-                            <span className="opacity-30">{meta.icon}</span>
+                            <span className="opacity-20 text-[var(--color-secondary)] text-7xl">
+                              {meta.icon}
+                            </span>
                           )}
-                        </div>
 
-                        <div className="min-w-0 flex flex-col justify-center">
-                          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                            <span
-                              className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide ${meta.color}`}
-                            >
+                          {/* Kategoriya tegi */}
+                          <div className="absolute top-5 left-5">
+                            <span className="text-sm font-black px-4 py-2 rounded-xl uppercase tracking-widest backdrop-blur-md bg-white/90 text-[var(--bg-dark-section)] shadow-lg border border-white/50">
                               {category}
                             </span>
-                            <span className="text-[10px] text-slate-400">
+                          </div>
+                        </div>
+
+                        {/* Matnlar qismi */}
+                        <div className="flex flex-col flex-1 px-2">
+                          <div className="flex items-center gap-3 mb-4">
+                            <span className="text-base font-bold text-[var(--color-primary)] bg-[var(--color-primary)]/10 px-3 py-1 rounded-lg">
                               {item.date_label}
                             </span>
                           </div>
-                          <h4 className="text-[14px] sm:text-[15px] font-extrabold text-slate-900 mb-1 leading-snug group-hover:text-blue-700 line-clamp-2">
+
+                          {/* Sarlavha: text-3xl gacha yiriklashdi */}
+                          <h4 className="text-3xl font-black text-[var(--text-dark)] mb-4 leading-tight group-hover:text-[var(--color-primary)] transition-colors line-clamp-2">
                             {title}
                           </h4>
-                          <p className="text-[12px] text-slate-500 leading-relaxed line-clamp-2 hidden sm:block">
+
+                          {/* Izoh: text-xl ga oshirildi */}
+                          <p className="text-xl text-[var(--text-gray)] leading-relaxed line-clamp-3 mb-8 flex-1 font-medium">
                             {excerpt}
                           </p>
+
+                          {/* Pastki qism */}
+                          <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                            <div className="flex items-center text-[var(--color-secondary)] font-black text-lg group-hover:text-[var(--color-primary)] transition-colors">
+                              Batafsil o'qish
+                              <span className="ml-3 group-hover:translate-x-3 transition-transform duration-300">
+                                <svg
+                                  width="24"
+                                  height="24"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                                    stroke="currentColor"
+                                    strokeWidth="3"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </Link>
                     );
                   })}
                 </div>
 
-                <div className="mt-6">
+                {/* Markazlashgan yirik "Barchasini ko'rish" tugmasi */}
+                <div className="text-center">
                   <Link
                     to="/news"
-                    className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold text-sm px-6 py-2.5 rounded-xl transition-all"
+                    className="inline-flex items-center gap-3 border-2 border-[var(--bg-dark-section)] text-[var(--bg-dark-section)] hover:bg-[var(--bg-dark-section)] hover:text-[var(--color-primary)] font-black text-lg px-12 py-4 rounded-xl transition-all duration-300 shadow-lg"
                   >
                     {t("home.news.viewAllBtn")}
                   </Link>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* ————— TADBIRLAR (STATIK) ————— */}
-          <div className="overflow-hidden">
-            <AnimatedSection direction="right" delay={0.15}>
-              <div>
-                <SectionLabel>{t("home.events.sectionLabel")}</SectionLabel>
-                <SectionTitle>{t("home.events.title")}</SectionTitle>
-
-                <div className="mt-8 space-y-3">
-                  {t("home.events.list", { returnObjects: true }).map(
-                    (ev, i) => (
-                      <motion.div
-                        key={i}
-                        whileHover={{ x: 4 }}
-                        className="flex gap-3 sm:gap-4 items-center p-3.5 sm:p-4 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer group"
-                      >
-                        <div className="bg-[#0a1628] text-white rounded-xl px-3 py-2 text-center shrink-0 min-w-14">
-                          <p className="font-black text-lg leading-none">
-                            {ev.date.split(" ")[1]}
-                          </p>
-                          <p className="text-white/50 text-[10px] uppercase mt-0.5">
-                            {ev.date.split(" ")[0]}
-                          </p>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-[13px] sm:text-[14px] font-extrabold text-slate-900 leading-snug group-hover:text-blue-700 line-clamp-2">
-                            {ev.title}
-                          </p>
-                          <p className="text-amber-600 text-[11px] font-bold mt-1">
-                            {ev.type}
-                          </p>
-                        </div>
-                      </motion.div>
-                    ),
-                  )}
                 </div>
               </div>
             </AnimatedSection>
@@ -641,13 +655,12 @@ function Home() {
       {/* ══════════════════════════════════════════
           FACULTY PREVIEW
       ══════════════════════════════════════════ */}
-      <section className="bg-slate-50 py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="bg-[var(--bg-light-section)] py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-3xl mx-auto mb-20">
               <SectionLabel>{t("home.faculty.sectionLabel")}</SectionLabel>
               <SectionTitle>{t("home.faculty.title")}</SectionTitle>
-              <SectionSubtitle>{t("home.faculty.subtitle")}</SectionSubtitle>
             </div>
           </AnimatedSection>
 
@@ -655,27 +668,32 @@ function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10"
+            // Gap kattalashtirildi
+            className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16"
           >
             {facultyPreview.map((m) => (
               <motion.div key={m.id} variants={fadeUpItem}>
                 <Link
                   to={"/faculty"}
-                  className="bg-white rounded-2xl p-8 border border-slate-200 text-center cursor-pointer group hover:-translate-y-2 hover:shadow-xl transition-all duration-300 block relative overflow-hidden"
+                  className="bg-white rounded-[32px] p-10 border-[6px] border-solid text-center cursor-pointer group hover:-translate-y-3 hover:shadow-2xl transition-all duration-300 block relative overflow-hidden"
+                  style={{
+                    // UI o'zgarmaydi, faqat hoshiya rangi binafsha rangning 20% shaffofligida ko'rinadi
+                    borderColor: `var(--color-primary)`,
+                  }}
                 >
-                  {/* Accent top line */}
+                  {/* Accent top line - Yalpiz rangda */}
                   <div
-                    className={`absolute top-0 left-0 right-0 h-0.5 ${m.avatar_cls} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`}
+                    className={`absolute top-0 left-0 right-0 h-1.5 bg-[var(--color-primary)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
                   />
 
                   {/* Avatar / Initials */}
                   <div
-                    className={`w-16 h-16 ${m.avatar_cls} rounded-full flex items-center justify-center text-white text-xl font-black mx-auto mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg overflow-hidden`}
+                    className={`w-24 h-24 ${m.avatar_cls || "bg-[var(--color-secondary)]"} rounded-full flex items-center justify-center text-white text-3xl font-black mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl overflow-hidden`}
                   >
                     {m.image ? (
                       <img
                         src={m.image}
-                        alt=""
+                        alt={getField(m, "name")}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -683,23 +701,28 @@ function Home() {
                     )}
                   </div>
 
-                  <h4 className="text-[16px] font-extrabold text-slate-900 mb-1 group-hover:text-blue-700 transition-colors">
+                  {/* Ism */}
+                  <h4 className="text-2xl font-black text-[var(--text-dark)] mb-2 group-hover:text-[var(--color-secondary)] transition-colors leading-tight">
                     {getField(m, "name")}
                   </h4>
 
-                  <p className="text-blue-700 font-bold text-[13px] mb-1">
+                  {/* Rol */}
+                  <p className="text-[var(--color-secondary)] font-bold text-lg mb-1">
                     {getField(m, "role")}
                   </p>
 
-                  <p className="text-slate-400 text-[12px] mb-4">
+                  {/* Bo'lim */}
+                  <p className="text-[var(--text-gray)] text-base mb-6 font-medium">
                     {getField(m, "dept")}
                   </p>
 
-                  <div className="bg-slate-50 rounded-xl p-3 text-[13px] text-slate-600 mb-3 line-clamp-2 min-h-[50px]">
-                    {getField(m, "research")}
+                  {/* Tadqiqot yo'nalishi */}
+                  <div className="bg-[var(--bg-light-section)] rounded-2xl p-5 text-base text-[var(--text-dark)]/80 mb-6 line-clamp-2 min-h-[70px] flex items-center justify-center italic">
+                    "{getField(m, "research")}"
                   </div>
 
-                  <p className="text-slate-400 text-xs">
+                  {/* Nashrlar */}
+                  <p className="text-[var(--text-gray)] text-sm font-bold tracking-wide uppercase">
                     📄 {m.pubs} {t("home.faculty.pubsLabel")}
                   </p>
                 </Link>
@@ -709,9 +732,10 @@ function Home() {
 
           <AnimatedSection delay={0.2}>
             <div className="text-center">
+              {/* Tugma yiriklashtirildi va Yalpiz rangga o'tkazildi */}
               <Link
                 to={"/faculty"}
-                className="bg-[#0a1628] hover:bg-[#0d1f3c] text-white font-bold text-sm px-10 py-3.5 rounded-xl transition-colors shadow-lg"
+                className="bg-[var(--color-primary)] hover:brightness-95 active:scale-95 text-[var(--bg-dark-section)] font-black text-lg px-14 py-5 rounded-xl transition-all shadow-xl shadow-[var(--color-primary)]/20 inline-block"
               >
                 {t("home.faculty.viewAllBtn")}
               </Link>
@@ -723,16 +747,18 @@ function Home() {
       {/* ══════════════════════════════════════════
           PARTNERS
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0a1628] py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-amber-500/5 via-transparent to-transparent pointer-events-none" />
+      <section className="bg-[var(--bg-dark-section)] py-28 relative overflow-hidden">
+        {/* Background gradient - Yalpiz rangiga moslandi */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--tw-gradient-stops))] from-[var(--color-primary)]/5 via-transparent to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 mb-4 text-[10px] font-bold tracking-[0.2em] text-amber-500 uppercase bg-amber-500/10 rounded-full border border-amber-500/20">
+            <div className="text-center mb-20">
+              {/* Label - Shrifti kattalashtirildi va rang yashilga o'zgartirildi */}
+              <span className="inline-block px-5 py-2 mb-6 text-xs font-black tracking-[0.2em] text-[var(--color-primary)] uppercase bg-[var(--color-primary)]/10 rounded-full border border-[var(--color-primary)]/20">
                 {t("home.partners.sectionLabel")}
               </span>
-              <h3 className="text-white font-extrabold text-3xl md:text-4xl">
+              <h3 className="text-white font-black text-4xl md:text-5xl lg:text-6xl">
                 {t("home.partners.title")}
               </h3>
             </div>
@@ -743,22 +769,27 @@ function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
           >
-            {PARTNERS.map((p) => (
+            {social_image.map((e) => (
               <motion.div
-                key={p}
+                key={e}
                 variants={fadeUpItem}
                 whileHover={{
-                  scale: 1.03,
-                  borderColor: "rgba(245,158,11,0.4)",
+                  scale: 1.05,
+                  borderColor: "var(--color-primary)",
                 }}
-                className="relative bg-white/3 border border-white/5 p-6 rounded-2xl transition-colors duration-300 flex items-center justify-center text-center group"
+                className="relative bg-white border border-white/10 p-8 rounded-[24px] transition-all duration-300 flex items-center justify-center text-center group min-h-[140px]"
               >
-                <span className="text-white/60 group-hover:text-amber-100 font-medium tracking-wide transition-colors">
-                  {p}
-                </span>
-                <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/0 to-transparent group-hover:via-amber-500/50 transition-all" />
+                {/* Logotip rasmi */}
+                <img
+                  src={e}
+                  alt="Hamkor logotipi"
+                  className="max-h-16 w-auto  transition-all duration-500  group-hover:opacity-100"
+                />
+
+                {/* Pastki dekorativ chiziq - Yashil rangda */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--color-primary)]/0 to-transparent group-hover:via-[var(--color-primary)]/50 transition-all duration-500" />
               </motion.div>
             ))}
           </motion.div>
@@ -769,35 +800,45 @@ function Home() {
           CTA
       ══════════════════════════════════════════ */}
       <AnimatedSection direction="up">
-        <section className="relative bg-gradient-to-br from-blue-700 to-blue-900 py-24 overflow-hidden">
-          <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/3 rounded-full pointer-events-none" />
-          <div className="absolute -left-14 -bottom-14 w-64 h-64 bg-white/3 rounded-full pointer-events-none" />
-          <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+        {/* Fon juda och kulrang (bg-[var(--bg-light-section)]), chetlari yumshoq soya bilan */}
+        <section className="relative bg-[var(--bg-light-section)] py-32 overflow-hidden rounded-[40px] mx-6 my-24 border border-slate-200 shadow-xl">
+          {/* Dekorativ elementlar - juda nafis va yengil */}
+          <div className="absolute -right-20 -top-20 w-[600px] h-[600px] bg-[var(--color-primary)]/5 rounded-full pointer-events-none blur-[100px]" />
+          <div className="absolute -left-20 -bottom-20 w-[400px] h-[400px] bg-[var(--color-secondary)]/5 rounded-full pointer-events-none blur-[80px]" />
+          <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            {/* Sarlavha - To'q matn (var(--text-dark)), juda yirik */}
             <h2
-              className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight"
-              style={{ fontFamily: "Georgia, serif" }}
+              className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--text-dark)] mb-10 leading-[1.05] tracking-tighter"
+              style={{ fontFamily: "sans-serif" }}
             >
               {t("home.cta.title")}
             </h2>
-            <p className="text-white/70 text-lg leading-relaxed mb-10">
+            {/* Subtitle - Kulrang (var(--text-gray)), o'qilishi oson */}
+            <p className="text-[var(--text-gray)] text-xl md:text-2xl leading-relaxed mb-16 max-w-3xl mx-auto font-medium">
               {t("home.cta.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-6 justify-center">
+              {/* Asosiy tugma - Yalpiz yashil, lekin matni to'q */}
               <Link
                 to={"admissions"}
-                className="bg-amber-500 hover:bg-amber-600 active:scale-95 text-white font-black text-base px-10 py-4 rounded-xl transition-all shadow-2xl shadow-amber-500/25 relative overflow-hidden group"
+                className="bg-[var(--color-primary)] hover:scale-105 active:scale-95 text-[var(--text-dark)] font-black text-xl px-16 py-6 rounded-2xl transition-all shadow-xl shadow-[var(--color-primary)]/30 relative overflow-hidden group"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-                <span className="relative">{t("home.cta.applyBtn")}</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                <span className="relative uppercase tracking-widest">
+                  {t("home.cta.applyBtn")}
+                </span>
               </Link>
+              {/* Ikkinchi darajali tugma - Oq fonli, toza */}
               <Link
                 to={"contact"}
-                className="bg-white/12 hover:bg-white/20 border border-white/30 text-white font-bold text-base px-10 py-4 rounded-xl transition-all"
+                className="bg-white hover:bg-slate-50 border-2 border-slate-200 text-[var(--text-dark)] font-black text-xl px-16 py-6 rounded-2xl transition-all shadow-sm"
               >
                 {t("home.cta.visitBtn")}
               </Link>
             </div>
           </div>
+          {/* Pastki bezak chizig'i */}
+          <div className="absolute bottom-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-[var(--color-secondary)]/20 to-transparent" />
         </section>
       </AnimatedSection>
     </div>

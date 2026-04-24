@@ -16,3 +16,39 @@ h6 {
   font-family: "Inter", sans-serif !important;
   letter-spacing: -0.02em;
 }
+
+:root {
+  /* Asosiy Brand ranglar */
+  --color-primary: #3de082; /* Yalpiz yashil (Mint) */
+  --color-secondary: #892be2; /* Binafsha (Purple) */
+  --color-accent: #ffeb3b; /* Urg'u uchun sariq (ixtiyoriy) */
+
+  /* To'q ranglar palitrasi (Faqat bitta qora emas) */
+  --bg-dark-section: #16181d; /* Asosiy to'q fon */
+  --bg-dark-deep: #0e1013; /* Yanada to'qroq (Navigatsiya yoki Footer uchun) */
+  --bg-dark-soft: #1f2229; /* Yumshoqroq to'q (Kartochkalar to'q fonda bo'lganda) */
+  --bg-dark-border: #2d3139; /* To'q fondagi chiziqlar (Borders) uchun */
+
+  /* Och ranglar palitrasi */
+  --bg-light-section: #f4f5f8; /* Umumiy och fon */
+  --bg-card: #ffffff; /* Oq kartochkalar */
+  --bg-light-hover: #ebecef; /* Element ustiga borgandagi (hover) holati */
+
+  /* Matn ranglari */
+  --text-dark: #202124; /* Asosiy qora matn */
+  --text-light: #ffffff; /* Oq matn */
+  --text-gray: #5f6368; /* Izohlar uchun kulrang */
+  --text-muted: #9aa0a6; /* Juda kuchsiz matnlar uchun */
+}
+
+/* To'q fon orqasidagi algoritm naqshini ifodalovchi maxsus klass */
+.bg-pattern {
+  background-image: radial-gradient(
+    var(--color-secondary) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  background-position: -19px -19px;
+  /* Asl dizayndagi chiziqli sxemani to'liq chizish uchun SVG ishlatgan ma'qul, 
+     bu yerda vaqtincha nuqtali pattern berildi */
+}

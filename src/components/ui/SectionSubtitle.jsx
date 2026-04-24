@@ -1,7 +1,7 @@
 function SectionSubtitle({ children, light = false }) {
   return (
     <p
-      className={`text-base leading-relaxed ${light ? "text-white/60" : "text-slate-500"}`}
+      className={`text-xl leading-relaxed ${light ? "text-[var(--text-light)]/70" : "text-[var(--text-gray)]"}`}
     >
       {children}
     </p>
