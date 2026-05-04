@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
-import request from "../../api";
+import { request } from "../../api";
 
 const NEWS_META = {
   innovation: { icon: "💡", color: "bg-yellow-100 text-yellow-700" },

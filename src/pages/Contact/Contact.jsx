@@ -19,7 +19,7 @@ import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { useTranslation } from "react-i18next";
-import request from "../../api"; // SIZNING AXIOS INSTANCE
+import {request} from "../../api"; // SIZNING AXIOS INSTANCE
 
 // Leaflet icon sozlamasi
 let DefaultIcon = L.icon({

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { supabase } from "../../supabaseClient";
-import request from "../../api";
+import { request, supabase } from "../../api";
 
 import PageHero from "../../components/ui/PageHero";
 import SectionLabel from "../../components/ui/SectionLabel";

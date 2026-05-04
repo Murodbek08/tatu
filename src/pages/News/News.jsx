@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import AnimatedSection from "../../components/ui/AnimatedSection";
-import request from "../../api";
+import { request } from "../../api";
 
 const NEWS_META = {
   innovation: { color: "bg-yellow-100 text-yellow-700 border-yellow-200" },

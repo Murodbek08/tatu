@@ -1,6 +1,3 @@
-// pages/NotFound/NotFound.jsx — animatsiyalangan versiya
-// 404 raqami: bounce-in | Matn: stagger | Button: pulse
-
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

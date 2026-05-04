@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import request from "../../api";
+import { request } from "../../api";
 import PageHero from "../../components/ui/PageHero";
 import { Clock, GraduationCap } from "lucide-react";
 

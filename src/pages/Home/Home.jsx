@@ -13,7 +13,7 @@ import {
   Globe,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import request from "../../api";
+import {request} from "../../api";
 import { useEffect } from "react";
 import { useState } from "react";
 import { aboutImage, heroImage } from "../../assets";

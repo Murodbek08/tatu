@@ -27,8 +27,11 @@ const ChatBot = () => {
 
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
+
     const userMsg = { role: "user", content: input };
-    setMessages((prev) => [...prev, userMsg]);
+    const newMessages = [...messages, userMsg];
+
+    setMessages(newMessages);
     setInput("");
     setLoading(true);
 
@@ -39,11 +42,11 @@ const ChatBot = () => {
             role: "system",
             content: "Siz TATU Engineering School assistentisiz.",
           },
-          ...messages,
-          userMsg,
+          ...newMessages,
         ],
-        model: "llama-3.3-70b-versatile",
+        model: "openai/gpt-oss-120b",
       });
+
       setMessages((prev) => [
         ...prev,
         {

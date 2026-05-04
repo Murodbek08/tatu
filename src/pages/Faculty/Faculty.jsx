@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import PageHero from "../../components/ui/PageHero";
 import { useTranslation } from "react-i18next";
-import request from "../../api";
+import {request} from "../../api";
 
 const CONTACT_LINKS = [
   {
