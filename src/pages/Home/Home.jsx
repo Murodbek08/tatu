@@ -135,7 +135,7 @@ function Home() {
       {/* ══════════════════════════════════════════
         HERO
 ══════════════════════════════════════════ */}
-      <section className="relative min-h-screen bg-[var(--bg-light-section)] flex items-center overflow-hidden">
+      <section className="relative min-h-screen bg-(--bg-light-section) flex items-center overflow-hidden">
         {/* Background grid - Och fondagi och binafsha katakchalar */}
         <div
           className="absolute inset-0 opacity-40"
@@ -148,12 +148,12 @@ function Home() {
 
         {/* Animated gradient blobs - Binafsha va Yalpiz ranglarda */}
         <motion.div
-          className="absolute -right-24 top-[20%] w-[600px] h-[600px] bg-[var(--color-secondary)]/10 rounded-full blur-3xl pointer-events-none"
+          className="absolute -right-24 top-[20%] w-150 h-150 bg-(--color-secondary)/10 rounded-full blur-3xl pointer-events-none"
           animate={{ scale: [1, 1.08, 1], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute -left-36 bottom-0 w-[500px] h-[500px] bg-[var(--color-primary)]/15 rounded-full blur-3xl pointer-events-none"
+          className="absolute -left-36 bottom-0 w-125 h-125 bg-(--color-primary)/15 rounded-full blur-3xl pointer-events-none"
           animate={{ scale: [1, 1.06, 1], opacity: [0.6, 1, 0.6] }}
           transition={{
             duration: 10,
@@ -174,13 +174,13 @@ function Home() {
               {/* H1 */}
               <motion.h1
                 variants={fadeUpItem}
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--text-dark)] leading-[1.05] mb-7"
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-(--text-dark) leading-[1.05] mb-7"
                 style={{ fontFamily: "sans-serif" }} // School 21 odatda sans-serif ishlatadi, xohlasangiz Georgia'ni qoldirishingiz mumkin
               >
                 {t("home.hero.title1")}
                 <br />
                 {/* Urg'u berilgan so'z binafsha rangda */}
-                <span className="text-[var(--color-secondary)]">
+                <span className="text-(--color-secondary)">
                   {" "}
                   {t("home.hero.title2")}
                 </span>
@@ -191,7 +191,7 @@ function Home() {
               {/* Subtitle */}
               <motion.p
                 variants={fadeUpItem}
-                className="text-[var(--text-gray)] text-2xl font-medium leading-relaxed max-w-lg mb-10"
+                className="text-(--text-gray) text-2xl font-medium leading-relaxed max-w-lg mb-10"
               >
                 {t("home.hero.subtitle")}
               </motion.p>
@@ -204,16 +204,16 @@ function Home() {
                 {/* Asosiy yalpiz rangli tugma */}
                 <Link
                   to={"admissions"}
-                  className="bg-[var(--color-primary)] hover:brightness-95 active:scale-95 text-[var(--bg-dark-section)] font-bold text-base px-9 py-4 rounded-xl transition-all shadow-xl shadow-[var(--color-primary)]/20 relative overflow-hidden group"
+                  className="bg-(--color-primary) hover:brightness-95 active:scale-95 text-(--bg-dark-section) font-bold text-base px-9 py-4 rounded-xl transition-all shadow-xl shadow-(--color-primary)/20 relative overflow-hidden group"
                 >
-                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+                  <span className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
                   <span className="relative">{t("home.hero.applyBtn")}</span>
                 </Link>
 
                 {/* Ikkinchi darajali tugma */}
                 <Link
                   to={"programs"}
-                  className="bg-transparent hover:bg-[var(--color-secondary)]/5 border-2 border-[var(--color-secondary)] text-[var(--color-secondary)] font-bold text-base px-9 py-4 rounded-xl transition-all"
+                  className="bg-transparent hover:bg-(--color-secondary)/5 border-2 border-(--color-secondary) text-(--color-secondary) font-bold text-base px-9 py-4 rounded-xl transition-all"
                 >
                   {t("home.hero.programsBtn")}
                 </Link>
@@ -229,10 +229,10 @@ function Home() {
                   .map((s) => (
                     <div key={s.label}>
                       {/* Raqamlar yalpiz yoki binafsha rangda */}
-                      <p className="text-[var(--color-secondary)] text-4xl font-black leading-none">
+                      <p className="text-(--color-secondary) text-4xl font-black leading-none">
                         <CountUp value={s.value} duration={2200} />
                       </p>
-                      <p className="text-[var(--text-gray)] font-medium text-xs mt-2 tracking-wide ">
+                      <p className="text-(--text-gray) font-medium text-xs mt-2 tracking-wide ">
                         {s.label}
                       </p>
                     </div>
@@ -245,13 +245,13 @@ function Home() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-              className="relative hidden lg:block h-[500px] w-full rounded-[32px] overflow-hidden shadow-2xl shadow-black/5"
+              className="relative hidden lg:block h-125 w-full rounded-4xl overflow-hidden shadow-2xl shadow-black/5"
             >
               {/* Rasm URL manzilini shu yerdagi 'src' ga qo'yasiz */}
               <img
                 src={heroImage}
                 alt="Hero background"
-                className="w-full rounded-[32px] h-full object-cover hover:scale-105  transition-transform duration-700 border-6 border-[var(--color-secondary)]"
+                className="w-full rounded-4xl h-full object-cover hover:scale-105  transition-transform duration-700 border-6 border-(--color-secondary)"
               />
             </motion.div>
           </div>
@@ -262,11 +262,11 @@ function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--text-gray)] text-xs font-bold  tracking-widest"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-(--text-gray) text-xs font-bold  tracking-widest"
         >
           <span>{t("home.hero.scrollDown")}</span>
           <motion.div
-            className="w-px h-8 bg-[var(--text-gray)]/40"
+            className="w-px h-8 bg-(--text-gray)/40"
             animate={{ scaleY: [1, 0.3, 1], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -278,8 +278,8 @@ function Home() {
       ══════════════════════════════════════════ */}
 
       <AnimatedSection direction="up">
-        <section className="bg-[var(--color-primary)]">
-          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[var(--bg-dark-section)]/10">
+        <section className="bg-(--color-primary)">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-(--bg-dark-section)/10">
             {t("home.stats", { returnObjects: true }).map((s) => {
               const Icon = ICON_MAP[s.icon] || Globe;
               return (
@@ -288,17 +288,17 @@ function Home() {
                   className="py-8 px-6 flex flex-col items-center justify-center text-center"
                 >
                   {/* Ikonka orqa foni va rangi to'q qorong'i rangga moslashtirildi */}
-                  <div className="bg-[var(--bg-dark-section)]/10 p-3 rounded-xl mb-3 text-[var(--bg-dark-section)]">
+                  <div className="bg-(--bg-dark-section)/10 p-3 rounded-xl mb-3 text-(--bg-dark-section)">
                     <Icon size={28} strokeWidth={1.5} />
                   </div>
 
                   {/* Raqamlar rangi */}
-                  <p className="text-[var(--bg-dark-section)] font-black text-3xl md:text-4xl leading-none">
+                  <p className="text-(--bg-dark-section) font-black text-3xl md:text-4xl leading-none">
                     <CountUp value={s.value} duration={2000} />
                   </p>
 
                   {/* Ostki matn (label) rangi */}
-                  <p className="text-[var(--bg-dark-section)]/80 text-sm md:text-base mt-2 font-medium tracking-wide">
+                  <p className="text-(--bg-dark-section)/80 text-sm md:text-base mt-2 font-medium tracking-wide">
                     {s.label}
                   </p>
                 </div>
@@ -311,7 +311,7 @@ function Home() {
       {/* ══════════════════════════════════════════
           ABOUT PREVIEW
       ══════════════════════════════════════════ */}
-      <section className="bg-[var(--bg-light-section)] py-24">
+      <section className="bg-(--bg-light-section) py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* direction="left" → translateX ishlatadi, shuning uchun
               AnimatedSection ichida overflow:hidden bo'lishi kerak —
@@ -328,14 +328,14 @@ function Home() {
                     (item) => (
                       <li key={item.title} className="flex gap-5 items-start">
                         {/* Amber nuqta yalpiz rangga almashtirildi va biroz kattalashtirildi */}
-                        <span className="w-3 h-3 rounded-full bg-[var(--color-primary)] mt-2 shrink-0" />
+                        <span className="w-3 h-3 rounded-full bg-(--color-primary) mt-2 shrink-0" />
                         <div>
                           {/* Matnlar text-lg (18px) ga oshirildi */}
-                          <p className="font-extrabold text-[var(--text-dark)] text-lg mb-1">
+                          <p className="font-extrabold text-(--text-dark) text-lg mb-1">
                             {item.title}
                           </p>
                           {/* Izoh matni text-base (16px) ga oshirildi */}
-                          <p className="text-[var(--text-gray)] text-base leading-relaxed">
+                          <p className="text-(--text-gray) text-base leading-relaxed">
                             {item.desc}
                           </p>
                         </div>
@@ -347,7 +347,7 @@ function Home() {
                 {/* Tugma Yalpiz rangiga o'tkazildi va matni kattalashtirildi */}
                 <Link
                   to={"about"}
-                  className="bg-[var(--color-primary)] hover:brightness-95 active:scale-95 text-[var(--bg-dark-section)] font-bold text-base px-10 py-4 rounded-xl transition-all shadow-lg inline-block"
+                  className="bg-(--color-primary) hover:brightness-95 active:scale-95 text-(--bg-dark-section) font-bold text-base px-10 py-4 rounded-xl transition-all shadow-lg inline-block"
                 >
                   {t("home.about.readMoreBtn")}
                 </Link>
@@ -365,7 +365,7 @@ function Home() {
                   stiffness: 300,
                   damping: 20,
                 }}
-                className="relative w-full aspect-[4/3] rounded-[32px] overflow-hidden border-6 border-[var(--color-secondary)]"
+                className="relative w-full aspect-4/3 rounded-4xl overflow-hidden border-6 border-(--color-secondary)"
               >
                 <img
                   src={aboutImage}
@@ -381,7 +381,7 @@ function Home() {
       {/* ══════════════════════════════════════════
       PROGRAMS SECTION
        ══════════════════════════════════════════ */}
-      <section className="bg-[var(--bg-light-section)] py-28">
+      <section className="bg-(--bg-light-section) py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -410,7 +410,7 @@ function Home() {
                 <motion.div key={prog.id} variants={fadeUpItem}>
                   <Link
                     to={`/programs/${prog.id}`}
-                    className="bg-white rounded-[32px] overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl block border-[6px] border-solid"
+                    className="bg-white rounded-4xl overflow-hidden cursor-pointer group transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl block border-[6px] border-solid"
                     style={{
                       // Bu yerda borderColor aniq ishlaydi
                       borderColor: accentColor
@@ -457,17 +457,17 @@ function Home() {
                       </div>
 
                       {/* Sarlavha text-3xl ga kattalashtirildi */}
-                      <h3 className="text-3xl font-black text-[var(--text-dark)] mb-4 leading-tight group-hover:text-[var(--color-secondary)] transition-colors">
+                      <h3 className="text-3xl font-black text-(--text-dark) mb-4 leading-tight group-hover:text-(--color-secondary) transition-colors">
                         {currentName}
                       </h3>
 
                       {/* Matn text-lg ga kattalashtirildi */}
-                      <p className="text-[var(--text-gray)] text-lg leading-relaxed mb-8 line-clamp-3">
+                      <p className="text-(--text-gray) text-lg leading-relaxed mb-8 line-clamp-3">
                         {currentDesc}
                       </p>
 
                       {/* Teglar (Tags) text-sm ga kattalashtirildi */}
-                      <div className="flex flex-wrap gap-3 mb-10 min-h-[40px]">
+                      <div className="flex flex-wrap gap-3 mb-10 min-h-10">
                         {getTagsArray(prog.tags).map((tag, idx) => (
                           <span
                             key={idx}
@@ -486,18 +486,18 @@ function Home() {
                       {/* Pastki ma'lumotlar paneli yiriklashtirildi */}
                       <div className="flex justify-between items-center pt-6 border-t border-slate-100">
                         <div className="flex flex-col gap-1">
-                          <span className="text-xs text-[var(--text-gray)]  font-bold tracking-wider">
+                          <span className="text-xs text-(--text-gray)  font-bold tracking-wider">
                             Daraja
                           </span>
-                          <span className="text-xl font-black text-[var(--text-dark)]">
+                          <span className="text-xl font-black text-(--text-dark)">
                             {prog.level || "Bakalavr"}
                           </span>
                         </div>
                         <div className="flex flex-col text-right gap-1">
-                          <span className="text-xs text-[var(--text-gray)]  font-bold tracking-wider">
+                          <span className="text-xs text-(--text-gray)  font-bold tracking-wider">
                             Davomiyligi
                           </span>
-                          <span className="text-xl font-black text-[var(--text-dark)]">
+                          <span className="text-xl font-black text-(--text-dark)">
                             {prog.duration || "4 yil"}
                           </span>
                         </div>
@@ -514,7 +514,7 @@ function Home() {
             <div className="text-center">
               <Link
                 to="/programs"
-                className="inline-flex items-center gap-3 border-2 border-[var(--bg-dark-section)] text-[var(--bg-dark-section)] hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] font-black text-lg px-14 py-5 rounded-xl transition-all duration-300 group shadow-lg hover:shadow-[var(--color-primary)]/30"
+                className="inline-flex items-center gap-3 border-2 border-(--bg-dark-section) text-(--bg-dark-section) hover:bg-(--color-primary) hover:border-(--color-primary) font-black text-lg px-14 py-5 rounded-xl transition-all duration-300 group shadow-lg hover:shadow-(--color-primary)/30"
               >
                 {t("home.programs.viewAllBtn")}
                 <span className="text-2xl leading-none group-hover:translate-x-2 transition-transform">
@@ -529,8 +529,8 @@ function Home() {
       {/* ══════════════════════════════════════════
           NEWS 
       ══════════════════════════════════════════ */}
-      <section className="bg-[var(--bg-light-section)] py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+      <section className="bg-(--bg-light-section) py-28">
+        <div className="max-w-350 mx-auto px-6 lg:px-8">
           {/* ————— YANGILIKLAR (TO'LIQ KENGILK VA YIRIKLASHGAN) ————— */}
           <div className="overflow-hidden">
             <AnimatedSection direction="up">
@@ -560,13 +560,13 @@ function Home() {
                       <Link
                         to={`/news/${item.id}`}
                         key={item.id}
-                        className="flex flex-col p-8 rounded-[40px] bg-white group transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] block border-[6px] border-solid"
+                        className="flex flex-col p-8 rounded-[40px] bg-white group transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] border-[6px] border-solid"
                         style={{
                           borderColor: `var(--color-primary)`,
                         }}
                       >
                         {/* Rasm qismi (Balandligi oshirildi: h-72) */}
-                        <div className="w-full h-72 shrink-0 rounded-[24px] overflow-hidden bg-[var(--bg-light-section)] flex items-center justify-center mb-8 relative border border-slate-100">
+                        <div className="w-full h-72 shrink-0 rounded-3xl overflow-hidden bg-[var(--bg-light-section)] flex items-center justify-center mb-8 relative border border-slate-100">
                           {item.embed_url ? (
                             <img
                               src={`https://img.youtube.com/vi/${extractVideoId(item.embed_url)}/hqdefault.jpg`}
@@ -808,7 +808,7 @@ function Home() {
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
             {/* Sarlavha - To'q matn (var(--text-dark)), juda yirik */}
             <h2
-              className="text-5xl md:text-6xl lg:text-7xl font-black text-[var(--text-dark)] mb-10 leading-[1.05] tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl font-black text-(--text-dark) mb-10 leading-[1.05] tracking-tighter"
               style={{ fontFamily: "sans-serif" }}
             >
               {t("home.cta.title")}
@@ -831,7 +831,7 @@ function Home() {
               {/* Ikkinchi darajali tugma - Oq fonli, toza */}
               <Link
                 to={"contact"}
-                className="bg-white hover:bg-slate-50 border-2 border-slate-200 text-[var(--text-dark)] font-black text-xl px-16 py-6 rounded-2xl transition-all shadow-sm"
+                className="bg-white hover:bg-slate-50 border-2 border-slate-200 text-(--text-dark) font-black text-xl px-16 py-6 rounded-2xl transition-all shadow-sm"
               >
                 {t("home.cta.visitBtn")}
               </Link>

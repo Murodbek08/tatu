@@ -40,7 +40,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="bg-[var(--bg-dark-section)] text-white/60">
+    <footer className="bg-(--bg-dark-section) text-white/60">
       <div className="max-w-7xl mx-auto px-6 pt-20">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[2fr_1fr_1fr_1fr] gap-16 pb-16 border-b border-white/10">
           {/* Brand Section */}
@@ -59,7 +59,7 @@ function Footer() {
                   {t("footer.brand.logoTitle")}
                 </p>
                 {/* Logo Subtitle text-sm ga oshirildi */}
-                <p className="text-[var(--color-primary)] text-sm font-bold tracking-widest mt-1 ">
+                <p className="text-(--color-primary) text-sm font-bold tracking-widest mt-1 ">
                   {t("footer.brand.logoSubtitle")}
                 </p>
               </div>
@@ -105,7 +105,7 @@ function Footer() {
                   <li key={linkIdx}>
                     <Link
                       to={FOOTER_PATHS[colIdx][linkIdx]}
-                      className="text-base hover:text-[var(--color-primary)] transition-colors font-medium"
+                      className="text-base hover:text-(--color-primary) transition-colors font-medium"
                     >
                       {linkText}
                     </Link>
@@ -123,7 +123,7 @@ function Footer() {
             {t("footer.legal", { returnObjects: true }).map((l) => (
               <button
                 key={l}
-                className="hover:text-[var(--color-primary)] transition-colors font-bold"
+                className="hover:text-(--color-primary) transition-colors font-bold"
               >
                 {l}
               </button>

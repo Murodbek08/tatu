@@ -131,7 +131,7 @@ function Contact() {
                 {contactData.map((item, index) => (
                   <div
                     key={index}
-                    className="bg-white p-7 rounded-[2rem] border border-slate-100 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md"
+                    className="bg-white p-7 rounded-4xl border border-slate-100 shadow-sm relative overflow-hidden transition-all duration-300 hover:shadow-md"
                     style={{ borderLeft: `8px solid ${item.color}` }}
                   >
                     <div

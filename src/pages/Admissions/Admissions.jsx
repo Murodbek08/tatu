@@ -189,7 +189,7 @@ export default function Admissions() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="min-h-[320px]"
+                      className="min-h-80"
                     >
                       {/* STEP 0: Personal Info */}
                       {step === 0 && (
@@ -216,7 +216,7 @@ export default function Admissions() {
 
                       {/* STEP 1: Program Choice */}
                       {step === 1 && (
-                        <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        <div className="space-y-3 max-h-100 overflow-y-auto pr-2 custom-scrollbar">
                           {t("admissions.form.programs", {
                             returnObjects: true,
                           }).map((prog) => (
@@ -225,7 +225,7 @@ export default function Admissions() {
                               onClick={() =>
                                 setForm({ ...form, program: prog.title })
                               }
-                              className={`p-6 border-2 rounded-[2rem] cursor-pointer transition-all flex items-center gap-5 ${form.program === prog.title ? "border-[#3de082] bg-emerald-50/50" : "border-slate-50 hover:border-slate-200"}`}
+                              className={`p-6 border-2 rounded-4xl cursor-pointer transition-all flex items-center gap-5 ${form.program === prog.title ? "border-[#3de082] bg-emerald-50/50" : "border-slate-50 hover:border-slate-200"}`}
                             >
                               <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-2xl border border-slate-100">
                                 {prog.icon || "🎓"}
@@ -333,7 +333,7 @@ export default function Admissions() {
                       onClick={() =>
                         step === 3 ? handleSubmit() : setStep(step + 1)
                       }
-                      className="flex-[2] bg-[#3de082] text-slate-900 py-5 rounded-2xl font-black text-xs  tracking-[0.2em] shadow-xl shadow-emerald-500/20 hover:bg-[#2ecb72] transition-all"
+                      className="flex-2 bg-[#3de082] text-slate-900 py-5 rounded-2xl font-black text-xs  tracking-[0.2em] shadow-xl shadow-emerald-500/20 hover:bg-[#2ecb72] transition-all"
                     >
                       {step === 3
                         ? t("admissions.form.submit_btn")

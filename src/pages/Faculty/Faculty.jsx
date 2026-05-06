@@ -87,7 +87,7 @@ export default function Faculty() {
       />
 
       {/* 1. Search Bar - IXCHAM VA RANGDOR */}
-      <div className="sticky top-0 z-[100] bg-white/80 backdrop-blur-md border-b border-slate-200 py-5 px-6">
+      <div className="sticky top-0 z-100 bg-white/80 backdrop-blur-md border-b border-slate-200 py-5 px-6">
         <div className="max-w-4xl mx-auto relative">
           <Search
             className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"
@@ -161,7 +161,7 @@ export default function Faculty() {
                       </div>
 
                       {/* Department - Responsiv p-6 */}
-                      <div className="bg-slate-50 rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-8 mb-8 flex-grow border border-slate-100 group-hover:bg-blue-50/30 transition-colors">
+                      <div className="bg-slate-50 rounded-3xl md:rounded-4xl p-5 md:p-8 mb-8 grow border border-slate-100 group-hover:bg-blue-50/30 transition-colors">
                         <p className="text-base md:text-xl font-bold text-slate-800 leading-snug">
                           {getField(m, "dept")}
                         </p>
@@ -209,7 +209,7 @@ export default function Faculty() {
       {/* 2. MODAL - O'RTACHA O'LCHAM VA PREMIUN STYLE */}
       <AnimatePresence>
         {selectedStaff && (
-          <div className="fixed inset-0 z-[10001] flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-10001 flex items-center justify-center p-4">
             {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -245,7 +245,7 @@ export default function Faculty() {
               <div className="px-8 md:px-10 pb-10 -mt-12 md:-mt-14 flex-1 overflow-y-auto">
                 {/* Profile Head */}
                 <div className="flex flex-col md:flex-row gap-6 items-center md:items-end mb-10">
-                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-[2rem] bg-white p-1.5 shadow-xl border-4 border-white shrink-0 overflow-hidden">
+                  <div className="w-32 h-32 md:w-40 md:h-40 rounded-4xl bg-white p-1.5 shadow-xl border-4 border-white shrink-0 overflow-hidden">
                     {selectedStaff.image ? (
                       <img
                         src={selectedStaff.image}
