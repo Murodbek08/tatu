@@ -31,7 +31,7 @@ function PageHero({ crumb, title, subtitle }) {
               {t("homeName") || "Asosiy"}
             </Link>
             <span className="text-slate-300 font-light text-xl">/</span>
-            <span className="text-[var(--color-secondary)] tracking-wide uppercase text-sm">
+            <span className="text-[var(--color-secondary)] tracking-wide  text-sm">
               {crumb}
             </span>
           </nav>

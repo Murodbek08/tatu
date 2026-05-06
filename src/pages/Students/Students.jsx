@@ -1,35 +1,32 @@
-// pages/Students/Students.jsx — animatsiyalangan versiya
-// Clubs: hover slide-right + border accent | Facilities: stagger hover-lift
-
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import PageHero from "../../components/ui/PageHero";
 import SectionLabel from "../../components/ui/SectionLabel";
-import SectionSubtitle from "../../components/ui/SectionSubtitle";
 import SectionTitle from "../../components/ui/SectionTitle";
 import AnimatedSection from "../../components/ui/AnimatedSection";
+import { Users, Zap, Globe, Rocket, ArrowUpRight } from "lucide-react";
 
-const CLUB_ICONS = ["⚡", "🤖", "🛡️", "🚀"];
+// Klublar uchun maxsus ranglar va ikonka sozlamalari
+const CLUB_METADATA = [
+  { icon: <Zap size={28} />, color: "#3de082" }, // Yashil
+  { icon: <Rocket size={28} />, color: "#892be2" }, // Binafsha
+  { icon: <Globe size={28} />, color: "#fbbf24" }, // Sariq
+  { icon: <Users size={28} />, color: "#3b82f6" }, // Ko'k
+];
+
 const FACILITY_ICONS = ["🖥️", "🔐", "💡", "📚", "🏋️", "🏠"];
 
 const stagger = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 22 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-const slideLeft = {
-  hidden: { opacity: 0, x: -28 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -37,110 +34,115 @@ function Students() {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="bg-[#f4f7fa] min-h-screen font-inter">
       <PageHero
         crumb={t("students.hero.crumb")}
         title={t("students.hero.title")}
         subtitle={t("students.hero.subtitle")}
       />
 
-      <div className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Clubs header */}
+      <div className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* 1. Talabalar Klublari Seksiyasi */}
           <AnimatedSection>
-            <SectionLabel>{t("students.clubs.sectionLabel")}</SectionLabel>
-            <div className="mt-1 mb-3">
-              <SectionTitle>{t("students.clubs.title")}</SectionTitle>
+            <div className="flex flex-col items-center text-center mb-20">
+              <SectionLabel className="bg-white px-8 py-3 rounded-2xl shadow-sm border border-slate-100 text-[#892be2] font-black tracking-[0.2em] uppercase text-[10px]">
+                {t("students.clubs.sectionLabel")}
+              </SectionLabel>
+              <div className="mt-8">
+                <h2 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.95] tracking-tighter">
+                  {t("students.clubs.title")}
+                </h2>
+              </div>
             </div>
-            <SectionSubtitle>{t("students.clubs.subtitle")}</SectionSubtitle>
           </AnimatedSection>
 
-          {/* Clubs — slide-left stagger */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 mb-20"
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-32"
           >
             {t("students.clubs.list", { returnObjects: true }).map(
-              (club, index) => (
-                <motion.div
-                  key={club.name}
-                  variants={slideLeft}
-                  whileHover={{ x: 6, borderColor: "#f59e0b" }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                  className="bg-white rounded-2xl p-7 border border-slate-200 flex gap-5 items-start cursor-pointer group"
-                >
+              (club, index) => {
+                const meta = CLUB_METADATA[index] || CLUB_METADATA[0];
+                return (
                   <motion.div
-                    whileHover={{ scale: 1.12, rotate: -6 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                    className="w-14 h-14 bg-[#0a1628] rounded-2xl flex items-center justify-center text-3xl shrink-0"
+                    key={club.name}
+                    variants={fadeUp}
+                    whileHover={{ y: -12 }}
+                    className="bg-white rounded-[3.5rem] p-10 md:p-14 shadow-[0_20px_50px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col relative overflow-hidden group transition-all duration-500"
+                    style={{ borderLeft: `14px solid ${meta.color}` }}
                   >
-                    {CLUB_ICONS[index]}
+                    <div className="flex-1">
+                      <div
+                        className="w-20 h-20 rounded-[2rem] flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform duration-500"
+                        style={{
+                          backgroundColor: `${meta.color}15`,
+                          color: meta.color,
+                        }}
+                      >
+                        {meta.icon}
+                      </div>
+                      <h3 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 leading-tight group-hover:text-[#892be2] transition-colors">
+                        {club.name}
+                      </h3>
+                      <p className="text-slate-500 text-xl md:text-2xl leading-relaxed font-medium mb-10">
+                        {club.desc}
+                      </p>
+                    </div>
                   </motion.div>
-                  <div>
-                    <h4 className="text-[16px] font-extrabold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
-                      {club.name}
+                );
+              },
+            )}
+          </motion.div>
+
+          {/* 2. Qulayliklar (Facilities) Seksiyasi */}
+          <div className="mt-40">
+            <AnimatedSection>
+              <div className="flex flex-col items-center text-center mb-24">
+                <SectionLabel className="text-[#3de082] font-black uppercase tracking-[0.3em] text-[10px]">
+                  {t("students.facilities.sectionLabel")}
+                </SectionLabel>
+                <h2 className="text-5xl md:text-8xl font-black text-slate-900 mt-8 tracking-tighter leading-[0.9]">
+                  {t("students.facilities.title")}
+                </h2>
+              </div>
+            </AnimatedSection>
+
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
+            >
+              {t("students.facilities.list", { returnObjects: true }).map(
+                (f, index) => (
+                  <motion.div
+                    key={f.title}
+                    variants={fadeUp}
+                    whileHover={{
+                      y: -20,
+                      boxShadow: "0 50px 100px -20px rgba(0,0,0,0.1)",
+                    }}
+                    className="bg-white rounded-[3.5rem] p-12 md:p-14 border border-slate-100 flex flex-col h-full group transition-all duration-500"
+                  >
+                    <div className="w-24 h-24 bg-slate-50 rounded-[2.5rem] flex items-center justify-center text-5xl mb-10 group-hover:bg-[#892be2] group-hover:text-white transition-all duration-500 shadow-inner">
+                      {FACILITY_ICONS[index]}
+                    </div>
+                    <h4 className="text-3xl font-black text-slate-900 mb-6 leading-tight group-hover:text-[#892be2] transition-colors">
+                      {f.title}
                     </h4>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-3">
-                      {club.desc}
+                    <p className="text-slate-500 text-xl leading-relaxed font-medium flex-grow">
+                      {f.desc}
                     </p>
-                    <span className="text-amber-600 font-bold text-sm">
-                      👥 {club.members} {t("students.clubs.membersSuffix")}
-                    </span>
-                  </div>
-                </motion.div>
-              ),
-            )}
-          </motion.div>
-
-          {/* Facilities header */}
-          <AnimatedSection>
-            <SectionLabel>{t("students.facilities.sectionLabel")}</SectionLabel>
-            <div className="mt-2 mb-8">
-              <SectionTitle>{t("students.facilities.title")}</SectionTitle>
-            </div>
-          </AnimatedSection>
-
-          {/* Facilities — stagger grid */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
-          >
-            {t("students.facilities.list", { returnObjects: true }).map(
-              (f, index) => (
-                <motion.div
-                  key={f.title}
-                  variants={fadeUp}
-                  whileHover={{
-                    y: -6,
-                    borderColor: "#93c5fd",
-                    boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
-                  }}
-                  transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                  className="bg-white rounded-2xl p-7 border border-slate-200 cursor-pointer group"
-                >
-                  <motion.div
-                    className="text-3xl mb-4"
-                    whileHover={{ scale: 1.2, rotate: -6 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    {FACILITY_ICONS[index]}
                   </motion.div>
-                  <h4 className="text-[15px] font-extrabold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
-                    {f.title}
-                  </h4>
-                  <p className="text-slate-500 text-[13px] leading-relaxed">
-                    {f.desc}
-                  </p>
-                </motion.div>
-              ),
-            )}
-          </motion.div>
+                ),
+              )}
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>

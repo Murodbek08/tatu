@@ -197,8 +197,7 @@
   "programs": {
     "hero": {
       "crumb": "Dasturlar",
-      "title": "Akademik dasturlar",
-      "subtitle": "Bakalavriat ➔ Magistratura ➔ PhD. Dasturlarimiz sizni dunyoning eng talabchan muhandislik rollariga tayyorlaydi."
+      "title": "Akademik dasturlar"
     },
     "filters": [
       { "key": "all", "label": "Barcha Dasturlar" },
@@ -234,16 +233,16 @@
   "research": {
     "hero": {
       "crumb": "Tadqiqot",
-      "title": "Tadqiqot va Innovatsiya",
-      "subtitle": "TATU Muhandislik Maktabi AI, kiberxavfsizlik, ma'lumotlar fanlari va aqlli infratuzilmada ilg'or tadqiqotlarni boshqaradi."
+      "title": "Tadqiqot va innovatsiya",
+      "subtitle": "TATU muhandislik maktabi AI, kiberxavfsizlik, ma'lumotlar fanlari va aqlli infratuzilmada ilg'or tadqiqotlarni boshqaradi."
     },
     "areas": {
-      "sectionLabel": "Tadqiqot Yo'nalishlari",
-      "title": "Innovatsiya Sohalarimiz",
-      "projectsSuffix": "Faol Loyiha",
+      "sectionLabel": "Tadqiqot yo'nalishlari",
+      "title": "Innovatsiya sohalarimiz",
+      "projectsSuffix": "Faol loyiha",
       "list": [
         {
-          "title": "Sun'iy Intellekt va ML",
+          "title": "Sun'iy intellekt va ML",
           "desc": "Neyron arxitekturalar, O'zbek NLP, kompyuter ko'rishi",
           "projects": 24
         },
@@ -253,52 +252,52 @@
           "projects": 18
         },
         {
-          "title": "Aqlli Infratuzilma",
+          "title": "Aqlli infratuzilma",
           "desc": "IoT sensorlar, aqlli shahar, energiya optimizatsiyasi",
           "projects": 15
         },
         {
-          "title": "Ma'lumotlar Muhandisligi",
+          "title": "Ma'lumotlar muhandisligi",
           "desc": "Taqsimlangan tizimlar, real-vaqt tahlili, data lakes",
           "projects": 21
         }
       ]
     },
     "stats": {
-      "title": "Tadqiqot Ko'rsatkichlari",
+      "title": "Tadqiqot ko'rsatkichlari",
       "list": [
         { "v": "1,200+", "l": "Nashrlar", "s": "2025 yilda" },
-        { "v": "78", "l": "Faol Patentlar", "s": "ro'yxatga olingan" },
+        { "v": "78", "l": "Faol patentlar", "s": "ro'yxatga olingan" },
         { "v": "15", "l": "Startaplar", "s": "tashkil etilgan" },
-        { "v": "$8M", "l": "Tadqiqot Mablag'i", "s": "yillik byudjet" }
+        { "v": "$8M", "l": "Tadqiqot mablag'i", "s": "yillik byudjet" }
       ]
     },
     "labs": {
       "sectionLabel": "Laboratoriyalar",
-      "title": "Zamonaviy Ilmiy Markazlar",
+      "title": "Zamonaviy ilmiy markazlar",
       "list": [
         {
-          "name": "AI va ML Laboratoriyasi",
+          "name": "AI va ML laboratoriyasi",
           "desc": "96 ish stantsiyasi, NVIDIA A100 GPU cluster, 3D bosib chiqarish"
         },
         {
-          "name": "Kiberxavfsizlik Laboratoriyasi",
+          "name": "Kiberxavfsizlik laboratoriyasi",
           "desc": "Etik xakerlik va himoya treningi uchun ajratilgan tarmoq muhiti"
         },
         {
-          "name": "Innovatsiya Habı",
+          "name": "Innovatsiya habı",
           "desc": "Co-working, pitch xonalari, prototiplash vositalari, mentor tarmog'i"
         },
         {
-          "name": "Elektr Muhandislik Lab",
+          "name": "Elektr muhandislik lab",
           "desc": "Smart grid simulyatori, sinovchi stendlar va energiya o'lchagichlar"
         },
         {
-          "name": "IoT Laboratoriyasi",
+          "name": "IoT laboratoriyasi",
           "desc": "100+ sensor turi, embedded tizimlar, FPGA ishlanmasi platformasi"
         },
         {
-          "name": "Robototexnika Markazi",
+          "name": "Robototexnika markazi",
           "desc": "Avtomatik manipulyatsiya tizimi, 12 ta sanoat robot qo'li"
         }
       ]
@@ -307,63 +306,63 @@
   "students": {
     "hero": {
       "crumb": "Talabalar",
-      "title": "Talaba Hayoti",
+      "title": "Talaba hayoti",
       "subtitle": "Dars xonalari va laboratoriyalardan tashqari — klub, musobaqa va kampus tajribalarining jonli talaba hamjamiyati."
     },
     "clubs": {
-      "sectionLabel": "Talaba Tashkilotlari",
-      "title": "Faol Bo'ling",
+      "sectionLabel": "Talaba tashkilotlari",
+      "title": "Faol bo'ling",
       "subtitle": "Muhandislik, texnologiya, san'at va jamoat xizmati bo'yicha 30+ faol talaba klubi va tashkilotlariga qo'shiling.",
       "membersSuffix": "a'zo",
       "list": [
         {
-          "name": "IEEE Talabalar Filiali",
+          "name": "IEEE talabalar filiali",
           "members": 420,
           "desc": "Texnik seminarlar, musobaqalar va global tarmoqlar"
         },
         {
-          "name": "AI Robototexnika Klubi",
+          "name": "AI robototexnika klubi",
           "members": 280,
           "desc": "Avtonom robotlar yaratish va xalqaro musobaqalarda ishtirok etish"
         },
         {
-          "name": "Kiber Himoya Jamoasi",
+          "name": "Kiber himoya jamoasi",
           "members": 160,
           "desc": "CTF musobaqalari va kiberxavfsizlik mashqlari laboratoriyasi"
         },
         {
-          "name": "Startap Inkubatori",
+          "name": "Startap inkubatori",
           "members": 95,
           "desc": "Mentorlik va moliyalash bilan g'oyalarni kompaniyaga aylantirish"
         }
       ]
     },
     "facilities": {
-      "sectionLabel": "Kampus Imkoniyatlari",
-      "title": "Zamonaviy O'quv Muhiti",
+      "sectionLabel": "Kampus imkoniyatlari",
+      "title": "Zamonaviy o'quv muhiti",
       "list": [
         {
-          "title": "AI va ML Laboratoriyasi",
+          "title": "AI va ML laboratoriyasi",
           "desc": "96 ish stantsiyasi, NVIDIA A100 GPU cluster, 3D bosib chiqarish stantsiyasi"
         },
         {
-          "title": "Kiberxavfsizlik Laboratoriyasi",
+          "title": "Kiberxavfsizlik laboratoriyasi",
           "desc": "Etik xakerlik va mudofaa treningi uchun ajratilgan tarmoq muhiti"
         },
         {
-          "title": "Innovatsiya Habı",
+          "title": "Innovatsiya habı",
           "desc": "Co-working, pitch xonalari, prototiplash vositalari, mentor tarmog'i"
         },
         {
-          "title": "Kutubxona va Tadqiqot Markazi",
+          "title": "Kutubxona va tadqiqot markazi",
           "desc": "200,000+ kitob, IEEE Xplore, ScienceDirect va Web of Science to'liq kirish"
         },
         {
-          "title": "Sport Majmuasi",
+          "title": "Sport majmuasi",
           "desc": "Suzish havzasi, sport zal, basketbol, futbol, stol tennisi maydonlari"
         },
         {
-          "title": "Talabalar Yotoqxonasi",
+          "title": "Talabalar yotoqxonasi",
           "desc": "2,400 o'rin, yuqori tezlikli internet, o'qish xonalari, 24/7 xavfsizlik xizmati"
         }
       ]
@@ -372,214 +371,213 @@
   "news": {
     "hero": {
       "crumb": "Yangiliklar",
-      "title": "Yangiliklar va E'lonlar",
-      "subtitle": "TATU Muhandislik Maktabidagi yutuqlar, hamkorliklar va kampus hayotidan xabardor bo'ling."
+      "title": "Yangiliklar va e'lonlar",
+      "subtitle": "Tatu muhandislik maktabining yutuqlari, hamkorliklari va kampus hayotidan xabardor bo'ling."
     },
-    "readFullBtn": "To'liq O'qish →",
-    "readMoreBtn": "Ko'proq O'qish →",
+    "readfullbtn": "To'liq oqish →",
+    "readmorebtn": "Davomini oqish →",
     "badges": {
-      "Tadqiqot": "Tadqiqot",
-      "Hamkorlik": "Hamkorlik",
-      "Yutuq": "Yutuq",
-      "Tadbir": "Tadbir"
+      "tadqiqot": "Tadqiqotlar",
+      "hamkorlik": "Hamkorlik",
+      "yutuq": "Yutuq",
+      "tadbir": "Tadbir"
     }
   },
   "admissions": {
     "hero": {
       "crumb": "Qabul",
       "title": "Qabul 2026",
-      "subtitle": "Muhandislik sayohatingizni boshlang. 2026 o'quv yili uchun arizalar qabul qilinmoqda."
+      "subtitle": "Muhandislik yo'lingizni boshlang. 2026-o'quv yili uchun arizalar qabul qilinmoqda."
     },
     "steps": {
-      "sectionLabel": "Qanday Ariza Topshirish",
-      "title": "TATU Sari Yo'lingiz",
+      "section_label": "Qanday ariza topshirish kerak",
+      "title": "Sizning tatu sari yo'lingiz",
       "list": [
         {
           "n": "01",
-          "title": "Ariza Topshirish",
-          "date": "Mar 1 – Iyun 30, 2026",
+          "title": "Ariza topshirish",
+          "date": "1-mart – 30-iyun 2026",
           "desc": "Barcha shaxsiy va akademik ma'lumotlar bilan onlayn ariza shaklini to'ldiring."
         },
         {
           "n": "02",
-          "title": "Hujjat Yuklash",
-          "date": "Ariza topshirilgandan keyin",
-          "desc": "Pasport nusxasi, akademik shahodatnoma, til sertifikati (IELTS 6.0+) va motivatsiya xati."
+          "title": "Hujjatlarni yuklash",
+          "date": "Ariza topshirilgandan so'ng",
+          "desc": "Pasport nusxasi, akademik attestat, til sertifikati (ielts 6.0+) va motivatsiya xati."
         },
         {
           "n": "03",
-          "title": "Kirish Imtihoni",
-          "date": "Iyul 15–20, 2026",
-          "desc": "Matematika va yo'nalish bo'yicha maxsus test. Top abituriyentlar oldingi akademik ko'rsatkich asosida qabul qilinadi."
+          "title": "Kirish imtihoni",
+          "date": "15–20-iyul 2026",
+          "desc": "Matematika va yo'nalish bo'yicha maxsus test. Eng yaxshi abituriyentlar avvalgi akademik natijalar asosida qabul qilinadi."
         },
         {
           "n": "04",
           "title": "Suhbat",
-          "date": "Avgust 1–10, 2026",
-          "desc": "Tanlangan nomzodlar dastur komissiyasi bilan 30 daqiqalik onlayn yoki shaxsiy suhbatda ishtirok etadi."
+          "date": "1–10-avgust 2026",
+          "desc": "Saralangan nomzodlar dastur komissiyasi bilan 30 daqiqalik onlayn yoki yuzma-yuz suhbatdan o'tadilar."
         },
         {
           "n": "05",
-          "title": "Qaror Olish",
-          "date": "Avgust 15, 2026",
-          "desc": "Barcha abituriyentlarga elektron pochta va ariza portali orqali qabul qarorlari e'lon qilinadi."
+          "title": "Qarorni qabul qilish",
+          "date": "15-avgust 2026",
+          "desc": "Barcha abituriyentlar qabul haqidagi qarorlarni elektron pochta va ariza portali orqali oladilar."
         }
       ]
     },
     "tuition": {
-      "title": "O'quv To'lovi",
+      "title": "O'qish qiymati",
       "list": [
-        { "lvl": "Bakalavr", "fee": "$2,400", "per": "/yil" },
-        { "lvl": "Magistr", "fee": "$3,200", "per": "/yil" },
-        { "lvl": "PhD", "fee": "Moliyalashtiriladi", "per": "+ stipendiya" }
+        { "lvl": "Bakalavriat", "fee": "$2 400", "per": "/yil" },
+        { "lvl": "Magistratura", "fee": "$3 200", "per": "/yil" },
+        { "lvl": "Phd", "fee": "Moliyalashtiriladi", "per": "+ stipendiya" }
       ],
-      "scholarship": "O'quv to'lovining 50–100% ni qoplaydigan yutuqqa asoslangan stipendiyalar mavjud"
+      "scholarship": "O'qish xarajatlarining 50–100 foizini qoplaydigan muvaffaqiyatga asoslangan stipendiyalar mavjud"
     },
     "form": {
-      "title": "Arizangizni Boshlang",
-      "stepLabel": "Qadam",
+      "title": "Arizani boshlang",
+      "step_label": "Bosqich",
       "of": "/",
       "steps": [
-        "Shaxsiy Ma'lumot",
-        "Dastur Tanlash",
+        "Shaxsiy ma'lumotlar",
+        "Yo'nalishni tanlash",
         "Hujjatlar",
-        "Ko'rib Chiqish"
+        "Tekshirish"
       ],
       "fields": [
-        { "key": "name", "label": "To'liq Ism *", "ph": "Akbar Toshmatov" },
+        { "key": "name", "label": "To'liq ism *", "ph": "Akbar toshmatov" },
         {
           "key": "email",
-          "label": "Elektron Pochta *",
+          "label": "Elektron pochta *",
           "ph": "akbar@email.com"
         },
-        { "key": "phone", "label": "Telefon Raqami", "ph": "+998 90 123 45 67" }
+        { "key": "phone", "label": "Telefon raqami", "ph": "+998 90 123 45 67" }
       ],
-
-      "programLabel": "Dasturni Tanlang *",
+      "program_label": "Yo'nalishni tanlang *",
       "programs": [
         {
-          "type": "Bachelor / Master / PhD",
-          "code": "CS",
-          "title": "Kompyuter Fanlari va Muhandisligi",
-          "degree": "Bakalavr / Magistr / PhD",
+          "type": "Bachelor / master / phd",
+          "code": "cs",
+          "title": "Kompyuter ilmlari va muhandislik",
+          "degree": "Bakalavr / magistr / phd",
           "duration": "4 yil",
-          "tags": ["AI", "Tizimlar", "Veb", "Xavfsizlik"],
+          "tags": ["ai", "tizimlar", "veb", "xavfsizlik"],
           "desc": "Algoritmlar, sun'iy intellekt, mashinali o'rganish va dasturiy muhandislik.",
-          "details": "Ushbu yo'nalishda siz zamonaviy dasturlash tillari, algoritmlar va sun'iy intellektning fundamental asoslarini o'rganasiz. Kurs dekani Prof. Akbar Toshmatov boshchiligida siz 4 yil davomida nazariy bilimlarni real loyihalar bilan mustahkamlab borasiz."
+          "details": "Ushbu yo'nalishda siz zamonaviy dasturlash tillari, algoritmlar va sun'iy intellekt asoslarini o'rganasiz. Dekan prof. akbar toshmatov rahbarligida 4 yil davomida nazariy bilimlarni real loyihalarda mustahkamlaysiz."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "CE",
-          "title": "Kompyuter Muhandisligi",
-          "degree": "Bakalavr / Magistr",
+          "type": "Bachelor / master",
+          "code": "ce",
+          "title": "Kompyuter muhandisligi",
+          "degree": "Bakalavr / magistr",
           "duration": "4 yil",
-          "tags": ["FPGA", "Embedded", "IoT", "VLSI"],
-          "desc": "Apparat-dasturiy integratsiya, o'rnatilgan tizimlar va IoT ilovalari.",
-          "details": "Kompyuter muhandisligi yo'nalishi apparat vositalari (hardware) va dasturiy ta'minot o'rtasidagi bog'liqlikka qaratilgan. Siz mikrokontrollerlar, aqlli uylar tizimi va robototexnika qurilmalarini loyihalashni o'rganasiz."
+          "tags": ["fpga", "embedded", "iot", "vlsi"],
+          "desc": "Apparat va dasturiy ta'minot integratsiyasi, o'rnatilgan tizimlar va iot ilovalari.",
+          "details": "Kompyuter muhandisligi yo'nalishi apparat va dasturiy ta'minot o'rtasidagi bog'liqlikka qaratilgan. Siz mikrokontrollerlar, aqlli uy tizimlari va robototexnika qurilmalarini loyihalashni o'rganasiz."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "IT",
-          "title": "Axborot Texnologiyalari",
-          "degree": "Bakalavr / Magistr",
+          "type": "Bachelor / master",
+          "code": "it",
+          "title": "Axborot texnologiyalari",
+          "degree": "Bakalavr / magistr",
           "duration": "4 yil",
-          "tags": ["Cloud", "Xavfsizlik", "ERP", "DevOps"],
+          "tags": ["cloud", "xavfsizlik", "erp", "devops"],
           "desc": "Korporativ tizimlar, bulutli arxitektura va kiberxavfsizlik.",
-          "details": "Axborot texnologiyalari mutaxassisi sifatida siz yirik korxonalar uchun bulutli tizimlar qurish, ma'lumotlar xavfsizligini ta'minlash va tizim administratori ko'nikmalarini egallaysiz."
+          "details": "Axborot texnologiyalari mutaxassisi sifatida siz yirik korxonalar uchun bulutli tizimlar qurishni, ma'lumotlar xavfsizligini ta'minlashni o'rganasiz va tizim administratori ko'nikmalarini egallaysiz."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "DS",
-          "title": "Ma'lumotlar Fanlari",
-          "degree": "Bakalavr / Magistr",
+          "type": "Bachelor / master",
+          "code": "ds",
+          "title": "Ma'lumotlar fani",
+          "degree": "Bakalavr / magistr",
           "duration": "4 yil",
-          "tags": ["BigData", "ML", "BI", "Python"],
-          "desc": "Katta ma'lumotlar, statistik modellashtirish va biznes razvedkasi.",
-          "details": "Dr. Nilufar Yusupova rahbarligidagi ushbu yo'nalishda siz ma'lumotlar tahlili (Data Analysis) va bashorat qiluvchi modellarni yaratishni o'rganasiz. Bu bugungi kunda bozordagi eng talabgir kasblardan biri hisoblanadi."
+          "tags": ["bigdata", "ml", "bi", "python"],
+          "desc": "Katta ma'lumotlar, statistik modellashtirish va biznes tahlili.",
+          "details": "Ushbu yo'nalishda d-r nilufar yusupova rahbarligida ma'lumotlarni tahlil qilish va prognozlash modellarini yaratishni o'rganasiz. Bu bugungi kunda bozordagi eng talabgir kasblardan biridir."
         },
         {
-          "type": "Bachelor / Master / PhD",
-          "code": "EE",
-          "title": "Elektr Muhandisligi",
-          "degree": "Bakalavr / Magistr / PhD",
+          "type": "Bachelor / master / phd",
+          "code": "ee",
+          "title": "Elektr muhandisligi",
+          "degree": "Bakalavr / magistr / phd",
           "duration": "4 yil",
-          "tags": ["Energiya", "RF", "DSP", "Smart Grid"],
-          "desc": "Energiya tizimlari, signal qayta ishlash va aqlli tarmoqlar.",
-          "details": "Elektr muhandisligi yo'nalishi qayta tiklanuvchi energiya manbalari va telekommunikatsiya qurilmalarini o'rganadi. Prof. Sherzod Rahimov boshchiligida siz aqlli elektr tarmoqlari (Smart Grids) bo'yicha chuqur bilim olasiz."
+          "tags": ["energetika", "rf", "dsp", "smart grid"],
+          "desc": "Energiya tizimlari, signallarni qayta ishlash va aqlli tarmoqlar.",
+          "details": "Elektr muhandisligi yo'nalishi qayta tiklanadigan energiya manbalari va telekommunikatsiya uskunalarini o'rganadi. Prof. sherzod raximov rahbarligida aqlli elektr tarmoqlari (smart grids) haqida chuqur bilim olasiz."
         },
         {
-          "type": "Master / PhD",
-          "code": "AI",
-          "title": "Sun'iy Intellekt",
-          "degree": "Magistr / PhD",
+          "type": "Master / phd",
+          "code": "ai",
+          "title": "Sun'iy intellekt",
+          "degree": "Magistr / phd",
           "duration": "2 yil",
-          "tags": ["Deep Learning", "NLP", "Vision", "Robotics"],
-          "desc": "Chuqur o'rganish, NLP, kompyuter ko'rishi va robotika tadqiqoti.",
-          "details": "Bu faqat Magistr va PhD talabalari uchun mo'ljallangan chuqurlashtirilgan tadqiqot yo'nalishidir. Siz neyron tarmoqlari, nutqni aniqlash va avtonom robotlarni yaratish bo'yicha laboratoriyalarda tajriba o'tkazasiz."
+          "tags": ["deep learning", "nlp", "vision", "robotics"],
+          "desc": "Chuqur o'rganish, nlp, kompyuter ko'rishi va robototexnika sohasidagi tadqiqotlar.",
+          "details": "Ushbu chuqur tadqiqot yo'nalishi faqat magistrantlar va doktorantlar uchun mo'ljallangan. Siz neyron tarmoqlar, nutqni aniqlash va avtonom robotlar yaratish bo'yicha laboratoriyalarda tajribalar o'tkazasiz."
         }
       ],
-      "docsTitle": "Quyidagi hujjatlarni yuklang:",
-      "docFormat": "PDF formatida, maksimal 5 MB",
-      "uploadBtn": "Yuklash",
+      "docs_title": "Quyidagi hujjatlarni yuklang:",
+      "doc_format": "Pdf formatida, maksimal 5 mb",
+      "upload_btn": "Yuklash",
       "docs": [
-        "Akademik Shahodatnoma",
-        "Til Sertifikati (IELTS/TOEFL)",
-        "Motivatsiya Xati",
-        "Pasport Nusxasi"
+        "Akademik attestat",
+        "Til sertifikati (ielts/toefl)",
+        "Motivatsiya xati",
+        "Pasport nusxasi"
       ],
-      "reviewTitle": "Ariza Xulasasi",
-      "reviewFields": {
+      "review_title": "Ariza xulosasi",
+      "review_fields": {
         "name": "To'liq ism",
         "email": "Email manzili",
         "phone": "Telefon raqami",
         "program": "Tanlangan yo'nalish"
       },
-      "reviewNote": "Yuborish orqali siz TATU Qabul Shartlari bilan kelishgan holda barcha ko'rsatilgan ma'lumotlar to'g'riligini tasdiqlaysiz.",
-      "backBtn": "← Orqaga",
-      "nextBtn": "Davom Etish →",
-      "submitBtn": "Ariza Yuborish 🚀",
-      "successMsg": "Arizangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz. 🎉"
+      "review_note": "Arizani yuborish orqali siz barcha ko'rsatilgan ma'lumotlarning to'g'riligini tasdiqlaysiz va tatu qabul shartlariga rozilik bildirasiz.",
+      "back_btn": "← Orqaga",
+      "next_btn": "Davom etish →",
+      "submit_btn": "Arizani yuborish 🚀",
+      "success_msg": "Arizangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog'lanamiz. 🎉"
     }
   },
   "contact": {
     "hero": {
-      "crumb": "Aloqa",
-      "title": "Biz Bilan Bog'laning",
-      "subtitle": "Dasturlar, qabul, tadqiqot yoki kampus hayoti haqida savollaringiz bormi? Biz yordam berishga tayyormiz."
+      "crumb": "Kontaktlar",
+      "title": "Biz bilan bog'laning",
+      "subtitle": "Dasturlar, qabul, tadqiqotlar yoki kampus hayoti haqida savollaringiz bormi? Biz yordam berishga tayyormiz."
     },
-    "infoTitle": "Aloqa Ma'lumotlari",
-    "contactData": {
+    "info_title": "Kontakt ma'lumotlari",
+    "contact_data": {
       "address": {
-        "label": "MANZIL",
-        "value": "Amir Temur ko'chasi 108, Yunusobod tumani, Toshkent 100200, O'zbekiston"
+        "label": "Manzil",
+        "value": "Amir temur ko'chasi 108, yunusobod tumani, toshkent 100200, o'zbekiston"
       },
       "phone": {
-        "label": "TELEFON",
+        "label": "Telefon",
         "value": "+998 71 238 64 00"
       },
       "email": {
-        "label": "ELEKTRON POCHTA",
+        "label": "Elektron pochta",
         "value": "engineering@tatu.uz"
       },
-      "workingHours": {
-        "label": "ISH VAQTI",
-        "value": "Dushanba – Juma: 09:00 – 17:00 (UZT)"
+      "working_hours": {
+        "label": "Ish vaqti",
+        "value": "Dushanba – juma: 09:00 – 17:00 (uzt)"
       }
     },
-    "mapPopup": "TATU Muhandislik Maktabi",
-    "socialLabel": "Ijtimoiy Tarmoqlar",
+    "map_popup": "Tatu muhandislik maktabi",
+    "social_label": "Ijtimoiy tarmoqlar",
     "form": {
-      "title": "Xabar Yuborish",
+      "title": "Xabar yuborish",
       "fields": [
         {
           "key": "name",
-          "label": "To'liq Ism *",
+          "label": "To'liq ism *",
           "placeholder": "Ismingiz",
           "type": "text"
         },
         {
           "key": "email",
-          "label": "Elektron Pochta *",
+          "label": "Elektron pochta *",
           "placeholder": "email@example.com",
           "type": "email"
         },
@@ -590,29 +588,29 @@
           "type": "text"
         }
       ],
-      "messageLabel": "Xabar *",
-      "messagePlaceholder": "Sizga qanday yordam bera olamiz?",
-      "submitBtn": "Xabar Yuborish →"
+      "message_label": "Xabar *",
+      "message_placeholder": "Sizga qanday yordam bera olamiz?",
+      "submit_btn": "Xabar yuborish →"
     },
     "success": {
-      "title": "Xabar Yuborildi!",
-      "desc": "Murojaat uchun rahmat. Jamoamiz 1–2 ish kuni ichida siz bilan bog'lanadi.",
-      "newBtn": "Yangi Xabar Yuborish"
+      "title": "Xabar yuborildi!",
+      "desc": "Murojaatingiz uchun rahmat. Bizning jamoamiz 1–2 ish kuni ichida siz bilan bog'lanadi.",
+      "new_btn": "Yangi xabar yuborish"
     }
   },
-  "newsCard": {
-    "backBtn": "Orqaga",
-    "notFound": {
+  "news_card": {
+    "back_btn": "Orqaga",
+    "not_found": {
       "title": "Ma'lumot topilmadi!",
-      "homeLink": "Bosh sahifaga qaytish"
+      "home_link": "Bosh sahifaga qaytish"
     },
-    "shareBtn": "Ulashish",
-    "location": "Tashkent 2026",
-    "sourceLabel": "Bu haqda",
-    "sourceSuffix": "saytida e'lon qilingan"
+    "share_btn": "Ulashish",
+    "location": "Toshkent 2026",
+    "source_label": "Batafsil",
+    "source_suffix": "saytida"
   },
-  "notFound": {
-    "title": "Sahifa Qurilmoqda",
-    "desc": "Bu bo'lim tez orada tayyor bo'ladi."
+  "not_found": {
+    "title": "Sahifa tayyorlanmoqda",
+    "desc": "Ushbu bo'lim tez orada tayyor bo'ladi."
   }
 }

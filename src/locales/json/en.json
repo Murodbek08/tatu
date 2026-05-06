@@ -230,72 +230,72 @@
   "research": {
     "hero": {
       "crumb": "Research",
-      "title": "Research & Innovation",
-      "subtitle": "TATU Engineering School drives cutting-edge research in AI, cybersecurity, data science and smart infrastructure."
+      "title": "Research and innovation",
+      "subtitle": "TUIT engineering school leads advanced research in ai, cybersecurity, data sciences and smart infrastructure."
     },
     "areas": {
-      "sectionLabel": "Research Areas",
-      "title": "Our Innovation Fields",
-      "projectsSuffix": "Active Projects",
+      "section_label": "Research areas",
+      "title": "Our innovation sectors",
+      "projects_suffix": "Active project",
       "list": [
         {
-          "title": "Artificial Intelligence & ML",
-          "desc": "Neural architectures, Uzbek NLP, computer vision",
+          "title": "Artificial intelligence and ml",
+          "desc": "Neural architectures, uzbek nlp, computer vision",
           "projects": 24
         },
         {
           "title": "Cybersecurity",
-          "desc": "Network defence, cryptography, zero-trust systems",
+          "desc": "Network protection, cryptography, zero-trust systems",
           "projects": 18
         },
         {
-          "title": "Smart Infrastructure",
-          "desc": "IoT sensors, smart city, energy optimisation",
+          "title": "Smart infrastructure",
+          "desc": "Iot sensors, smart city, energy optimization",
           "projects": 15
         },
         {
-          "title": "Data Engineering",
+          "title": "Data engineering",
           "desc": "Distributed systems, real-time analytics, data lakes",
           "projects": 21
         }
       ]
     },
     "stats": {
-      "title": "Research Metrics",
+      "title": "Research indicators",
       "list": [
         { "v": "1,200+", "l": "Publications", "s": "in 2025" },
-        { "v": "78", "l": "Active Patents", "s": "registered" },
-        { "v": "15", "l": "Startups", "s": "founded" },
-        { "v": "$8M", "l": "Research Funding", "s": "annual budget" }
+        { "v": "78", "l": "Active patents", "s": "registered" },
+        { "v": "15", "l": "Startups", "s": "established" },
+        { "v": "$8m", "l": "Research funding", "s": "annual budget" }
       ]
     },
     "labs": {
-      "sectionLabel": "Laboratories",
-      "title": "State-of-the-Art Research Centres",
+      "section_label": "Laboratories",
+      "title": "Modern scientific centers",
       "list": [
         {
-          "name": "AI & ML Laboratory",
-          "desc": "96 workstations, NVIDIA A100 GPU cluster, 3D printing"
+          "name": "Ai and ml laboratory",
+          "desc": "96 workstations, nvidia a100 gpu cluster, 3d printing"
         },
         {
-          "name": "Cybersecurity Laboratory",
-          "desc": "Dedicated network environment for ethical hacking and defence training"
+          "name": "Cybersecurity laboratory",
+          "desc": "Dedicated network environment for ethical hacking and defense training"
         },
         {
-          "name": "Innovation Hub",
+          "name": "Innovation hub",
           "desc": "Co-working, pitch rooms, prototyping tools, mentor network"
         },
         {
-          "name": "Electrical Engineering Lab",
-          "desc": "Smart grid simulator, test benches and energy meters"
+          "name": "Electrical engineering lab",
+          "desc": "Smart grid simulator, test stands and energy meters"
         },
         {
-          "name": "IoT Laboratory",
-          "desc": "100+ sensor types, embedded systems, FPGA development platform"
+          "name": "Iot laboratory",
+          "desc": "100+ sensor types, embedded systems, fpga development platform"
         },
         {
-          "name": "Robotics Centre",
-          "desc": "Automated manipulation system, 12 industrial robot arms"
+          "name": "Robotics center",
+          "desc": "Automatic manipulation system, 12 industrial robot arms"
         }
       ]
     }
@@ -303,63 +303,63 @@
   "students": {
     "hero": {
       "crumb": "Students",
-      "title": "Student Life",
-      "subtitle": "Beyond classrooms and labs — a vibrant student community of clubs, competitions and campus experiences."
+      "title": "Student life",
+      "subtitle": "Beyond classrooms and laboratories — a vibrant student community of clubs, competitions and campus experiences."
     },
     "clubs": {
-      "sectionLabel": "Student Organisations",
-      "title": "Get Involved",
-      "subtitle": "Join 30+ active student clubs and organisations covering engineering, technology, arts and community service.",
+      "sectionLabel": "Student organizations",
+      "title": "Get active",
+      "subtitle": "Join 30+ active student clubs and organizations in engineering, technology, arts and community service.",
       "membersSuffix": "members",
       "list": [
         {
-          "name": "IEEE Student Branch",
+          "name": "Ieee student branch",
           "members": 420,
-          "desc": "Technical seminars, competitions and global networks"
+          "desc": "Technical workshops, competitions and global networks"
         },
         {
-          "name": "AI Robotics Club",
+          "name": "Ai robotics club",
           "members": 280,
-          "desc": "Building autonomous robots and competing in international championships"
+          "desc": "Building autonomous robots and participating in international competitions"
         },
         {
-          "name": "Cyber Defence Team",
+          "name": "Cyber defense team",
           "members": 160,
-          "desc": "CTF competitions and cybersecurity practice laboratory"
+          "desc": "Ctf competitions and cybersecurity exercise laboratory"
         },
         {
-          "name": "Startup Incubator",
+          "name": "Startup incubator",
           "members": 95,
-          "desc": "Turning ideas into companies with mentorship and funding"
+          "desc": "Turning ideas into companies with mentoring and funding"
         }
       ]
     },
     "facilities": {
-      "sectionLabel": "Campus Facilities",
-      "title": "A Modern Learning Environment",
+      "sectionLabel": "Campus facilities",
+      "title": "Modern learning environment",
       "list": [
         {
-          "title": "AI & ML Laboratory",
-          "desc": "96 workstations, NVIDIA A100 GPU cluster, 3D printing station"
+          "title": "Ai and ml laboratory",
+          "desc": "96 workstations, nvidia a100 gpu cluster, 3d printing station"
         },
         {
-          "title": "Cybersecurity Laboratory",
-          "desc": "Dedicated network environment for ethical hacking and defence training"
+          "title": "Cybersecurity laboratory",
+          "desc": "Dedicated network environment for ethical hacking and defense training"
         },
         {
-          "title": "Innovation Hub",
+          "title": "Innovation hub",
           "desc": "Co-working, pitch rooms, prototyping tools, mentor network"
         },
         {
-          "title": "Library & Research Centre",
-          "desc": "200,000+ books, full access to IEEE Xplore, ScienceDirect and Web of Science"
+          "title": "Library and research center",
+          "desc": "200,000+ books, full access to ieee xplore, sciencedirect and web of science"
         },
         {
-          "title": "Sports Complex",
-          "desc": "Swimming pool, gym, basketball, football and table tennis courts"
+          "title": "Sports complex",
+          "desc": "Swimming pool, gym, basketball, football, table tennis courts"
         },
         {
-          "title": "Student Dormitory",
+          "title": "Student dormitory",
           "desc": "2,400 beds, high-speed internet, study rooms, 24/7 security service"
         }
       ]
@@ -368,237 +368,241 @@
   "news": {
     "hero": {
       "crumb": "News",
-      "title": "News & Announcements",
-      "subtitle": "Stay informed about achievements, partnerships and campus life at TATU Engineering School."
+      "title": "News and announcements",
+      "subtitle": "Stay informed about achievements, partnerships and campus life of tuit engineering school."
     },
-    "readFullBtn": "Read Full Story →",
-    "readMoreBtn": "Read More →",
+    "readfullbtn": "Read full →",
+    "readmorebtn": "Read more →",
     "badges": {
-      "Tadqiqot": "Research",
-      "Hamkorlik": "Partnership",
-      "Yutuq": "Achievement",
-      "Tadbir": "Event"
+      "tadqiqot": "Research",
+      "hamkorlik": "Collaboration",
+      "yutuq": "Achievement",
+      "tadbir": "Event"
     }
   },
   "admissions": {
     "hero": {
       "crumb": "Admissions",
-      "title": "Admissions 2026",
-      "subtitle": "Begin your engineering journey. Applications for the 2026 academic year are now open."
+      "title": "Admission 2026",
+      "subtitle": "Start your engineering journey. Applications for the 2026 academic year are open."
     },
     "steps": {
-      "sectionLabel": "How to Apply",
-      "title": "Your Path to TATU",
+      "section_label": "How to apply",
+      "title": "Your path to tuit",
       "list": [
         {
           "n": "01",
-          "title": "Submit Application",
-          "date": "Mar 1 – Jun 30, 2026",
+          "title": "Application submission",
+          "date": "March 1 – june 30, 2026",
           "desc": "Complete the online application form with all personal and academic details."
         },
         {
           "n": "02",
-          "title": "Upload Documents",
-          "date": "After submitting application",
-          "desc": "Passport copy, academic transcript, language certificate (IELTS 6.0+) and motivation letter."
+          "title": "Document upload",
+          "date": "After application submission",
+          "desc": "Passport copy, academic certificate, language certificate (ielts 6.0+) and motivation letter."
         },
         {
           "n": "03",
-          "title": "Entrance Exam",
-          "date": "Jul 15–20, 2026",
-          "desc": "Specialised test in mathematics and your chosen field. Top applicants are admitted based on prior academic performance."
+          "title": "Entrance exam",
+          "date": "July 15–20, 2026",
+          "desc": "Special test in mathematics and major. Top applicants are admitted based on previous academic performance."
         },
         {
           "n": "04",
           "title": "Interview",
-          "date": "Aug 1–10, 2026",
-          "desc": "Shortlisted candidates attend a 30-minute online or in-person interview with the programme committee."
+          "date": "August 1–10, 2026",
+          "desc": "Selected candidates undergo a 30-minute online or face-to-face interview with the program committee."
         },
         {
           "n": "05",
-          "title": "Receive Decision",
-          "date": "Aug 15, 2026",
-          "desc": "All applicants are notified of admission decisions via email and the application portal."
+          "title": "Decision receipt",
+          "date": "August 15, 2026",
+          "desc": "All applicants receive admission decisions via email and application portal."
         }
       ]
     },
     "tuition": {
-      "title": "Tuition Fees",
+      "title": "Tuition fees",
       "list": [
         { "lvl": "Bachelor's", "fee": "$2,400", "per": "/year" },
         { "lvl": "Master's", "fee": "$3,200", "per": "/year" },
-        { "lvl": "PhD", "fee": "Funded", "per": "+ stipend" }
+        { "lvl": "Phd", "fee": "Funded", "per": "+ stipend" }
       ],
-      "scholarship": "Merit-based scholarships covering 50–100% of tuition fees are available"
+      "scholarship": "Merit-based scholarships covering 50–100% of tuition are available"
     },
     "form": {
-      "title": "Start Your Application",
-      "stepLabel": "Step",
+      "title": "Start application",
+      "step_label": "Step",
       "of": "/",
-      "steps": ["Personal Info", "Choose Program", "Documents", "Review"],
+      "steps": ["Personal details", "Program selection", "Documents", "Review"],
       "fields": [
-        { "key": "name", "label": "Full Name *", "ph": "Akbar Toshmatov" },
-        { "key": "email", "label": "Email Address *", "ph": "akbar@email.com" },
-        { "key": "phone", "label": "Phone Number", "ph": "+998 90 123 45 67" }
+        { "key": "name", "label": "Full name *", "ph": "Akbar toshmatov" },
+        {
+          "key": "email",
+          "label": "Email address *",
+          "ph": "akbar@email.com"
+        },
+        { "key": "phone", "label": "Phone number", "ph": "+998 90 123 45 67" }
       ],
-      "programLabel": "Select a Program *",
+      "program_label": "Choose a program *",
       "programs": [
         {
-          "type": "Bachelor / Master / PhD",
-          "code": "CS",
-          "title": "Computer Science & Engineering",
-          "degree": "Bachelor / Master / PhD",
+          "type": "Bachelor / master / phd",
+          "code": "cs",
+          "title": "Computer science and engineering",
+          "degree": "Bachelor / master / phd",
           "duration": "4 years",
-          "tags": ["AI", "Systems", "Web", "Security"],
+          "tags": ["ai", "systems", "web", "security"],
           "desc": "Algorithms, artificial intelligence, machine learning and software engineering.",
-          "details": "In this programme you will study modern programming languages, algorithms and the fundamentals of artificial intelligence. Led by Dean Prof. Akbar Toshmatov, over 4 years you will reinforce theoretical knowledge through real-world projects."
+          "details": "In this major, you will study modern programming languages, algorithms and fundamentals of ai. Under the guidance of dean prof. akbar toshmatov, you will reinforce theoretical knowledge in real projects for 4 years."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "CE",
-          "title": "Computer Engineering",
-          "degree": "Bachelor / Master",
+          "type": "Bachelor / master",
+          "code": "ce",
+          "title": "Computer engineering",
+          "degree": "Bachelor / master",
           "duration": "4 years",
-          "tags": ["FPGA", "Embedded", "IoT", "VLSI"],
-          "desc": "Hardware-software integration, embedded systems and IoT applications.",
-          "details": "The Computer Engineering programme focuses on the interface between hardware and software. You will learn to design microcontrollers, smart home systems and robotics devices."
+          "tags": ["fpga", "embedded", "iot", "vlsi"],
+          "desc": "Hardware-software integration, embedded systems and iot applications.",
+          "details": "The computer engineering major focuses on the relationship between hardware and software. You will learn to design microcontrollers, smart home systems and robotic devices."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "IT",
-          "title": "Information Technology",
-          "degree": "Bachelor / Master",
+          "type": "Bachelor / master",
+          "code": "it",
+          "title": "Information technology",
+          "degree": "Bachelor / master",
           "duration": "4 years",
-          "tags": ["Cloud", "Security", "ERP", "DevOps"],
+          "tags": ["cloud", "security", "erp", "devops"],
           "desc": "Enterprise systems, cloud architecture and cybersecurity.",
-          "details": "As an IT specialist you will learn to build cloud systems for large enterprises, ensure data security and develop system administration skills."
+          "details": "As an information technology specialist, you will learn to build cloud systems for large enterprises, ensure data security and acquire system administrator skills."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "DS",
-          "title": "Data Science",
-          "degree": "Bachelor / Master",
+          "type": "Bachelor / master",
+          "code": "ds",
+          "title": "Data science",
+          "degree": "Bachelor / master",
           "duration": "4 years",
-          "tags": ["BigData", "ML", "BI", "Python"],
-          "desc": "Big data, statistical modelling and business intelligence.",
-          "details": "In this programme led by Dr. Nilufar Yusupova you will learn data analysis and how to build predictive models. This is one of the most in-demand professions in today's market."
+          "tags": ["bigdata", "ml", "bi", "python"],
+          "desc": "Big data, statistical modeling and business analytics.",
+          "details": "In this major, under the guidance of dr. nilufar yusupova, you will learn data analysis and creating predictive models. This is one of the most in-demand professions in the market today."
         },
         {
-          "type": "Bachelor / Master",
-          "code": "EE",
-          "title": "Electrical Engineering",
-          "degree": "Bachelor / Master / PhD",
+          "type": "Bachelor / master / phd",
+          "code": "ee",
+          "title": "Electrical engineering",
+          "degree": "Bachelor / master / phd",
           "duration": "4 years",
-          "tags": ["Energy", "RF", "DSP", "Smart Grid"],
-          "desc": "Power systems, signal processing and smart grids.",
-          "details": "The Electrical Engineering programme covers renewable energy sources and telecommunications equipment. Under Prof. Sherzod Rakhimov you will gain deep expertise in Smart Grid technologies."
+          "tags": ["energy", "rf", "dsp", "smart grid"],
+          "desc": "Energy systems, signal processing and smart grids.",
+          "details": "The electrical engineering major studies renewable energy sources and telecommunications equipment. Under the guidance of prof. sherzod rakhimov, you will gain deep knowledge about smart grids."
         },
         {
-          "type": "Master / PhD",
-          "code": "AI",
-          "title": "Artificial Intelligence",
-          "degree": "Master / PhD",
+          "type": "Master / phd",
+          "code": "ai",
+          "title": "Artificial intelligence",
+          "degree": "Master / phd",
           "duration": "2 years",
-          "tags": ["Deep Learning", "NLP", "Vision", "Robotics"],
-          "desc": "Deep learning, NLP, computer vision and robotics research.",
-          "details": "This is an advanced research programme intended only for Master's and PhD students. You will conduct experiments in laboratories covering neural networks, speech recognition and the design of autonomous robots."
+          "tags": ["deep learning", "nlp", "vision", "robotics"],
+          "desc": "Deep learning, nlp, computer vision and robotics research.",
+          "details": "This advanced research track is intended for graduate and doctoral students only. You will conduct experiments in labs for neural networks, speech recognition and creating autonomous robots."
         }
       ],
-      "docsTitle": "Upload the following documents:",
-      "docFormat": "PDF format, max 5 MB",
-      "uploadBtn": "Upload",
+      "docs_title": "Upload the following documents:",
+      "doc_format": "In pdf format, maximum 5 mb",
+      "upload_btn": "Upload",
       "docs": [
-        "Academic Transcript",
-        "Language Certificate (IELTS/TOEFL)",
-        "Motivation Letter",
-        "Passport Copy"
+        "Academic certificate",
+        "Language certificate (ielts/toefl)",
+        "Motivation letter",
+        "Passport copy"
       ],
-      "reviewTitle": "Application Summary",
-      "reviewFields": {
-        "name": "Full Name",
-        "email": "Email Address",
-        "phone": "Phone Number",
-        "program": "Selected Program"
+      "review_title": "Application summary",
+      "review_fields": {
+        "name": "Full name",
+        "email": "Email address",
+        "phone": "Phone number",
+        "program": "Chosen major"
       },
-      "reviewNote": "By submitting you confirm the accuracy of all provided information and agree to TATU's Admissions Terms.",
-      "backBtn": "← Back",
-      "nextBtn": "Continue →",
-      "submitBtn": "Submit Application 🚀",
-      "successMsg": "Your application was submitted successfully! We will be in touch soon. 🎉"
+      "review_note": "By submitting the application, you confirm the accuracy of all provided data and agree to the tuit admission terms.",
+      "back_btn": "← Back",
+      "next_btn": "Continue →",
+      "submit_btn": "Submit application 🚀",
+      "success_msg": "Your application has been successfully submitted! We will contact you shortly. 🎉"
     }
   },
   "contact": {
     "hero": {
-      "crumb": "Contact",
-      "title": "Get in Touch",
-      "subtitle": "Have questions about programmes, admissions, research or campus life? We're here to help."
+      "crumb": "Contacts",
+      "title": "Contact us",
+      "subtitle": "Have questions about programs, admission, research or campus life? We are here to help."
     },
-    "infoTitle": "Contact Information",
-    "contactData": {
+    "info_title": "Contact information",
+    "contact_data": {
       "address": {
-        "label": "ADDRESS",
-        "value": "108 Amir Temur Str., Yunusobod district, Tashkent 100200, Uzbekistan"
+        "label": "Address",
+        "value": "108 amir temur str., yunusabad district, tashkent 100200, uzbekistan"
       },
       "phone": {
-        "label": "PHONE",
+        "label": "Phone",
         "value": "+998 71 238 64 00"
       },
       "email": {
-        "label": "EMAIL ADDRESS",
+        "label": "Email",
         "value": "engineering@tatu.uz"
       },
-      "workingHours": {
-        "label": "WORKING HOURS",
-        "value": "Monday – Friday: 09:00 – 17:00 (UZT)"
+      "working_hours": {
+        "label": "Working hours",
+        "value": "Monday – friday: 09:00 – 17:00 (uzt)"
       }
     },
-    "mapPopup": "TATU Engineering School",
-    "socialLabel": "Social Media",
+    "map_popup": "Tuit engineering school",
+    "social_label": "Social media",
     "form": {
-      "title": "Send a Message",
+      "title": "Send a message",
       "fields": [
         {
           "key": "name",
-          "label": "Full Name *",
+          "label": "Full name *",
           "placeholder": "Your name",
           "type": "text"
         },
         {
           "key": "email",
-          "label": "Email Address *",
+          "label": "Email address *",
           "placeholder": "email@example.com",
           "type": "email"
         },
         {
           "key": "subject",
           "label": "Subject",
-          "placeholder": "Question about admissions...",
+          "placeholder": "Admission question...",
           "type": "text"
         }
       ],
-      "messageLabel": "Message *",
-      "messagePlaceholder": "How can we help you?",
-      "submitBtn": "Send Message →"
+      "message_label": "Message *",
+      "message_placeholder": "How can we help you?",
+      "submit_btn": "Send message →"
     },
     "success": {
-      "title": "Message Sent!",
-      "desc": "Thank you for reaching out. Our team will get back to you within 1–2 business days.",
-      "newBtn": "Send Another Message"
+      "title": "Message sent!",
+      "desc": "Thank you for contacting us. Our team will get back to you within 1–2 business days.",
+      "new_btn": "Send new message"
     }
   },
-  "newsCard": {
-    "backBtn": "Back",
-    "notFound": {
-      "title": "Content not found!",
-      "homeLink": "Return to homepage"
+  "news_card": {
+    "back_btn": "Back",
+    "not_found": {
+      "title": "Data not found!",
+      "home_link": "Return to home"
     },
-    "shareBtn": "Share",
+    "share_btn": "Share",
     "location": "Tashkent 2026",
-    "sourceLabel": "Read more on",
-    "sourceSuffix": "website"
+    "source_label": "More on",
+    "source_suffix": "site"
   },
-  "notFound": {
-    "title": "Page Under Construction",
+  "not_found": {
+    "title": "Page under development",
     "desc": "This section will be ready soon."
   }
 }

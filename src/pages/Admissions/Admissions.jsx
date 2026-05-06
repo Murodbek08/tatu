@@ -2,6 +2,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { request, supabase } from "../../api";
+import {
+  CheckCircle2,
+  ChevronRight,
+  UploadCloud,
+  FileText,
+  Info,
+} from "lucide-react";
 
 import PageHero from "../../components/ui/PageHero";
 import SectionLabel from "../../components/ui/SectionLabel";
@@ -100,112 +107,161 @@ export default function Admissions() {
         subtitle={t("admissions.hero.subtitle")}
       />
 
-      <div className="bg-slate-50 py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 xl:grid-cols-[1fr_460px] gap-16">
-            {/* Chap tomon: Ma'lumotlar (UI saqlab qolindi) */}
-            <div>
+      <div className="bg-[#f4f7fa] min-h-screen font-inter">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+          <div className="grid grid-cols-1 xl:grid-cols-[1fr_480px] gap-12 lg:gap-20">
+            {/* CHAP TOMON: Yo'riqnoma va Narxlar */}
+            <div className="space-y-20">
+              {/* Steps Header */}
               <AnimatedSection direction="left">
-                <SectionLabel>
-                  {t("admissions.steps.sectionLabel")}
+                <SectionLabel className="bg-white border border-slate-100 text-[#892be2] px-6 py-2 rounded-xl shadow-sm">
+                  {t("admissions.steps.section_label")}
                 </SectionLabel>
-                <div className="mt-1 mb-10">
-                  <SectionTitle>{t("admissions.steps.title")}</SectionTitle>
+                <div className="mt-6 mb-12">
+                  <h2 className="text-4xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tighter">
+                    {t("admissions.steps.title")}
+                  </h2>
                 </div>
               </AnimatedSection>
 
-              <div className="space-y-7 mb-14">
+              {/* Steps List */}
+              <div className="space-y-10 relative">
+                {/* Vertical timeline line (Desktop uchun) */}
+                <div className="hidden md:block absolute left-7 top-10 bottom-10 w-1 bg-slate-200/50 rounded-full" />
+
                 {t("admissions.steps.list", { returnObjects: true }).map(
-                  (s) => (
-                    <div key={s.n} className="flex gap-5 items-start">
-                      <div className="w-12 h-12 bg-amber-500 text-white font-black rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-amber-500/25">
+                  (s, idx) => (
+                    <motion.div
+                      key={s.n}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="group relative flex flex-col md:flex-row gap-6 md:gap-10 p-8 bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-xl transition-all duration-500"
+                      style={{
+                        borderLeft: `12px solid ${idx % 2 === 0 ? "#3de082" : "#892be2"}`,
+                      }}
+                    >
+                      <div className="w-14 h-14 md:w-16 md:h-16 bg-slate-900 text-white font-black rounded-2xl flex items-center justify-center shrink-0 text-xl md:text-2xl shadow-lg relative z-10">
                         {s.n}
                       </div>
-                      <div>
-                        <h4 className="text-[16px] font-extrabold text-slate-900 mb-0.5">
+                      <div className="flex-1">
+                        <h4 className="text-2xl md:text-3xl font-black text-slate-900 mb-2 leading-tight">
                           {s.title}
                         </h4>
-                        <p className="text-amber-600 font-bold text-xs mb-1.5">
+                        <p className="text-[#892be2] font-black text-sm  tracking-widest mb-4 italic">
                           {s.date}
                         </p>
-                        <p className="text-slate-500 text-sm leading-relaxed">
+                        <p className="text-slate-500 text-lg md:text-xl leading-relaxed font-medium">
                           {s.desc}
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   ),
                 )}
               </div>
 
-              {/* Tuition section */}
-              <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
-                <h3 className="text-xl font-extrabold mb-6">
-                  {t("admissions.tuition.title")}
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {/* Tuition Section */}
+              <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 md:p-12 shadow-sm relative overflow-hidden">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-12 rounded-2xl bg-[#3de082]/10 flex items-center justify-center text-[#3de082]">
+                    <FileText size={28} />
+                  </div>
+                  <h3 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight">
+                    {t("admissions.tuition.title")}
+                  </h3>
+                </div>
+
+                {/* Kartalar to'plami */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-10">
                   {t("admissions.tuition.list", { returnObjects: true }).map(
-                    (f) => (
+                    (f, idx) => (
                       <div
                         key={f.lvl}
-                        className="bg-slate-50 p-5 rounded-xl text-center border border-slate-100"
+                        className={`relative p-6 md:p-8 rounded-[2rem] text-center border-2 transition-all flex flex-col items-center justify-center min-h-[180px] md:min-h-[220px] ${
+                          idx === 2
+                            ? "border-[#3de082] bg-emerald-50/20"
+                            : "border-slate-50 bg-slate-50/50"
+                        }`}
                       >
-                        <p className="text-[10px] font-bold text-slate-400 uppercase mb-1">
+                        <p className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 italic">
                           {f.lvl}
                         </p>
-                        <p className="text-lg font-black text-slate-900">
-                          {f.fee}
-                        </p>
-                        <p className="text-[10px] text-slate-400">{f.per}</p>
+
+                        {/* Narx qismi - "Moliyalashtir" so'zi uchun maxsus klass */}
+                        <div className="w-full flex flex-col items-center justify-center leading-none">
+                          <p
+                            className={`font-black text-slate-900 break-words w-full ${
+                              f.fee.length > 8
+                                ? "text-xl md:text-2xl"
+                                : "text-3xl md:text-5xl"
+                            }`}
+                          >
+                            {f.fee}
+                          </p>
+                          <p className="text-[10px] md:text-xs text-slate-400 font-bold mt-2 uppercase">
+                            {f.per}
+                          </p>
+                        </div>
                       </div>
                     ),
                   )}
                 </div>
+
+                {/* Ma'lumot bandi - Ixchamroq */}
+                <div className="bg-blue-50/50 rounded-2xl p-5 md:p-6 border border-blue-100/50 flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white shrink-0">
+                    <Info size={16} strokeWidth={3} />
+                  </div>
+                  <p className="text-blue-900 font-bold text-xs md:text-sm leading-relaxed">
+                    {t("admissions.tuition.scholarship")}
+                  </p>
+                </div>
               </div>
             </div>
 
-            {/* O'ng tomon: Multi-step Form (UI saqlab qolindi) */}
+            {/* O'NG TOMON: Multi-step Form */}
             <div className="xl:sticky xl:top-24 self-start">
-              <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-2xl">
-                {/* Progress Header */}
-                <div className="bg-[#0a1628] px-8 py-7">
-                  <p className="text-white font-extrabold text-xl mb-5">
+              <div className="bg-white rounded-[3.5rem] border border-slate-100 overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)]">
+                {/* Form Header */}
+                <div className="bg-slate-900 px-10 py-10 text-white">
+                  <p className="font-black text-2xl md:text-3xl mb-6 tracking-tight">
                     {t("admissions.form.title")}
                   </p>
-                  <div className="flex gap-1.5 mb-3">
+                  <div className="flex gap-2 mb-4">
                     {[0, 1, 2, 3].map((i) => (
                       <div
                         key={i}
-                        className={`flex-1 h-1 rounded-full transition-all duration-500 ${i <= step ? "bg-amber-500" : "bg-white/20"}`}
+                        className={`flex-1 h-2 rounded-full transition-all duration-700 ${i <= step ? "bg-[#3de082]" : "bg-white/10"}`}
                       />
                     ))}
                   </div>
-                  <p className="text-white/50 text-[11px] uppercase tracking-wider font-bold">
-                    {t("admissions.form.stepLabel")} {step + 1} / 4:{" "}
-                    <span className="text-white">{steps[step]}</span>
+                  <p className="text-white/40 text-[10px] font-black  tracking-widest">
+                    {t("admissions.form.step_label")} {step + 1} / 4:{" "}
+                    <span className="text-[#3de082] italic">{steps[step]}</span>
                   </p>
                 </div>
 
-                <div className="p-8">
+                <div className="p-10 md:p-12">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={step}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      className="min-h-[280px]"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="min-h-[320px]"
                     >
-                      {/* STEP 0: INFO */}
+                      {/* STEP 0: Personal Info */}
                       {step === 0 && (
-                        <div className="space-y-4">
+                        <div className="space-y-6">
                           {t("admissions.form.fields", {
                             returnObjects: true,
                           }).map((f) => (
                             <div key={f.key}>
-                              <label className="block text-[11px] font-black text-slate-400 uppercase mb-1.5">
+                              <label className="block text-[11px] font-black text-slate-400  tracking-widest mb-2 ml-1">
                                 {f.label}
                               </label>
                               <input
-                                className="w-full border border-slate-200 p-3.5 rounded-xl text-sm focus:border-blue-500 outline-none transition-all"
+                                className="w-full bg-slate-50 border-2 border-slate-50 p-4 rounded-2xl text-lg font-bold text-slate-900 focus:border-[#892be2] focus:bg-white outline-none transition-all placeholder:text-slate-300"
                                 placeholder={f.ph}
                                 value={form[f.key]}
                                 onChange={(e) =>
@@ -217,25 +273,27 @@ export default function Admissions() {
                         </div>
                       )}
 
-                      {/* STEP 1: PROGRAM */}
+                      {/* STEP 1: Program Choice */}
                       {step === 1 && (
-                        <div className="space-y-2.5 max-h-[350px] overflow-y-auto pr-2 custom-scroll">
+                        <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                           {t("admissions.form.programs", {
                             returnObjects: true,
                           }).map((prog) => (
                             <div
-                              key={prog.id}
+                              key={prog.code}
                               onClick={() =>
                                 setForm({ ...form, program: prog.title })
                               }
-                              className={`p-4 border-2 rounded-2xl cursor-pointer transition-all flex items-center gap-4 ${form.program === prog.title ? "border-amber-500 bg-amber-50/50" : "border-slate-100 hover:border-slate-200"}`}
+                              className={`p-6 border-2 rounded-[2rem] cursor-pointer transition-all flex items-center gap-5 ${form.program === prog.title ? "border-[#3de082] bg-emerald-50/50" : "border-slate-50 hover:border-slate-200"}`}
                             >
-                              <span className="text-2xl">{prog.icon}</span>
+                              <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-2xl border border-slate-100">
+                                {prog.icon || "🎓"}
+                              </div>
                               <div>
-                                <p className="font-bold text-slate-900 text-sm">
+                                <p className="font-black text-slate-900 text-base">
                                   {prog.title}
                                 </p>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase">
+                                <p className="text-[10px] text-slate-400 font-black  tracking-widest mt-1">
                                   {prog.degree}
                                 </p>
                               </div>
@@ -244,30 +302,40 @@ export default function Admissions() {
                         </div>
                       )}
 
-                      {/* STEP 2: DOCUMENTS (Majburiy yuklash) */}
+                      {/* STEP 2: Documents */}
                       {step === 2 && (
-                        <div className="space-y-4">
-                          <p className="text-xs font-bold text-slate-500 mb-4">
-                            {t("admissions.form.docsTitle")}
+                        <div className="space-y-6">
+                          <p className="text-sm font-black text-slate-400  tracking-widest mb-6 italic">
+                            {t("admissions.form.docs_title")}
                           </p>
                           {["passport", "diploma"].map((type) => (
                             <div
                               key={type}
-                              className={`p-4 border-2 border-dashed rounded-2xl transition-all ${files[type] ? "border-green-500 bg-green-50" : "border-slate-200"}`}
+                              className={`p-8 border-2 border-dashed rounded-[2.5rem] transition-all relative group ${files[type] ? "border-[#3de082] bg-emerald-50/30" : "border-slate-200 hover:border-[#892be2]"}`}
                             >
-                              <div className="flex justify-between items-center">
-                                <div>
-                                  <p className="text-sm font-bold text-slate-900 capitalize">
-                                    {type === "passport"
-                                      ? "Passport nusxasi"
-                                      : "Diplom yoki Shahodatnoma"}
-                                  </p>
-                                  <p className="text-[10px] text-slate-400">
-                                    PDF, JPG (Max 5MB)
-                                  </p>
+                              <div className="flex flex-col items-center text-center">
+                                <div
+                                  className={`mb-4 ${files[type] ? "text-[#3de082]" : "text-slate-300 group-hover:text-[#892be2]"}`}
+                                >
+                                  {files[type] ? (
+                                    <CheckCircle2 size={40} />
+                                  ) : (
+                                    <UploadCloud size={40} />
+                                  )}
                                 </div>
-                                <label className="cursor-pointer bg-slate-900 text-white px-4 py-2 rounded-lg text-[10px] font-bold">
-                                  {files[type] ? "ALMASHTIRISH" : "YUKLASH"}
+                                <p className="text-lg font-black text-slate-900 mb-1">
+                                  {type === "passport"
+                                    ? "Pasport nusxasi"
+                                    : "Diplom / Shahodatnoma"}
+                                </p>
+                                <p className="text-[10px] text-slate-400 font-bold mb-6">
+                                  PDF, JPG (MAX 5MB)
+                                </p>
+
+                                <label className="cursor-pointer bg-slate-900 text-white px-8 py-3 rounded-xl text-[10px] font-black  tracking-widest hover:bg-[#892be2] transition-colors">
+                                  {files[type]
+                                    ? "ALMASHTIRISH"
+                                    : "FAYLNI TANLASH"}
                                   <input
                                     type="file"
                                     hidden
@@ -276,83 +344,59 @@ export default function Admissions() {
                                   />
                                 </label>
                               </div>
-                              {files[type] && (
-                                <p className="mt-2 text-[10px] font-bold text-green-600 truncate">
-                                  ✓ {files[type].name}
-                                </p>
-                              )}
                             </div>
                           ))}
                         </div>
                       )}
 
-                      {/* STEP 3: REVIEW */}
+                      {/* STEP 3: Review */}
                       {step === 3 && (
-                        <div className="space-y-4">
-                          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-3">
-                            <div className="flex justify-between border-b pb-2">
-                              <span className="text-xs text-slate-400">
-                                Ism:
-                              </span>{" "}
-                              <span className="text-xs font-bold">
-                                {form.name}
-                              </span>
-                            </div>
-                            <div className="flex justify-between border-b pb-2">
-                              <span className="text-xs text-slate-400">
-                                Email:
-                              </span>{" "}
-                              <span className="text-xs font-bold">
-                                {form.email}
-                              </span>
-                            </div>
-                            <div className="flex justify-between border-b pb-2">
-                              <span className="text-xs text-slate-400">
-                                Yo'nalish:
-                              </span>{" "}
-                              <span className="text-xs font-bold text-right ml-4">
-                                {form.program}
-                              </span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-xs text-slate-400">
-                                Hujjatlar:
-                              </span>{" "}
-                              <span className="text-xs font-bold text-green-600">
-                                YUKLANDI ✅
-                              </span>
+                        <div className="space-y-6">
+                          <div className="bg-slate-900 p-8 rounded-[2.5rem] text-white space-y-5 shadow-xl">
+                            {["name", "email", "program"].map((field) => (
+                              <div
+                                key={field}
+                                className="flex flex-col border-b border-white/10 pb-3"
+                              >
+                                <span className="text-[9px] font-black text-white/30  tracking-[0.2em] mb-1">
+                                  {field}
+                                </span>
+                                <span className="text-base font-bold truncate">
+                                  {form[field]}
+                                </span>
+                              </div>
+                            ))}
+                            <div className="flex items-center gap-3 text-[#3de082] font-black text-xs">
+                              <CheckCircle2 size={18} /> HUJJATLAR TAYYOR
                             </div>
                           </div>
-                          <p className="text-[11px] text-slate-400 leading-relaxed">
-                            {t("admissions.form.reviewNote")}
+                          <p className="text-[11px] text-slate-400 font-medium leading-relaxed italic px-4">
+                            {t("admissions.form.review_note")}
                           </p>
                         </div>
                       )}
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Buttons */}
-                  <div className="flex gap-3 mt-8">
+                  {/* Navigation Buttons */}
+                  <div className="flex gap-4 mt-12">
                     {step > 0 && (
                       <button
-                        onClick={() => goTo(step - 1)}
-                        className="flex-1 border-2 border-slate-100 py-3.5 rounded-2xl font-bold text-slate-600 text-sm hover:bg-slate-50 transition-all"
+                        onClick={() => setStep(step - 1)}
+                        className="flex-1 bg-slate-100 py-5 rounded-2xl font-black text-slate-600 text-xs  tracking-widest hover:bg-slate-200 transition-all"
                       >
-                        {t("admissions.form.backBtn")}
+                        {t("admissions.form.back_btn")}
                       </button>
                     )}
                     <button
                       onClick={() =>
-                        step === 3 ? handleSubmit() : goTo(step + 1)
+                        step === 3 ? handleSubmit() : setStep(step + 1)
                       }
-                      disabled={loading}
-                      className="flex-[2] bg-amber-500 text-white py-3.5 rounded-2xl font-black text-sm shadow-xl shadow-amber-500/20 hover:bg-amber-600 transition-all disabled:opacity-50"
+                      className="flex-[2] bg-[#3de082] text-slate-900 py-5 rounded-2xl font-black text-xs  tracking-[0.2em] shadow-xl shadow-emerald-500/20 hover:bg-[#2ecb72] transition-all"
                     >
-                      {loading
-                        ? "YUBORILMOQDA..."
-                        : step === 3
-                          ? t("admissions.form.submitBtn")
-                          : t("admissions.form.nextBtn")}
+                      {step === 3
+                        ? t("admissions.form.submit_btn")
+                        : t("admissions.form.next_btn")}
                     </button>
                   </div>
                 </div>

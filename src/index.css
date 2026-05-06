@@ -52,3 +52,53 @@ h6 {
   /* Asl dizayndagi chiziqli sxemani to'liq chizish uchun SVG ishlatgan ma'qul, 
      bu yerda vaqtincha nuqtali pattern berildi */
 }
+
+/* Slick Dots Customization */
+.program-slider .slick-dots {
+  bottom: -40px;
+  display: flex !important;
+  justify-content: center;
+  gap: 4px;
+}
+.program-slider .slick-dots li {
+  margin: 0;
+  width: auto;
+  height: auto;
+}
+.program-slider .slick-dots li button:before {
+  display: none;
+}
+.program-slider .slick-dots li button {
+  width: 12px;
+  height: 6px;
+  background: var(--bg-dark-border);
+  border-radius: 10px;
+  transition: all 0.4s ease;
+}
+.program-slider .slick-dots li.slick-active button {
+  width: 40px;
+  background: var(--color-primary);
+}
+
+/* Pattern animation */
+.bg-pattern {
+  background-image: radial-gradient(var(--bg-dark-border) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Kartalar balandligini tenglash */
+.slick-track {
+  display: flex !important;
+  gap: 0px;
+}
+.slick-slide {
+  height: inherit !important;
+}
+.slick-slide > div {
+  height: 100%;
+}
+/* Slider chetlarini chiroyli qilish */
+.slick-list {
+  margin: 0 -12px;
+  overflow: visible !important;
+}

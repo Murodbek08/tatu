@@ -86,104 +86,114 @@ export default function News() {
         subtitle={t("news.hero.subtitle")}
       />
 
-      <div className="bg-slate-50 py-16">
+      <div className="bg-[#f4f7fa] py-24 min-h-screen">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Featured */}
+          {/* 1. FEATURED NEWS - Asosiy yangilik (Yirikroq) */}
           {featured && (
             <AnimatedSection direction="up">
-              <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden mb-8 grid grid-cols-1 md:grid-cols-2">
-                <div className="relative aspect-video md:aspect-auto min-h-64 bg-slate-900">
+              <div className="bg-white rounded-[3.5rem] border border-slate-100 overflow-hidden mb-16 shadow-[0_20px_50px_rgba(0,0,0,0.03)] grid grid-cols-1 lg:grid-cols-2 group">
+                <div className="relative aspect-video lg:aspect-auto min-h-[400px] bg-slate-900 overflow-hidden">
                   <iframe
                     src={featured.embed_url}
                     title={getField(featured, "title")}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-full absolute inset-0"
+                    className="w-full h-full absolute inset-0 group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-10 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-5">
+                <div className="p-12 md:p-16 flex flex-col justify-center relative">
+                  {/* Side Accent Line */}
+                  <div className="absolute left-0 top-1/4 bottom-1/4 w-2 bg-[#892be2] rounded-r-full" />
+
+                  <div className="flex items-center gap-4 mb-8">
                     <span
-                      className={`text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wide border ${getMeta(featured.cat_key).color}`}
+                      className={`text-[12px] font-black px-5 py-2 rounded-2xl  tracking-[0.2em] border ${getMeta(featured.cat_key).color} bg-white shadow-sm`}
                     >
                       {getField(featured, "cat")}
                     </span>
-                    <span className="text-slate-400 text-sm">
+                    <span className="text-slate-400 font-bold text-base italic">
                       {featured.date_label}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-black text-slate-900 mb-4 leading-tight">
+
+                  <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-[1.1] tracking-tighter group-hover:text-[#892be2] transition-colors">
                     {getField(featured, "title")}
                   </h2>
-                  <p className="text-slate-500 text-[15px] leading-relaxed mb-7">
+
+                  <p className="text-slate-500 text-xl md:text-2xl leading-relaxed mb-10 font-medium">
                     {getField(featured, "excerpt")}
                   </p>
+
                   <motion.button
-                    whileHover={{ x: 4 }}
-                    whileTap={{ scale: 0.97 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={() => navigate(`/news/${featured.id}`)}
-                    className="bg-blue-700 hover:bg-blue-800 text-white font-bold text-sm px-6 py-3 rounded-xl transition-colors w-fit"
+                    className="bg-slate-900 hover:bg-[#3de082] hover:text-slate-900 text-white font-black text-lg px-10 py-5 rounded-[2rem] transition-all duration-300 w-fit shadow-xl shadow-slate-200"
                   >
-                    {t("news.readFullBtn")}
+                    {t("news.readfullbtn")}
                   </motion.button>
                 </div>
               </div>
             </AnimatedSection>
           )}
 
-          {/* Grid */}
+          {/* 2. NEWS GRID - Qolgan yangiliklar (Kattalashtirilgan) */}
           <motion.div
             variants={stagger}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.05 }}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
           >
             {gridItems.map((item) => (
               <motion.div
                 key={item.id}
                 variants={cardItem}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col cursor-pointer"
+                whileHover={{ y: -15 }}
+                className="bg-white rounded-[3rem] border border-slate-100 overflow-hidden group hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 flex flex-col cursor-pointer"
                 onClick={() => navigate(`/news/${item.id}`)}
               >
-                <div className="relative aspect-video w-full bg-slate-900">
+                <div className="relative aspect-video w-full bg-slate-900 overflow-hidden">
                   <iframe
                     src={item.embed_url}
                     title={getField(item, "title")}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="w-full h-full"
+                    className="w-full h-full transition-transform duration-700 group-hover:scale-110 pointer-events-none"
                   />
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center justify-between mb-4">
+
+                <div className="p-10 flex flex-col flex-grow">
+                  <div className="flex items-center justify-between mb-8">
                     <span
-                      className={`text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider border ${getMeta(item.cat_key).color}`}
+                      className={`text-[10px] font-black px-4 py-2 rounded-xl  tracking-widest border ${getMeta(item.cat_key).color} bg-white`}
                     >
                       {getField(item, "cat")}
                     </span>
-                    <span className="text-xs text-slate-400 font-medium">
+                    <span className="text-sm text-slate-400 font-bold italic">
                       {item.date_label}
                     </span>
                   </div>
-                  <h4 className="text-[17px] font-extrabold text-slate-900 mb-3 leading-snug group-hover:text-blue-700 transition-colors line-clamp-2">
+
+                  <h4 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight group-hover:text-[#892be2] transition-colors line-clamp-2 tracking-tight">
                     {getField(item, "title")}
                   </h4>
-                  <p className="text-slate-600 text-[13px] leading-relaxed mb-6 line-clamp-3">
+
+                  <p className="text-slate-500 text-lg md:text-xl leading-relaxed mb-10 line-clamp-3 font-medium">
                     {getField(item, "excerpt")}
                   </p>
-                  <button className="mt-auto w-full flex items-center justify-center gap-2 border border-slate-200 bg-slate-50/50 hover:bg-blue-600 hover:text-white hover:border-blue-600 text-slate-800 text-sm font-bold py-3.5 rounded-xl transition-all duration-200">
-                    {t("news.readMoreBtn")}
+
+                  <button className="mt-auto w-full flex items-center justify-center gap-3 border-2 border-slate-50 bg-slate-50 text-slate-900 text-base font-black py-5 rounded-[1.8rem] group-hover:bg-[#3de082] group-hover:border-[#3de082] transition-all duration-300">
+                    {t("news.readmorebtn")}
                   </button>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
+          {/* Bo'sh holat */}
           {!loading && newsList.length === 0 && (
-            <div className="text-center py-20 text-slate-400 border-2 border-dashed border-slate-200 rounded-3xl font-medium uppercase tracking-widest">
+            <div className="text-center py-32 text-slate-300 border-4 border-dashed border-slate-100 rounded-[4rem] font-black text-2xl  tracking-[0.3em]">
               Yangiliklar topilmadi
             </div>
           )}

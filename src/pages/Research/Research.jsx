@@ -1,190 +1,143 @@
-// pages/Research/Research.jsx — animatsiyalangan versiya
-// Areas: stagger cards | Stats band: count-up | Labs: hover-lift
-
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import PageHero from "../../components/ui/PageHero";
 import SectionLabel from "../../components/ui/SectionLabel";
-import SectionTitle from "../../components/ui/SectionTitle";
 import AnimatedSection from "../../components/ui/AnimatedSection";
 import CountUp from "../../components/ui/CountUp";
+import { Cpu, Beaker, Microscope, Radio, FlaskConical } from "lucide-react";
 
+// Ranglar va Ikonkalar
 const AREA_METADATA = [
-  { icon: "🧠", bar: "from-blue-600 to-blue-800" },
-  { icon: "🛡️", bar: "from-rose-600 to-rose-800" },
-  { icon: "🏙️", bar: "from-emerald-600 to-emerald-800" },
-  { icon: "📡", bar: "from-violet-600 to-violet-800" },
+  { icon: <Cpu size={32} />, color: "#3de082" },
+  { icon: <Beaker size={32} />, color: "#892be2" },
+  { icon: <Microscope size={32} />, color: "#fbbf24" },
+  { icon: <Radio size={32} />, color: "#3b82f6" },
 ];
-const LAB_ICONS = ["🖥️", "🔐", "💡", "⚡", "📡", "🤖"];
 
-const stagger = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.11 } },
-};
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 function Research() {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="bg-[#f8fafc] min-h-screen">
       <PageHero
         crumb={t("research.hero.crumb")}
         title={t("research.hero.title")}
         subtitle={t("research.hero.subtitle")}
       />
 
-      <div className="bg-slate-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* Section header */}
-          <AnimatedSection>
-            <SectionLabel>{t("research.areas.sectionLabel")}</SectionLabel>
-            <div className="mt-1 mb-10">
-              <SectionTitle>{t("research.areas.title")}</SectionTitle>
-            </div>
-          </AnimatedSection>
+      <div className="max-w-7xl mx-auto px-6 py-20">
+        {/* 1. Yo'nalishlar Seksiyasi */}
+        <AnimatedSection>
+          <div className="text-center mb-16 md:mb-24">
+            <SectionLabel className="text-[#892be2] font-black tracking-[0.2em] text-xs">
+              {t("research.areas.sectionLabel")}
+            </SectionLabel>
+            <h2 className="mt-6 text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-tight">
+              {t("research.areas.title")}
+            </h2>
+          </div>
+        </AnimatedSection>
 
-          {/* Areas — stagger */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20"
-          >
-            {t("research.areas.list", { returnObjects: true }).map(
-              (area, index) => {
-                const meta = AREA_METADATA[index] || {};
-                return (
-                  <motion.div
-                    key={index}
-                    variants={fadeUp}
-                    whileHover={{
-                      y: -6,
-                      boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-32">
+          {t("research.areas.list", { returnObjects: true }).map(
+            (area, index) => {
+              const meta = AREA_METADATA[index] || AREA_METADATA[0];
+              return (
+                <motion.div
+                  key={index}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="bg-white rounded-[3rem] p-10 md:p-14 shadow-sm border border-slate-100 flex flex-col relative overflow-hidden group hover:shadow-2xl transition-all duration-500"
+                  style={{ borderLeft: `12px solid ${meta.color}` }}
+                >
+                  <div
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-[1.8rem] flex items-center justify-center mb-8 shadow-inner transition-transform group-hover:scale-110 duration-500"
+                    style={{
+                      backgroundColor: `${meta.color}15`,
+                      color: meta.color,
                     }}
-                    transition={{ type: "spring", stiffness: 260, damping: 22 }}
-                    className="bg-white rounded-2xl border border-slate-200 overflow-hidden flex cursor-pointer group"
                   >
-                    <motion.div
-                      className={`w-2 bg-gradient-to-b ${meta.bar} shrink-0`}
-                      whileHover={{ width: "6px" }}
-                      transition={{ duration: 0.2 }}
-                    />
-                    <div className="p-8">
-                      <motion.div
-                        className="text-4xl mb-4"
-                        whileHover={{ scale: 1.2, rotate: -8 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        {meta.icon}
-                      </motion.div>
-                      <h3 className="text-xl font-extrabold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
-                        {area.title}
-                      </h3>
-                      <p className="text-slate-500 text-sm leading-relaxed mb-5">
-                        {area.desc}
-                      </p>
-                      <span className="inline-block bg-blue-50 text-blue-700 text-sm font-bold px-4 py-2 rounded-xl">
-                        {area.projects} {t("research.areas.projectsSuffix")}
-                      </span>
-                    </div>
-                  </motion.div>
-                );
-              },
+                    {meta.icon}
+                  </div>
+                  <h3 className="text-2xl md:text-4xl font-black text-slate-900 mb-6 leading-tight group-hover:text-blue-600 transition-colors">
+                    {area.title}
+                  </h3>
+                  <p className="text-slate-600 text-lg md:text-2xl leading-relaxed font-medium opacity-90">
+                    {area.desc}
+                  </p>
+                </motion.div>
+              );
+            },
+          )}
+        </div>
+
+        {/* 2. Statistika Bandi (Rasmda yopishib qolgan qism tuzatildi) */}
+        <AnimatedSection direction="up">
+          <div className="bg-[#0f172a] rounded-[3.5rem] p-12 md:p-24 shadow-2xl relative overflow-hidden">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 relative z-10">
+              {t("research.stats.list", { returnObjects: true }).map((stat) => (
+                <div key={stat.l} className="text-center group">
+                  <div className="text-[#3de082] font-black text-6xl md:text-8xl mb-4 flex items-center justify-center gap-1">
+                    <CountUp value={stat.v} duration={2500} />
+                    <span className="text-2xl md:text-4xl opacity-20 text-white font-bold">
+                      +
+                    </span>
+                  </div>
+                  <p className="text-white font-black text-lg md:text-2xl tracking-widest mb-2">
+                    {stat.l}
+                  </p>
+                  <p className="text-slate-500 text-xs md:text-sm font-bold tracking-[0.2em]">
+                    {stat.s}
+                  </p>
+                </div>
+              ))}
+            </div>
+            {/* Background Glow */}
+            <div className="absolute top-[-20%] right-[-10%] w-[30rem] h-[30rem] bg-blue-500/10 blur-[120px] rounded-full" />
+          </div>
+        </AnimatedSection>
+
+        {/* 3. Laboratoriyalar Seksiyasi */}
+        <div className="mt-40">
+          <div className="flex flex-col items-center text-center mb-20">
+            <SectionLabel className="text-[#3de082] tracking-[0.3em] text-xs font-black">
+              {t("research.labs.sectionLabel")}
+            </SectionLabel>
+            <h2 className="mt-6 text-4xl md:text-7xl font-black text-slate-900 tracking-tighter">
+              {t("research.labs.title")}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+            {t("research.labs.list", { returnObjects: true }).map(
+              (lab, index) => (
+                <motion.div
+                  key={lab.name}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  className="bg-white rounded-[3rem] p-10 md:p-12 border border-slate-100 shadow-sm flex flex-col hover:border-[#892be2]/40 transition-all duration-500 group"
+                >
+                  <div className="text-5xl md:text-6xl mb-10 group-hover:scale-110 transition-transform duration-500">
+                    {["🖥️", "🔐", "💡", "⚡", "📡", "🤖"][index]}
+                  </div>
+                  <h4 className="text-2xl md:text-3xl font-black text-slate-900 mb-6 leading-tight group-hover:text-[#892be2] transition-colors">
+                    {lab.name}
+                  </h4>
+                  <p className="text-slate-500 text-lg md:text-xl leading-relaxed flex-grow font-medium">
+                    {lab.desc}
+                  </p>
+                </motion.div>
+              ),
             )}
-          </motion.div>
-
-          {/* Stats band — count-up */}
-          <AnimatedSection direction="up">
-            <div className="bg-[#0a1628] rounded-3xl p-12">
-              <h3
-                className="text-white font-black text-2xl text-center mb-10"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                {t("research.stats.title")}
-              </h3>
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.5 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-8"
-              >
-                {t("research.stats.list", { returnObjects: true }).map(
-                  (stat) => (
-                    <motion.div
-                      key={stat.l}
-                      variants={fadeUp}
-                      className="text-center"
-                    >
-                      <p className="text-amber-400 font-black text-4xl leading-none mb-2">
-                        <CountUp value={stat.v} duration={2000} />
-                      </p>
-                      <p className="text-white font-bold text-[15px] mb-1">
-                        {stat.l}
-                      </p>
-                      <p className="text-white/40 text-xs">{stat.s}</p>
-                    </motion.div>
-                  ),
-                )}
-              </motion.div>
-            </div>
-          </AnimatedSection>
-
-          {/* Labs */}
-          <div className="mt-20">
-            <AnimatedSection>
-              <SectionLabel>{t("research.labs.sectionLabel")}</SectionLabel>
-              <div className="mt-2 mb-8">
-                <SectionTitle>{t("research.labs.title")}</SectionTitle>
-              </div>
-            </AnimatedSection>
-
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
-            >
-              {t("research.labs.list", { returnObjects: true }).map(
-                (lab, index) => (
-                  <motion.div
-                    key={lab.name}
-                    variants={fadeUp}
-                    whileHover={{
-                      y: -5,
-                      borderColor: "#93c5fd",
-                      boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
-                    }}
-                    transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                    className="bg-white rounded-2xl p-7 border border-slate-200 transition-colors cursor-pointer group"
-                  >
-                    <motion.div
-                      className="text-3xl mb-4"
-                      whileHover={{ scale: 1.2, rotate: -6 }}
-                      transition={{ type: "spring", stiffness: 400 }}
-                    >
-                      {LAB_ICONS[index]}
-                    </motion.div>
-                    <h4 className="text-[15px] font-extrabold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
-                      {lab.name}
-                    </h4>
-                    <p className="text-slate-500 text-[13px] leading-relaxed">
-                      {lab.desc}
-                    </p>
-                  </motion.div>
-                ),
-              )}
-            </motion.div>
           </div>
         </div>
       </div>

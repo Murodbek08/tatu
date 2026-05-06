@@ -28,7 +28,7 @@ const fadeUp = {
   },
 };
 
-export default function NewsCard() {
+export default function news_card() {
   const { id } = useParams();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
@@ -108,7 +108,7 @@ export default function NewsCard() {
                 d="M15 19l-7-7 7-7"
               />
             </svg>
-            {t("newsCard.backBtn")}
+            {t("news_card.back_btn")}
           </Link>
         </motion.div>
       </div>
@@ -149,7 +149,7 @@ export default function NewsCard() {
               className="flex flex-wrap items-center justify-between gap-3 mb-6"
             >
               <span
-                className={`text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider ${meta.color}`}
+                className={`text-[11px] font-bold px-3 py-1 rounded-full  tracking-wider ${meta.color}`}
               >
                 {getField("cat")}
               </span>
@@ -195,7 +195,7 @@ export default function NewsCard() {
                   d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
                 />
               </svg>
-              <span>{t("newsCard.sourceLabel")}</span>
+              <span>{t("news_card.source_label")}</span>
               <a
                 href="https://tuit.uz"
                 target="_blank"
@@ -204,7 +204,7 @@ export default function NewsCard() {
               >
                 tuit.uz
               </a>
-              <span>{t("newsCard.sourceSuffix")}</span>
+              <span>{t("news_card.source_suffix")}</span>
             </motion.div>
 
             <motion.div
@@ -237,11 +237,11 @@ export default function NewsCard() {
                   />
                 </svg>
                 <span className="text-xs font-semibold">
-                  {t("newsCard.shareBtn")}
+                  {t("news_card.share_btn")}
                 </span>
               </motion.button>
-              <span className="text-[10px] text-slate-300 uppercase tracking-widest font-bold">
-                {t("newsCard.location")}
+              <span className="text-[10px] text-slate-300  tracking-widest font-bold">
+                {t("news_card.location")}
               </span>
             </motion.div>
           </motion.div>
