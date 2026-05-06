@@ -9,7 +9,7 @@
   "nav": {
     "logoTitle": "Engineering School",
     "logoSubtitle": "Tashkent University of IT",
-    "applyButton": "Apply Now",
+    "applyButton": "Apply now",
     "menuAriaLabel": "Menu",
     "links": {
       "home": "Home",
@@ -117,14 +117,14 @@
     "cols": [
       {
         "title": "Academic",
-        "links": ["Programs", "Faculty", "Research", "Library"]
+        "links": ["Programs", "Teachers", "Research", "Library"]
       },
       {
-        "title": "Campus",
-        "links": ["Students", "Admissions", "Events", "Media"]
+        "title": "Students",
+        "links": ["Students", "Admission", "Events", "Media"]
       },
       {
-        "title": "Institute",
+        "title": "University",
         "links": ["About Us", "News", "Partners", "Contact"]
       }
     ],
@@ -367,7 +367,7 @@
     "hero": {
       "crumb": "News",
       "title": "News and announcements",
-      "subtitle": "Stay informed about achievements, partnerships and campus life of tuit engineering school."
+      "subtitle": "Stay informed about achievements and partnerships life of TUIT engineering school."
     },
     "readfullbtn": "Read full →",
     "readmorebtn": "Read more →",
@@ -386,7 +386,7 @@
     },
     "steps": {
       "section_label": "How to apply",
-      "title": "Your path to tuit",
+      "title": "Your path to TUIT",
       "list": [
         {
           "n": "01",

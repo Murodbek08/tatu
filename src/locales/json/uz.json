@@ -9,7 +9,7 @@
   "nav": {
     "logoTitle": "Engineering School",
     "logoSubtitle": "Toshkent axborot texnologiyalari universiteti",
-    "applyButton": "Ariza Topshirish",
+    "applyButton": "Ariza topshirish",
     "menuAriaLabel": "Menyu",
     "links": {
       "home": "Bosh sahifa",
@@ -120,11 +120,11 @@
         "links": ["Dasturlar", "O'qituvchilar", "Tadqiqot", "Kutubxona"]
       },
       {
-        "title": "Kampus",
+        "title": "Talabalar",
         "links": ["Talabalar", "Qabul", "Tadbirlar", "Media"]
       },
       {
-        "title": "Institut",
+        "title": "Universitet",
         "links": ["Haqimizda", "Yangiliklar", "Hamkorlar", "Aloqa"]
       }
     ],
@@ -372,7 +372,7 @@
     "hero": {
       "crumb": "Yangiliklar",
       "title": "Yangiliklar va e'lonlar",
-      "subtitle": "Tatu muhandislik maktabining yutuqlari, hamkorliklari va kampus hayotidan xabardor bo'ling."
+      "subtitle": "TATU muhandislik maktabining yutuqlari va hamkorliklaridan xabardor bo'ling."
     },
     "readfullbtn": "To'liq oqish →",
     "readmorebtn": "Davomini oqish →",
@@ -391,7 +391,7 @@
     },
     "steps": {
       "section_label": "Qanday ariza topshirish kerak",
-      "title": "Sizning tatu sari yo'lingiz",
+      "title": "Sizning TATU sari yo'lingiz",
       "list": [
         {
           "n": "01",
@@ -436,11 +436,11 @@
         "Tekshirish"
       ],
       "fields": [
-        { "key": "name", "label": "To'liq ism *", "ph": "Akbar toshmatov" },
+        { "key": "name", "label": "To'liq ism *", "ph": "Yulduz O'rozova" },
         {
           "key": "email",
           "label": "Elektron pochta *",
-          "ph": "akbar@email.com"
+          "ph": "yulduz@gmail.com"
         },
         { "key": "phone", "label": "Telefon raqami", "ph": "+998 90 123 45 67" }
       ],
