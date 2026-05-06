@@ -59,7 +59,7 @@ function Footer() {
                   {t("footer.brand.logoTitle")}
                 </p>
                 {/* Logo Subtitle text-sm ga oshirildi */}
-                <p className="text-[var(--color-primary)] text-sm font-bold tracking-widest mt-1 uppercase">
+                <p className="text-[var(--color-primary)] text-sm font-bold tracking-widest mt-1 ">
                   {t("footer.brand.logoSubtitle")}
                 </p>
               </div>
