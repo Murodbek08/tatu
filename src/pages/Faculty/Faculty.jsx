@@ -162,9 +162,6 @@ export default function Faculty() {
 
                       {/* Department - Responsiv p-6 */}
                       <div className="bg-slate-50 rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-8 mb-8 flex-grow border border-slate-100 group-hover:bg-blue-50/30 transition-colors">
-                        <p className="text-[9px] md:text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">
-                          {t("faculty.deptLabel")}
-                        </p>
                         <p className="text-base md:text-xl font-bold text-slate-800 leading-snug">
                           {getField(m, "dept")}
                         </p>

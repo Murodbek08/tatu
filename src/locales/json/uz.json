@@ -8,7 +8,7 @@
   },
   "nav": {
     "logoTitle": "Engineering School",
-    "logoSubtitle": "Tashkent University of IT",
+    "logoSubtitle": "Toshkent axborot texnologiyalari universiteti",
     "applyButton": "Ariza Topshirish",
     "menuAriaLabel": "Menyu",
     "links": {
@@ -29,11 +29,11 @@
       "title2": "muhandislik",
       "title3": "maktabi",
       "subtitle": "O'zbekistonning raqamli transformatsiyasi uchun innovatorlar, tadqiqotchilar va texnologiya liderlarini tayyorlaydigan yetakchi muassasasi.",
-      "applyBtn": "2026 uchun Ariza →",
-      "programsBtn": "Dasturlarni Ko'rish",
+      "applyBtn": "2026 uchun ariza →",
+      "programsBtn": "Dasturlarni ko'rish",
       "floatingCard": {
-        "label": "Tavsiya Etilgan Dastur",
-        "title": "MSc Sun'iy Intellekt",
+        "label": "Tavsiya etilgan dastur",
+        "title": "MSc sun'iy intellekt",
         "tags": ["NLP", "Deep Learning", "Robotika"],
         "duration": "2 yil",
         "durationLabel": "Muddati",
@@ -43,8 +43,8 @@
         "intakeLabel": "Qabul"
       },
       "eventCard": {
-        "label": "Keyingi Tadbir",
-        "title": "Ochiq Eshiklar Kuni — Muhandislik",
+        "label": "Keyingi tadbir",
+        "title": "Ochiq eshiklar kuni — muhandislik",
         "date": "20 Mart, 2026"
       },
       "rankBadge": {
@@ -57,8 +57,8 @@
     "stats": [
       { "value": "340+", "label": "Talabalar", "icon": "graduation" },
       { "value": "25+", "label": "O'qituvchilar", "icon": "users" },
-      { "value": "15+", "label": "Ilmiy Laboratoriya", "icon": "microscope" },
-      { "value": "80%", "label": "Ish bilan Ta'minlash", "icon": "briefcase" }
+      { "value": "15+", "label": "Ilmiy laboratoriya", "icon": "microscope" },
+      { "value": "80%", "label": "Ish bilan ta'minlash", "icon": "briefcase" }
     ],
     "about": {
       "sectionLabel": "Biz haqimizda",
@@ -81,31 +81,31 @@
       "readMoreBtn": "Batafsil o'qish"
     },
     "programs": {
-      "sectionLabel": "Akademik Dasturlar",
-      "title": "Jahon Darajasidagi Muhandislik Diplomi",
+      "sectionLabel": "Akademik dasturlar",
+      "title": "Jahon darajasidagi muhandislik diplomi",
       "subtitle": "Oltita keng muhandislik yo'nalishi — sizni dunyoning eng talabchan muhandislik rollariga tayyorlash uchun yaratilgan.",
-      "viewAllBtn": "Barcha Dasturlarni Ko'rish →"
+      "viewAllBtn": "Barcha dasturlarni ko'rish"
     },
     "news": {
-      "sectionLabel": "So'nggi Yangiliklar",
-      "title": "Kampus va undan tashqarida",
-      "viewAllBtn": "Barcha Yangiliklar →"
+      "sectionLabel": "So'nggi yangiliklar",
+      "title": "Universitetimiz  va undan tashqarida",
+      "viewAllBtn": "Barcha yangiliklar →"
     },
     "faculty": {
       "sectionLabel": "O'qituvchilar",
       "title": "Jahon darajasidagi olimlar",
-      "viewAllBtn": "Barcha O'qituvchilar →",
+      "viewAllBtn": "Barcha o'qituvchilar →",
       "pubsLabel": "ta nashr"
     },
     "partners": {
-      "sectionLabel": "Sanoat Hamkorlari",
+      "sectionLabel": "Sanoat hamkorlari",
       "title": "Hamkorlarimiz"
     },
     "cta": {
       "title": "Muhandislik dasturlarini o'rganishga tayyormisiz?",
       "subtitle": "340+ talabaga qo'shiling va O'zbekistonning eng innovatsion muhandislik hamjamiyatining bir qismiga aylaning. 2026 o'quv yili uchun arizalar qabul qilinmoqda.",
-      "applyBtn": "Ariza Topshirish — Bepul",
-      "visitBtn": "Tashrif Rejalashtirish"
+      "applyBtn": "Ariza topshirish — bepul",
+      "visitBtn": "Tashrif rejalashtirish"
     }
   },
   "footer": {
@@ -147,7 +147,7 @@
         "text": "Tadqiqot va innovatsiyaga asoslangan jahon darajasidagi muhandislik ta'limini ta'minlash — O'zbekistonning raqamli iqtisodiyotini harakatga keltiradigan va global texnologiya rivojiga hissa qo'shadigan liderlarni tarbiyalash."
       },
       {
-        "title": "Vizyonimiz",
+        "title": "Gʻoyamiz",
         "text": "2030 yilga kelib global miqyosda tan olingan muhandislik muassasasiga aylanish — texnologik chegaralarni qayta belgilaydigan va insoniyatning eng dolzarb muammolarini hal qiladigan bitiruvchilar tayyorlash."
       },
       {
@@ -216,7 +216,7 @@
       "subtitle": "340+ jahon darajasidagi tadqiqotchilar, o'qituvchilar va sanoat mutaxassislari — bilim va sizning rivojlanishingizga bag'ishlangan."
     },
     "searchPlaceholder": "Ism yoki kafedra bo'yicha qidirish...",
-    "deptLabel": "Kafedra:",
+
     "researchLabel": "Tadqiqot Yo'nalishi",
     "pubsLabel": "ta nashr",
     "profileBtn": "Profil",
@@ -307,7 +307,7 @@
     "hero": {
       "crumb": "Talabalar",
       "title": "Talaba hayoti",
-      "subtitle": "Dars xonalari va laboratoriyalardan tashqari — klub, musobaqa va kampus tajribalarining jonli talaba hamjamiyati."
+      "subtitle": "Dars xonalari va laboratoriyalardan tashqari — klub va musobaqa  tajribalarining jonli talaba hamjamiyati."
     },
     "clubs": {
       "sectionLabel": "Talaba tashkilotlari",
@@ -321,7 +321,7 @@
           "desc": "Texnik seminarlar, musobaqalar va global tarmoqlar"
         },
         {
-          "name": "AI robototexnika klubi",
+          "name": "AI robototexnika labaratoriyasi",
           "members": 280,
           "desc": "Avtonom robotlar yaratish va xalqaro musobaqalarda ishtirok etish"
         },
@@ -424,15 +424,6 @@
           "desc": "Barcha abituriyentlar qabul haqidagi qarorlarni elektron pochta va ariza portali orqali oladilar."
         }
       ]
-    },
-    "tuition": {
-      "title": "O'qish qiymati",
-      "list": [
-        { "lvl": "Bakalavriat", "fee": "$2 400", "per": "/yil" },
-        { "lvl": "Magistratura", "fee": "$3 200", "per": "/yil" },
-        { "lvl": "Phd", "fee": "Moliyalashtiriladi", "per": "+ stipendiya" }
-      ],
-      "scholarship": "O'qish xarajatlarining 50–100 foizini qoplaydigan muvaffaqiyatga asoslangan stipendiyalar mavjud"
     },
     "form": {
       "title": "Arizani boshlang",
@@ -543,7 +534,7 @@
     "hero": {
       "crumb": "Kontaktlar",
       "title": "Biz bilan bog'laning",
-      "subtitle": "Dasturlar, qabul, tadqiqotlar yoki kampus hayoti haqida savollaringiz bormi? Biz yordam berishga tayyormiz."
+      "subtitle": "Dasturlar, qabul, tadqiqotlar  haqida savollaringiz bormi? Biz yordam berishga tayyormiz."
     },
     "info_title": "Kontakt ma'lumotlari",
     "contact_data": {

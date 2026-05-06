@@ -13,7 +13,7 @@ import {
   Globe,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import {request} from "../../api";
+import { request } from "../../api";
 import { useEffect } from "react";
 import { useState } from "react";
 import { aboutImage, heroImage } from "../../assets";
@@ -232,7 +232,7 @@ function Home() {
                       <p className="text-[var(--color-secondary)] text-4xl font-black leading-none">
                         <CountUp value={s.value} duration={2200} />
                       </p>
-                      <p className="text-[var(--text-gray)] font-medium text-xs mt-2 tracking-wide uppercase">
+                      <p className="text-[var(--text-gray)] font-medium text-xs mt-2 tracking-wide ">
                         {s.label}
                       </p>
                     </div>
@@ -262,7 +262,7 @@ function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--text-gray)] text-xs font-bold uppercase tracking-widest"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--text-gray)] text-xs font-bold  tracking-widest"
         >
           <span>{t("home.hero.scrollDown")}</span>
           <motion.div
@@ -446,7 +446,7 @@ function Home() {
 
                         {/* Kategoriya badge-i kattalashtirildi (text-xs) */}
                         <span
-                          className="text-xs font-black px-4 py-2 rounded-xl tracking-widest uppercase"
+                          className="text-xs font-black px-4 py-2 rounded-xl tracking-widest "
                           style={{
                             background: `color-mix(in srgb, ${accentColor} 15%, transparent)`,
                             color: accentColor,
@@ -486,7 +486,7 @@ function Home() {
                       {/* Pastki ma'lumotlar paneli yiriklashtirildi */}
                       <div className="flex justify-between items-center pt-6 border-t border-slate-100">
                         <div className="flex flex-col gap-1">
-                          <span className="text-xs text-[var(--text-gray)] uppercase font-bold tracking-wider">
+                          <span className="text-xs text-[var(--text-gray)]  font-bold tracking-wider">
                             Daraja
                           </span>
                           <span className="text-xl font-black text-[var(--text-dark)]">
@@ -494,7 +494,7 @@ function Home() {
                           </span>
                         </div>
                         <div className="flex flex-col text-right gap-1">
-                          <span className="text-xs text-[var(--text-gray)] uppercase font-bold tracking-wider">
+                          <span className="text-xs text-[var(--text-gray)]  font-bold tracking-wider">
                             Davomiyligi
                           </span>
                           <span className="text-xl font-black text-[var(--text-dark)]">
@@ -584,7 +584,7 @@ function Home() {
 
                           {/* Kategoriya tegi */}
                           <div className="absolute top-5 left-5">
-                            <span className="text-sm font-black px-4 py-2 rounded-xl uppercase tracking-widest backdrop-blur-md bg-white/90 text-[var(--bg-dark-section)] shadow-lg border border-white/50">
+                            <span className="text-sm font-black px-4 py-2 rounded-xl  tracking-widest backdrop-blur-md bg-white/90 text-[var(--bg-dark-section)] shadow-lg border border-white/50">
                               {category}
                             </span>
                           </div>
@@ -722,7 +722,7 @@ function Home() {
                   </div>
 
                   {/* Nashrlar */}
-                  <p className="text-[var(--text-gray)] text-sm font-bold tracking-wide uppercase">
+                  <p className="text-[var(--text-gray)] text-sm font-bold tracking-wide ">
                     📄 {m.pubs} {t("home.faculty.pubsLabel")}
                   </p>
                 </Link>
@@ -755,7 +755,7 @@ function Home() {
           <AnimatedSection>
             <div className="text-center mb-20">
               {/* Label - Shrifti kattalashtirildi va rang yashilga o'zgartirildi */}
-              <span className="inline-block px-5 py-2 mb-6 text-xs font-black tracking-[0.2em] text-[var(--color-primary)] uppercase bg-[var(--color-primary)]/10 rounded-full border border-[var(--color-primary)]/20">
+              <span className="inline-block px-5 py-2 mb-6 text-xs font-black tracking-[0.2em] text-[var(--color-primary)]  bg-[var(--color-primary)]/10 rounded-full border border-[var(--color-primary)]/20">
                 {t("home.partners.sectionLabel")}
               </span>
               <h3 className="text-white font-black text-4xl md:text-5xl lg:text-6xl">
@@ -824,7 +824,7 @@ function Home() {
                 className="bg-[var(--color-primary)] hover:scale-105 active:scale-95 text-[var(--text-dark)] font-black text-xl px-16 py-6 rounded-2xl transition-all shadow-xl shadow-[var(--color-primary)]/30 relative overflow-hidden group"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                <span className="relative uppercase tracking-widest">
+                <span className="relative  tracking-widest">
                   {t("home.cta.applyBtn")}
                 </span>
               </Link>

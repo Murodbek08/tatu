@@ -26,15 +26,15 @@
   "home": {
     "hero": {
       "title1": "TUIT",
-      "title2": "school of",
-      "title3": "engineering",
-      "subtitle": "A leading institution preparing innovators, researchers, and technology leaders for the digital transformation of Uzbekistan.",
+      "title2": "engineering",
+      "title3": "school",
+      "subtitle": "Uzbekistan's leading institution preparing innovators, researchers, and technology leaders for the country's digital transformation.",
       "applyBtn": "Apply for 2026 →",
-      "programsBtn": "Explore Programs",
+      "programsBtn": "View programs",
       "floatingCard": {
-        "label": "Featured Program",
-        "title": "MSc Artificial Intelligence",
-        "tags": ["NLP", "Deep Learning", "Robotics"],
+        "label": "Recommended program",
+        "title": "Msc artificial intelligence",
+        "tags": ["Nlp", "Deep learning", "Robotics"],
         "duration": "2 years",
         "durationLabel": "Duration",
         "seats": "30",
@@ -43,8 +43,8 @@
         "intakeLabel": "Intake"
       },
       "eventCard": {
-        "label": "Next Event",
-        "title": "Open Day — Engineering Campus",
+        "label": "Next event",
+        "title": "Open doors day — engineering",
         "date": "March 20, 2026"
       },
       "rankBadge": {
@@ -56,57 +56,56 @@
     },
     "stats": [
       { "value": "340+", "label": "Students", "icon": "graduation" },
-      { "value": "25+", "label": "Teachers", "icon": "users" },
-      { "value": "15+", "label": "Research Labs", "icon": "microscope" },
-      { "value": "80%", "label": "Employment Rate", "icon": "briefcase" }
+      { "value": "25+", "label": "Faculty", "icon": "users" },
+      { "value": "15+", "label": "Research labs", "icon": "microscope" },
+      { "value": "80%", "label": "Employment rate", "icon": "briefcase" }
     ],
     "about": {
-      "sectionLabel": "About Us",
-      "title": "TATU engineering school",
-      "subtitle": "Based on the \"Network – Enterprise – University\" principle, practical engineers are trained in cooperation with Uzbektelecom, ZTE, MobiUz, and other leading enterprises.",
+      "sectionLabel": "About us",
+      "title": "Tuit engineering school",
+      "subtitle": "Based on the \"network – enterprise – university\" principle, practical engineers are trained in cooperation with leading companies like Uzbektelecom, ZTE, and Mobiuz.",
       "points": [
         {
-          "title": "14 Modern Laboratories",
-          "desc": "A complex of laboratories fully operational since the 2024-2025 academic year, ensuring integration with industry enterprises."
+          "title": "14 modern laboratories",
+          "desc": "A complex of laboratories fully operational since the 2024-2025 academic year ensures integration with industry enterprises."
         },
         {
-          "title": "ASIIN International Accreditation",
-          "desc": "6 educational programs have been accredited by the German ASIIN agency — diplomas are recognized worldwide."
+          "title": "Asiin international accreditation",
+          "desc": "6 educational programs have been accredited by the German asiin agency — diplomas are recognized worldwide."
         },
         {
-          "title": "95–96% Employment Rate",
-          "desc": "The absolute majority of graduates find employment in their field or start their own entrepreneurial activities."
+          "title": "80% employment rate",
+          "desc": "The absolute majority of graduates find employment in their specialty or conduct their own entrepreneurial activities."
         }
       ],
-      "readMoreBtn": "Read More"
+      "readMoreBtn": "Read more"
     },
     "programs": {
-      "sectionLabel": "Academic Programs",
-      "title": "A World-Class Engineering Degree",
-      "subtitle": "Six broad engineering disciplines — designed to prepare you for the most demanding engineering roles in the world.",
-      "viewAllBtn": "View All Programs →"
+      "sectionLabel": "Academic programs",
+      "title": "World-class engineering degree",
+      "subtitle": "Six broad engineering disciplines created to prepare you for the world's most demanding engineering roles.",
+      "viewAllBtn": "View all programs"
     },
     "news": {
-      "sectionLabel": "Latest News",
-      "title": "On and off campus",
-      "viewAllBtn": "All News →"
+      "sectionLabel": "Latest news",
+      "title": "Inside our university and beyond",
+      "viewAllBtn": "All news →"
     },
-
     "faculty": {
       "sectionLabel": "Faculty",
       "title": "World-class scientists",
-      "viewAllBtn": "All Faculty →",
+      "viewAllBtn": "All faculty →",
       "pubsLabel": "publications"
     },
     "partners": {
-      "sectionLabel": "Industry Partners",
-      "title": "Our Partners"
+      "sectionLabel": "Industry partners",
+      "title": "Our partners"
     },
     "cta": {
-      "title": "Ready to master engineering programs?",
+      "title": "Ready to explore engineering programs?",
       "subtitle": "Join 340+ students and become part of Uzbekistan's most innovative engineering community. Applications for the 2026 academic year are now open.",
-      "applyBtn": "Apply Now — Free",
-      "visitBtn": "Schedule a Visit"
+      "applyBtn": "Apply now — for free",
+      "visitBtn": "Schedule a visit"
     }
   },
   "footer": {
@@ -213,7 +212,6 @@
       "subtitle": "340+ world-class researchers, educators and industry experts — dedicated to knowledge and your growth."
     },
     "searchPlaceholder": "Search by name or department...",
-    "deptLabel": "Department:",
     "researchLabel": "Research Area",
     "pubsLabel": "publications",
     "profileBtn": "Profile",
@@ -304,7 +302,7 @@
     "hero": {
       "crumb": "Students",
       "title": "Student life",
-      "subtitle": "Beyond classrooms and laboratories — a vibrant student community of clubs, competitions and campus experiences."
+      "subtitle": "Beyond classrooms and laboratories — a vibrant student community of clubs and competitions experiences."
     },
     "clubs": {
       "sectionLabel": "Student organizations",
@@ -318,7 +316,7 @@
           "desc": "Technical workshops, competitions and global networks"
         },
         {
-          "name": "Ai robotics club",
+          "name": "Ai robotics laboratory",
           "members": 280,
           "desc": "Building autonomous robots and participating in international competitions"
         },
@@ -421,15 +419,6 @@
           "desc": "All applicants receive admission decisions via email and application portal."
         }
       ]
-    },
-    "tuition": {
-      "title": "Tuition fees",
-      "list": [
-        { "lvl": "Bachelor's", "fee": "$2,400", "per": "/year" },
-        { "lvl": "Master's", "fee": "$3,200", "per": "/year" },
-        { "lvl": "Phd", "fee": "Funded", "per": "+ stipend" }
-      ],
-      "scholarship": "Merit-based scholarships covering 50–100% of tuition are available"
     },
     "form": {
       "title": "Start application",
@@ -535,7 +524,7 @@
     "hero": {
       "crumb": "Contacts",
       "title": "Contact us",
-      "subtitle": "Have questions about programs, admission, research or campus life? We are here to help."
+      "subtitle": "Do you have questions about programs, admission, research? We are prepared to help."
     },
     "info_title": "Contact information",
     "contact_data": {

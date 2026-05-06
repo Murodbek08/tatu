@@ -159,67 +159,8 @@ export default function Admissions() {
                   ),
                 )}
               </div>
-
-              {/* Tuition Section */}
-              <div className="bg-white rounded-[2.5rem] border border-slate-100 p-8 md:p-12 shadow-sm relative overflow-hidden">
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="w-12 h-12 rounded-2xl bg-[#3de082]/10 flex items-center justify-center text-[#3de082]">
-                    <FileText size={28} />
-                  </div>
-                  <h3 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight">
-                    {t("admissions.tuition.title")}
-                  </h3>
-                </div>
-
-                {/* Kartalar to'plami */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-10">
-                  {t("admissions.tuition.list", { returnObjects: true }).map(
-                    (f, idx) => (
-                      <div
-                        key={f.lvl}
-                        className={`relative p-6 md:p-8 rounded-[2rem] text-center border-2 transition-all flex flex-col items-center justify-center min-h-[180px] md:min-h-[220px] ${
-                          idx === 2
-                            ? "border-[#3de082] bg-emerald-50/20"
-                            : "border-slate-50 bg-slate-50/50"
-                        }`}
-                      >
-                        <p className="text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 italic">
-                          {f.lvl}
-                        </p>
-
-                        {/* Narx qismi - "Moliyalashtir" so'zi uchun maxsus klass */}
-                        <div className="w-full flex flex-col items-center justify-center leading-none">
-                          <p
-                            className={`font-black text-slate-900 break-words w-full ${
-                              f.fee.length > 8
-                                ? "text-xl md:text-2xl"
-                                : "text-3xl md:text-5xl"
-                            }`}
-                          >
-                            {f.fee}
-                          </p>
-                          <p className="text-[10px] md:text-xs text-slate-400 font-bold mt-2 uppercase">
-                            {f.per}
-                          </p>
-                        </div>
-                      </div>
-                    ),
-                  )}
-                </div>
-
-                {/* Ma'lumot bandi - Ixchamroq */}
-                <div className="bg-blue-50/50 rounded-2xl p-5 md:p-6 border border-blue-100/50 flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white shrink-0">
-                    <Info size={16} strokeWidth={3} />
-                  </div>
-                  <p className="text-blue-900 font-bold text-xs md:text-sm leading-relaxed">
-                    {t("admissions.tuition.scholarship")}
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* O'NG TOMON: Multi-step Form */}
             <div className="xl:sticky xl:top-24 self-start">
               <div className="bg-white rounded-[3.5rem] border border-slate-100 overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)]">
                 {/* Form Header */}
