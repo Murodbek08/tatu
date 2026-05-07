@@ -2,26 +2,58 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm">
-      {/* Asosiy Spinner */}
+    <div
+      className="fixed inset-0 z-9999 flex flex-col items-center justify-center backdrop-blur-md"
+      style={{ backgroundColor: "rgba(244, 245, 248, 0.8)" }} // --bg-light-section
+    >
+      {/* Spinner va Logo Konteyneri */}
       <div className="relative flex items-center justify-center">
-        {/* Tashqi aylanuvchi qatlam */}
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-solid border-blue-600 border-t-transparent"></div>
+        {/* 1. Tashqi aylanuvchi halqa (Mint) */}
+        <div
+          className="h-24 w-24 animate-spin rounded-full border-2 border-solid border-t-transparent"
+          style={{
+            borderColor: "var(--color-primary)",
+            borderTopColor: "transparent",
+          }}
+        ></div>
 
-        {/* Ichki kichik aylanuvchi qatlam (teskari tomonga) */}
-        <div className="absolute h-10 w-10 animate-spin rounded-full border-4 border-dotted border-blue-400 border-t-transparent [animation-direction:reverse]"></div>
+        {/* 2. Ichki teskari aylanuvchi halqa (Binafsha) */}
+        <div
+          className="absolute h-20 w-20 animate-spin rounded-full border-2 border-dotted border-t-transparent [animation-direction:reverse] opacity-70"
+          style={{
+            borderColor: "var(--color-secondary)",
+            borderTopColor: "transparent",
+          }}
+        ></div>
+
+        {/* 3. Markazdagi Logo */}
+        <div className="absolute flex items-center justify-center bg-white rounded-full p-2 shadow-sm">
+          <img
+            src="/logo.png" // Agar logotip nomi boshqacha bo'lsa (masalan logo.svg), shuni yozing
+            alt="Logo"
+            className="h-10 w-10 object-contain animate-pulse"
+          />
+        </div>
       </div>
 
       {/* Matnli qism */}
-      <div className="mt-5 flex flex-col items-center">
-        <span className="text-xl font-semibold text-gray-800 tracking-widest uppercase">
-          Yuklanmoqda
+      <div className="mt-8 flex flex-col items-center">
+        <span
+          className="text-sm font-bold tracking-[0.3em] opacity-80"
+          style={{ color: "var(--text-dark)" }}
+        >
+          Yuklanmoqda...
         </span>
-        {/* Nuqtalar animatsiyasi */}
-        <div className="flex space-x-1 mt-2">
-          <div className="h-1.5 w-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-          <div className="h-1.5 w-1.5 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-          <div className="h-1.5 w-1.5 bg-blue-600 rounded-full animate-bounce"></div>
+
+        {/* Progress bar uslubidagi chiziq */}
+        <div className="w-32 h-1 bg-gray-200 rounded-full mt-3 overflow-hidden">
+          <div
+            className="h-full animate-[progress_1.5s_ease-in-out_infinite]"
+            style={{
+              backgroundColor: "var(--color-primary)",
+              width: "40%",
+            }}
+          ></div>
         </div>
       </div>
     </div>
