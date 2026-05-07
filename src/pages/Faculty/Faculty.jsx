@@ -293,12 +293,6 @@ export default function Faculty() {
                   {/* Department & Contact */}
                   <div className="space-y-6">
                     <div className="p-6 bg-slate-900 rounded-3xl text-white">
-                      <div className="flex items-center gap-3 mb-3 opacity-50">
-                        <MapPin size={16} />
-                        <span className="text-[9px] font-black uppercase tracking-widest">
-                          Kafedra
-                        </span>
-                      </div>
                       <h5 className="text-lg font-bold mb-5 leading-tight">
                         {getField(selectedStaff, "dept")}
                       </h5>
